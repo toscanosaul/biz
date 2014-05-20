@@ -1,0 +1,10 @@
+delta=1.000000 pstar=0.500000
+delta=1.000000 pstar=0.550000
+delta=1.000000 pstar=0.600000
+delta=1.000000 pstar=0.650000
+delta=1.000000 pstar=0.700000
+delta=1.000000 pstar=0.750000
+delta=1.000000 pstar=0.800000
+delta=1.000000 pstar=0.850000
+delta=1.000000 pstar=0.900000
+delta=1.000000 pstar=0.950000

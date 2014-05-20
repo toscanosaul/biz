@@ -1,0 +1,3 @@
+#!/bin/sh
+##NBS-queue: long
+matlab -nodisplay -r "sSCont_SetUpProblem2(${1}); quit;"

@@ -1,0 +1,3 @@
+#!/bin/sh
+##NBS-queue: long
+matlab -nodisplay -r "Oct13_RunBIZOnce('${1}',${2},${3}); quit;"

@@ -1,0 +1,26 @@
+# jsub -c "./experiments BIZUNK problems/SC.dat 10000 > data/BIZUNK_SC_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/MDM.dat 10000 > data/BIZUNK_MDM_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/RPI.dat 10000 > data/BIZUNK_RPI_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/SC_INC.dat 10000 > data/BIZUNK_SC_INC_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/SC_DEC.dat 10000 > data/BIZUNK_SC_DEC_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/MDM_INC.dat 10000 > data/BIZUNK_MDM_INC_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/MDM_DEC.dat 10000 > data/BIZUNK_MDM_DEC_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/RPI_hetero.dat 10000 > data/BIZUNK_RPI_hetero_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/SC_INCA.dat 10000 > data/BIZUNK_SC_INCA_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/SC_DECA.dat 10000 > data/BIZUNK_SC_DECA_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/MDM_INCA.dat 10000 > data/BIZUNK_MDM_INCA_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/MDM_DECA.dat 10000 > data/BIZUNK_MDM_DECA_final.txt" -q long
+jsub -c "./experiments BIZUNK problems/RPI_heteroA.dat 10000 > data/BIZUNK_RPI_heteroA_final.txt" -q long
+jsub -c "./experiments KNUNK problems/SC.dat 10000 > data/KNUNK_SC_final.txt" -q long
+jsub -c "./experiments KNUNK problems/MDM.dat 10000 > data/KNUNK_MDM_final.txt" -q long
+jsub -c "./experiments KNUNK problems/RPI.dat 10000 > data/KNUNK_RPI_final.txt" -q long
+jsub -c "./experiments KNUNK problems/SC_INC.dat 10000 > data/KNUNK_SC_INC_final.txt" -q long
+jsub -c "./experiments KNUNK problems/SC_DEC.dat 10000 > data/KNUNK_SC_DEC_final.txt" -q long
+jsub -c "./experiments KNUNK problems/MDM_INC.dat 10000 > data/KNUNK_MDM_INC_final.txt" -q long
+jsub -c "./experiments KNUNK problems/MDM_DEC.dat 10000 > data/KNUNK_MDM_DEC_final.txt" -q long
+jsub -c "./experiments KNUNK problems/RPI_hetero.dat 10000 > data/KNUNK_RPI_hetero_final.txt" -q long
+jsub -c "./experiments KNUNK problems/SC_INCA.dat 10000 > data/KNUNK_SC_INCA_final.txt" -q long
+jsub -c "./experiments KNUNK problems/SC_DECA.dat 10000 > data/KNUNK_SC_DECA_final.txt" -q long
+jsub -c "./experiments KNUNK problems/MDM_INCA.dat 10000 > data/KNUNK_MDM_INCA_final.txt" -q long
+jsub -c "./experiments KNUNK problems/MDM_DECA.dat 10000 > data/KNUNK_MDM_DECA_final.txt" -q long
+jsub -c "./experiments KNUNK problems/RPI_heteroA.dat 10000 > data/KNUNK_RPI_heteroA_final.txt" -q long
