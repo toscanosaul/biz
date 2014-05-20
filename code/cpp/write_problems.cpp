@@ -19,6 +19,7 @@ int write_RPI(const char *filename, int maxk, double pstar, double delta, double
 int write_SCvP(const char *filename, int k, double delta, double sigma1, double sigma2); 
 int write_PGS(const char *filename, int k, int m, double pstar, double delta, double sigma);
 int write_animation(const char *filename, int k, double pstar, double delta, double sigma);
+int write_trial(const char *filename);
 
 int main(int argc, char *argv[]) {
 
@@ -91,6 +92,10 @@ int main(int argc, char *argv[]) {
   sigma = 10;
   delta = 1;
   write_animation(FILE_DIR "ANIMATION.dat", k, pstar, delta, sigma);
+
+
+  // Write problem configurations for testing performance in certain limiting cases.
+  write_trial(FILE_DIR "TRIAL.dat");
 }
 
 /*
@@ -388,5 +393,47 @@ int write_animation(const char *filename, int k, double pstar, double delta, dou
    if (fwrite(theta,sizeof(*theta),k,file)<k) { fprintf(stderr, "error writing %s", filename); exit(-1); }
    if (fwrite(sigma_vec,sizeof(*sigma_vec),k,file)<k) { fprintf(stderr, "error writing %s", filename); exit(-1); }
 
+   fclose(file);
+}
+
+
+/*
+ * This function writes a problem that has different variances.
+ */
+int write_trial(const char *filename)
+{
+#ifdef USE_FIXED_SEED
+   int seed = 0;
+#else
+   int seed = (int)time(0);
+#endif
+   StochasticLib2 sto(seed);
+
+   FILE *file = fopen(filename,"w");
+   if (file == NULL) { fprintf(stderr,"could not open ", filename); exit(-1); }
+
+   int nProblems = 10;
+   if (fwrite(&nProblems,sizeof(nProblems),1,file)<1) { fprintf(stderr,"error writing %s", filename); exit(-1); }
+
+   int k = 10;
+   double pstar = 0.9;
+   double delta = 1;
+   double sigma = 1;
+   for(int i=0;i<=nProblems;i++) {
+     // least favorable configuration
+     double theta[k];
+     double sigma_vec[k];
+     for (int x=0; x<k; x++) {
+       theta[x]=-delta*x;
+       sigma_vec[x]= sigma/i; // set the variance to decrease with i.
+     }
+
+     // Write to file, in a binary format.
+     if (fwrite(&k,sizeof(k),1,file)<1) { fprintf(stderr,"error writing %s", filename); exit(-1); }
+     if (fwrite(&pstar,sizeof(pstar),1,file)<1) { fprintf(stderr, "error writing %s", filename); exit(-1); }
+     if (fwrite(&delta,sizeof(delta),1,file)<1) { fprintf(stderr, "error writing %s", filename); exit(-1); }
+     if (fwrite(theta,sizeof(*theta),k,file)<k) { fprintf(stderr, "error writing %s", filename); exit(-1); }
+     if (fwrite(sigma_vec,sizeof(*sigma_vec),k,file)<k) { fprintf(stderr, "error writing %s", filename); exit(-1); }
+   }
    fclose(file);
 }
