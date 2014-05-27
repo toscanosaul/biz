@@ -6,6 +6,7 @@
 #include <strings.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <math.h>
 
 // define this to use the same seed every time
 #define USE_FIXED_SEED
@@ -20,6 +21,7 @@ int write_SCvP(const char *filename, int k, double delta, double sigma1, double 
 int write_PGS(const char *filename, int k, int m, double pstar, double delta, double sigma);
 int write_animation(const char *filename, int k, double pstar, double delta, double sigma);
 int write_trial(const char *filename);
+int write_trial2(const char *filename);
 
 int main(int argc, char *argv[]) {
 
@@ -95,7 +97,10 @@ int main(int argc, char *argv[]) {
 
 
   // Write problem configurations for testing performance in certain limiting cases.
+	delta=1;
   write_trial(FILE_DIR "TRIAL.dat");
+	
+	write_trial2(FILE_DIR "TRIAL2.dat");
 }
 
 /*
@@ -416,16 +421,22 @@ int write_trial(const char *filename)
    if (fwrite(&nProblems,sizeof(nProblems),1,file)<1) { fprintf(stderr,"error writing %s", filename); exit(-1); }
 
    int k = 10;
-   double pstar = 0.9;
-   double delta = 1;
-   double sigma = 1;
-   for(int i=0;i<=nProblems;i++) {
+   double pstar = 0.95;
+	double delta2=1.0;
+	double delta=1.0;
+   double sigma = 50.0;
+	double a=1.0;
+	double b=0.6;
+   for(int i=1;i<=nProblems;i++) {
      // least favorable configuration
+	  delta=a-(double(i)/double(nProblems))*((a-b));
+	   //delta=0.00001;
+	   //delta=0.001;
      double theta[k];
      double sigma_vec[k];
      for (int x=0; x<k; x++) {
-       theta[x]=-delta*x;
-       sigma_vec[x]= sigma/i; // set the variance to decrease with i.
+       theta[x]=(delta2)*x;
+       sigma_vec[x]= sigma/(x+1); // set the variance to decrease with i.
      }
 
      // Write to file, in a binary format.
@@ -436,4 +447,48 @@ int write_trial(const char *filename)
      if (fwrite(sigma_vec,sizeof(*sigma_vec),k,file)<k) { fprintf(stderr, "error writing %s", filename); exit(-1); }
    }
    fclose(file);
+}
+
+int write_trial2(const char *filename)
+{
+#ifdef USE_FIXED_SEED
+	int seed = 0;
+#else
+	int seed = (int)time(0);
+#endif
+	StochasticLib2 sto(seed);
+	
+	FILE *file = fopen(filename,"w");
+	if (file == NULL) { fprintf(stderr,"could not open ", filename); exit(-1); }
+	
+	int nProblems = 10;
+	if (fwrite(&nProblems,sizeof(nProblems),1,file)<1) { fprintf(stderr,"error writing %s", filename); exit(-1); }
+	
+	int k = 10;
+	double pstar = 0.95;
+
+	double delta=1.0;
+	double sigma = 1.0;
+	double aux=1.0;
+	for(int i=1;i<=nProblems;i++) {
+		// least favorable configuration
+	
+		//delta=0.001;
+		double theta[k];
+		double sigma_vec[k];
+		for (int x=0; x<k; x++) {
+			theta[x]=-(delta)*x;
+			sigma_vec[x]= (sigma/(double(x)+1.0))+aux; // set the variance to decrease with i.
+		}
+		
+		// Write to file, in a binary format.
+		if (fwrite(&k,sizeof(k),1,file)<1) { fprintf(stderr,"error writing %s", filename); exit(-1); }
+		if (fwrite(&pstar,sizeof(pstar),1,file)<1) { fprintf(stderr, "error writing %s", filename); exit(-1); }
+		if (fwrite(&delta,sizeof(delta),1,file)<1) { fprintf(stderr, "error writing %s", filename); exit(-1); }
+		if (fwrite(theta,sizeof(*theta),k,file)<k) { fprintf(stderr, "error writing %s", filename); exit(-1); }
+		if (fwrite(sigma_vec,sizeof(*sigma_vec),k,file)<k) { fprintf(stderr, "error writing %s", filename); exit(-1); }
+		
+		aux=aux*2.0;
+	}
+	fclose(file);
 }
