@@ -423,9 +423,9 @@ int write_trial(const char *filename)
    int k = 10;
    double pstar = 0.95;
 	double delta2=1.0;
-	double delta=1.0;
+	double delta=1.2;
    double sigma = 50.0;
-	double a=1.0;
+	double a=delta;
 	double b=0.6;
    for(int i=1;i<=nProblems;i++) {
      // least favorable configuration
@@ -435,7 +435,7 @@ int write_trial(const char *filename)
      double theta[k];
      double sigma_vec[k];
      for (int x=0; x<k; x++) {
-       theta[x]=(delta2)*x;
+       theta[x]=(delta)*x;
        sigma_vec[x]= sigma/(x+1); // set the variance to decrease with i.
      }
 
