@@ -1,0 +1,621 @@
+%% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{esint}
+\doublespacing
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+Without loss of generality, suppose that the true means of the systems
+are indexed so that $\mu_{k}\geq\mu_{k-1}\geq\cdots\geq\mu_{1}$.
+Assume $c>0$.
+
+
+\paragraph*{Assumption 1 }
+
+There exist finite constants $\mu_{i}$ and $v_{i}^{2}$ such that
+the probability of distribution of $C_{i}\left(t,r\right)\equiv\frac{\sum_{j=1}^{floor(rt)}X_{ij}-rt\mu_{i}}{v_{i}\sqrt{r}}$
+over $D\left[0,1\right]$ converges to that of a standard Brownian
+motion process, $W(t)$, for $t$ on the unit interval, as $r$ increases;
+i.e.
+\[
+C_{i}\left(,r\right)\Longrightarrow W\left(\right)
+\]
+as $r\rightarrow\infty$. 
+
+Note: $D\left[0,1\right]$ is the Skorohod space, i.e. it's the space
+of real-valued functions on $\left[0,1\right]$ that are right-continuous
+and have left-hand limits. 
+
+Under Assumption 1, $\mu_{i}$ is the mean, and $v_{i}^{2}=\lim_{r\rightarrow\infty}r\mbox{Var}\left(\bar{X}_{i}\left(r\right)\right)$
+where $\bar{X}_{i}\left(r\right)$ is the sample mean of the first
+$r$ observations from system $i$. 
+
+
+\paragraph*{Lemma 1.}
+
+For $i\neq l$, if $\mathbf{X}_{i}$ and $\mathbf{X}_{l}$ satisfy
+Assumption 1 and are independent, then there exists a constant $v_{il}^{2}$
+such that 
+\[
+\frac{t_{l}\left(Y_{\mbox{floor}\left(rt_{i}\right),i}-rt_{i}\mu_{i}\right)-t_{i}\left(Y_{\mbox{floor}\left(rt_{l}\right),l}-rt_{l}\mu_{l}\right)}{v_{il}\sqrt{r}}\Longrightarrow t_{l}W_{1}\left(t_{i}\right)-t_{i}W_{2}\left(t_{l}\right)
+\]
+as $r\rightarrow\infty$.
+
+
+\paragraph*{Proof.}
+
+First, note that
+\[
+v_{il}^{2}:=\lim_{r,s\rightarrow\infty}\mbox{Var}\left(\sqrt{r}\bar{X}_{i}\left(r\right)+\sqrt{s}\bar{X}_{l}\left(s\right)\right)=v_{i}^{2}+v_{l}^{2}
+\]
+because of the independence of $\mathbf{X}_{i}$ and $\mathbf{X}_{l}$.
+Now,
+\begin{eqnarray*}
+\frac{t_{l}\left(Y_{\mbox{floor}\left(rt_{i}\right),i}-rt_{i}\mu_{i}\right)-t_{i}\left(Y_{\mbox{floor}\left(rt_{l}\right),l}-rt_{l}\mu_{l}\right)}{v_{il}\sqrt{r}} & =\\
+t_{l}\frac{\sum_{j=1}^{\mbox{floor}\left(rt_{i}\right)}X_{ij}-rt_{i}\mu_{i}}{v_{il}\sqrt{r}}-t_{i}\frac{\sum_{j=1}^{\mbox{floor}\left(rt\right)}X_{lj}-rt_{l}\mu_{l}}{v_{il}\sqrt{r}} & =\\
+t_{l}\left(\frac{v_{i}}{v_{il}}\right)C_{i}\left(t,r\right)-t_{i}\left(\frac{v_{l}}{v_{il}}\right)C_{l}\left(t,r\right).
+\end{eqnarray*}
+Because we assume that $\mathbf{X}_{i}$ and $\mathbf{X}_{l}$ are
+independent, so are $C_{i}\left(t,r\right)$ and $C_{l}\left(t,r\right)$.
+Assumption 1 implies $C_{i}\left(,r\right)\Rightarrow W_{i}\left(\right)$
+and $C_{l}\left(,r\right)\Rightarrow W_{l}\left(\right)$ where $W_{i}$
+and $W_{l}$ are independent standard Brownian motion processes. By
+Theorem 3.2 of Billingsley, $\left(C_{i}\left(,r\right),C_{l}\left(,r\right)\right)\Rightarrow\left(W_{i}\left(\right),W_{l}\left(\right)\right)$.
+By the Continuous Mapping Theorem,$ $
+\[
+t_{l}\left(\frac{v_{i}}{v_{il}}\right)C_{i}\left(t,r\right)-t_{i}\left(\frac{v_{l}}{v_{il}}\right)C_{l}\left(t,s\right)\Rightarrow t_{l}\left(\frac{v_{i}}{v_{il}}\right)W_{i}\left(t\right)-t_{i}\left(\frac{v_{l}}{v_{il}}\right)W_{l}\left(t\right).
+\]
+
+
+
+\paragraph*{Lemma 2 (Fabian 1974). }
+
+Let $W(t,\Delta)$ be a Brownian motion process on $[0,\infty)$,
+with $E\left[W(t,\Delta)\right]=\Delta t$ and $Var\left[W\left(t,\Delta\right)\right]=t,$
+where $\Delta>0$. Let 
+\begin{eqnarray*}
+L & = & -B\\
+U & = & B
+\end{eqnarray*}
+for some $B>0$. Let $R=\left(L,U\right)$ and let $T^{*}$ be the
+first time that $W\left(t,\Delta\right)\notin R$. Finally, let $\mathsf{A}$
+be the event that $W\left(T^{*},\Delta\right)\leq-B$. Then,
+\[
+\mathbb{P}\left\{ \mathsf{A}\right\} =\frac{e^{-2B\Delta}}{1+e^{-2B\Delta}}.
+\]
+
+
+\[
+\]
+
+
+
+\paragraph*{Theorem.}
+
+If samples from system $x\in\left\{ 1\ldots,k\right\} $ are normally
+distributed and independent, over time and across alternatives, then
+$\mbox{lim}_{\delta\rightarrow0}Pr\left\{ \mbox{BIZ selects }k\right\} \geq P*$
+provided $\mu_{k}\geq\mu_{k-1}+\delta$. We also suppose that the
+algorithm ends in at most $R\left(\delta\right)\in\mathbb{N}$ iterations,
+and $R(\delta)\rightarrow\infty$ as $\delta\rightarrow0$ with probability
+$1$. Furthermore, $\sqrt{R}\delta\rightarrow\Delta$ with probability
+$1$ where $\infty>\Delta>0$ with probability $1$. Suppose $B_{1}=\cdots=B_{k}=1$.
+
+
+\paragraph*{Proof.}
+
+Suppose the variances are known. We begin by considering the case
+of only two systems, denoted $k$ and $i$, with $\mu_{k}\geq\mu_{i}+\delta*$.
+Let $A=\{k,i\}$. Let 
+\[
+T\left(\delta\right)=\mbox{min}\left\{ t\leq R,t\in\mathbb{N}:\mbox{min}_{x\in A}\hat{q}_{tx}\left(A\right)\leq c\mbox{ or }\mbox{max}_{x\in A}\hat{q}_{tx}\left(A\right)\geq P*\right\} .
+\]
+Thus $T\left(\delta\right)$ is the stage at which the procedure terminates. 
+
+Now, let $a_{t},b_{t}\in A$ such that $\exp\left(\delta\beta_{t}\frac{W_{ta_{t}}}{n_{ta_{t}}}\right)\geq\exp\left(\delta\beta_{t}\frac{W_{tb_{t}}}{n_{tb_{t}}}\right)$,
+so 
+\begin{eqnarray*}
+\mbox{min}_{x\in A}\hat{q}_{tx}\left(A\right) & \leq & c\\
+\Leftrightarrow\mbox{min}_{x\in A}\exp\left(\delta\beta_{t}\frac{W_{tx}}{n_{tx}}\right) & \leq & c\sum_{x'\in A}\exp\left(\delta\beta_{t}\frac{W_{tx'}}{n_{tx'}}\right)\\
+\Leftrightarrow\exp\left(\delta\beta_{t}\frac{W_{tb_{t}}}{n_{tb_{t}}}\right)\left(1-c\right) & \leq & c\exp\left(\delta\beta_{t}\frac{W_{ta_{t}}}{n_{ta_{t}}}\right)\\
+\Leftrightarrow\exp\left(\delta\beta_{t}\left(\frac{W_{tb_{t}}}{n_{tb_{t}}}-\frac{W_{ta_{t}}}{n_{ta_{t}}}\right)\right) & \leq & \frac{c}{1-c}
+\end{eqnarray*}
+\[
+\]
+an
+\begin{eqnarray*}
+\mbox{max}_{x\in A}\hat{q}_{tx}\left(A\right) & \geq & P*\\
+\Leftrightarrow\mbox{max}_{x\in A}\exp\left(\delta\beta_{t}\frac{W_{tx}}{n_{tx}}\right) & \geq & P*\sum_{x'\in A}\exp\left(\delta\beta_{t}\frac{W_{tx'}}{n_{tx'}}\right)\\
+\Leftrightarrow\exp\left(\delta\beta_{t}\frac{W_{ta_{t}}}{n_{ta_{t}}}\right)\left(1-P^{*}\right) & \geq & P^{*}\exp\left(\delta\beta_{t}\frac{W_{tb_{t}}}{n_{tb_{t}}}\right)\\
+\Leftrightarrow\exp\left(\delta\beta_{t}\left(\frac{W_{ta_{t}}}{n_{ta_{t}}}-\frac{W_{tb_{t}}}{n_{tb_{t}}}\right)\right) & \geq & \frac{P^{*}}{1-P^{*}},
+\end{eqnarray*}
+thus
+\begin{eqnarray*}
+T\left(\delta\right) & = & \mbox{min}\left\{ t\leq R,t\in\mathbb{N}:\exp\left(\delta\beta_{t}\left|\frac{W_{tk}}{n_{tk}}-\frac{W_{ti}}{n_{ti}}\right|\right)\geq\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right\} \\
+ & = & \mbox{min}\left\{ t\leq R,t\in\mathbb{N}:\left|\frac{W_{tk}}{n_{tk}}-\frac{W_{ti}}{n_{ti}}\right|\geq\frac{\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{\delta\beta_{t}}\right\} 
+\end{eqnarray*}
+
+
+Now, let's prove that $n_{ti}\rightarrow\infty,n_{tk}\rightarrow\infty$
+as $t\rightarrow\text{\ensuremath{\infty}}$. For each $t$, $n_{t+1,x}=n_{tx}+B_{x}$
+for some $x\in A$. If $n_{t+1,i}=n_{ti}+B_{i}$ for a finite number
+of $t's$, then $n_{tk}\rightarrow\infty$ as $t\rightarrow\infty$.
+So, there exists $l_{0}$ such that $n_{li}/\hat{\lambda}_{li}^{2}>n_{lk}/\hat{\lambda}_{lk}^{2}$
+if $l>l_{0}$. Since $\hat{\lambda}_{ti}^{2}\rightarrow\sigma_{i}^{2}$
+and $\hat{\lambda}_{tk}^{2}\rightarrow\sigma_{k}^{2}$ as $t\rightarrow\infty$,
+then $n_{ti}\rightarrow\infty$ as $t\rightarrow\infty$. Similarly,
+we get the same result in the other cases. Thus, $n_{ti}\rightarrow\infty,n_{tk}\rightarrow\infty$
+as $t\rightarrow\text{\ensuremath{\infty}}$. 
+
+Let $\lambda_{r}^{2}=\mbox{min}\left\{ \lambda_{i}^{2},\lambda_{k}^{2}\right\} $
+and $\lambda_{s}^{2}=\mbox{max}\left\{ \lambda_{i}^{2},\lambda_{k}^{2}\right\} $.
+Then $n_{1,s}=n_{0}+1$, $n_{1r}=\mbox{max}\left\{ n_{0},ceil\left(\frac{\lambda_{r}^{2}}{\lambda_{s}^{2}}\left(n_{0}+1\right)\right)\right\} $.
+Note that $\frac{n_{ts}}{\lambda_{s}^{2}}\leq\frac{n_{tr}}{\lambda_{r}^{2}}$
+for all $t$, because by induction
+\[
+\frac{n_{t+1,r}}{\lambda_{r}^{2}}\geq\frac{\frac{\lambda_{r}^{2}}{\lambda_{s}^{2}}\left(n_{ts}+1\right)}{\lambda_{r}^{2}}=\frac{n_{ts}+1}{\lambda_{s}^{2}}.
+\]
+
+
+So, $n_{tr}=\mbox{max}\left\{ n_{t-1,r},ceil\left(\frac{\lambda_{r}^{2}}{\lambda_{s}^{2}}\left(n_{t-1,s}+1\right)\right)\right\} =\mbox{max}\left\{ n_{t-1,r},ceil\left(\frac{\lambda_{r}^{2}}{\lambda_{s}^{2}}\left(n_{0}+t\right)\right)\right\} $.
+Thus there exists $t_{0}$ such that $n_{t_{0},r}=ceil\left(\frac{\lambda_{r}^{2}}{\lambda_{s}^{2}}\left(n_{0}+t_{0}\right)\right)$
+and $n_{tr}=n_{0}$ if $t<t_{0}.$ Observe that if $t>t_{0}$, $n_{tr}=ceil\left(\frac{\lambda_{r}^{2}}{\lambda_{s}^{2}}\left(n_{0}+t\right)\right)$.
+Furthermore, $n_{ts}=n_{0}+t$.
+
+Suppose $i=s$ or $i=r$ and $t_{0}=1$. If $0\leq t\leq1$, let
+\begin{eqnarray*}
+D_{i}\left(t,R\right) & = & \frac{\sum_{j=1}^{n_{floor\left(tR\right),i}}X_{ij}-\left(n_{0}+\left(tR\right)\right)\mu_{i}}{v_{i}\sqrt{R}}\\
+ & = & \frac{\sum_{j=1}^{n_{0}+floor\left(tR\right)}X_{ij}-\left(n_{0}+\left(tR\right)\right)\mu_{i}}{v_{i}\sqrt{R}}\\
+ & = & \frac{\sum_{j=1}^{n_{0}}X_{ij}-n_{0}\mu_{i}}{v_{i}\sqrt{R}}+\frac{\sum_{j=1}^{floor\left(tR\right)}X_{i,n_{0}+j}-\left(tR\right)\mu_{i}}{v_{i}\sqrt{R}}\\
+ & \Rightarrow & W_{i}\left(\right).
+\end{eqnarray*}
+
+
+Suppose $\lambda_{i}^{2}\leq\lambda_{k}^{2}$. Assume $t_{0}=1$.
+Let
+\begin{eqnarray*}
+D_{ik}\left(t,R\right) & = & \frac{n_{tR,i}\left(\sum_{j=1}^{n_{floor(tR),k}}X_{kj}-\left(n_{0}+\left(tR\right)\right)\mu_{k}\right)}{v_{ik}R\sqrt{R}}\\
+ &  & -\frac{n_{tR,k}\left(\sum_{j=1}^{n_{floor(tR),i}}X_{kj}-ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+\left(tR\right)\right)\right)\mu_{i}\right)}{v_{ik}R\sqrt{R}}\\
+ & = & \frac{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(\sum_{j=1}^{(n_{0}+floor(tR))}X_{kj}-\left(n_{0}+\left(tR\right)\right)\mu_{k}\right)}{v_{ik}R\sqrt{R}}\\
+ &  & -\frac{\left(n_{0}+tR\right)\left(\sum_{j=1}^{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+floor(tR)\right)\right)}X_{kj}-ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+\left(tR\right)\right)\mu_{i}\right)\right)}{v_{ik}R\sqrt{R}}\\
+ & \Rightarrow & \frac{v_{k}}{v_{ik}}\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}tW_{k}\left(t\right)-\frac{v_{i}}{v_{ik}}tW_{i}\left(t\right)=tW\left(\right).
+\end{eqnarray*}
+
+
+Now, let $N=\mbox{max}\left\{ n_{Rk},n_{Ri}\right\} $, then 
+\begin{eqnarray*}
+\frac{W_{T\left(\delta\right)k}}{n_{T\left(\delta\right)k}} & < & \frac{W_{T\left(\delta\right)i}}{n_{T\left(\delta\right)i}}\\
+\Leftrightarrow\frac{\mu_{k}-\mu_{i}}{R^{3/2}v_{ik}}\left(n_{T\left(\delta\right)k}n_{T\left(\delta\right)i}\right) & + & \frac{n_{T\left(\delta\right)i}\left(\sum_{j=1}^{n_{T\left(\delta\right)k}}X_{kj}-n_{T\left(\delta\right)k}\mu_{k}\right)-n_{T\left(\delta\right)k}\left(\sum_{j=1}^{n_{T\left(\delta\right)i}}X_{ij}-n_{T\left(\delta\right)i}\mu_{i}\right)}{R^{3/2}v_{ik}}<0.
+\end{eqnarray*}
+
+
+Then$ $
+\begin{eqnarray*}
+\mathbb{P}\left\{ \frac{W_{T\left(\delta\right)k}}{n_{T\left(\delta\right)k}}<\frac{W_{T\left(\delta\right)i}}{n_{T\left(\delta\right)i}}\right\}  & \leq & \mathbb{P}\left\{ \frac{n_{T\left(\delta\right)i}\left(\sum_{j=1}^{n_{T\left(\delta\right)k}}X_{kj}-n_{T\left(\delta\right)k}\mu_{k}\right)-n_{T\left(\delta\right)k}\left(\sum_{j=1}^{n_{T\left(\delta\right)i}}X_{ij}-n_{T\left(\delta\right)i}\mu_{i}\right)}{R^{3/2}v_{ik}}\right.\\
+ &  & \left.+\frac{\delta}{R^{3/2}v_{ik}}\left(n_{T\left(\delta\right)k}n_{T\left(\delta\right)i}\right)<0\right\} \\
+ & = & E\left[\mathbb{P}\left\{ \frac{n_{T\left(\delta\right)i}\left(\sum_{j=1}^{n_{T\left(\delta\right)k}}X_{kj}-n_{T\left(\delta\right)k}\mu_{k}\right)-n_{T\left(\delta\right)k}\left(\sum_{j=1}^{n_{T\left(\delta\right)i}}X_{ij}-n_{T\left(\delta\right)i}\mu_{i}\right)}{R^{3/2}v_{ik}}\right.\right.\\
+ &  & \left.\left.+\frac{\delta}{R^{3/2}v_{ik}}\left(n_{T\left(\delta\right)k}n_{T\left(\delta\right)i}\right)<0\right\} \mid\Delta\right]
+\end{eqnarray*}
+Define
+\begin{eqnarray*}
+\hat{T}\left(\delta\right) & = & \mbox{min }\left\{ t\in\left\{ \frac{1}{R},\ldots,1\right\} :\left|D_{ik}\left(t,\delta\right)+\frac{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(n_{0}+tR\right)\delta}{R^{3/2}v_{ik}}\right|\right.\\
+ &  & \left.\geq\frac{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(n_{0}+tR\right)\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{R^{3/2}v_{ik}\beta_{floor(tR)}\delta}\right\} 
+\end{eqnarray*}
+where $\beta_{tR}=\frac{n_{0}+tR+ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)}{\lambda_{i}^{2}+\lambda_{k}^{2}}$.
+
+Clearly, $\hat{T}\left(\delta\right)=T\left(\delta\right)/R$. Also,
+define the stopping time of the corresponding continuous-time process
+as
+
+\begin{eqnarray*}
+\tilde{T}\left(\delta\right) & = & \mbox{min }\left\{ 1\geq t\geq\frac{1}{R}:\left|D_{ik}\left(t,\delta\right)+\frac{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(n_{0}+tR\right)\delta}{R^{3/2}v_{ik}}\right|\right.\\
+ &  & \left.\geq\frac{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(n_{0}+tR\right)\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{R^{3/2}v_{ik}\beta_{floor(tR)}\delta}\right\} 
+\end{eqnarray*}
+Note that for fixed $\delta$, $D_{ik}\left(\hat{T}\left(\delta\right),\delta\right)$
+corresponds to the right-hand limit of a point of discontinuity of
+$D_{ik}\left(,\delta\right)$. We can show that $ $$\hat{T}\left(\delta\right)\rightarrow\tilde{T}\left(\delta\right)$
+with probability $1$ as $\delta\rightarrow0$, making use of the
+fact that $1/R\rightarrow0$ with probability $1$. Thus, in the limit,
+we can focus on $D_{ik}\left(\tilde{T}\left(\delta\right),\delta\right)$.
+
+Now, condition on $\Delta$. By Assumption 1, Lemma 1, and the CMT
+we have that
+\begin{eqnarray*}
+D_{ik}\left(t,\delta\right)+\frac{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(n_{0}+tR\right)\delta}{R^{3/2}v_{ik}} & \Rightarrow & tW\left(t\right)+t^{2}\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\Delta.\\
+ & = & t\left(W\left(t\right)+t\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\Delta\right)
+\end{eqnarray*}
+Let 
+\begin{eqnarray*}
+A\left(\delta\right) & = & \frac{n_{0}ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{R^{3/2}v_{ik}\beta_{tR}\delta}\\
+ & = & \frac{\left(\lambda_{i}^{2}+\lambda_{k}^{2}\right)n_{0}ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{\left(n_{0}+tR+ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\right)R^{3/2}v_{ik}\delta}\overset{\delta\rightarrow0}{\longrightarrow}0
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+tB\left(\delta\right) & = & \frac{\left(\lambda_{i}^{2}+\lambda_{k}^{2}\right)ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(tR\right)\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{\left(n_{0}+tR+ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\right)R^{3/2}v_{ik}\delta}\\
+ & = & \frac{\left(\lambda_{i}^{2}+\lambda_{k}^{2}\right)ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(t\right)\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{\left(n_{0}+tR+ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\right)R^{1/2}v_{ik}\delta}\\
+ & \overrightarrow{\delta\rightarrow0} & \frac{\left(\lambda_{i}^{2}+\lambda_{k}^{2}\right)\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(t\right)\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{\left(1+\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\right)v_{ik}\Delta}=Bt.
+\end{eqnarray*}
+Note that the stopping time $ $$\tilde{T}\left(\delta\right)$ is
+the first time $t$ at which the event
+\[
+\left\{ \left|D_{ik}\left(t,\delta\right)+\frac{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(n_{0}+tR\right)\delta}{R^{3/2}v_{ik}}\right|-A\left(\delta\right)-tB\left(\delta\right)\geq0\right\} 
+\]
+occurs. Define the mapping $s_{\delta}:D\left[0,1\right]\rightarrow\mathbb{R}$
+such that $s_{\delta}\left(Y\right)=Y\left(T_{Y,\delta}\right)$,
+where 
+\[
+T_{Y,\delta}=\mbox{inf}\left\{ t:\left|Y\left(t\right)\right|-A\left(\delta\right)-B\left(\delta\right)t\geq0\right\} 
+\]
+for every $Y\in D\left[0,1\right]$ and $\delta>0$. Similarly, define
+$s\left(Y\right)=Y\left(T_{Y}\right)$, where
+\[
+T_{Y}=\mbox{inf}\left\{ t>0:\left|Y\left(t\right)\right|-Bt\geq0\right\} 
+\]
+for every $Y\in D\left[0,1\right]$. Note that 
+\begin{eqnarray*}
+s_{\delta}\left(D_{ik}\left(t,\delta\right)+\frac{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(n_{0}+tR\right)\delta}{R^{3/2}v_{ik}}\right) & = & D_{ik}\left(\tilde{T}\left(\delta\right),\delta\right)\\
++\frac{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+\tilde{T}\left(\delta\right)R\right)\right)\left(n_{0}+\tilde{T}\left(\delta\right)R\right)\delta}{R^{3/2}v_{ik}},
+\end{eqnarray*}
+$s\left(tW\left(t,\Delta\right)\right)=T_{\mathfrak{W}\left(\right)}W\left(T_{\mathfrak{W}\left(\right)},\Delta\right)$
+where $ $$\mathfrak{W}\left(t\right)=tW\left(t,\Delta\right)$. 
+
+We need to show that
+\[
+s_{\delta}\left(G_{ik}\left(t,\delta\right)\right)\Rightarrow s\left(tW\left(t,\Delta\right)\right)
+\]
+as $\delta\rightarrow0$, where
+\[
+G_{ik}\left(t,\delta\right)\equiv D_{ik}\left(t,\delta\right)+\frac{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+tR\right)\right)\left(n_{0}+tR\right)\delta}{R^{3/2}v_{ik}}
+\]
+for $t\in\left[0,1\right]$ and $\delta>0$. If $\mathbb{P}\left(tW\left(t,\Delta)\text{\ensuremath{\in}D\ensuremath{\left[0,1\right]}-}D_{s}\right)\right)=1$
+where $D_{s}\equiv\left\{ x\right.\in D\left[0,1\right]:\mbox{ for some sequence }\left\{ x_{n}\right\} \subset D\left[0,1\right]\mbox{ with }lim_{n}d\left(x_{n},x\right)=0,\mbox{ the sequence }$$\left\{ s_{\delta_{n}}\left(x_{n}\right)\right\} $
+$\left.\mbox{ does not converge to }s\left(x\right)\right\} $, and
+$d\left(X,Y\right)$ is the infimum of those positive $w$ for which
+there exists $\lambda\in\Lambda$ such that $sup_{t\in\left[0,1\right]}\left|X(t)-Y\left(\lambda(t)\right)\right|\leq w$
+and $sup_{t\in\left[0,1\right]}\left|\lambda(t)-t\right|\leq w$ ($\Lambda$
+is the class of strictly increasing, continuous mappings of $\left[0,1\right]$
+onto itself such that for every $\lambda\in\Lambda$, we have $\lambda(0)=0$
+and $\lambda(1)=1$), then by Theorem 5.5 of Billingsley 1968 we conclude
+that this is true. By Kim et al. (2005), we know that $\mathbb{P}\left(W\left(t,\Delta)\text{\ensuremath{\in}D\ensuremath{\left[0,1\right]}-}D_{s}\right)\right)=1$,
+thus it follows this is true (prove).
+
+Now, unconditioning on $\Delta$ gives
+\begin{eqnarray*}
+\mbox{lim}sup_{\delta\rightarrow0}\mathbb{P}\left(ICS\right) & \leq & E\left[\mathbb{P}\left[\tilde{T}\left(\delta\right)W\left(\tilde{T}\left(\delta\right),\Delta\right)<0\mid\Delta]]\right.\right.\\
+ & = & E\left[\frac{e^{-2B\Delta\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}}}{1+e^{-2B\Delta\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}}}\right]\\
+ & = & E\left[\frac{e^{-\frac{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}}\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{v_{ik}}}}{1+e^{-\frac{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}}\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{v_{ik}}}}\right]\\
+ & = & E\left[\frac{1}{1+e^{\frac{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}}\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{v_{ik}}}}\right]\\
+ & = & E\left[\frac{1}{1+\left(\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right)^{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}v_{ik}}}}\right]\\
+ & \leq & \frac{1}{1+\left(\frac{P^{*}}{1-P^{*}}\right)^{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}v_{ik}}}}\leq1-P^{*}
+\end{eqnarray*}
+the last equality follows because, if $a=2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}v_{ik}}$,
+\begin{eqnarray*}
+\frac{1}{1+\left(\frac{P^{*}}{1-P^{*}}\right)^{a}} & \leq & 1-P^{*}\\
+\Leftrightarrow\frac{\left(1-P^{*}\right)^{a}}{\left(1-P^{*}\right)^{a}+P^{*a}} & \leq & 1-P^{*}\\
+\Leftrightarrow\left(1-P^{*}\right)^{a-1} & \leq & \left(1-P^{*}\right)^{a}+P^{*a}\\
+\Leftrightarrow\left(1-P^{*}\right)^{a-1}\left(1-1+P^{*}\right) & \leq & P^{*a}\\
+\Leftrightarrow\left(1-P^{*}\right)^{a-1} & \leq & P^{*\left(a-1\right)}\\
+\Leftrightarrow1 & \leq & 2P^{*}.
+\end{eqnarray*}
+
+
+\textbf{\large (I haven't erased the following in case I need it later) }{\large \par}
+
+Observe that,$ $
+\[
+\mu_{k}-\mu_{i}+\frac{v_{k}}{\sqrt{n_{T\left(\delta\right)k}}}C_{k}\left(1,n_{T\left(\delta\right)k}\right)-\frac{v_{i}}{\sqrt{n_{T\left(\delta\right)i}}}C_{i}\left(1,n_{T\left(\delta\right)i}\right)\Rightarrow\mu_{k}-\mu_{i}
+\]
+when $\delta\rightarrow0$ if $n_{T(\delta)j}$ is independent of
+$C_{j}\left(1,n\right)$ for $n$ sufficiently large and $j=k,i$.
+
+\[
+\]
+
+
+Suppose $i=r$ and $t_{0}>1$. Let $s_{0}\leq t\leq1$ where $floor(s_{0}R)\geq t_{0}$
+and $floor(sR)<t_{0}$ if $s<s_{0}$. Let
+\begin{eqnarray*}
+D_{i}\left(t,R\right) & = & \frac{\sum_{j=1}^{n_{floor\left(tR\right),i}}X_{ij}-\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+\left(tR\right)\right)\mu_{i}}{v_{i}\sqrt{R}}\\
+ & = & \frac{\sum_{j=1}^{ceil\left(\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\left(n_{0}+floor\left(tR\right)\right)\right)}X_{ij}-\left(n_{0}+\left(tR\right)\right)\mu_{i}}{v_{i}\sqrt{R}}
+\end{eqnarray*}
+
+
+and if $t<s_{0}$
+\begin{eqnarray*}
+D_{i}\left(t,R\right) & = & \frac{\sum_{j=1}^{n_{floor\left(tR\right),i}}X_{ij}-n_{0}\mu_{i}}{v_{i}\sqrt{R}}\\
+ & = & \frac{\sum_{j=1}^{n_{0}}X_{ij}-n_{0}\mu_{i}}{v_{i}\sqrt{R}},
+\end{eqnarray*}
+Suppose $D_{i}\left(t,R\right)\Rightarrow W\left(\right)$ if $t\geq s_{0}$.
+
+\[
+D_{ik}\left(t,R\right)=\frac{\sum_{j=1}^{n}}{v_{ik}\sqrt{R}}
+\]
+
+
+\[
+\]
+
+
+\[
+\]
+
+
+By Assumption 1, Lemma 1, and the CMT we have that
+\[
+C_{ik}\left(\frac{n_{t,i}}{N},\frac{n_{t,k}}{N},\delta\right)+\frac{n_{t,k}n_{t,i}\delta}{N^{1/2}v_{ik}}\Rightarrow n_{ti}W_{1}\left(n_{ti}\right)-n_{tk}W_{2}\left(n_{tk}\right)+\frac{n_{t,k}n_{t,i}\Delta}{v_{ik}}.
+\]
+Let 
+\[
+A\left(\delta\right)=\frac{\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{N^{1/2}v_{ik}\delta}\rightarrow\frac{\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{N^{1/2}v_{ik}\delta}
+\]
+
+
+\[
+\beta_{t}=\sum
+\]
+
+
+Observe that,$ $
+\[
+\mu_{k}-\mu_{i}+\frac{v_{k}}{\sqrt{n_{T\left(\delta\right)k}}}C_{k}\left(1,n_{T\left(\delta\right)k}\right)-\frac{v_{i}}{\sqrt{n_{T\left(\delta\right)i}}}C_{i}\left(1,n_{T\left(\delta\right)i}\right)\Rightarrow\mu_{k}-\mu_{i}
+\]
+when $\delta\rightarrow0$ if $n_{T(\delta)j}$ is independent of
+$C_{j}\left(1,n\right)$ for $n$ sufficiently large and $j=k,i$.
+
+\[
+\]
+
+
+Let $ICS$ denote the even that an incorrect selection is made. Then,
+\begin{eqnarray*}
+\mbox{lim inf}_{\delta\rightarrow0}\mathbb{P}\left\{ ICS\right\}  & = & \mbox{lim inf}_{\delta\rightarrow0}\mathbb{P}\left\{ \frac{W_{T\left(\delta\right)k}}{n_{T\left(\delta\right)k}}<\frac{W_{T\left(\delta\right)i}}{n_{T\left(\delta\right)i}}\right\} \\
+ & = & \mathbb{P}\left\{ \mu_{k}<\mu_{i}\right\} =0.
+\end{eqnarray*}
+
+
+However, it's very likely $n_{T(\delta)k}$ is not independent of
+$C_{k}\left(1,n\right)$. Thus, let's give other proof. First, we'll
+show that $n_{ti}$ is independent of $C_{i}(1,n)$ if $n\geq1$ and
+$t\geq0$. Note that 
+\begin{eqnarray*}
+C_{i}\left(1,n\right) & = & \frac{\sqrt{n}\sum_{j=1}^{n}X_{ij}}{v_{i}n}-\frac{\sqrt{n}}{v_{i}}\mu_{i}\\
+ & = & \frac{\sqrt{n}\bar{X}_{i}\left(n\right)}{v_{i}}-\frac{\sqrt{n}}{v_{i}}\mu_{i}.
+\end{eqnarray*}
+Since $n_{0i}=n_{0}$, then $C_{i}\left(1,n\right)$ is independent
+of $n_{0i}$. Note that
+\[
+n_{1,i}=\mbox{ceil}\left(\hat{\lambda_{0i}^{2}}\left(n_{0}+B_{z}\right)/\hat{\lambda_{0z}^{2}}\right),
+\]
+if $z=i$, then $n_{1,i}$ is independent of $C_{i}\left(1,n\right)$.
+Suppose $z=k$. Note that
+
+\begin{eqnarray*}
+\hat{\lambda_{1i}^{2}} & = & \frac{1}{n-1}\sum_{j=1}^{n_{1i}}\left(X_{ij}-\bar{X}_{i}\left(n_{1i}\right)\right)^{2}\\
+ & = & \frac{1}{n-1}\left(\left(X_{i1}-\bar{X}_{i}\left(n_{1i}\right)\right)^{2}+\sum_{j=2}^{n_{ti}}\left(X_{ij}-\bar{X}_{i}\left(n_{1i}\right)\right)^{2}\right)\\
+ & = & \frac{1}{n-1}\left(\left[\sum_{j=2}^{n_{1i}}\left(X_{ij}-\bar{X}_{i}\left(n_{1i}\right)\right)^{2}\right]+\sum_{j=2}^{n_{1i}}\left(X_{ij}-\bar{X}_{i}\left(n_{1i}\right)\right)^{2}\right).
+\end{eqnarray*}
+
+
+Then $ $$\hat{\lambda}_{1i}^{2}$ can be written as a function only
+of $\left(X_{i2}-\bar{X}_{i}\left(n_{0i}\right),\ldots,X_{in_{ti}}-\bar{X}_{i}\left(n_{ti}\right),n_{ti}\right)$.
+
+\[
+\]
+
+
+Suppose $C_{i}\left(1,n\right)$ is independent of $n_{ti}$. Observe
+that 
+\[
+n_{t+1,i}=\mbox{ceil}\left(\hat{\lambda_{ti}^{2}}\left(n_{tz}+B_{z}\right)/\hat{\lambda_{tz}^{2}}\right),
+\]
+if $z=i$, then $n_{t+1,i}=\mbox{ceil}\left(\left(n_{tz}+B_{z}\right)\right)$
+and $C_{i}\left(1,n\right)$ are independent random variables. Now
+suppose $z=k$. Note that $ $
+\begin{eqnarray*}
+\hat{\lambda_{ti}^{2}} & = & \frac{1}{n-1}\sum_{j=1}^{n_{ti}}\left(X_{ij}-\bar{X}_{i}\left(n_{ti}\right)\right)^{2}\\
+ & = & \frac{1}{n-1}\left(\left(X_{i1}-\bar{X}_{i}\left(n_{ti}\right)\right)^{2}+\sum_{j=2}^{n_{ti}}\left(X_{ij}-\bar{X}_{i}\left(n_{ti}\right)\right)^{2}\right)\\
+ & = & \frac{1}{n-1}\left(\left[\sum_{j=2}^{n_{ti}}\left(X_{ij}-\bar{X}_{i}\left(n_{ti}\right)\right)\right]^{2}+\sum_{j=2}^{n_{ti}}\left(X_{ij}-\bar{X}_{i}\left(n_{ti}\right)\right)^{2}\right).
+\end{eqnarray*}
+Then $ $$\hat{\lambda_{ti}^{2}}$ can be written as a function only
+of $\left(X_{i2}-\bar{X}_{i}\left(n_{ti}\right),\ldots,X_{in_{ti}}-\bar{X}_{i}\left(n_{ti}\right),n_{ti}\right)$.
+Suppose $n_{ti}$ is given. The joint pdf of the sample $X_{i1},\ldots,X_{in_{ti}}$
+is given by
+\[
+f\left(x_{1},\ldots,x_{n_{ti}}\right)=\frac{1}{\left(2\pi\right)^{n_{ti}/2}}e^{-\left(1/2\right)\sum_{i=1}^{n_{ti}}x_{i}^{2}}.
+\]
+Make the transformation $y_{1}=\bar{x}\left(n_{ti}\right),y_{2}=x_{2}-\bar{x}\left(n_{ti}\right),\ldots,y_{n_{ti}}=x_{n_{ti}}-\bar{x}\left(n_{ti}\right)$.
+This is a linear transformation with a Jacobian equal to $1/n_{ti}$.
+We have
+\begin{eqnarray*}
+f\left(y_{1},\ldots,y_{n_{ti}}\right) & = & \frac{n_{ti}}{\left(2\pi\right)^{n_{ti}/2}}e^{-\left(1/2\right)\left(y_{1}-\sum_{i=2}^{n_{ti}}y_{i}\right)^{2}}e^{-\left(1/2\right)\sum_{i=2}^{n_{ti}}\left(y_{i}+y_{1}\right)^{2}}\\
+ & = & \left[\left(\frac{n_{ti}}{2\pi}\right)^{1/2}e^{\left(-n_{ti}y_{1}^{2}\right)/2}\right]\left[\frac{n_{ti}^{1/2}}{\left(2\pi\right)^{(n_{ti}-1)/2}}e^{-\left(1/2\right)\left[\sum_{i=2}^{n_{ti}}y_{i}^{2}+\left(\sum_{i=2}^{n_{ti}}y_{i}\right)^{2}\right]}\right].
+\end{eqnarray*}
+Then $y_{1}$ is independent of $\hat{\lambda_{ti}^{2}}$ given $n_{ti}$.
+If $n_{ti}\geq n$, then $\bar{X}_{i}\left(n\right)$ is independent
+of $\hat{\lambda_{ti}^{2}}$ because $ $$X_{ij}$ is independent
+of $X_{ij'}$ for $j'<j$. If $n_{ti}<n$,
+\begin{eqnarray*}
+\bar{X}_{i}\left(n\right) & = & \frac{\sum_{j=1}^{n_{ti}}X_{ij}}{n_{ti}}\frac{n_{ti}}{n}+\frac{\sum_{j=n_{ti+1}}^{n}X_{ij}}{n}\\
+ & = & Y_{1}\frac{n_{ti}}{n}+\frac{\sum_{j=n_{ti+1}}^{n}X_{ij}}{n}
+\end{eqnarray*}
+and then $\bar{X}_{i}\left(n\right)$ is independent of $\hat{\lambda_{ti}^{2}}$.
+Thus, $C_{i}\left(1,n\right)$ is independent of $ $$\hat{\lambda_{ti}^{2}}$
+given $n_{ti}$. $ $So, by induction, 
+\begin{eqnarray*}
+f\left(C_{i}\left(1,n\right),\hat{\lambda_{ti}^{2}}\right) & = & \int f\left(C_{i}\left(1,n\right),\hat{\lambda_{ti}^{2}}\mid n_{ti}\right)f\left(n_{ti}\right)dn_{ti}\\
+ & = & f\left(C_{i}\left(1,n\right)\right)f\left(\hat{\lambda_{ti}^{2}}\right),
+\end{eqnarray*}
+then $C_{i}\left(1,n\right)$ is independent of $ $$\hat{\lambda_{ti}^{2}}$.
+Consequently, $C_{i}\left(1,n\right)$ is independent of $n_{t,i+1}$.
+Thus
+\[
+\mu_{k}-\mu_{i}+\frac{v_{k}}{\sqrt{n_{tk}}}C_{k}\left(1,n_{tk}\right)-\frac{v_{i}}{\sqrt{n_{ti}}}C_{i}\left(1,n_{ti}\right)\Rightarrow\mu_{k}-\mu_{i}
+\]
+as $t\rightarrow\infty$. Let $Y_{t}=C_{k}\left(1,n_{T\left(1/t\right)k}\right)$
+and $X_{t}=C_{k}\left(1,n_{tk}\right)$, if $d\left(Y_{t},X_{t}\right)\rightarrow0$
+in probability, then $Y_{t}\Rightarrow W\left(\right)$. Thus the
+result would be proved. Let's show that $ $$d\left(Y_{t},X_{t}\right)\rightarrow0$.
+???Let $\epsilon>0$. 
+
+\[
+\]
+ 
+\[
+\]
+ 
+\[
+\mu_{k}-\mu_{i}+\frac{v_{k}}{\sqrt{n_{T\left(\delta\right)k}}}C_{k}\left(1,n_{tk}\right)-\frac{v_{i}}{\sqrt{n_{T\left(\delta\right)i}}}C_{i}\left(1,n_{T\left(\delta\right)i}\right)\Rightarrow\mu_{k}-\mu_{i}
+\]
+
+
+\begin{eqnarray*}
+\mathbb{P}\left\{ \frac{W_{T\left(\delta\right)k}}{n_{T\left(\delta\right)k}}<\frac{W_{T\left(\delta\right)i}}{n_{T\left(\delta\right)i}}\right\}  & = & \mathbb{P}\left\{ \frac{W_{T\left(\delta\right)k}}{n_{T\left(\delta\right)k}}<\frac{W_{T\left(\delta\right)i}}{n_{T\left(\delta\right)i}}\right\} \\
+\end{eqnarray*}
+
+
+Now consider $k\geq2$ systems and let $CS$ be the event that $k$
+is selected and let $ICS_{i}$ be the event that an incorrect selection
+is made when systems $k$ and $i$ are considered in isolation.
+
+
+\paragraph*{Theorem.}
+
+If samples from system $x\in\left\{ 1\ldots,k\right\} $ are normally
+distributed and independent, over time and across alternatives, then
+$\mbox{lim}_{\mbox{min}_{x}\sigma_{x}^{2}\rightarrow\infty}Pr\left\{ \mbox{BIZ selects }k\right\} \geq P*$
+provided $\mu_{k}\geq\mu_{k-1}+\delta*$ for some $\delta*>0$. 
+
+
+\paragraph*{Graphs}
+
+Delta goes to 0 
+
+\includegraphics[scale=0.5]{/Users/saultoscano/Documents/graph1}
+
+Delta goes to 0.
+
+\includegraphics[scale=0.5]{graph1_paper}
+
+\includegraphics[scale=0.5]{graph4}
+
+Variances go to infinity.
+
+\includegraphics[scale=0.5]{graph2}
+
+\includegraphics[scale=0.5]{graph3}
+
+
+\paragraph*{Theorem.}
+
+If samples from system $x\in\left\{ 1\ldots,k\right\} $ are normally
+distributed and independent, over time and across alternatives, then
+$\mbox{lim}_{\delta\rightarrow0}Pr\left\{ \mbox{BIZ selects }k\right\} \geq P*$
+(or =1??) provided $\mu_{k}\geq\mu_{k-1}+\delta^{*}$. 
+
+
+\paragraph*{Prooof.}
+
+We begin by considering the case of only two systems, denoted $k$
+and $i$, with $\mu_{k}\geq\mu_{i}+\delta*$. Let $A=\{k,i\}$. For
+$\delta\leq\delta*$, let 
+\[
+T\left(\delta\right)=\mbox{min}\left\{ t\in\mathbb{N}:\mbox{min}_{x\in A}\hat{q}_{tx}\left(A\right)\leq c\mbox{ or }\mbox{max}_{x\in A}\hat{q}_{tx}\left(A\right)\geq P*\right\} .
+\]
+Thus $T\left(\delta\right)$ is the stage at which the procedure terminates. 
+
+Now,
+\begin{eqnarray*}
+\mbox{min}_{x\in A}\hat{q}_{tx}\left(A\right) & \leq & c\\
+\Leftrightarrow\mbox{min}_{x\in A}\exp\left(\delta\beta_{t}\frac{W_{tx}}{n_{tx}}\right) & \leq & c\sum_{x'\in A}\exp\left(\delta\beta_{t}\frac{W_{tx'}}{n_{tx'}}\right)\\
+\Leftrightarrow\mbox{min}_{x\in A}\frac{W_{tx}}{n_{tx}} & \leq & \log\left[c\sum_{x'\in A}\exp\left(\delta\beta_{t}\frac{W_{tx'}}{n_{tx'}}\right)\right]/\left(\delta\beta_{t}\right)\\
+\Leftrightarrow\left(\frac{W_{tk}}{n_{tk}}+\frac{W_{ti}}{n_{ti}}-\left|\frac{W_{tk}}{n_{tk}}-\frac{W_{ti}}{n_{ti}}\right|\right) & \leq & 2\log\left[c\sum_{x'\in A}\exp\left(\delta\beta_{t}\frac{W_{tx'}}{n_{tx'}}\right)\right]/\left(\delta\beta_{t}\right)
+\end{eqnarray*}
+\[
+\]
+and
+\begin{eqnarray*}
+\mbox{max}_{x\in A}\hat{q}_{tx}\left(A\right) & \geq & P*\\
+\Leftrightarrow\mbox{max}_{x\in A}\exp\left(\delta\beta_{t}\frac{W_{tx}}{n_{tx}}\right) & \geq & P*\sum_{x'\in A}\exp\left(\delta\beta_{t}\frac{W_{tx'}}{n_{tx'}}\right)\\
+\Leftrightarrow\mbox{max}_{x\in A}\frac{W_{tx}}{n_{tx}} & \geq & \log\left[P*\sum_{x'\in A}\exp\left(\delta\beta_{t}\frac{W_{tx'}}{n_{tx'}}\right)\right]/\left(\delta\beta_{t}\right)\\
+\Leftrightarrow\left(\frac{W_{tk}}{n_{tk}}+\frac{W_{ti}}{n_{ti}}+\left|\frac{W_{tk}}{n_{tk}}-\frac{W_{ti}}{n_{ti}}\right|\right) & \geq & 2\log\left[P*\sum_{x'\in A}\exp\left(\delta\beta_{t}\frac{W_{tx'}}{n_{tx'}}\right)\right]/\left(\delta\beta_{t}\right).
+\end{eqnarray*}
+
+
+Let $d\left(\delta\right):=2\log\left(\sum_{x'\in A}\exp\left(\delta\beta_{t}\frac{W_{tx'}}{n_{tx'}}\right)\right)/\left(\delta\beta_{t}\right)$,
+then 
+\begin{eqnarray*}
+T\left(\delta\right) & = & \mbox{min}\left\{ t\in\mathbb{N}:\left(\frac{W_{tk}}{n_{tk}}+\frac{W_{ti}}{n_{ti}}+\left|\frac{W_{tk}}{n_{tk}}-\frac{W_{ti}}{n_{ti}}\right|\right)\geq2\frac{\log\left(P*\right)}{\delta\beta_{t}}+d\left(\delta\right)\mbox{ or}\right.\\
+ &  & \left.\mbox{{\color{white}ssssssssss}}\left(\frac{W_{tk}}{n_{tk}}+\frac{W_{ti}}{n_{ti}}-\left|\frac{W_{tk}}{n_{tk}}-\frac{W_{ti}}{n_{ti}}\right|\right)\leq2\frac{\log c}{\delta\beta_{t}}+d\left(\delta\right){\color{white}aaaaaa}\right\} .
+\end{eqnarray*}
+
+
+Now, let's prove that $n_{ti}\rightarrow\infty,n_{tk}\rightarrow\infty$
+as $t\rightarrow\text{\ensuremath{\infty}}$. For each $t$, $n_{t+1,x}=n_{tx}+B_{x}$
+for some $x\in A$. If $n_{t+1,i}=n_{ti}+B_{i}$ for a finite number
+of $t's$, then $n_{tk}\rightarrow\infty$ as $t\rightarrow\infty$.
+So, there exists $l_{0}$ such that $n_{li}/\hat{\lambda}_{li}^{2}>n_{lk}/\hat{\lambda}_{lk}^{2}$
+if $l>l_{0}$. Since $\hat{\lambda}_{ti}^{2}\rightarrow\sigma_{i}^{2}$
+and $\hat{\lambda}_{tk}^{2}\rightarrow\sigma_{k}^{2}$ as $t\rightarrow\infty$,
+then $n_{ti}\rightarrow\infty$ as $t\rightarrow\infty$. Similarly,
+we get the same result in the other cases. Thus, $n_{ti}\rightarrow\infty,n_{tk}\rightarrow\infty$
+as $t\rightarrow\text{\ensuremath{\infty}}$. Furthermore, it's easy
+to see that $T\left(\delta\right)\rightarrow\infty$ as $\delta\rightarrow0$. 
+
+Now, we'll show that $T\left(\delta\right)$ is finite. Observe that
+there exists $t_{0}$ such that if $t>t_{0}$
+\[
+W_{ti}/n_{ti}<W_{tk}/n_{tk},
+\]
+otherwise there would exists $t$ such that 
+\[
+\mu_{k}-\delta/2<W_{tk}/n_{tk}\leq W_{ti}/n_{ti}<\delta/2+\mu_{i}
+\]
+which is a contradiction. Moreover, there exists $t_{1}>t_{0}$ such
+that if $t>t_{1}$ 
+\[
+\beta_{t}\left(W_{tk}/n_{tk}-W_{ti}/n_{ti}\right)>\log\left(P*/\left(1-P*\right)\right)/\delta
+\]
+since $\beta_{t}\rightarrow\infty$ as $t\rightarrow\infty$ and $P*>\frac{1}{2}$.
+Consequently, if $t>t_{1}$
+\begin{eqnarray*}
+\exp\left(\delta\beta_{t}\frac{W_{tk}}{n_{tk}}\right)/\exp\left(\delta\beta_{t}\frac{W_{ti}}{n_{ti}}\right) & > & \frac{P*}{1-P*}\\
+\Rightarrow\exp\left(\delta\beta_{t}\frac{W_{tk}}{n_{tk}}\right) & > & P*\exp\left(\delta\beta_{t}\frac{W_{ti}}{n_{ti}}\right)\\
+ &  & +P*\exp\left(\delta\beta_{t}\frac{W_{tk}}{n_{tk}}\right)
+\end{eqnarray*}
+and so $T\left(\delta\right)\leq t_{1}\left(\delta\right)<\infty$.
+
+By the strong law of large numbers, almost surely
+
+\[
+\frac{W_{T\left(\delta\right)k}}{n_{T\left(\delta\right)k}}-\frac{W_{T\left(\delta\right)i}}{n_{T\left(\delta\right)i}}\rightarrow\mu_{k}-\mu_{i}
+\]
+as $\delta\rightarrow0$. Thus, 
+\[
+\frac{W_{T\left(\delta\right)k}}{n_{T\left(\delta\right)k}}-\frac{W_{T\left(\delta\right)i}}{n_{T\left(\delta\right)i}}\Rightarrow\mu_{k}-\mu_{i}
+\]
+as $\delta\rightarrow0$. 
+
+Let $ICS$ denote the even that an incorrect selection is made. Then,
+\begin{eqnarray*}
+\mbox{lim inf}_{\delta\rightarrow0}\mathbb{P}\left\{ ICS\right\}  & = & \mbox{lim inf}_{\delta\rightarrow0}\mathbb{P}\left\{ \frac{W_{T\left(\delta\right)k}}{n_{T\left(\delta\right)k}}<\frac{W_{T\left(\delta\right)i}}{n_{T\left(\delta\right)i}}\right\} \\
+ & = & \mathbb{P}\left\{ \mu_{k}<\mu_{i}\right\} =0.
+\end{eqnarray*}
+
+\end{document}
