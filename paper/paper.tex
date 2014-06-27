@@ -2,7 +2,6 @@
 %% Do not edit unless you really know what you are doing.
 \documentclass[12pt,english]{article}
 \usepackage[T1]{fontenc}
-\usepackage[latin9]{inputenc}
 \usepackage{color}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -21,6 +20,7 @@
 \makeatother
 
 \usepackage{babel}
+\usepackage{xunicode}
 \begin{document}
 Without loss of generality, suppose that the true means of the systems
 are indexed so that $\mu_{k}\geq\mu_{k-1}\geq\cdots\geq\mu_{1}$.
@@ -298,23 +298,123 @@ thus it follows this is true (prove).
 
 Now, unconditioning on $\Delta$ gives
 \begin{eqnarray*}
-\mbox{lim}sup_{\delta\rightarrow0}\mathbb{P}\left(ICS\right) & \leq & E\left[\mathbb{P}\left[\tilde{T}\left(\delta\right)W\left(\tilde{T}\left(\delta\right),\Delta\right)<0\mid\Delta]]\right.\right.\\
+\mbox{lim}sup_{\delta\rightarrow0}\mathbb{P}\left(ICS\right) & \leq & E\left[\mathbb{P}\left[\tilde{T}\left(\delta\right)W\left(\tilde{T}\left(\delta\right),\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}\Delta\right)<0\mid\Delta]]\right.\right.\\
  & = & E\left[\frac{e^{-2B\Delta\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}}}{1+e^{-2B\Delta\frac{\lambda_{i}^{2}}{\lambda_{k}^{2}}}}\right]\\
  & = & E\left[\frac{e^{-\frac{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}}\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{v_{ik}}}}{1+e^{-\frac{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}}\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{v_{ik}}}}\right]\\
  & = & E\left[\frac{1}{1+e^{\frac{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}}\log\left[\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right]}{v_{ik}}}}\right]\\
  & = & E\left[\frac{1}{1+\left(\mbox{min}\left\{ \frac{P^{*}}{1-P^{*}},\frac{1-c}{c}\right\} \right)^{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}v_{ik}}}}\right]\\
- & \leq & \frac{1}{1+\left(\frac{P^{*}}{1-P^{*}}\right)^{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}v_{ik}}}}\leq1-P^{*}
+ & \leq & \frac{1}{1+\left(\frac{P^{*}}{1-P^{*}}\right)^{2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}v_{ik}}}}\leq\left(1-P^{*}\right)\leq\left(1-P^{*}\right)^{1/(k-1)}
 \end{eqnarray*}
 the last equality follows because, if $a=2\frac{\lambda_{i}^{4}}{\lambda_{k}^{2}v_{ik}}$,
 \begin{eqnarray*}
 \frac{1}{1+\left(\frac{P^{*}}{1-P^{*}}\right)^{a}} & \leq & 1-P^{*}\\
 \Leftrightarrow\frac{\left(1-P^{*}\right)^{a}}{\left(1-P^{*}\right)^{a}+P^{*a}} & \leq & 1-P^{*}\\
-\Leftrightarrow\left(1-P^{*}\right)^{a-1} & \leq & \left(1-P^{*}\right)^{a}+P^{*a}\\
-\Leftrightarrow\left(1-P^{*}\right)^{a-1}\left(1-1+P^{*}\right) & \leq & P^{*a}\\
+\Leftrightarrow\left(1-P^{*}\right)^{a} & \leq & \left(1-P^{*}\right)^{a}+P^{*a}\\
+\Leftrightarrow\left(1-P^{*}\right)^{a}\left(1-1+P^{*}\right) & \leq & P^{*a}\\
 \Leftrightarrow\left(1-P^{*}\right)^{a-1} & \leq & P^{*\left(a-1\right)}\\
 \Leftrightarrow1 & \leq & 2P^{*}.
 \end{eqnarray*}
 
+
+
+\paragraph{PROOF OF THE GENERAL CASE.}
+
+First, suppose $c=0$, $\lambda_{k}=max_{i}\left\{ \lambda_{i}\right\} $.
+
+Let
+\begin{eqnarray*}
+C_{x}\left(\delta,t\right) & = & \frac{Y_{floor(t/\delta),x}-t\frac{1}{\delta}\mu_{x}}{\sqrt{1/\delta}\lambda_{x}}\\
+ & = & \frac{\delta Y_{floor(t/\delta),x}-t\mu_{x}}{\sqrt{\delta}\lambda_{x}}\\
+ & \Rightarrow & W_{x}\left(t\right)
+\end{eqnarray*}
+and
+\[
+\mathfrak{C}\left(\delta\right)=\left(C_{x}\left(\delta,t\right):t\in[0,R\left(\delta\right)];x\in A\right),
+\]
+then$ $
+\[
+\mathfrak{C}\left(\delta\right)\Rightarrow\left(W_{x}(t):t\in[0,R\left(\delta\right)];x\in A\right)
+\]
+
+
+Let 
+\[
+f\left(\mathfrak{C}\left(\delta\right)\right)=\begin{cases}
+1 & \mbox{correct selection}\\
+0 & \mbox{otherwise}
+\end{cases}.
+\]
+We would like to prove that 
+\[
+\mathbb{P}\left(f\left(\mathfrak{C}\left(\delta\right)\right)=1\right)\rightarrow\mathbb{P}\left(f\left(W\right)=1\right)
+\]
+as $\delta$ goes to $0$ and $W$ is a standard Brownian motion process
+in $\mathbb{R}^{k}$. 
+
+Define the mapping $s_{\delta}:D\left[0,1\right]\rightarrow\mathbb{R}$
+such that $s_{\delta}\left(Y\right)=Y\left(T_{Y,\delta}\right)$,
+where 
+\[
+T_{Y,\delta}=\mbox{inf}\left\{ t:\left|Y\left(t\right)\right|-A\left(\delta\right)-B\left(\delta\right)t\geq0\right\} 
+\]
+for every $Y\in D\left[0,1\right]$ and $\delta>0$.
+
+Define the mapping $ $$g_{\delta}\left(Y\right))=exp\left(\left(Y\left(t\delta\right)\sqrt{1/\delta}\lambda_{x}^{2}+t\mu_{x}\right)\beta_{t}/n_{tx}\right)/\sum_{x'\in A}exp\left(\left(Y\left(t\delta\right)\sqrt{1/\delta}\lambda_{x'}^{2}+t\mu_{x'}\right)\beta_{t}/n_{tx'}\right)$
+\[
+g_{\delta}\left(C_{x}\left(\delta,t\right)\right)=C_{x}\left(\delta,t\delta\right)
+\]
+\begin{eqnarray*}
+\hat{q}_{tx}\left(A\right) & = & \mbox{exp}\left(\delta\beta_{t}\frac{W_{tx}}{n_{tx}}\right)/\sum_{x'\in A}exp\left(\delta\beta_{t}\frac{W_{tx'}}{n_{tx'}}\right)\\
+ & = & exp\left(\left(C_{x}\left(\delta,t\delta\right)\sqrt{1/\delta}\lambda_{x}^{2}+t\mu_{x}\right)\beta_{t}/n_{tx}\right)/\sum_{x'\in A}exp\left(\left(C_{x'}\left(\delta,t\delta\right)\sqrt{1/\delta}\lambda_{x'}^{2}+t\mu_{x'}\right)\beta_{t}/n_{tx'}\right)\\
+ & = & g_{\delta}\left(C_{x}\left(\delta,t\right)\right)
+\end{eqnarray*}
+
+
+Let 
+\begin{eqnarray*}
+\hat{T}\left(\delta\right) & = & \mbox{min}\left\{ t\in\left\{ \frac{1}{R},\ldots,1\right\} :max_{x}q_{tR,x}\left(A\right)\geq P\right\} .\\
+ & = & \mbox{min}\left\{ t\in\left\{ \frac{1}{R},\ldots,1\right\} :max_{x}exp\left(\delta\beta_{tR}\frac{W_{tR,x}}{n_{tR,x}}\right)\geq P\sum_{x'\in A}exp\left(\delta\beta_{tR}\frac{W_{tR,x'}}{n_{tR,x'}}\right)\right\} \\
+ & = & \mbox{min}\left\{ t\in\left\{ \frac{1}{R},\ldots,1\right\} :\exists x\mbox{ s.t. }\left(\delta\beta_{tR}\frac{Y_{n_{tR,x}}}{n_{tR,x}}\right)\geq log\left(P\sum_{x'\in A}exp\left(\delta\beta_{tR}\frac{W_{n_{tR,x'}}}{n_{tR,x'}}\right)\right)\right\} \\
+ & = & \mbox{min}\left\{ t\in\left\{ \frac{1}{R},\ldots,1\right\} :\exists x\mbox{ s.t. }\right.\left(\frac{Y_{n_{tR,x}-\left(n_{tR,x}\right)\mu_{X}}}{\lambda_{x}\sqrt{R}}\right)\geq\\
+ &  & \frac{n_{tR,x}}{\lambda_{x}\sqrt{R}}\\
+ &  & \left.\left(log\left(P\sum_{x'\in A}exp\left(\left(\frac{\lambda_{x'}\sqrt{R}}{n_{tR,x'}}\left(\delta\beta_{tR}\frac{Y_{n_{tR,x'}-\left(n_{tR,x'}\right)\mu_{X'}}}{\lambda_{x'}\sqrt{R}}\right)+\delta\beta_{tR}\mu_{x'}\right)\right)\right)-\mu_{x}\delta\beta_{tR}\right)/\left(\delta\beta_{tR}\right)\right\} 
+\end{eqnarray*}
+and
+\[
+T\left(\delta\right)=\hat{T}\left(\delta\right)R
+\]
+
+
+Now, we know that
+\[
+\frac{Y_{n_{tR,x}-\left(n_{tR,x}\right)\mu_{X}}}{\lambda_{x}\sqrt{R}}\Rightarrow W_{x}\left(t\right)
+\]
+as $\delta\rightarrow0$. 
+
+Now, if $\lambda_{r}^{2}=\mbox{max}_{i\in A-\left\{ k\right\} }\left\{ \lambda_{i}^{2}\right\} $,
+then \textbackslash{}lim inf\_\{\textbackslash{}delta\textbackslash{}rightarrow0\}
+
+\begin{eqnarray*}
+\mathbb{P}\left(f\left(\mathfrak{C}\left(\delta\right)\right)=1\right) & = & \mathbb{P}\left(\frac{W_{Tk}}{n_{Tk}}\geq\frac{W_{Tx}}{n_{Tx}}\mbox{ }\forall x\in A\right)\\
+ & = & E\left[\prod_{i\in A-\left\{ k\right\} }\mathbb{P}\left\{ \frac{\left(\sum_{j=1}^{n_{T\left(\delta\right)k}}X_{kj}-n_{T\left(\delta\right)k}\mu_{k}\right)}{n_{T\left(\delta\right)k}}-\frac{\lambda_{i}^{2}\left(\sum_{j=1}^{n_{T\left(\delta\right)i}}X_{ij}-n_{T\left(\delta\right)i}\mu_{i}\right)}{\lambda_{i}^{2}n_{T\left(\delta\right)i}}\right.\right.\\
+ &  & \left.\left.+\delta>0\right\} \mid\Delta,X_{k1},\ldots,X_{kn_{Tk}},T\}\right]\\
+ & \geq & E\left[\prod_{i\in A-\left\{ k\right\} }\mathbb{P}\left\{ \frac{\left(\sum_{j=1}^{n_{T\left(\delta\right)k}}dX_{kj}-n_{T\left(\delta\right)k}\mu_{k}\right)}{n_{T\left(\delta\right)k}}-\frac{\lambda_{r}^{2}\left(\sum_{j=1}^{n_{T\left(\delta\right)i}}X_{ij}-n_{T\left(\delta\right)i}\mu_{i}\right)}{\lambda_{i}^{2}n_{T\left(\delta\right)i}}\right.\right.\\
+ & = & \left.\left.+\delta>0\right\} \mid\Delta,X_{k1},\ldots,X_{kn_{Tk}},T\}\right]\\
+ & = & E\left[\left(\mathbb{P}\left\{ \frac{\left(\sum_{j=1}^{n_{T\left(\delta\right)k}}X_{kj}-n_{T\left(\delta\right)k}\mu_{k}\right)}{n_{T\left(\delta\right)k}}-\frac{\left(\sum_{j=1}^{n_{T\left(\delta\right)r}}X_{rj}-n_{T\left(\delta\right)r}\mu_{r}\right)}{n_{T\left(\delta\right)r}}\right.\right.\right.\\
+ & = & \left.\left.+\delta>0\right\} \mid\Delta,X_{k1},\ldots,X_{kn_{Tk}}\left.,T\}\right)^{k-1}\right]\\
+ & = & E\left[\left(\mathbb{P}\left\{ \frac{n_{T\left(\delta\right)r}\left(\sum_{j=1}^{n_{T\left(\delta\right)k}}X_{kj}-n_{T\left(\delta\right)k}\mu_{k}\right)-n_{T\left(\delta\right)k}\left(\sum_{j=1}^{n_{T\left(\delta\right)r}}X_{rj}-n_{T\left(\delta\right)r}\mu_{r}\right)}{R^{3/2}v_{rk}}\right.\right.\right.\\
+ &  & \left.\left.+\frac{\delta}{R^{3/2}v_{rk}}\left(n_{T\left(\delta\right)k}n_{T\left(\delta\right)r}\right)>0\right\} \mid\Delta,X_{k1},\left.\ldots,X_{kn_{Tk}},T\right)^{k-1}\right]\\
+ & \geq & E\left[\left(\mathbb{P}\left\{ \frac{n_{T\left(\delta\right)r}\left(\sum_{j=1}^{n_{T\left(\delta\right)k}}X_{kj}-n_{T\left(\delta\right)k}\mu_{k}\right)-n_{T\left(\delta\right)k}\left(\sum_{j=1}^{n_{T\left(\delta\right)r}}X_{rj}-n_{T\left(\delta\right)r}\mu_{r}\right)}{R^{3/2}v_{rk}}\right.\right.\right.\\
+ &  & \left.\left.+\frac{\delta}{R^{3/2}v_{rk}}\left(n_{T\left(\delta\right)k}n_{T\left(\delta\right)r}\right)>0\right\} \mid\Delta,X_{k1},\left.\ldots,X_{kn_{Tk}},T\right)\right]^{k-1}\\
+ & = & E\left[\left(\mathbb{P}\left\{ \frac{n_{T\left(\delta\right)r}\left(\sum_{j=1}^{n_{T\left(\delta\right)k}}X_{kj}-n_{T\left(\delta\right)k}\mu_{k}\right)-n_{T\left(\delta\right)k}\left(\sum_{j=1}^{n_{T\left(\delta\right)r}}X_{rj}-n_{T\left(\delta\right)r}\mu_{r}\right)}{R^{3/2}v_{rk}}\right.\right.\right.\\
+ &  & \left.\left.+\frac{\delta}{R^{3/2}v_{rk}}\left(n_{T\left(\delta\right)k}n_{T\left(\delta\right)r}\right)>0\right\} \mid\Delta\right]^{k-1}\\
+ & \geq
+\end{eqnarray*}
+
+
+Now,
+
+Suppose $c>0$. 
 
 \textbf{\large (I haven't erased the following in case I need it later) }{\large \par}
 
