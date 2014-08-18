@@ -1,0 +1,644 @@
+
+\documentclass[11pt,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1.5cm,bmargin=1.5cm,lmargin=1.5cm,rmargin=1.5cm}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\onehalfspacing
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%\documentclass[opre,blindrev]{informs3} % current default for manuscript submission
+
+% current default line spacing
+%%\OneAndAHalfSpacedXII 
+%%\DoubleSpacedXII
+%%\DoubleSpacedXI
+
+% If hyperref is used, dvi-to-ps driver of choice must be declared as
+%   an additional option to the \documentclass. For example
+%\documentclass[dvips,opre]{informs3}      % if dvips is used 
+%\documentclass[dvipsone,opre]{informs3}   % if dvipsone is used, etc. 
+
+%%% OPRE uses endnotes
+\usepackage{endnotes}
+\let\footnote=\endnote
+\let\enotesize=\normalsize
+\def\notesname{Endnotes}%
+\def\makeenmark{\hbox to1.275em{\theenmark.\enskip\hss}}
+\def\enoteformat{\rightskip0pt\leftskip0pt\parindent=1.275em
+  \leavevmode\llap{\makeenmark}}
+
+
+% Private macros here (check that there is no clash with the style)
+\newcommand{\lambdahat}{\widehat{\lambda}}
+\newcommand{\xtilde}{\tilde{x}}
+\newcommand{\qhat}{\widehat{q}}
+\newcommand{\as}{\ a.s.}
+\newcommand{\zap}[1]{}
+\newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\Nat}{\mathbb{N}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Pb}[2]{\mathbb{P}_{#1}\left\{#2\right\}}
+\newcommand{\Ybar}{\overline{Y}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+% \newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
+% \newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+\newcommand{\g}{\,\vert\,}
+\newcommand{\ind}[1]{1_{\left\{#1\right\}}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Gcal}{\mathcal{G}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\xwig}{\tilde{x}}
+\newcommand{\PZ}{\mbox{PZ}}
+\newcommand{\PCS}{\mbox{PCS}}
+\newcommand{\PGS}{\mbox{PGS}}
+\newcommand{\uLFC}{\underline{u}}
+\newcommand{\e}[1]{\left\{ #1 \right\}}
+\newcommand{\T}{\mathbb{T}} % Time index set.
+\newcommand{\CS}{\mbox{CS}}
+\newcommand{\Ft}{\mathcal{F}_t}
+\newcommand{\F}[1]{\mathcal{F}_{#1}}
+\newcommand{\Ftau}{\mathcal{F}_\tau}
+\newcommand{\Rcal}{\mathcal{R}}
+\newcommand{\upthresh}{P}
+\newcommand{\xstar}{X^*}
+\newcommand{\cmax}{1-(P^*)^{\frac1{k-1}}}
+\newcommand{\NewN}{M}
+\newcommand{\thetavec}{\vec{\theta}}
+\newcommand{\uvec}{\vec{u}}
+\newcommand{\sigmavec}{\lambda}
+\newcommand{\sigmacom}{\sigma}
+\newcommand{\sigmascal}{\lambda}
+\newcommand{\PstarB}{\mathcal{P}^*_B}
+\newcommand{\Ymod}{Y'}
+\newcommand{\ceil}{\mathrm{ceil}}
+% How to state the common variance assumption at the beginning of lemmas, propositions and theorems
+\newcommand{\homog}{Suppose $\lambda^2_x = \sigma^2>0\ \forall x$.  }
+\newcommand{\algref}[1]{Alg.~\ref{#1}}
+
+
+\usepackage{algorithm,algorithmic,enumerate}
+
+
+% Natbib setup for author-year style
+\usepackage{natbib}
+ \bibpunct[, ]{(}{)}{,}{a}{}{,}%
+ \def\bibfont{\small}%
+ \def\bibsep{\smallskipamount}%
+ \def\bibhang{24pt}%
+ \def\newblock{\ }%
+ \def\BIBand{and}%
+
+%% Setup of theorem styles. Outcomment only one. 
+%% Preferred default is the first option.
+  % Preferred (Theorem 1, Lemma 1, Theorem 2)
+%\TheoremsNumberedByChapter  % (Theorem 1.1, Lema 1.1, Theorem 1.2)
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{On the Asymptotic Validity of a Fully Sequential Elimination Procedure
+for Indifference-Zone Ranking and Selection with Tight Bounds on Probability
+of Correct Selection}
+
+\maketitle
+We prove the validity of the sequential elimination IZ procedure proposed
+by Frazier {[}{]} when $\delta$ goes to $0$. Specifically, we analyze
+Algorithm 2, when $B_{1}=\cdots=B_{k}=1$:
+
+   
+\paragraph{Algorithm 2: Discrete-time implementation of BIZ, for unknown and/or heterogeneous variances.}    
+\begin{algorithmic}[1]   
+\label{alg:hetero-BIZ}   
+\REQUIRE $c \in [0,\cmax]$, $\delta>0$, $P^*\in(1/k,1)$, $n_0\ge0$ an integer, $B_1,\ldots,B_k$ strictly positive integers.  Recommended choices are $c=\cmax$, $B_1=\cdots=B_k=1$ and $n_0$ between $10$ and $30$.     If the sampling variances $\lambda^2_x$ are known, replace the estimators     
+$\lambdahat^2_{tx}$ with the true values $\lambda^2_x$, and set $n_0=0$.     
+To compute $\qhat_{tx}(A)$, use \begin{equation}   q'_{t,x}(A) =    \exp\left(\gamma \delta Y'_{tx}\right) \bigg/ \sum_{x'\in A} \exp\left(\gamma \delta Y'_{tx'}\right)   = \exp\left(\frac{\delta}{\lambda^2_x} Y_{n_x(t),x}\right) \bigg/ \sum_{x'\in A} \exp\left(\frac{\delta}{\lambda^2_{x'}} Y_{n_x'(t),x'}\right), \end{equation}   
+where $Y_{n_x(t),x}$ is the sum of the first $n_x(t)$ samples.
+ 
+
+\STATE For each $x$, sample alternative $x$ $n_0$ times and set $n_{0x} \leftarrow n_0$.     
+Let $W_{0x}$ and $\lambdahat^2_{0x}$ be the sample mean and sample variance respectively of these samples.     Let $t\leftarrow 0$.     
+\STATE Let $A \leftarrow \{ 1,\ldots, k\}$, $\upthresh \leftarrow P^*$, $t \leftarrow 1$.
+\WHILE{$x\in\mbox{max}_{x\in A}\qhat_{tx}(A)<P$}
+\WHILE{$\mbox{min}_{x\in A} \qhat_{tx}(A) \le c$}
+ \STATE Let $x\in\mbox{arg min}_{x\in A}\qhat_{tx}(A)$.
+    \STATE Let $\upthresh \leftarrow \upthresh/(1-\qhat_{tx}(A))$.     
+\STATE Remove $x$ from $A$.
+\ENDWHILE
+  \STATE Let $z \in \mbox{arg min}_{x\in A} n_{tx} / \lambdahat^2_{tx}$.     
+\STATE For each $x\in A$, let      $n_{t+1,x} = \ceil\left( \lambdahat^2_{tx} (n_{tz} + B_z) / \lambdahat^2_{tz} \right)$.     \STATE For each $x\in A$, if $n_{t+1,x}>n_{tx}$, take $n_{t+1,x}-n_{tx}$ additional samples from alternative $x$.  Let $W_{t+1,x}$ and $\lambdahat^2_{t+1,x}$ be the sample mean and sample variance respectively of all samples from alternative $x$ thus far.    
+\STATE Increment $t$.
+ \ENDWHILE
+  \STATE Select $\xhat \in\mbox{arg max}_{x\in A} W_{tx} / n_{tx}$ as our estimate of the best.
+
+   
+\end{algorithmic}   
+
+
+
+\section{Introduction}
+
+This paper is organized as follows: In $\text{�}2$, we present the
+proof of the validity of the algorithm when the variances are known.
+In $\text{�}3$, we prove the case when the variances are unknown.
+
+To prove the case when the variances are known, we use a Functional
+Central Limit Thoerem that shows how to standardize the output data
+to make them behave like Brownian motion processes in the limit. We
+also use an extension of the Continuous Mapping Theorem (Theorem 5.5
+of Billingsley 1968) to see that the algorithm behaves like a sequential
+elimination IZ procedure with a Brownian motion process instead of
+the standardize of the sum of the output data in the limit. Finally,
+we use the results of the paper of Frazier {[}{]} to prove the validity
+of this algorithm in the limit.
+
+
+\section{Asymptotic Validity when the Variances are Known}
+
+Without loss of generality, suppose that the true means of the systems
+are indexed so that $\mu_{k}\geq\mu_{k-1}\geq\cdots\geq\mu_{1}$.
+We suppose that samples from system $x\in\left\{ 1\ldots,k\right\} $
+are identically distributed and independent, over time and across
+alternatives. The algorithm ends in $R\left(\delta\right)\in\mathbb{N}$
+iterations where $R\left(\delta\right)$ is a random variable , and
+$R(\delta)\rightarrow\infty$ as $\delta\rightarrow0$ with probability
+$1$. We know that $R\left(\delta\right)<\infty$ almost surely (Lemma
+4 of Frazier 2011). To simplify notation, we write $R$ in place of
+$R\left(\delta\right)$, and let the dependence on $\delta$ be implicit.
+Furthermore, we suppose $R^{1/2}\delta$ converges to a random variable
+$\Delta$ $ $with probability $1$ where $\infty>\Delta>0$ with
+probability $1$. We also define $\lambda_{z}^{2}:=\max_{i\in\left\{ 1\ldots,k\right\} }\lambda_{i}^{2}$.
+We suppose that $\mbox{min}{}_{i\in\left\{ 1\ldots,k\right\} }\lambda_{i}^{2}>0$.
+
+
+\paragraph*{Lemma 1.}
+
+If $x\in\left\{ 1\ldots,k\right\} $, then
+\[
+C_{x}\left(\delta,\cdot\right):=\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+tR\left(\delta\right)\right)\right),x}-\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+tR\left(\delta\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{R\left(\delta\right)}}\Rightarrow W_{x}\left(\cdot\right)
+\]
+where $Y_{n,x}$ is the sum of the first $n$ samples and $W_{x}$
+is a standard Brownian motion.
+
+
+\paragraph*{Proof.}
+
+We define 
+\[
+C_{x\delta}\left(t\right):=\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}tR\right),x}-\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}tR\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{R}}
+\]
+where $t\in\left[0,1\right]$. Since $ $$\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}R\left(\delta\right)\delta^{2}\overset{P}{\rightarrow}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\Delta^{2}$
+in probability, then by the Theorem 17.2 of Billingsley 1968, 
+\[
+C_{x\delta}\left(\cdot\right)\Rightarrow W\left(\cdot\right)
+\]
+as $\delta\rightarrow0$.
+
+We now define 
+\[
+\tilde{C}_{x}\left(\delta,t\right):=\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}tR\right),x}-\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}tR\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{R}}.
+\]
+Consequently, as $\delta\rightarrow0$,
+\[
+\tilde{C}_{x}\left(\delta,\cdot\right)\Rightarrow W\left(\cdot\right)
+\]
+because $\frac{\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}tR-ceil\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}tR\right)}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{R}}\rightarrow0$
+(see proof of Theorem 9.1 of Billingsley 1968). 
+
+Observe that for $\epsilon>0$ and $\delta$ sufficiently small
+\[
+\left|\frac{-Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}tR\right),x}+Y_{\mbox{ceil}\left(n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}tR\right),x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{R}}\right|<\epsilon\left(n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}+2\right)
+\]
+and then
+\[
+C_{x}\left(\delta,\cdot\right)\Rightarrow W\left(\cdot\right).
+\]
+
+
+$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\ensuremath{\blacksquare}}$
+
+${\color{white}sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss}$$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\ensuremath{\blacksquare}}$
+
+Now we are going to define new algorithms that are almost the same
+than the one proposed by Frazier, but instead of $q_{tx}^{\delta}\left(A\right)$,
+these algorithms use new functions $q_{tx}^{Y,\delta}\left(A\right)$
+which depend on a function $Y$ that is in $D\left[0,1\right]^{k}$
+and $D\left[0,1\right]^{k}$ is the set of functions from $\left[0,1\right]^{k}$
+to $\mathbb{R}$ that are right-continuous and have left-hand limits.
+We'll use the Skorohod metric $d$ on $D\left[0,1\right]^{k}$:
+\[
+d\left(X,Y\right)=\mbox{inf}_{\lambda\in\Lambda}\left\{ \left\Vert \lambda-I\right\Vert \vee\left\Vert X-Y\circ\lambda\right\Vert \right\} 
+\]
+where $\Lambda$ is the set of strictly increasing, continuous mappings
+of $\left[0,1\right]$ onto itself, and $\left\Vert \cdot\right\Vert $
+is the uniform norm, and $I$ is the identity map. 
+
+First we are going to suppose that $\delta>0$ and $\mu_{k}=\delta$,$\mu_{k-1}=\cdots=\mu_{\text{1}}=0$.
+
+Suppose $\Delta$ is given. Let$ $ $Y\in D\left[0,1\right]^{k}$
+and $t\in\left[0,1\right]$, we define
+\begin{eqnarray*}
+q_{tx}^{Y,\delta}\left(A\right): & = & \mbox{exp}\left(\delta\sqrt{R}\frac{Y_{x}\left(t\right)}{\lambda_{z}}+\delta\beta_{tR}\mu_{x}\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\delta\sqrt{R}\frac{Y_{x^{'}}\left(t\right)}{\lambda_{z}}+\delta\beta_{tR}\mu_{x^{'}}\right)
+\end{eqnarray*}
+where $\beta_{tR}=\frac{\left(n_{0}+tR\right)}{\lambda_{z}^{2}}$.
+
+We then define for $0<a<P^{*}-\frac{1}{k}$
+\[
+\]
+\begin{eqnarray*}
+T_{Y,\delta}^{0} & = & 0\\
+A_{0}^{Y,\delta} & = & \left\{ 1,\ldots,k\right\} \\
+P_{0}^{Y,\delta} & = & P^{*}-a\\
+T_{Y,\delta}^{n+1} & = & \mbox{inf}\left\{ t\in\left[T_{Y,\delta}^{n},1\right]:\mbox{ min}_{x\in A_{n}^{Y,\delta}}q_{tx}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}^{Y,\delta}}q_{tx}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\geq P_{n}^{Y,\delta}\right\} \\
+Z_{n+1}^{Y,\delta} & \in & \mbox{arg min}_{x\in A_{n}^{Y,\delta}}q_{T_{Y,\delta}^{n+1},x}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\\
+A_{n+1}^{Y,\delta} & = & A_{n}-\left\{ Z_{n+1}^{Y,\delta}\right\} \\
+P_{n+1}^{Y,\delta} & = & P_{n}^{Y,\delta}/\left(1-\mbox{min}_{x\in A_{n}^{Y,\delta}}q_{T_{Y,\delta}^{n+1}x}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\right).
+\end{eqnarray*}
+Now, let
+\[
+M_{Y,\delta}=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n-1}^{Y,\delta}}q_{T_{Y,\delta}^{n},x}\left(A_{n-1}^{Y,\delta}\right)\geq P_{n-1}^{Y,\delta}\right\} 
+\]
+
+
+and
+
+\begin{eqnarray*}
+f\left(Y,\delta\right) & = & \begin{cases}
+1 & \mbox{if }\mbox{k}\in A_{M-1}^{Y,\delta}\mbox{ and }\lambda_{k}^{2}\left(Y_{k}\left(T_{Y,\delta}^{M_{Y,\delta}}\right)\right)+\delta\frac{\lambda_{k}^{2}}{\lambda_{z}\sqrt{R}}\left(n_{0}+T_{Y,\delta}^{M_{Y,\delta}}R\right)\geq\lambda_{x}^{2}\left(Y_{x}\left(T_{Y,\delta}^{M_{Y,\delta}}\right)\right)\mbox{ }\mbox{\ensuremath{\forall}}x\in A_{M-1}^{Y,\delta}\\
+0 & \mbox{otherwise}
+\end{cases}.
+\end{eqnarray*}
+
+
+Now, we also define$ $
+\[
+q_{tx}^{Y}\left(A\right):=\mbox{exp}\left(\Delta\frac{Y_{x}\left(t\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}tI_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{Y_{x'}\left(t\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}tI_{\left\{ x'=k\right\} }\right)
+\]
+
+
+\begin{eqnarray*}
+T_{Y}^{0} & = & 0\\
+A_{0}^{Y} & = & \left\{ 1,\ldots,k\right\} \\
+P_{0}^{Y} & = & P^{*}\\
+T_{Y}^{n+1} & = & \mbox{inf}\left\{ t\in\left[T_{Y}^{n},1\right]:\mbox{ min}_{x\in A_{n}^{Y}}q_{tx}^{Y}\left(A_{n}^{Y}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}^{Y}}q_{tx}^{Y}\left(A_{n}^{Y}\right)\geq P_{n}^{Y}\right\} \\
+Z_{n+1}^{Y} & \in & \mbox{arg min}_{x\in A_{n}^{Y}}q_{T_{Y}^{n+1},x}^{Y}\left(A_{n}^{Y}\right)\\
+A_{n+1}^{Y} & = & A_{n}^{Y}-\left\{ Z_{n+1}^{Y}\right\} \\
+P_{n+1}^{Y} & = & P_{n}^{Y,\delta}/\left(1-\mbox{min}_{x\in A_{n}^{Y,}}q_{T_{Y}^{n+1}x}^{Y}\left(A_{n}^{Y}\right)\right).
+\end{eqnarray*}
+Now, let
+\[
+M_{Y}=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n-1}^{Y}}q_{T_{Y}^{n},x}\left(A_{n-1}^{Y}\right)\geq P_{n-1}^{Y}\right\} 
+\]
+and
+\[
+\]
+\begin{eqnarray*}
+g\left(Y\right) & = & \begin{cases}
+1 & \mbox{if }\mbox{k}\in A_{M-1}^{Y}\mbox{ and }Y_{k}\left(T_{Y}^{M_{Y}}\right)+\Delta\frac{1}{\lambda_{z}}T_{Y}^{M_{Y}}\geq\frac{\lambda_{x}^{2}}{\lambda_{k}^{2}}\left(Y_{x}\left(T_{Y}^{M_{Y}}\right)\right)\mbox{ }\mbox{\ensuremath{\forall}}x\in A_{M-1}^{Y}\\
+0 & \mbox{otherwise}
+\end{cases}.
+\end{eqnarray*}
+
+
+Now, we want to prove that 
+\[
+f\left(C\left(\delta,\cdot\right)\right)\Rightarrow g\left(W\right)
+\]
+as $\delta\rightarrow0$. In order to do this, we will prove the following
+lemma which will allow us to use the Theorem 5.5 of Billingsley 1968
+that implies the desired result.
+
+
+\paragraph*{Lemma 2.}
+
+Let $D_{s}\equiv\{x\in D\left[0,1\right]^{k}:\mbox{ for some sequence }\left\{ x_{n}\right\} \subset D\left[0,1\right]^{k}\mbox{ with }$
+$lim_{n}d\left(x_{n},x\right)=0,$ the sequence $\left\{ f_{n}\left(x_{n}\right)\right\} $
+converges to $\left\{ g\left(x\right)\right\} $$\left.\right\} $$ $,
+then $ $$\mathbb{P}\left(W\text{\ensuremath{\in}}D_{s}\right)=1$.
+
+
+\paragraph*{Proof.}
+
+We will use the following property: if $0<T<1$ where $T$ is a stopping
+time, then by the local version of the law of the iterated logarithm
+for Brownian motion 
+\begin{equation}
+\mbox{lim sup}_{u\rightarrow0^{+}}\frac{\left[W_{x}\left(T+u\right)-W_{x}\left(T\right)\right]}{\sqrt{2u\mbox{ln}\left[\mbox{ln}\left(1/u\right)\right]}}=1\label{eq:1.1}
+\end{equation}
+almost surely for each system $x$. Furthermore, note that $W$ is
+continuous on $\left[0,1\right]^{k}$ and so $W$ is also uniformly
+continuous on $\left[0,1\right]^{k}$.
+
+Let $\left\{ Z_{n}\right\} \subset D\left[0,1\right]^{k}$ such that
+$Z_{n}\rightarrow W$. Furthermore, $\delta_{n}^{2}\frac{\left(n_{0}+tR\left(\delta_{n}\right)\right)}{\lambda_{z}^{2}}\rightarrow\frac{\Delta^{2}t}{\lambda_{z}^{2}}$
+in $D\left[0,1\right]$ and $\frac{\delta_{n}\sqrt{R\left(\delta_{n}\right)}}{\lambda_{z}}\rightarrow\frac{\Delta}{\lambda_{z}}$
+in $D\left[0,1\right]$ because uniformly convergence implies convergence
+in the Skorohod topology. Consequently, there exist functions $\lambda_{n}$
+in $\Lambda$ such that 
+\[
+\mbox{lim}_{n}Z_{n}\left(\lambda_{n}t\right)=W\left(t\right)
+\]
+uniformly in $t$ and
+\[
+\mbox{lim}_{n}\lambda_{n}t=t
+\]
+uniformly in $t$. Then
+\[
+\mbox{lim}_{n}\frac{\delta_{n}\sqrt{R\left(\delta_{n}\right)}}{\lambda_{z}}Z_{n}\left(\lambda_{n}t\right)+\delta_{n}^{2}\frac{\left(n_{0}+\lambda_{n}\left(t\right)R\left(\delta_{n}\right)\right)}{\lambda_{z}^{2}}=W\left(t\right)\frac{\Delta}{\lambda_{z}}+\frac{\Delta^{2}t}{\lambda_{z}^{2}}
+\]
+uniformly in $t$, and so
+\[
+\mbox{lim}_{n}\mbox{exp}\left(\frac{\delta_{n}\sqrt{R\left(\delta_{n}\right)}}{\lambda_{z}}Z_{n}\left(\lambda_{n}t\right)+\delta_{n}^{2}\frac{\left(n_{0}+\lambda_{n}\left(t\right)R\left(\delta_{n}\right)\right)}{\lambda_{z}^{2}}\right)=\mbox{exp}\left(W\left(t\right)\frac{\Delta}{\lambda_{z}}+\frac{\Delta^{2}t}{\lambda_{z}^{2}}\right)
+\]
+uniformly in $t$ since $\mbox{exp}$ is uniformly continuous in $\left[0,1\right]$.
+Consequently,
+\[
+q_{\lambda_{n}\left(t\right)x}^{Z_{n},\delta_{n}}\left(A\right)\rightarrow q_{tx}^{W}\left(A\right)
+\]
+uniformly in $t$. Thus, $q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right)\rightarrow q_{\cdot x}^{W}\left(A\right)$
+in $D\left[0,1\right]$ for any set $A\subset\left\{ 1,\ldots,k\right\} $.
+Then there exists $\lambda_{n,A}\in\Lambda$ such that $\mbox{sup}_{t\in\left[0,1\right]}\left\Vert \lambda_{n,A}\left(t\right)-t\right\Vert \leq d\left(q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),q_{\cdot x}^{W}\left(A\right)\right)+\frac{1}{n}$
+and $\mbox{sup}_{t\in\left[0,1\right]}\left\Vert q_{tx}^{Z_{n},\delta_{n}}\left(A\right)-q_{\lambda_{n,A}\left(t\right)x}^{W}\left(A\right)\right\Vert \leq d\left(q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),q_{\cdot x}^{W}\left(A\right)\right)+\frac{1}{n}$.
+Taking $g_{n}^{A}\equiv\mbox{sup}_{t\in\left[0,1\right]}\left\Vert q_{tx}^{W}\left(A\right)-q_{\lambda_{n}\left(t\right)x}^{W}\left(A\right)\right\Vert $,
+we see from the uniform continuity of $W$ on $\left[0,1\right]^{k}$
+and the definition of $g_{n}^{A}$ that $\mbox{lim}_{n\rightarrow\infty}g_{n}^{A}=0.$
+Moreover, if we take $\epsilon_{n}^{A}=3n^{-1}+3\mbox{sup}\left\{ d\left(q_{\cdot x}^{Z_{l},\delta_{l}}\left(A\right),q_{\cdot x}^{W}\left(A\right)\right)+g_{l}^{A}:l=n,n+1,\ldots\right\} $,
+then $\left\{ \epsilon_{n}^{A}\right\} $ is a monotonically decreasing
+sequence of positive numbers with limit zero.
+
+From the definition of $\epsilon_{n}$ we have $d\left(q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),q_{\cdot x}^{W}\left(A\right)\right)<\epsilon_{n}/2$
+and $g_{n}^{A}<\epsilon_{n}/2$ for $n=1,2,\ldots$ Consequently,
+we have 
+\begin{eqnarray*}
+\left\Vert q_{tx}^{Z_{n},\delta_{n}}\left(A\right)-q_{tx}^{W}\left(A\right)\right\Vert  & \leq & \left\Vert q_{tx}^{Z_{n},\delta_{n}}\left(A\right)-q_{\lambda_{n}\left(t\right)x}^{W}\left(A\right)\right\Vert +\left\Vert q_{\lambda_{n}\left(t\right)x}^{W}\left(A\right)-q_{tx}^{W}\left(A\right)\right\Vert \\
+ & < & \epsilon_{n}^{A}
+\end{eqnarray*}
+for all $t\in\left[0,1\right]$ and $x\in A$.
+
+We will show that $\mathbb{P}\left(W\text{\ensuremath{\in}D\ensuremath{\left[0,1\right]^{k}}-}D_{s}\mid M_{W}=i\right)=1$
+for $i\in\left\{ 1,\ldots,k-1\right\} $ so that the desired conclusion
+follows.
+
+Suppose first that $M_{W}=1$. Let's prove that $T_{Z_{n},\delta_{n}}^{1}\rightarrow T_{W}^{1}$
+as $n\rightarrow\infty$. Since $M_{W}=1$, then $\mbox{max}_{x\in A}q_{T_{W}^{1}x}^{W}\left(A\right)=P$
+almost surely because $W$ is continuous almost surely. Let $q_{x}^{*}=\mbox{min}_{t\in\left[0,T_{W}^{1}\right]}q_{tx}^{W}$
+(the minimum exists because $q_{tx}^{W}$ is continuous) and let $q^{*}=\mbox{min}_{x}q_{x}^{*}$.
+Let $N$ such that if $n>N$ then $\epsilon_{n}^{A}<q^{*}-c$ (note
+that $q^{*}-c>0$ because $M_{W}=1$ and $N$ is a random variable).
+If $n>N$ and $t\leq T_{W}^{1}$ then
+\begin{eqnarray*}
+q_{tx}^{W} & < & q_{tx}^{Z_{n},\delta_{n}}+q^{*}-c\\
+\Rightarrow c & < & q_{tx}^{Z_{n},\delta_{n}}+q^{*}-q_{tx}^{W}\leq q_{tx}^{Z_{n},\delta_{n}}.
+\end{eqnarray*}
+
+
+Let $T_{W}^{1}>\epsilon>0$, $q_{x}^{+}=\mbox{max}_{t\in\left[0,T_{W}^{1}-\epsilon\right]}q_{tx}^{W}$
+and $q^{+}=\mbox{max}_{x}q_{x}^{*}$. Let $N_{2}^{*}$ such that if
+$n>N_{2}^{*}$, then $\delta_{n}<r<P-q^{+}$ where $r\in\mathbb{Q}$.
+Let $N_{2}^{**}$ such that if $n>N_{2}^{**}$, then $\epsilon_{n}^{A}<P-q^{+}-r$.
+Thus, if $n>N_{2}:=\mbox{max}\left\{ N_{2}^{*},N_{2}^{**}\right\} $
+and $t\leq T_{W}^{1}-\epsilon$, then
+\begin{eqnarray*}
+q_{tx}^{Z_{n},\delta_{n}}\left(A\right) & < & q_{tx}^{W}\left(A\right)+\epsilon_{n}^{A}\\
+ & < & q_{tx}^{W}\left(A\right)+P-q^{+}-r\\
+ & \leq & P-r\leq P-\delta_{n}
+\end{eqnarray*}
+and so $T_{Z_{n},\delta_{n}}^{1}>T_{W}^{1}-\epsilon$ if $n>N_{\text{3}}:=\mbox{max}\left\{ N_{1},N_{2}\right\} $.
+
+Case 1. $T_{W}^{1}=1$, so $\left|T_{W}^{1}-T_{Z_{n},\delta_{n}}^{1}\right|<\epsilon$
+if $n>N_{3}$. 
+
+If $\epsilon_{2}\geq T_{W}^{1}$=1, then $\left|T_{W}^{1}-T_{Z_{n},\delta_{n}}^{1}\right|<\epsilon_{2}$
+if $n>N_{3}$.
+
+Case 2. $T_{W}^{1}=0$. Note that $q_{0x}^{W}\left(A\right)=\frac{1}{k}<P$
+and so this case is not possible. 
+
+Case 3. $0<T_{W}^{1}<1$. 
+
+Note that $T_{Z_{n},\delta_{n}}^{1}\leq T_{Z_{n},\delta_{n}}^{1}\left(P+\delta_{n}\right)\leq T_{W}^{1}\left(P+\delta_{n}+\epsilon_{n}\right)$
+because if $t<T_{Z_{n},\delta_{n}}^{1}\left(P+\delta_{n}\right)$
+\[
+q_{tx}^{W}\left(A\right)-\epsilon_{n}<q_{tx}^{Z_{n},\delta_{n}}\left(A\right)<P+\delta_{n}.
+\]
+Furthermore, 
+\begin{eqnarray*}
+T_{W}^{1}\left(A\right) & \leq & \mbox{lim inf}_{n}T_{W}^{1}\left(P+\delta_{n}+\epsilon_{n}\right)\\
+ & \leq & \mbox{lim sup}_{n}T_{W}^{1}\left(P+\delta_{n}+\epsilon_{n}\right).
+\end{eqnarray*}
+ Now, let $x=\mbox{arg max}q_{T_{W}^{1}x}^{W}$. By (\ref{eq:1.1}),
+for any $\varepsilon\in\left(0,1\right)$, there exists a monotonically
+decreasing sequence $\left\{ s_{k}:\mbox{ }k=1,2,\ldots\right\} \subset\left(T_{W}^{1},1\right)$
+such that $\mbox{lim}_{n}s_{n}=T_{W}^{1}$; and for $k=1,2,\ldots$
+we have
+
+\begin{eqnarray*}
+W_{x}\left(s_{k}\right)-W_{x}\left(T_{W}^{1}\right) & >v_{k}\equiv & \left(\varepsilon\right)\sqrt{2\left(s_{k}-T_{W}^{1}\right)\mbox{ln}\mbox{ln}\left(1/\left(s_{k}-T_{W}^{1}\right)\right)}.
+\end{eqnarray*}
+
+
+Notice that $v_{k}>0$ and $\mbox{lim}_{k}v_{k}=0$. Pick $k$ arbitrarily.
+Let $N_{1}$ such that if $n>N_{4}$, then $\frac{\epsilon_{n}}{P}<v_{k}\frac{\Delta}{\lambda_{z}}$
+and $\frac{\delta_{n}}{P}<\left(v_{k}\frac{\Delta}{\lambda_{z}}\right)^{2}/2$.
+$ $Observe that
+\begin{eqnarray*}
+q_{s_{k}x}^{W} & = & \mbox{exp}\left(\Delta\frac{W_{x}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x'=k\right\} }\right)\\
+ & > & \frac{\mbox{exp}\left(\Delta\frac{W_{x}\left(T_{W}^{1}\right)+v_{k}}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{1}I_{\left\{ x=k\right\} }\right)}{\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{W_{^{x'}}\left(T_{W}^{1}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{1}I_{\left\{ x^{'}=k\right\} }\right)}\times\frac{\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{W_{^{x'}}\left(T_{W}^{1}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{1}I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x'=k\right\} }\right)}\\
+ & \geq & q_{T_{W}^{1}x}^{W}\mbox{exp}\left(v_{k}\frac{\Delta}{\lambda_{z}}\right)\geq P\left(1+v_{k}\frac{\Delta}{\lambda_{z}}+\frac{\left(v_{k}\frac{\Delta}{\lambda_{z}}\right)^{2}}{2}\right)>P+\epsilon_{n}+\delta_{n}.
+\end{eqnarray*}
+Consequently, 
+\[
+s_{k}>T_{W}^{1}\left(P+\epsilon_{n}+\delta_{n}\right)
+\]
+if $n>N_{4}$, and so 
+\[
+s_{k}\geq\mbox{lim sup}_{n}T_{W}^{1}\left(P+\delta_{n}+\epsilon_{n}\right).
+\]
+Since $s_{k}\rightarrow T_{W}^{1}$, we must have that
+\begin{eqnarray*}
+T_{W}^{1}\left(A\right) & \geq & \mbox{lim sup}_{n}T_{W}^{1}\left(P+\delta_{n}+\epsilon_{n}\right)\\
+ & \geq & \mbox{lim inf}_{n}T_{W}^{1}\left(P+\delta_{n}+\epsilon_{n}\right)\\
+ & \geq & T_{W}^{1}\left(A\right)
+\end{eqnarray*}
+Consequently, 
+\[
+T_{W}^{1}\left(A\right)=\mbox{lim}_{n}T_{W}^{1}\left(P+\delta_{n}+\epsilon_{n}\right).
+\]
+
+
+Now,
+\[
+T_{Z_{n},\delta_{n}}^{1}\geq T_{Z_{n},\delta_{n}}^{1}\left(P-\delta_{n}\right)\geq T_{W}^{1}\left(P-\delta_{n}-\epsilon_{n}\right)
+\]
+
+
+because if $t<T_{W}^{1}\left(P-\delta_{n}-\epsilon_{n}\right)$ 
+\[
+q_{tx}^{Z_{n},\delta_{n}}\left(A\right)-\epsilon_{n}<q_{tx}^{W}\left(A\right)<P-\delta_{n}-\epsilon_{n}.
+\]
+Similarly we can prove that 
+\[
+\mbox{lim}_{n}T_{W}^{1}\left(P-\delta_{n}-\epsilon_{n}\right)=T_{W}^{1}\left(A\right).
+\]
+Consequently,
+\[
+T_{W}^{1}\left(A\right)=\mbox{lim}_{n}T_{Z_{n},\delta_{n}}^{1}.
+\]
+
+
+\textbf{\large The following is wrong}{\large \par}
+
+We will prove by induction that
+\begin{eqnarray*}
+T_{x_{n},\delta_{n}}^{m} & \rightarrow & T_{W}^{m}\\
+Z_{m}^{x_{n},\delta_{n}} & \rightarrow & Z_{m}^{W}\\
+A_{m}^{x_{n},\delta_{n}} & \rightarrow & A_{m}^{W}\\
+P_{m}^{x_{n},\delta_{n}} & \rightarrow & P_{m}^{W}
+\end{eqnarray*}
+
+
+Suppose this is true for $m$. Observe that
+\[
+T_{W-\epsilon_{n}e,\delta_{n}}^{m}\leq T_{x_{n},\delta_{n}}^{m}\leq T_{W+\epsilon_{n}e,\delta_{n}}^{m}
+\]
+
+
+\[
+\]
+
+
+We have that if $\hat{\tau}_{M}$ is the continuous version of $\frac{\tau_{M}}{R}$,
+then 
+\[
+f\left(C\left(\delta,t\right),\delta\right)=\begin{cases}
+1 & \mbox{if }\mbox{k}\in\mbox{arg max}_{x\in A_{M-1}^{Y,\delta}}\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{R}\left(C_{x}\left(\delta,\hat{\tau}_{M}\right)+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\hat{\tau}_{M}R\right)\mu_{x}\right)\\
+0 & \mbox{otherwise}
+\end{cases}.
+\]
+By lemma 1,
+\[
+C\left(\delta,t\right)\Rightarrow W\left(t\right).
+\]
+
+
+Now,
+
+\begin{eqnarray*}
+\left|\frac{\lambda_{x}^{2}}{\lambda_{z}n_{tR,x}}\sqrt{R}\delta\beta_{tR}x_{n_{x}}\left(t\right)-\frac{\Delta}{\lambda_{z}}W_{x}\left(t\right)\right| & \leq & \left|\frac{\lambda_{x}^{2}}{\lambda_{z}n_{tR,x}}\sqrt{R}\delta\beta_{tR}x_{n_{x}}\left(t\right)-\frac{\Delta}{\lambda_{z}}x_{n_{x}}\left(t\right)\right|\\
+ &  & +\left|\frac{\Delta}{\lambda_{z}}W_{x}\left(t\right)-\frac{\Delta}{\lambda_{z}}x_{n_{x}}\left(t\right)\right|\\
+ & \leq & \frac{\Delta}{\lambda_{z}}\epsilon_{n}+\epsilon\left|x_{n_{x}}\left(t\right)\right|,
+\end{eqnarray*}
+furthermore
+
+\begin{eqnarray*}
+\left|\frac{\lambda_{x}^{2}}{\lambda_{z}n_{tR,x}}\sqrt{R}\delta\beta_{tR}x_{n_{x}}\left(t\right)-\delta_{n}^{2}\beta_{tR_{n}}-\frac{\Delta}{\lambda_{z}}W_{x}\left(t\right)+A\left(t\right)\right| & \leq & \left|\frac{\lambda_{x}^{2}}{\lambda_{z}n_{tR,x}}\sqrt{R}\delta\beta_{tR}x_{n_{x}}\left(t\right)-\frac{\Delta}{\lambda_{z}}x_{n_{x}}\left(t\right)\right|\\
+ &  & +\left|\frac{\Delta}{\lambda_{z}}W_{x}\left(t\right)-\frac{\Delta}{\lambda_{z}}x_{n_{x}}\left(t\right)\right|\\
+ &  & +\left|A\left(t\right)-\delta_{n}^{2}\beta_{tR_{n}}\right|\\
+ & \leq & \frac{\Delta}{\lambda_{z}}\epsilon_{n}+\epsilon\left|x_{n_{x}}\left(t\right)\right|+\epsilon,
+\end{eqnarray*}
+
+
+Now consider $T_{x_{n},\delta_{n}}$. Since $x_{n_{i}}\left(t\right)-W_{i}\left(t\right)<\epsilon_{n}$
+and $W_{i}\left(t\right)-x_{n_{i}}\left(t\right)<\epsilon_{n}$, consequently
+\[
+T_{W-\epsilon_{n}e,\delta_{n}}\leq T_{x_{n},\delta_{n}}\leq T_{W+\epsilon_{n}e,\delta_{n}}
+\]
+
+
+Observe that
+\[
+t^{*}=\text{\mbox{lim inf}}_{n}T_{W-\epsilon_{n}e,\delta_{n}}\geq T_{W}
+\]
+and
+\[
+t_{*}=\text{\mbox{lim sup}}_{n}T_{W+\epsilon_{n}e,\delta_{n}}\leq T_{W}.
+\]
+
+
+Then
+
+\[
+t_{*}\leq T_{W}\leq t^{*}\leq\text{\mbox{lim inf}}_{n}T_{W+\epsilon_{n}e,\delta_{n}}\leq t_{*}
+\]
+
+
+thus
+\[
+t_{*}=t^{*}=T_{W}=\mbox{lim}_{n}T_{W-\epsilon_{n}e,\delta_{n}}=\mbox{lim}_{n}T_{W+\epsilon_{n}e,\delta_{n}}.
+\]
+
+
+Then
+
+\[
+\lim_{n}T_{x_{n},\delta_{n}}=T_{W}
+\]
+and so
+\[
+\lim_{n}x_{n_{i}}\left(T_{x_{n},\delta_{n}}\right)=\lim_{n}W_{i}\left(T_{x_{n},\delta_{n}}\right)=W_{i}\left(T_{W}\right)
+\]
+by the continuity of $W_{i}$.
+\[
+\]
+
+
+Therefore
+
+\[
+\lim_{n}f_{n}\left(x_{n}\right)=\lim_{n}f\left(x_{n},\delta_{n}\right)=g\left(W\right).
+\]
+$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\ensuremath{\blacksquare}}$
+
+By the extension of the CMT (Theorem 5.5 of Billingsley 1968), we
+have the following corollary.
+
+
+\paragraph*{Corollary 1.}
+
+We have that if $t\in\left[0,1\right]$,
+
+\[
+f\left(C\left(\delta,t\right),\delta\right)\Rightarrow g\left(W\left(t\right)\right)
+\]
+as $\delta\rightarrow0$.
+
+\[
+\]
+
+
+
+\paragraph*{Theorem.}
+
+If samples from system $x\in\left\{ 1\ldots,k\right\} $ are normally
+distributed and independent, over time and across alternatives, then
+$\mbox{lim}_{\delta\rightarrow0}Pr\left\{ \mbox{BIZ selects }k\right\} \geq P*$
+provided $\mu_{k}\geq\mu_{k-1}+\delta$. We also suppose that the
+algorithm ends in at most $R\left(\delta\right)\in\mathbb{N}$ iterations,
+and $R(\delta)\rightarrow\infty$ as $\delta\rightarrow0$ with probability
+$1$. Furthermore, $\sqrt{R}\delta\rightarrow\Delta$ with probability
+$1$ where $\infty>\Delta>0$ with probability $1$. We also suppose
+$B_{1}=\cdots=B_{k}=1$.
+
+
+\paragraph*{Proof.}
+
+\begin{eqnarray*}
+\underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS\right) & \geq & \underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(f\left(C\left(\delta,t\right),\delta\right)=1\right)\\
+ & = & \underline{lim}_{\delta\rightarrow0}E\left(\mathbb{P}\left(f\left(C\left(\delta,t\right),\delta\right)=1\mid\Delta\right)\right)\\
+ & = & E\left(\underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(f\left(C\left(\delta,t\right),\delta\right)=1\mid\Delta\right)\right)\\
+ & = & E\left(\mathbb{P}\left(g\left(W\right)=1\mid\Delta\right)\right)\\
+ & \geq & P^{*}
+\end{eqnarray*}
+
+\end{document}
