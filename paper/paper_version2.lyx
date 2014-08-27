@@ -644,13 +644,13 @@ Now we are going to see that the standardize of the sum of the output data
  is:
 \begin_inset Formula 
 \[
-d_{t}\left(X,Y\right)=\mbox{inf}_{\lambda\in\Lambda}\left\{ \left\Vert \lambda-I\right\Vert \vee\left\Vert X-Y\circ\lambda\right\Vert \right\} 
+d_{t}\left(X,Y\right)=\mbox{inf}_{\lambda\in\Lambda_{t}}\left\{ \left\Vert \lambda-I\right\Vert \vee\left\Vert X-Y\circ\lambda\right\Vert \right\} 
 \]
 
 \end_inset
 
 where 
-\begin_inset Formula $\Lambda$
+\begin_inset Formula $\Lambda_{t}$
 \end_inset
 
  is the set of strictly increasing, continuous mappings of 
@@ -917,7 +917,7 @@ Let
  , we define
 \begin_inset Formula 
 \begin{eqnarray*}
-q_{tx}^{Y,\delta}\left(A\right): & = & \mbox{exp}\left(\frac{Y_{x}\left(t\right)}{\lambda_{z}}+\delta\beta_{t\frac{1}{\delta^{2}}}\mu_{x}\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{Y_{x^{'}}\left(t\right)}{\lambda_{z}}+\delta\beta_{t\frac{1}{\delta^{2}}}\mu_{x^{'}}\right)
+q_{tx}^{Y,\delta}\left(A\right): & = & \mbox{exp}\left(\frac{Y_{x}\left(t\right)}{\lambda_{z}}+\delta^{2}\beta_{t\frac{1}{\delta^{2}}}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{Y_{x^{'}}\left(t\right)}{\lambda_{z}}+\delta^{2}\beta_{t\frac{1}{\delta^{2}}}I_{\left\{ x^{'}=k\right\} }\right)
 \end{eqnarray*}
 
 \end_inset
@@ -930,11 +930,7 @@ where
 \end_layout
 
 \begin_layout Standard
-We then define for 
-\begin_inset Formula $0<a<P^{*}-\frac{1}{k}$
-\end_inset
-
-
+We define
 \begin_inset Formula 
 \[
 \]
@@ -946,7 +942,7 @@ We then define for
 \begin{eqnarray*}
 T_{Y,\delta}^{0} & = & 0\\
 A_{0}^{Y,\delta} & = & \left\{ 1,\ldots,k\right\} \\
-P_{0}^{Y,\delta} & = & P^{*}-a\\
+P_{0}^{Y,\delta} & = & P^{*}\\
 T_{Y,\delta}^{n+1}\left(P_{n}^{Y,\delta}\right) & = & \mbox{inf}\left\{ t\geq T_{Y,\delta}^{n}:\mbox{ min}_{x\in A_{n}^{Y,\delta}}q_{tx}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}^{Y,\delta}}q_{tx}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\geq P_{n}^{Y,\delta}\right\} \\
 Z_{n+1}^{Y,\delta} & \in & \mbox{arg min}_{x\in A_{n}^{Y,\delta}}q_{T_{Y,\delta}^{n+1},x}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\\
 A_{n+1}^{Y,\delta} & = & A_{n}-\left\{ Z_{n+1}^{Y,\delta}\right\} \\
@@ -974,7 +970,7 @@ and
 \begin_inset Formula 
 \begin{eqnarray*}
 f\left(Y,\delta\right) & = & \begin{cases}
-1 & \mbox{if }\mbox{k}\in A_{M-1}^{Y,\delta}\mbox{ and }\lambda_{k}^{2}\left(Y_{k}\left(T_{Y,\delta}^{M_{Y,\delta}}\right)\right)+\delta\frac{\lambda_{k}^{2}}{\lambda_{z}\sqrt{R}}\left(n_{0}+T_{Y,\delta}^{M_{Y,\delta}}R\right)\geq\lambda_{x}^{2}\left(Y_{x}\left(T_{Y,\delta}^{M_{Y,\delta}}\right)\right)\mbox{ }\mbox{\forall}x\in A_{M-1}^{Y,\delta}\\
+1 & \mbox{if }k\mbox{ is chosen}\\
 0 & \mbox{otherwise}
 \end{cases}.
 \end{eqnarray*}
@@ -1037,7 +1033,7 @@ and
 \begin_inset Formula 
 \begin{eqnarray*}
 g\left(Y\right) & = & \begin{cases}
-1 & \mbox{if }\mbox{k}\in A_{M-1}^{Y}\mbox{ and }Y_{k}\left(T_{Y}^{M_{Y}}\right)+\Delta\frac{1}{\lambda_{z}}T_{Y}^{M_{Y}}\geq\frac{\lambda_{x}^{2}}{\lambda_{k}^{2}}\left(Y_{x}\left(T_{Y}^{M_{Y}}\right)\right)\mbox{ }\mbox{\forall}x\in A_{M-1}^{Y}\\
+1 & \mbox{if }k\mbox{ is chosen}\mbox{ }\\
 0 & \mbox{otherwise}
 \end{cases}.
 \end{eqnarray*}
@@ -1142,7 +1138,7 @@ as
 We want to prove that 
 \begin_inset Formula 
 \[
-f\left(C\left(\delta,\cdot\right)\right)\Rightarrow g\left(W\right).
+f\left(C\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\right).
 \]
 
 \end_inset
@@ -1173,15 +1169,24 @@ Lemma 2.
 \noun off
 \color none
 Let 
-\begin_inset Formula $D_{s}\equiv\{x\in D\left[0,1\right]^{k}:\mbox{ for some sequence }\left\{ x_{n}\right\} \subset D\left[0,1\right]^{k}\mbox{ with }$
+\begin_inset Formula $\left\{ \delta_{n}\right\} \subset\left(0,\infty\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\delta_{n}\rightarrow0$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $D_{s}\equiv\{x\in D\left[0,\infty\right)^{k}:\mbox{ for all sequences }\left\{ x_{n}\right\} \subset D\left[0,\infty\right)^{k},\mbox{ such that }$
 \end_inset
 
  
-\begin_inset Formula $lim_{n}d\left(x_{n},x\right)=0,$
+\begin_inset Formula $lim_{n}d\left(x_{n},x\right)=0$
 \end_inset
 
  the sequence 
-\begin_inset Formula $\left\{ f_{n}\left(x_{n}\right)\right\} $
+\begin_inset Formula $\left\{ f\left(x_{n},\delta_{n}\right)\right\} $
 \end_inset
 
  converges to 
@@ -1213,10 +1218,6 @@ Proof.
 
 \begin_layout Standard
 We will use the following property: if 
-\begin_inset Formula $0<T<1$
-\end_inset
-
- where 
 \begin_inset Formula $T$
 \end_inset
 
@@ -1238,16 +1239,20 @@ almost surely for each system
 \begin_inset Formula $W$
 \end_inset
 
- is continuous on 
-\begin_inset Formula $\left[0,1\right]^{k}$
+ is almost surely continuous on 
+\begin_inset Formula $\left[0,t\right]^{k}$
+\end_inset
+
+ if 
+\begin_inset Formula $t>0$
 \end_inset
 
  and so 
 \begin_inset Formula $W$
 \end_inset
 
- is also uniformly continuous on 
-\begin_inset Formula $\left[0,1\right]^{k}$
+ is also almost surely uniformly continuous on 
+\begin_inset Formula $\left[0,t\right]^{k}$
 \end_inset
 
 .
@@ -1267,7 +1272,7 @@ Let
 \noun off
 \color none
 
-\begin_inset Formula $\left\{ Z_{n}\right\} \subset D\left[0,1\right]^{k}$
+\begin_inset Formula $\left\{ Z_{n}\right\} \subset D\left[0,\infty\right)^{k}$
 \end_inset
 
  such that 
@@ -1276,24 +1281,28 @@ Let
 
 .
  Furthermore, 
-\begin_inset Formula $\delta_{n}^{2}\frac{\left(n_{0}+tR\left(\delta_{n}\right)\right)}{\lambda_{z}^{2}}\rightarrow\frac{\Delta^{2}t}{\lambda_{z}^{2}}$
+\begin_inset Formula $\delta_{n}^{2}\frac{\left(n_{0}+t\frac{1}{\delta_{n}^{2}}\right)}{\lambda_{z}^{2}}\rightarrow\frac{t}{\lambda_{z}^{2}}$
 \end_inset
 
  in 
-\begin_inset Formula $D\left[0,1\right]$
+\begin_inset Formula $D\left[0,\infty\right)$
 \end_inset
 
  and 
-\begin_inset Formula $\frac{\delta_{n}\sqrt{R\left(\delta_{n}\right)}}{\lambda_{z}}\rightarrow\frac{\Delta}{\lambda_{z}}$
+\begin_inset Formula $\frac{\delta_{n}\sqrt{\frac{1}{\delta_{n}^{2}}}}{\lambda_{z}}\rightarrow\frac{1}{\lambda_{z}}$
 \end_inset
 
  in 
-\begin_inset Formula $D\left[0,1\right]$
+\begin_inset Formula $D\left[0,\infty\right)$
 \end_inset
 
  because uniformly convergence implies convergence in the Skorohod topology.
- Consequently, there exist functions 
-\begin_inset Formula $\lambda_{n}$
+ Consequently, for each 
+\begin_inset Formula $s>0$
+\end_inset
+
+ there exist functions 
+\begin_inset Formula $\lambda_{s}^{n}$
 \end_inset
 
  in 
@@ -1303,7 +1312,7 @@ Let
  such that 
 \begin_inset Formula 
 \[
-\mbox{lim}_{n}Z_{n}\left(\lambda_{n}t\right)=W\left(t\right)
+\mbox{lim}_{n}Z_{n}\left(\lambda_{s}^{n}t\right)=W\left(t\right)
 \]
 
 \end_inset
@@ -1315,7 +1324,7 @@ uniformly in
  and
 \begin_inset Formula 
 \[
-\mbox{lim}_{n}\lambda_{n}t=t
+\mbox{lim}_{n}\lambda_{s}^{n}t=t
 \]
 
 \end_inset
@@ -1328,7 +1337,7 @@ uniformly in
  Then
 \begin_inset Formula 
 \[
-\mbox{lim}_{n}\frac{\delta_{n}\sqrt{R\left(\delta_{n}\right)}}{\lambda_{z}}Z_{n}\left(\lambda_{n}t\right)+\delta_{n}^{2}\frac{\left(n_{0}+\lambda_{n}\left(t\right)R\left(\delta_{n}\right)\right)}{\lambda_{z}^{2}}=W\left(t\right)\frac{\Delta}{\lambda_{z}}+\frac{\Delta^{2}t}{\lambda_{z}^{2}}
+\mbox{lim}_{n}\frac{\delta_{n}\sqrt{\frac{1}{\delta_{n}^{2}}}}{\lambda_{z}}Z_{n}\left(\lambda_{s}^{n}t\right)+\delta_{n}^{2}\frac{\left(n_{0}+\lambda_{s}^{n}\left(t\right)\frac{1}{\delta_{n}^{2}}\right)}{\lambda_{z}^{2}}=W\left(t\right)\frac{1}{\lambda_{z}}+\frac{t}{\lambda_{z}^{2}}
 \]
 
 \end_inset
@@ -1340,7 +1349,7 @@ uniformly in
 , and so
 \begin_inset Formula 
 \[
-\mbox{lim}_{n}\mbox{exp}\left(\frac{\delta_{n}\sqrt{R\left(\delta_{n}\right)}}{\lambda_{z}}Z_{n}\left(\lambda_{n}t\right)+\delta_{n}^{2}\frac{\left(n_{0}+\lambda_{n}\left(t\right)R\left(\delta_{n}\right)\right)}{\lambda_{z}^{2}}\right)=\mbox{exp}\left(W\left(t\right)\frac{\Delta}{\lambda_{z}}+\frac{\Delta^{2}t}{\lambda_{z}^{2}}\right)
+\mbox{lim}_{n}\mbox{exp}\left(\frac{\delta_{n}\sqrt{\frac{1}{\delta_{n}^{2}}}}{\lambda_{z}}Z_{n}\left(\lambda_{n}t\right)+\delta_{n}^{2}\frac{\left(n_{0}+\lambda_{s}^{n}\left(t\right)\frac{1}{\delta_{n}^{2}}\right)}{\lambda_{z}^{2}}\right)=\mbox{exp}\left(W\left(t\right)\frac{1}{\lambda_{z}}+\frac{t}{\lambda_{z}^{2}}\right)
 \]
 
 \end_inset
@@ -1354,20 +1363,20 @@ uniformly in
 \end_inset
 
  is uniformly continuous in 
-\begin_inset Formula $\left[0,1\right]$
+\begin_inset Formula $\left[0,s\right]$
 \end_inset
 
 .
  Consequently,
 \begin_inset Formula 
 \[
-q_{\lambda_{n}\left(t\right)x}^{Z_{n},\delta_{n}}\left(A\right)\rightarrow q_{tx}^{W}\left(A\right)
+q_{\lambda_{s}^{n}\left(t\right)x}^{Z_{n},\delta_{n}}\left(A\right)\rightarrow q_{tx}^{W}\left(A\right)
 \]
 
 \end_inset
 
 uniformly in 
-\begin_inset Formula $t$
+\begin_inset Formula $t\in\left[0,s\right]$
 \end_inset
 
 .
@@ -1376,29 +1385,46 @@ uniformly in
 \end_inset
 
  in 
-\begin_inset Formula $D\left[0,1\right]$
+\begin_inset Formula $D\left[0,s\right]$
 \end_inset
 
  for any set 
 \begin_inset Formula $A\subset\left\{ 1,\ldots,k\right\} $
 \end_inset
 
+ and 
+\begin_inset Formula $s\geq0$
+\end_inset
+
 .
- Then there exists 
-\begin_inset Formula $\lambda_{n,A}\in\Lambda$
+ Consequently, 
+\begin_inset Formula $q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right)\rightarrow q_{\cdot x}^{W}\left(A\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $D\left[0,\infty\right)$
+\end_inset
+
+.
+ Then for each 
+\begin_inset Formula $m\geq0$
+\end_inset
+
+ there exists 
+\begin_inset Formula $\lambda_{n,A}\in\Lambda_{\infty}$
 \end_inset
 
  such that 
-\begin_inset Formula $\mbox{sup}_{t\in\left[0,1\right]}\left\Vert \lambda_{n,A}\left(t\right)-t\right\Vert \leq d\left(q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),q_{\cdot x}^{W}\left(A\right)\right)+\frac{1}{n}$
+\begin_inset Formula $\mbox{sup}_{t<\infty}\left\Vert \lambda_{n,A}\left(t\right)-t\right\Vert \leq d\left(q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),q_{\cdot x}^{W}\left(A\right)\right)+\frac{1}{n}$
 \end_inset
 
  and 
-\begin_inset Formula $\mbox{sup}_{t\in\left[0,1\right]}\left\Vert q_{tx}^{Z_{n},\delta_{n}}\left(A\right)-q_{\lambda_{n,A}\left(t\right)x}^{W}\left(A\right)\right\Vert \leq d\left(q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),q_{\cdot x}^{W}\left(A\right)\right)+\frac{1}{n}$
+\begin_inset Formula $\mbox{sup}_{t\leq m}\left\Vert q_{tx}^{Z_{n},\delta_{n}}\left(A\right)-q_{\lambda_{n,A}\left(t\right)x}^{W}\left(A\right)\right\Vert \leq d\left(q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),q_{\cdot x}^{W}\left(A\right)\right)+\frac{1}{n}$
 \end_inset
 
 .
  Taking 
-\begin_inset Formula $g_{n}^{A}\equiv\mbox{sup}_{t\in\left[0,1\right]}\left\Vert q_{tx}^{W}\left(A\right)-q_{\lambda_{n}\left(t\right)x}^{W}\left(A\right)\right\Vert $
+\begin_inset Formula $g_{n}^{A}\equiv\mbox{sup}_{t\leq m}\left\Vert q_{tx}^{W}\left(A\right)-q_{\lambda_{n}\left(t\right)x}^{W}\left(A\right)\right\Vert $
 \end_inset
 
 , we see from the uniform continuity of 
@@ -1406,7 +1432,7 @@ uniformly in
 \end_inset
 
  on 
-\begin_inset Formula $\left[0,1\right]^{k}$
+\begin_inset Formula $\left[0,m\right]^{k}$
 \end_inset
 
  and the definition of 
@@ -1455,7 +1481,7 @@ From the definition of
 \end_inset
 
 for all 
-\begin_inset Formula $t\in\left[0,1\right]$
+\begin_inset Formula $t\in\left[0,m\right]$
 \end_inset
 
  and 
@@ -1467,7 +1493,7 @@ for all
 
 \begin_layout Standard
 We will show that 
-\begin_inset Formula $\mathbb{P}\left(W\text{\ensuremath{\in}D\ensuremath{\left[0,1\right]^{k}}-}D_{s}\mid M_{W}=i\right)=1$
+\begin_inset Formula $\mathbb{P}\left(W\text{\ensuremath{\in}}D_{s}\mid M_{W}=i\right)=1$
 \end_inset
 
  for 
@@ -1506,7 +1532,7 @@ Suppose first that
 
  is continuous almost surely.
  Let 
-\begin_inset Formula $q_{x}^{*}=\mbox{min}_{t\in\left[0,T_{W}^{1}\right]}q_{tx}^{W}$
+\begin_inset Formula $q_{x}^{*}=\mbox{min}_{t\in\left[0,T_{W}^{1}\left(P\right)\right]}q_{tx}^{W}$
 \end_inset
 
  (the minimum exists because 
@@ -1530,7 +1556,11 @@ Suppose first that
 \begin_inset Formula $\epsilon_{n}^{A}<q^{*}-c$
 \end_inset
 
- (note that 
+ (note that in the last equation 
+\begin_inset Formula $m=T_{W}^{1}\left(P\right)$
+\end_inset
+
+ and 
 \begin_inset Formula $q^{*}-c>0$
 \end_inset
 
@@ -1564,6 +1594,8 @@ q_{tx}^{W} & < & q_{tx}^{Z_{n},\delta_{n}}+q^{*}-c\\
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Suppose 
 \begin_inset Formula $T_{W}^{1}\left(P\right)>\epsilon>0$
 \end_inset
@@ -1637,6 +1669,8 @@ and so
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Case 1.
  
 \begin_inset Formula $T_{W}^{1}\left(P\right)=1$
@@ -1654,39 +1688,17 @@ Case 1.
 \end_layout
 
 \begin_layout Standard
+
+\color red
 If 
 \begin_inset Formula $\epsilon_{2}\geq T_{W}^{1}\left(P\right)$
 \end_inset
 
 =1, then 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
 \begin_inset Formula $\left|T_{W}^{1}\left(P\right)-T_{Z_{n},\delta_{n}}^{1}\left(P\right)\right|<\epsilon_{2}$
 \end_inset
 
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-if 
+ if 
 \begin_inset Formula $n>N_{3}$
 \end_inset
 
@@ -1711,7 +1723,7 @@ Case 2.
 \begin_layout Standard
 Case 3.
  
-\begin_inset Formula $0<T_{W}^{1}\left(P\right)<1$
+\begin_inset Formula $0<T_{W}^{1}\left(P\right)$
 \end_inset
 
 .
@@ -1727,7 +1739,15 @@ Note that
 \begin_inset Formula $t<T_{Z_{n},\delta_{n}}^{1}\left(P+\delta_{n}\right)$
 \end_inset
 
- 
+ (for the sequence 
+\begin_inset Formula $\left\{ \epsilon_{n}\right\} $
+\end_inset
+
+ we take 
+\begin_inset Formula $m=\mbox{sup}_{n}P+\delta_{n}$
+\end_inset
+
+) 
 \begin_inset Formula 
 \[
 q_{tx}^{W}\left(A\right)-\epsilon_{n}<q_{tx}^{Z_{n},\delta_{n}}\left(A\right)<P+\delta_{n}.
@@ -1761,7 +1781,7 @@ reference "eq:1.1"
 \end_inset
 
 , there exists a monotonically decreasing sequence 
-\begin_inset Formula $\left\{ s_{k}:\mbox{ }k=1,2,\ldots\right\} \subset\left(T_{W}^{1}\left(P\right),1\right)$
+\begin_inset Formula $\left\{ s_{k}:\mbox{ }k=1,2,\ldots\right\} \subset\left(T_{W}^{1}\left(P\right),\infty\right)$
 \end_inset
 
  such that 
@@ -1969,7 +1989,7 @@ Let
 
 .
  Let 
-\begin_inset Formula $\epsilon=\mbox{}>0$
+\begin_inset Formula $\epsilon>0$
 \end_inset
 
 .
@@ -2052,15 +2072,7 @@ Now, we suppose that
 \end_inset
 
 .
- We know that 
-\begin_inset Formula $ $
-\end_inset
-
-
-\begin_inset Formula $T_{W}^{1}\left(A\right)<1$
-\end_inset
-
-.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2313,6 +2325,8 @@ P_{1}^{Z_{n},\delta_{n}}<P_{1}^{W}.
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Now, suppose 
 \begin_inset Formula $T_{W}^{2}\left(P_{1}^{W}\right)-T_{W}^{1}\left(P\right)>\epsilon>0$
 \end_inset
@@ -2386,6 +2400,8 @@ and so
 \end_layout
 
 \begin_layout Standard
+
+\color red
 Case 1.
  
 \begin_inset Formula $T_{W}^{2}\left(P_{1}^{W}\right)=1$
@@ -2404,39 +2420,17 @@ Case 1.
 \end_layout
 
 \begin_layout Standard
+
+\color red
 If 
 \begin_inset Formula $\epsilon_{2}\geq T_{W}^{1}\left(P\right)$
 \end_inset
 
 =1, then 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
 \begin_inset Formula $\left|T_{W}^{1}\left(P\right)-T_{Z_{n},\delta_{n}}^{1}\left(P\right)\right|<\epsilon_{2}$
 \end_inset
 
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-if 
+ if 
 \begin_inset Formula $n>N_{3}$
 \end_inset
 
@@ -2468,7 +2462,7 @@ Case 2.
 \begin_layout Standard
 Case 3.
  
-\begin_inset Formula $0<T_{W}^{2}\left(P_{1}^{W}\right)<1$
+\begin_inset Formula $0<T_{W}^{2}\left(P_{1}^{W}\right)$
 \end_inset
 
 .
@@ -2787,40 +2781,11 @@ The cases
 \end_layout
 
 \begin_layout Standard
-Now, suppose that 
-\begin_inset Formula $M_{Y}=\infty$
+Note that almost surely 
+\begin_inset Formula $M_{Y}<\infty$
 \end_inset
 
-, then the algorithm ends at step 
-\begin_inset Formula $R$
-\end_inset
-
-.
-\begin_inset Formula $ $
-\end_inset
-
- The algorithm will select 
-\begin_inset Formula $x=\mbox{arg max}q_{R,x}^{W}\left(A_{m}^{W}\right)$
-\end_inset
-
- for some 
-\begin_inset Formula $m$
-\end_inset
-
-.
- Using a similar argument than above, we can see that
-\begin_inset Formula 
-\[
-\mbox{arg max}_{x}q_{R,x}^{W}\left(A_{m}^{W}\right)=\mbox{arg max}_{x}q_{R,x}^{Z_{n},\delta_{n}}\left(A_{m}^{W}\right)
-\]
-
-\end_inset
-
-for 
-\begin_inset Formula $n$
-\end_inset
-
- sufficiently large.
+ by Frazier[].
 \end_layout
 
 \begin_layout Standard
@@ -2862,11 +2827,7 @@ Corollary 1.
 \end_layout
 
 \begin_layout Standard
-We have that if 
-\begin_inset Formula $t\in\left[0,1\right]$
-\end_inset
-
-,
+We have that 
 \end_layout
 
 \begin_layout Standard
@@ -2877,7 +2838,7 @@ f\left(C\left(\delta,t\right),\delta\right)\Rightarrow g\left(W\left(t\right)\ri
 
 \end_inset
 
-as 
+in distribution as 
 \begin_inset Formula $\delta\rightarrow0$
 \end_inset
 
@@ -2903,7 +2864,7 @@ If samples from system
 \begin_inset Formula $x\in\left\{ 1\ldots,k\right\} $
 \end_inset
 
- are normally distributed and independent, over time and across alternatives,
+ are identically distributed and independent, over time and across alternatives,
  then 
 \begin_inset Formula $\mbox{lim}_{\delta\rightarrow0}Pr\left\{ \mbox{BIZ selects }k\right\} \geq P*$
 \end_inset
@@ -2913,88 +2874,12 @@ If samples from system
 \end_inset
 
 .
- We also suppose that the algorithm ends in at most 
-\begin_inset Formula $R\left(\delta\right)\in\mathbb{N}$
-\end_inset
-
- iterations, and 
-\begin_inset Formula $R(\delta)\rightarrow\infty$
-\end_inset
-
- as 
-\begin_inset Formula $\delta\rightarrow0$
-\end_inset
-
- with probability 
-\begin_inset Formula $1$
-\end_inset
-
-.
- Furthermore, 
-\begin_inset Formula $\sqrt{R}\delta\rightarrow\Delta$
-\end_inset
-
- with probability 
-\begin_inset Formula $1$
-\end_inset
-
- where 
-\begin_inset Formula $\infty>\Delta>0$
-\end_inset
-
- with probability 
-\begin_inset Formula $1$
-\end_inset
-
-.
  We also suppose 
 \begin_inset Formula $B_{1}=\cdots=B_{k}=1$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Paragraph*
-Proof.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS\right) & \geq & \underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(f\left(C\left(\delta,t\right),\delta\right)=1\right)\\
- & = & \underline{lim}_{\delta\rightarrow0}E\left(\mathbb{P}\left(f\left(C\left(\delta,t\right),\delta\right)=1\mid\Delta\right)\right)\\
- & = & E\left(\underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(f\left(C\left(\delta,t\right),\delta\right)=1\mid\Delta\right)\right)\\
- & = & E\left(\mathbb{P}\left(g\left(W\right)=1\mid\Delta\right)\right)\\
- & \geq & P^{*}
-\end{eqnarray*}
-
-\end_inset
-
-where the last inequallity follows from the paper of Frazier [].
- 
-\end_layout
-
-\begin_layout Paragraph*
-Theorem 2.
-\end_layout
-
-\begin_layout Standard
-If samples from system 
-\begin_inset Formula $x\in\left\{ 1\ldots,k\right\} $
-\end_inset
-
- are normally distributed and independent, over time and across alternatives,
- then 
-\begin_inset Formula $\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right)\geq P*$
-\end_inset
-
- provided provided 
-\begin_inset Formula $\mu_{k}=\delta,\mu_{k-1}=\cdots=\mu_{1}=0$
-\end_inset
-
-.
- We suppose 
-\begin_inset Formula $B_{1}=\cdots=B_{k}=1$
+ and 
+\begin_inset Formula $c\neq\frac{1}{k}$
 \end_inset
 
 .
@@ -3006,50 +2891,176 @@ Proof.
 
 \begin_layout Standard
 Let 
-\begin_inset Formula $\tau$
-\end_inset
-
- be the maximum number of iterations used of the algorithm.
- Note that 
-\begin_inset Formula $ $
-\end_inset
-
-
-\begin_inset Formula 
-\begin{eqnarray*}
-\underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right) & = & \underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta},\tau=\frac{1}{\delta^{2}}\right)\\
- & = & \underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta},\tau<\frac{1}{\delta^{2}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-because
-\begin_inset Formula 
-\begin{eqnarray*}
-\mathbb{P}\left(CS_{\delta},\tau<\infty\right)-\mathbb{P}\left(CS_{\delta},\tau<\frac{1}{\delta^{2}}\right) & = & \mathbb{P}\left(CS_{\delta},\infty>\tau\geq\frac{1}{\delta^{2}}\right)\\
- & \leq & \mathbb{P}\left(\infty>\tau\geq\frac{1}{\delta^{2}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-and so
-\begin_inset Formula 
-\begin{eqnarray*}
-\underline{lim}_{\delta\rightarrow0}\left\{ \mathbb{P}\left(CS_{\delta},\tau<\infty\right)-\mathbb{P}\left(CS_{\delta},\tau<\frac{1}{\delta^{2}}\right)\right\}  & \leq & \underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(\infty>\tau\geq\frac{1}{\delta^{2}}\right)\\
- & = & \mathbb{P}\left(\infty>\tau\geq\bigcap_{n=1}^{\infty}n^{2}\right)\\
- & = & 0
-\end{eqnarray*}
-
-\end_inset
-
- 
 \begin_inset Formula 
 \[
+\hat{T}_{n}\left(\delta\right)=\min\left\{ t\in\left\{ 0,\delta^{2},2\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}^{Y,\delta}}q_{tx}^{C\left(\delta,\cdot\right),\delta}\left(A_{n}^{C\left(\delta,\cdot\right),\delta}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}^{Y,\delta}}q_{tx}^{C\left(\delta,\cdot\right),\delta}\left(A_{n}^{C\left(\delta,\cdot\right),\delta}\right)\geq P_{n}^{C\left(\delta,\cdot\right),\delta}\right\} 
 \]
 
 \end_inset
 
+and 
+\begin_inset Formula $T_{n}\left(\delta\right)$
+\end_inset
+
+ the usual stopping times of the algorithm.
+ Then 
+\begin_inset Formula $T_{n}\left(\delta\right)=\hat{T}_{n}\left(\delta\right)/\delta^{2}$
+\end_inset
+
+.
+ Now, we can prove that 
+\begin_inset Formula $\hat{T}_{n}\left(\delta\right)-T_{C\left(\delta,\cdot\right),\delta}^{n}\left(P_{n}^{C\left(\delta,\cdot\right),\delta}\right)\rightarrow0$
+\end_inset
+
+ with probability 
+\begin_inset Formula $1$
+\end_inset
+
+ as 
+\begin_inset Formula $\delta\rightarrow0$
+\end_inset
+
+ using that 
+\begin_inset Formula $C\left(\delta,\cdot\right)$
+\end_inset
+
+ is right-continuous and 
+\begin_inset Formula $\delta^{2}\rightarrow0$
+\end_inset
+
+.
+ Consequently, we can use 
+\begin_inset Formula $C\left(\delta,T_{C\left(\delta,\cdot\right),\delta}^{n}\left(P_{n}^{C\left(\delta,\cdot\right),\delta}\right)\right)$
+\end_inset
+
+ instead of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $C\left(\delta,\hat{T}_{n}\left(\delta\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $CS_{\delta}$
+\end_inset
+
+ be the event of doing a correct selection given the configuration 
+\begin_inset Formula $\mu_{k}=\delta,\mu_{k-1}=\cdots=\mu_{1}=0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{eqnarray*}
+\underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right) & = & \underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(f\left(C\left(\delta,t\right),\delta\right)=1\right)\\
+ & = & \mathbb{P}\left(g\left(W\right)=1\right)\\
+ & \geq & P^{*}
+\end{eqnarray*}
+
+\end_inset
+
+where the last inequallity follows from the paper of Frazier [].
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Theorem 2.
+\end_layout
+
+\begin_layout Standard
+If samples from system 
+\begin_inset Formula $x\in\left\{ 1\ldots,k\right\} $
+\end_inset
+
+ are indetically distributed and independent, over time and across alternatives,
+ then 
+\begin_inset Formula $\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right)\geq P*$
+\end_inset
+
+ provided 
+\begin_inset Formula $\mu_{k}-\mu_{k-1}\geq\delta$
+\end_inset
+
+.
+ We suppose 
+\begin_inset Formula $B_{1}=\cdots=B_{k}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $c\neq\frac{1}{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+Proof.
+\end_layout
+
+\begin_layout Standard
+Suppose 
+\begin_inset Formula $X_{1},\ldots,X_{k}$
+\end_inset
+
+ are the observations of the systems 
+\begin_inset Formula $1,\ldots,k$
+\end_inset
+
+, respectively.
+ Consider, 
+\begin_inset Formula $\hat{X}_{i}=X_{i}-\mu_{i}e$
+\end_inset
+
+ if 
+\begin_inset Formula $i\neq k$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{X}_{k}=X_{k}-\mu_{k}e+\delta e$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{eqnarray*}
+\underline{lim}_{\delta\rightarrow0}\mathbb{P}_{\text{\mu}}\left(CS_{\delta}\mid\mathbf{X}\right) & = & \underline{lim}_{\delta\rightarrow0}\mathbb{P}_{\left(0,\ldots,0,\delta\right)}\left(CS_{\delta}\mid\hat{\mathbf{X}}\right)\\
+ & = & \underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(g\left(W\right)=1\right)\\
+ & \geq & P^{*}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \]
