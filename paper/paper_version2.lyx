@@ -566,9 +566,9 @@ This paper is organized as follows: In
 \end_layout
 
 \begin_layout Standard
-To prove the case when the variances are known, we use a Functional Central
- Limit Theorem that shows how to standardize the output data to make them
- behave like Brownian motion processes in the limit.
+To prove the case when the variances are known, we use a theorem for Ergodic
+ processes that shows how to standardize the output data to make them behave
+ like Brownian motion processes in the limit.
  We also use an extension of the Continuous Mapping Theorem (Theorem 5.5
  of Billingsley 1968) to see that the algorithm behaves like a sequential
  elimination IZ procedure with a Brownian motion process instead of the
@@ -947,16 +947,12 @@ Let
  , we define
 \begin_inset Formula 
 \begin{eqnarray*}
-q_{tx}^{Y,\delta}\left(A\right): & = & \mbox{exp}\left(\frac{Y_{x}\left(t\right)}{\lambda_{z}}+\delta^{2}\beta_{t\frac{1}{\delta^{2}}}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{Y_{x^{'}}\left(t\right)}{\lambda_{z}}+\delta^{2}\beta_{t\frac{1}{\delta^{2}}}I_{\left\{ x^{'}=k\right\} }\right)
+q_{tx}^{Y,\delta}\left(A\right): & = & \mbox{exp}\left(\frac{Y_{x}\left(t\right)}{\lambda_{z}}+\delta^{2}\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)}{\lambda_{z}^{2}}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{Y_{x^{'}}\left(t\right)}{\lambda_{z}}+\delta^{2}\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)}{\lambda_{z}^{2}}I_{\left\{ x^{'}=k\right\} }\right).
 \end{eqnarray*}
 
 \end_inset
 
-where 
-\begin_inset Formula $\beta_{t\frac{1}{\delta^{2}}}=\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)}{\lambda_{z}^{2}}$
-\end_inset
 
-.
 \end_layout
 
 \begin_layout Standard
@@ -1188,6 +1184,11 @@ almost surely for each system
 \end_inset
 
 .
+ We will only consider the event 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+ such that the previous properties hold and it has probability one.
 \end_layout
 
 \begin_layout Standard
@@ -2723,6 +2724,26 @@ John Wiley and Sons.
 \labelwidthstring References
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "key-8"
+
+\end_inset
+
+Billingsley, P.
+ 1999.
+ 
+\shape italic
+Convergence of Probability Measures, 
+\shape default
+second edition.
+ .John Wiley and Sons.
+ New York.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring References
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "key-5"
 
 \end_inset
@@ -2736,6 +2757,26 @@ Frazier, P.
 Operations Research,
 \shape default
  to appear.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring References
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-9"
+
+\end_inset
+
+Karatzas, I., Shreve, S.
+ E.
+ 1991.
+ 
+\shape italic
+Brownian Motion and Stochastic Calculus
+\shape default
+, second edition.
+ Springer.
+ New York.
 \end_layout
 
 \begin_layout Standard
