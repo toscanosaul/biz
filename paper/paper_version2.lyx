@@ -81,14 +81,7 @@
 \usepackage{algorithm,algorithmic,enumerate}
 
 
-% Natbib setup for author-year style
-\usepackage{natbib}
- \bibpunct[, ]{(}{)}{,}{a}{}{,}%
- \def\bibfont{\small}%
- \def\bibsep{\smallskipamount}%
- \def\bibhang{24pt}%
- \def\newblock{\ }%
- \def\BIBand{and}%
+
 
 %% Setup of theorem styles. Outcomment only one. 
 %% Preferred default is the first option.
@@ -114,7 +107,7 @@
 \graphics default
 \default_output_format default
 \output_sync 0
-\bibtex_command default
+\bibtex_command bibtex
 \index_command default
 \paperfontsize 11
 \spacing onehalf
@@ -164,7 +157,14 @@ On the Asymptotic Validity of a Fully Sequential Elimination Procedure for
 
 \begin_layout Standard
 We prove the validity of the sequential elimination IZ procedure proposed
- by Frazier [] when 
+ by Frazier 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+ when 
 \begin_inset Formula $\delta$
 \end_inset
 
@@ -567,14 +567,20 @@ This paper is organized as follows: In
 
 \begin_layout Standard
 To prove the case when the variances are known, we use a Functional Central
- Limit Thoerem that shows how to standardize the output data to make them
+ Limit Theorem that shows how to standardize the output data to make them
  behave like Brownian motion processes in the limit.
  We also use an extension of the Continuous Mapping Theorem (Theorem 5.5
  of Billingsley 1968) to see that the algorithm behaves like a sequential
  elimination IZ procedure with a Brownian motion process instead of the
  standardize of the sum of the output data in the limit.
- Finally, we use the results of the paper of Frazier [] to prove the validity
- of this algorithm in the limit.
+ Finally, we use the results of the paper of Frazier 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+ to prove the validity of this algorithm in the limit.
 \end_layout
 
 \begin_layout Section
@@ -612,6 +618,22 @@ Without loss of generality, suppose that the true means of the systems are
 \color none
 
 \begin_inset Formula $\mbox{min}{}_{i\in\left\{ 1\ldots,k\right\} }\lambda_{i}^{2}>0$
+\end_inset
+
+ and 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $c\neq1/k$
 \end_inset
 
 .
@@ -666,7 +688,11 @@ where
 \end_inset
 
  is the identity map.
- 
+ Note that uniform convergence on 
+\begin_inset Formula $\left[0,t\right]$
+\end_inset
+
+ implies Skorohod convergence.
 \end_layout
 
 \begin_layout Standard
@@ -705,12 +731,16 @@ m-t & \mbox{if }m-1\leq t\leq m,\\
 And now take
 \begin_inset Formula 
 \[
-d_{\infty}\left(X,Y\right)=\sum_{m=1}^{\infty}2^{-m}\left(1\wedge d_{m}\left(X,Y\right)\right).
+d_{\infty}\left(X,Y\right)=\sum_{m=1}^{\infty}2^{-m}\left(1\wedge d_{m}\left(X,Y\right)\right)
 \]
 
 \end_inset
 
+which is the Skorohod metric on 
+\begin_inset Formula $D\left[0,\infty\right)$
+\end_inset
 
+.
 \end_layout
 
 \begin_layout Paragraph*
@@ -932,13 +962,6 @@ where
 \begin_layout Standard
 We define
 \begin_inset Formula 
-\[
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
 \begin{eqnarray*}
 T_{Y,\delta}^{0} & = & 0\\
 A_{0}^{Y,\delta} & = & \left\{ 1,\ldots,k\right\} \\
@@ -1041,97 +1064,6 @@ g\left(Y\right) & = & \begin{cases}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-
-\color red
-We define for 
-\begin_inset Formula $x\in A_{M-1}^{Y,\delta}$
-\end_inset
-
-
-\begin_inset Formula $ $
-\end_inset
-
- 
-\begin_inset Formula 
-\[
-H_{x}\left(C\left(\delta,\cdot\right)\right)=\lambda_{k}^{2}\left(C_{k}\left(\delta,T_{C\left(\delta,\cdot\right),\delta}^{M_{C\left(\delta,\cdot\right),\delta}}\right)\right)+\delta\frac{\lambda_{k}^{2}}{\lambda_{z}\sqrt{R}}\left(n_{0}+T_{C\left(\delta,\cdot\right),\delta}^{M_{C\left(\delta,\cdot\right),\delta}}R\right)-\lambda_{x}^{2}\left(Y_{x}\left(T_{C\left(\delta,\cdot\right),\delta}^{M_{C\left(\delta,\cdot\right),\delta}}\right)\right)
-\]
-
-\end_inset
-
-and for 
-\begin_inset Formula $x\in A_{M-1}^{Y}$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-S_{x}\left(W\left(\cdot\right),\Delta\right)=W_{k}\left(T_{W}^{M_{W}}\right)+\Delta\frac{1}{\lambda_{z}}T_{W}^{M_{W}}-\frac{\lambda_{x}^{2}}{\lambda_{k}^{2}}\left(W_{x}\left(T_{W}^{M_{W}}\right)\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color red
-Now, we want to prove that for 
-\begin_inset Formula $\delta$
-\end_inset
-
- sufficiently small 
-\begin_inset Formula $A_{M-1}^{Y,\delta}\subset A_{M-1}^{Y}$
-\end_inset
-
- and
-\begin_inset Formula $ $
-\end_inset
-
- if 
-\begin_inset Formula $x\in A_{M-1}^{Y,\delta}$
-\end_inset
-
- for 
-\begin_inset Formula $\delta$
-\end_inset
-
- sufficiently small
-\begin_inset Formula 
-\[
-H_{x}\left(C\left(\delta,\cdot\right)\right)\Rightarrow S_{x}\left(W\left(\cdot\right),\Delta\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color red
-\begin_inset Formula 
-\[
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color red
-as 
-\begin_inset Formula $\delta\rightarrow0$
-\end_inset
-
-.
- 
 \end_layout
 
 \begin_layout Standard
@@ -1280,7 +1212,7 @@ Let
 \end_inset
 
 .
- Furthermore, 
+ Note that 
 \begin_inset Formula $\delta_{n}^{2}\frac{\left(n_{0}+t\frac{1}{\delta_{n}^{2}}\right)}{\lambda_{z}^{2}}\rightarrow\frac{t}{\lambda_{z}^{2}}$
 \end_inset
 
@@ -1523,7 +1455,7 @@ Suppose first that
 \end_inset
 
 , then 
-\begin_inset Formula $\mbox{max}_{x\in A}q_{T_{W}^{1}x}^{W}\left(A\right)=P$
+\begin_inset Formula $\mbox{max}_{x\in A}q_{T_{W}^{1}\left(P\right)x}^{W}\left(A\right)=P$
 \end_inset
 
  almost surely because 
@@ -1584,8 +1516,8 @@ Suppose first that
  then
 \begin_inset Formula 
 \begin{eqnarray*}
-q_{tx}^{W} & < & q_{tx}^{Z_{n},\delta_{n}}+q^{*}-c\\
-\Rightarrow c & < & q_{tx}^{Z_{n},\delta_{n}}+q^{*}-q_{tx}^{W}\leq q_{tx}^{Z_{n},\delta_{n}}.
+q_{tx}^{W}\left(A\right) & < & q_{tx}^{Z_{n},\delta_{n}}\left(A\right)+q^{*}-c\\
+\Rightarrow c & < & q_{tx}^{Z_{n},\delta_{n}}\left(A\right)+q^{*}-q_{tx}^{W}\left(A\right)\leq q_{tx}^{Z_{n},\delta_{n}}\left(A\right).
 \end{eqnarray*}
 
 \end_inset
@@ -1594,119 +1526,7 @@ q_{tx}^{W} & < & q_{tx}^{Z_{n},\delta_{n}}+q^{*}-c\\
 \end_layout
 
 \begin_layout Standard
-
-\color red
-Suppose 
-\begin_inset Formula $T_{W}^{1}\left(P\right)>\epsilon>0$
-\end_inset
-
-, and let 
-\begin_inset Formula $q_{x}^{+}=\mbox{max}_{t\in\left[0,T_{W}^{1}-\epsilon\right]}q_{tx}^{W}$
-\end_inset
-
- and 
-\begin_inset Formula $q^{+}=\mbox{max}_{x}q_{x}^{*}$
-\end_inset
-
-.
- Let 
-\begin_inset Formula $N_{2}^{*}$
-\end_inset
-
- such that if 
-\begin_inset Formula $n>N_{2}^{*}$
-\end_inset
-
-, then 
-\begin_inset Formula $\delta_{n}<r<P-q^{+}$
-\end_inset
-
- where 
-\begin_inset Formula $r\in\mathbb{Q}$
-\end_inset
-
-.
- Let 
-\begin_inset Formula $N_{2}^{**}$
-\end_inset
-
- such that if 
-\begin_inset Formula $n>N_{2}^{**}$
-\end_inset
-
-, then 
-\begin_inset Formula $\epsilon_{n}^{A}<P-q^{+}-r$
-\end_inset
-
-.
- Thus, if 
-\begin_inset Formula $n>N_{2}:=\mbox{max}\left\{ N_{2}^{*},N_{2}^{**}\right\} $
-\end_inset
-
- and 
-\begin_inset Formula $t\leq T_{W}^{1}\left(P\right)-\epsilon$
-\end_inset
-
-, then
-\begin_inset Formula 
-\begin{eqnarray*}
-q_{tx}^{Z_{n},\delta_{n}}\left(A\right) & < & q_{tx}^{W}\left(A\right)+\epsilon_{n}^{A}\\
- & < & q_{tx}^{W}\left(A\right)+P-q^{+}-r\\
- & \leq & P-r\leq P-\delta_{n}
-\end{eqnarray*}
-
-\end_inset
-
-and so 
-\begin_inset Formula $T_{Z_{n},\delta_{n}}^{1}\left(P\right)>T_{W}^{1}\left(P\right)-\epsilon$
-\end_inset
-
- if 
-\begin_inset Formula $n>N_{\text{3}}:=\mbox{max}\left\{ N_{1},N_{2}\right\} $
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\color red
 Case 1.
- 
-\begin_inset Formula $T_{W}^{1}\left(P\right)=1$
-\end_inset
-
-, so 
-\begin_inset Formula $\left|T_{W}^{1}\left(P\right)-T_{Z_{n},\delta_{n}}^{1}\left(P\right)\right|<\epsilon$
-\end_inset
-
- if 
-\begin_inset Formula $n>N_{3}$
-\end_inset
-
- by the previous equation.
-\end_layout
-
-\begin_layout Standard
-
-\color red
-If 
-\begin_inset Formula $\epsilon_{2}\geq T_{W}^{1}\left(P\right)$
-\end_inset
-
-=1, then 
-\begin_inset Formula $\left|T_{W}^{1}\left(P\right)-T_{Z_{n},\delta_{n}}^{1}\left(P\right)\right|<\epsilon_{2}$
-\end_inset
-
- if 
-\begin_inset Formula $n>N_{3}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Case 2.
  
 \begin_inset Formula $T_{W}^{1}\left(P\right)=0$
 \end_inset
@@ -1721,7 +1541,7 @@ Case 2.
 \end_layout
 
 \begin_layout Standard
-Case 3.
+Case 2.
  
 \begin_inset Formula $0<T_{W}^{1}\left(P\right)$
 \end_inset
@@ -1765,7 +1585,7 @@ T_{W}^{1}\left(P\right) & \leq & \mbox{lim inf}_{n}T_{W}^{1}\left(P+\delta_{n}+\
 \end_inset
 
  Now, let 
-\begin_inset Formula $x=\mbox{arg max}q_{T_{W}^{1}x}^{W}$
+\begin_inset Formula $x=\mbox{arg max}q_{T_{W}^{1}x}^{W}\left(A\right)$
 \end_inset
 
 .
@@ -1798,7 +1618,7 @@ reference "eq:1.1"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-W_{x}\left(s_{k}\right)-W_{x}\left(T_{W}^{1}\left(P\right)\right) & >v_{k}\equiv & \left(\varepsilon\right)\sqrt{2\left(s_{k}-T_{W}^{1}\left(P\right)\right)\mbox{ln}\mbox{ln}\left(1/\left(s_{k}-T_{W}^{1}\left(P\right)\right)\right)}.
+W_{x}\left(s_{k}\right)-W_{x}\left(T_{W}^{1}\left(P\right)\right) & >v_{k}\equiv & \left(\varepsilon\right)\sqrt{2\left(s_{k}-T_{W}^{1}\left(A\right)\right)\mbox{ln}\mbox{ln}\left(1/\left(s_{k}-T_{W}^{1}\left(P\right)\right)\right)}.
 \end{eqnarray*}
 
 \end_inset
@@ -1848,7 +1668,7 @@ Notice that
 \end_inset
 
 , 
-\begin_inset Formula $\frac{\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{W_{^{x'}}\left(T_{W}^{1}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{1}I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x'=k\right\} }\right)}>1-\delta_{3}$
+\begin_inset Formula $\frac{\sum_{x^{'}\in A}\mbox{exp}\left(\frac{W_{^{x'}}\left(T_{W}^{1}\left(P\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{1}\left(P\right)I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A}\mbox{exp}\left(\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x'=k\right\} }\right)}>1-\delta_{3}$
 \end_inset
 
 .
@@ -1866,11 +1686,11 @@ Notice that
 \end_inset
 
 , then 
-\begin_inset Formula $\frac{\epsilon_{n}}{P}<v_{k}\frac{\Delta}{\lambda_{z}}+\alpha$
+\begin_inset Formula $\frac{\epsilon_{n}}{P}<v_{k}\frac{1}{\lambda_{z}}+\alpha$
 \end_inset
 
  and 
-\begin_inset Formula $\frac{\delta_{n}}{P}<\left(v_{k}\frac{\Delta}{\lambda_{z}}+\alpha\right)^{2}/2$
+\begin_inset Formula $\frac{\delta_{n}}{P}<\left(v_{k}\frac{1}{\lambda_{z}}+\alpha\right)^{2}/2$
 \end_inset
 
 .
@@ -1881,10 +1701,10 @@ Notice that
 Observe that
 \begin_inset Formula 
 \begin{eqnarray*}
-q_{s_{k}x}^{W} & = & \mbox{exp}\left(\Delta\frac{W_{x}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x'=k\right\} }\right)\\
- & > & \frac{\mbox{exp}\left(\Delta\frac{W_{x}\left(T_{W}^{1}\right)+v_{k}}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{1}I_{\left\{ x=k\right\} }\right)}{\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{W_{^{x'}}\left(T_{W}^{1}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{1}I_{\left\{ x^{'}=k\right\} }\right)}\times\frac{\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{W_{^{x'}}\left(T_{W}^{1}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{1}I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A}\mbox{exp}\left(\Delta\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x'=k\right\} }\right)}\\
- & \geq & q_{T_{W}^{1}x}^{W}\mbox{exp}\left(v_{k}\frac{\Delta}{\lambda_{z}}\right)\left(1-\delta_{3}\right)\geq q_{T_{W}^{1}x}^{W}\mbox{exp}\left(v_{k}\frac{\Delta}{\lambda_{z}}\right)\mbox{exp}\left(\alpha\right)\\
- & \geq & P\left(1+v_{k}\frac{\Delta}{\lambda_{z}}+\alpha+\frac{\left(v_{k}\frac{\Delta}{\lambda_{z}}+\alpha\right)^{2}}{2}\right)>\left(P+\epsilon_{n}+\delta_{n}\right).
+q_{s_{k}x}^{W} & = & \mbox{exp}\left(\frac{W_{x}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x'=k\right\} }\right)\\
+ & > & \frac{\mbox{exp}\left(\frac{W_{x}\left(T_{W}^{1}\left(P\right)\right)+v_{k}}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{1}\left(P\right)I_{\left\{ x=k\right\} }\right)}{\sum_{x^{'}\in A}\mbox{exp}\left(\frac{W_{^{x'}}\left(T_{W}^{1}\left(P\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{1}\left(P\right)I_{\left\{ x^{'}=k\right\} }\right)}\times\frac{\sum_{x^{'}\in A}\mbox{exp}\left(\frac{W_{^{x'}}\left(T_{W}^{1}\left(P\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{1}\left(P\right)I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A}\mbox{exp}\left(\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x'=k\right\} }\right)}\\
+ & \geq & q_{T_{W}^{1}\left(P\right)x}^{W}\left(A\right)\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\left(1-\delta_{3}\right)\geq q_{T_{W}^{1}\left(P\right)x}^{W}\left(A\right)\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\mbox{exp}\left(\alpha\right)\\
+ & \geq & P\left(1+v_{k}\frac{1}{\lambda_{z}}+\alpha+\frac{\left(v_{k}\frac{1}{\lambda_{z}}+\alpha\right)^{2}}{2}\right)>\left(P+\epsilon_{n}+\delta_{n}\right).
 \end{eqnarray*}
 
 \end_inset
@@ -1984,7 +1804,7 @@ T_{W}^{1}\left(P\right)=\mbox{lim}_{n}T_{Z_{n},\delta_{n}}^{1}\left(P\right).
 
 \begin_layout Standard
 Let 
-\begin_inset Formula $x=\mbox{arg max}_{x}q_{T_{W}^{1},x}^{W}$
+\begin_inset Formula $x=\mbox{arg max}_{x}q_{T_{W}^{1}\left(P\right),x}^{W}\left(A\right)$
 \end_inset
 
 .
@@ -2078,11 +1898,11 @@ Now, we suppose that
 \begin_layout Standard
 Case 1.
  
-\begin_inset Formula $0<T_{W}^{1}\left(P\right)<1$
+\begin_inset Formula $0<T_{W}^{1}\left(P\right)$
 \end_inset
 
 .
- Like in the previos proof, we conclude that 
+ Like in the previous proof, we conclude that 
 \begin_inset Formula 
 \[
 T_{W}^{1}\left(P\right)=\mbox{lim}_{n}T_{Z_{n},\delta_{n}}^{1}\left(P\right).
@@ -2095,7 +1915,7 @@ T_{W}^{1}\left(P\right)=\mbox{lim}_{n}T_{Z_{n},\delta_{n}}^{1}\left(P\right).
 
 \begin_layout Standard
 Furthermore, if 
-\begin_inset Formula $x=\mbox{arg min}_{x\in A_{1}^{W}}q_{T_{W}^{1},x}^{W}\left(A\right)$
+\begin_inset Formula $x=\mbox{arg min}_{x\in A_{1}^{W}}q_{T_{W}^{1}\left(P\right),x}^{W}\left(A\right)$
 \end_inset
 
 .
@@ -2108,7 +1928,7 @@ Furthermore, if
 \end_inset
 
 , then 
-\begin_inset Formula $2\epsilon_{n}+2\epsilon<\mbox{min}_{y\in A_{1}^{W}-\left\{ x\right\} }q_{T_{W}^{1},y}^{W}\left(A\right)-q_{T_{W}^{1},x}^{W}\left(A\right)$
+\begin_inset Formula $2\epsilon_{n}+2\epsilon<\mbox{min}_{y\in A_{1}^{W}-\left\{ x\right\} }q_{T_{W}^{1}\left(P\right),y}^{W}\left(A\right)-q_{T_{W}^{1}\left(P\right),x}^{W}\left(A\right)$
 \end_inset
 
  for some 
@@ -2118,7 +1938,7 @@ Furthermore, if
  and
 \begin_inset Formula 
 \[
-\left|q_{T_{Z_{n},\delta_{n}z}^{1}}^{Z_{n},\delta_{n}}-q_{T_{W}^{1},z}^{W}\right|<\epsilon
+\left|q_{T_{Z_{n},\delta_{n}}^{1}\left(P\right)z}^{Z_{n},\delta_{n}}-q_{T_{W}^{1}\left(P\right),z}^{W}\right|<\epsilon
 \]
 
 \end_inset
@@ -2141,8 +1961,8 @@ Then if
 , 
 \begin_inset Formula 
 \begin{eqnarray*}
-q_{T_{Z_{n},\delta_{n}z}^{1}}^{Z_{n},\delta_{n}}\left(A\right) & > & -\epsilon_{n}-\epsilon+q_{T_{W}^{1},z}^{W}\left(A\right)>q_{T_{W}^{1},x}^{W}\left(A\right)+\epsilon_{n}+\epsilon\\
- & > & q_{T_{Z_{n},\delta_{n}x}^{1}}^{Z_{n},\delta_{n}}\left(A\right)
+q_{T_{Z_{n},\delta_{n}}^{1}\left(P\right),z}^{Z_{n},\delta_{n}}\left(A\right) & > & -\epsilon_{n}-\epsilon+q_{T_{W}^{1}\left(P\right),z}^{W}\left(A\right)>q_{T_{W}^{1}\left(P\right),x}^{W}\left(A\right)+\epsilon_{n}+\epsilon\\
+ & > & q_{T_{Z_{n},\delta_{n}}^{1}\left(P\right),x}^{Z_{n},\delta_{n}}\left(A\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2168,7 +1988,7 @@ for
 \end_inset
 
  sufficiently large and so 
-\begin_inset Formula $x=\mbox{arg min}_{x\in A_{n}^{Y}}q_{T_{Z_{n,\delta_{n}}}^{1},x}^{Z_{n},\delta_{n}}\left(A\right)$
+\begin_inset Formula $x=\mbox{arg min}_{x\in A_{n}^{Y}}q_{T_{Z_{n,\delta_{n}}}^{1}\left(P\right),x}^{Z_{n},\delta_{n}}\left(A\right)$
 \end_inset
 
 .
@@ -2181,21 +2001,7 @@ for
 \end_inset
 
  sufficiently large.
- Furthermore,
-\begin_inset Formula 
-\[
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\]
-
-\end_inset
-
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2252,17 +2058,7 @@ and so
 \end_inset
 
 .
- If 
-\begin_inset Formula $c=\frac{1}{k}$
-\end_inset
-
-,......
- (suppose 
-\begin_inset Formula $c\neq1/k$
-\end_inset
-
-).
- We also can see that 
+ We can also see that 
 \family roman
 \series medium
 \shape up
@@ -2286,22 +2082,12 @@ and so
 \end_layout
 
 \begin_layout Standard
-Case 3.
- 
-\begin_inset Formula $T_{W}^{1}\left(P\right)=1$
-\end_inset
-
-.
- It's almost the same than the previous cases.
-\end_layout
-
-\begin_layout Standard
 Now, let's prove that 
 \begin_inset Formula $T_{W}^{2}\left(P_{1}^{W}\right)=\mbox{lim}_{n}T_{Z_{n},\delta_{n}}^{2}\left(P_{1}^{Z_{n},\delta_{n}}\right)$
 \end_inset
 
 .
- By the above argument, we kno that there exists 
+ By the above argument, we know that there exists 
 \begin_inset Formula $N$
 \end_inset
 
@@ -2325,120 +2111,7 @@ P_{1}^{Z_{n},\delta_{n}}<P_{1}^{W}.
 \end_layout
 
 \begin_layout Standard
-
-\color red
-Now, suppose 
-\begin_inset Formula $T_{W}^{2}\left(P_{1}^{W}\right)-T_{W}^{1}\left(P\right)>\epsilon>0$
-\end_inset
-
-, and let 
-\begin_inset Formula $q_{x}^{+}=\mbox{max}_{t\in\left[T_{W}^{1}\left(P\right),T_{W}^{2}\left(P_{1}^{W}\right)-\epsilon\right]}q_{tx}^{W}$
-\end_inset
-
- and 
-\begin_inset Formula $q^{+}=\mbox{max}_{x}q_{x}^{*}$
-\end_inset
-
-.
- Let 
-\begin_inset Formula $N_{2}^{*}$
-\end_inset
-
- such that if 
-\begin_inset Formula $n>N_{2}^{*}$
-\end_inset
-
-, then 
-\begin_inset Formula $\delta_{n}<r<P_{1}^{W}-q^{+}$
-\end_inset
-
- where 
-\begin_inset Formula $r\in\mathbb{Q}$
-\end_inset
-
-.
- Let 
-\begin_inset Formula $N_{2}^{**}$
-\end_inset
-
- such that if 
-\begin_inset Formula $n>N_{2}^{**}$
-\end_inset
-
-, then 
-\begin_inset Formula $\epsilon_{n}^{A_{1}^{W}}<P_{1}^{W}-q^{+}-r$
-\end_inset
-
-.
- Thus, if 
-\begin_inset Formula $n>N_{2}:=\mbox{max}\left\{ N_{2}^{*},N_{2}^{**}\right\} $
-\end_inset
-
- and 
-\begin_inset Formula $T_{W}^{1}\left(P\right)\leq t\leq T_{W}^{2}\left(P_{1}^{W}\right)-\epsilon$
-\end_inset
-
-, then
-\begin_inset Formula 
-\begin{eqnarray*}
-q_{tx}^{Z_{n},\delta_{n}}\left(A_{1}^{W}\right) & < & q_{tx}^{W}\left(A_{1}^{W}\right)+\epsilon_{n}^{A_{1}^{W}}\\
- & < & q_{tx}^{W}\left(A_{1}^{W}\right)+P_{1}^{W}-q^{+}-r\\
- & \leq & P_{1}^{W}-r\leq P_{1}^{W}-\delta_{n}
-\end{eqnarray*}
-
-\end_inset
-
-and so 
-\begin_inset Formula $T_{Z_{n},\delta_{n}}^{2}\left(P\right)>T_{W}^{2}\left(P\right)-\epsilon$
-\end_inset
-
- if 
-\begin_inset Formula $n>N_{\text{3}}:=\mbox{max}\left\{ N_{1},N_{2}\right\} $
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-
-\color red
 Case 1.
- 
-\begin_inset Formula $T_{W}^{2}\left(P_{1}^{W}\right)=1$
-\end_inset
-
-, so 
-\begin_inset Formula $\left|T_{W}^{2}\left(P\right)-T_{Z_{n},\delta_{n}}^{1}\left(P\right)\right|<\epsilon$
-\end_inset
-
- if 
-\begin_inset Formula $n>N_{3}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-
-\color red
-If 
-\begin_inset Formula $\epsilon_{2}\geq T_{W}^{1}\left(P\right)$
-\end_inset
-
-=1, then 
-\begin_inset Formula $\left|T_{W}^{1}\left(P\right)-T_{Z_{n},\delta_{n}}^{1}\left(P\right)\right|<\epsilon_{2}$
-\end_inset
-
- if 
-\begin_inset Formula $n>N_{3}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Case 2.
  
 \begin_inset Formula $T_{W}^{2}\left(P_{1}^{W}\right)=0=T_{W}^{1}\left(P\right)$
 \end_inset
@@ -2460,7 +2133,7 @@ Case 2.
 \end_layout
 
 \begin_layout Standard
-Case 3.
+Case 2.
  
 \begin_inset Formula $0<T_{W}^{2}\left(P_{1}^{W}\right)$
 \end_inset
@@ -2485,41 +2158,8 @@ q_{tx}^{W}\left(A_{1}^{W}\right)-\epsilon_{n} & < & q_{tx}^{Z_{n},\delta_{n}}\le
 
 \end_inset
 
-Furthermore, for 
-\begin_inset Formula $n$
-\end_inset
-
- sufficiently large and 
-\begin_inset Formula $\delta_{2}>0$
-\end_inset
-
- sufficiently small (THIS PARAGRAPH CAN BE REMOVED...) 
-\begin_inset Formula 
-\begin{eqnarray*}
-T_{W}^{2}\left(P_{1}^{W}\right)-\delta_{2}\leq T_{W}^{2}\left(P_{1}^{Z_{n}}\right) & \leq & \mbox{lim inf}_{n}T_{W}^{2}\left(P_{1}^{Z_{n}}+\delta_{n}+\epsilon_{n}\right)\\
- & \leq & \mbox{lim sup}_{n}T_{W}^{2}\left(P_{1}^{Z_{n}}+\delta_{n}+\epsilon_{n}\right)
-\end{eqnarray*}
-
-\end_inset
-
-because 
-\begin_inset Formula $P_{1}^{Z_{n}}\rightarrow P_{1}^{W}$
-\end_inset
-
- and so for 
-\begin_inset Formula $n$
-\end_inset
-
- sufficiently large
-\begin_inset Formula 
-\begin{eqnarray*}
-P_{1}^{W} & < & P_{1}^{W}-\mbox{max}_{t\in\left[T_{W}^{1},T_{W}^{2}\left(P_{1}^{W}\right)-\delta_{2}\right]}q_{tx}^{W}\left(A_{1}^{W}\right)+P_{1}^{Z_{n}}.
-\end{eqnarray*}
-
-\end_inset
-
 Now, let 
-\begin_inset Formula $x=\mbox{arg max}q_{T_{W}^{2}\left(P_{1}^{W}\right)x}^{W}$
+\begin_inset Formula $x=\mbox{arg max}q_{T_{W}^{2}\left(P_{1}^{W}\right)x}^{W}\left(A_{1}^{W}\right)$
 \end_inset
 
 .
@@ -2557,21 +2197,7 @@ W_{x}\left(s_{k}\right)-W_{x}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right) & >v_{
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Notice that 
+ Notice that 
 \begin_inset Formula $v_{k}>0$
 \end_inset
 
@@ -2612,7 +2238,7 @@ Notice that
 \end_inset
 
 , 
-\begin_inset Formula $\frac{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\Delta\frac{W_{^{x'}}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\Delta\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x'=k\right\} }\right)}>1-\delta_{3}$
+\begin_inset Formula $\frac{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\frac{W_{^{x'}}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x'=k\right\} }\right)}>1-\delta_{3}$
 \end_inset
 
 .
@@ -2630,11 +2256,11 @@ Notice that
 \end_inset
 
 , then 
-\begin_inset Formula $\frac{\epsilon_{n}}{P_{1}^{W}}<v_{k}\frac{\Delta}{\lambda_{z}}+\alpha$
+\begin_inset Formula $\frac{\epsilon_{n}}{P_{1}^{W}}<v_{k}\frac{1}{\lambda_{z}}+\alpha$
 \end_inset
 
  and 
-\begin_inset Formula $\frac{\delta_{n}}{P_{1}^{W}}<\left(v_{k}\frac{\Delta}{\lambda_{z}}+\alpha\right)^{2}/2$
+\begin_inset Formula $\frac{\delta_{n}}{P_{1}^{W}}<\left(v_{k}\frac{1}{\lambda_{z}}+\alpha\right)^{2}/2$
 \end_inset
 
 .
@@ -2645,11 +2271,11 @@ Notice that
 Observe that
 \begin_inset Formula 
 \begin{eqnarray*}
-q_{s_{k}x}^{W}\left(A_{1}^{W}\right) & = & \mbox{exp}\left(\Delta\frac{W_{x}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\Delta\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x'=k\right\} }\right)\\
- & > & \frac{\mbox{exp}\left(\Delta\frac{W_{k}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)+v_{k}}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x=k\right\} }\right)}{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\Delta\frac{W_{^{x'}}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x^{'}=k\right\} }\right)}\\
- &  & \times\frac{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\Delta\frac{W_{^{x'}}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\Delta\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\Delta^{2}s_{k}I_{\left\{ x'=k\right\} }\right)}\\
- & \geq & q_{T_{W}^{2}\left(P_{1}^{W}\right)x}^{W}\mbox{exp}\left(v_{k}\frac{\Delta}{\lambda_{z}}\right)\left(1-\delta_{3}\right)\geq q_{T_{W}^{1}x}^{W}\mbox{exp}\left(v_{k}\frac{\Delta}{\lambda_{z}}\right)\mbox{exp}\left(\alpha\right)\\
- &  & \geq P_{1}^{W}\left(1+v_{k}\frac{\Delta}{\lambda_{z}}+\alpha+\frac{\left(v_{k}\frac{\Delta}{\lambda_{z}}+\alpha\right)^{2}}{2}\right)>P_{1}^{W}+\epsilon_{n}+\delta_{n}.
+q_{s_{k}x}^{W}\left(A_{1}^{W}\right) & = & \mbox{exp}\left(\frac{W_{x}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x'=k\right\} }\right)\\
+ & > & \frac{\mbox{exp}\left(\frac{W_{k}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)+v_{k}}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x=k\right\} }\right)}{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\frac{W_{^{x'}}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x^{'}=k\right\} }\right)}\\
+ &  & \times\frac{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\frac{W_{^{x'}}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x'=k\right\} }\right)}\\
+ & \geq & q_{T_{W}^{2}\left(P_{1}^{W}\right)x}^{W}\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\left(1-\delta_{3}\right)\geq q_{T_{W}^{2}\left(P_{1}^{W}\right)x}^{W}\left(A_{1}^{W}\right)\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\mbox{exp}\left(\alpha\right)\\
+ &  & \geq P_{1}^{W}\left(1+v_{k}\frac{1}{\lambda_{z}}+\alpha+\frac{\left(v_{k}\frac{1}{\lambda_{z}}+\alpha\right)^{2}}{2}\right)>P_{1}^{W}+\epsilon_{n}+\delta_{n}.
 \end{eqnarray*}
 
 \end_inset
@@ -2781,15 +2407,21 @@ The cases
 \end_layout
 
 \begin_layout Standard
-Note that almost surely 
-\begin_inset Formula $M_{Y}<\infty$
+Since almost surely 
+\begin_inset Formula $M_{Y}\in\left\{ 1,\ldots,k-1\right\} $
 \end_inset
 
- by Frazier[].
+ by Frazier 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+, we conclude that
 \end_layout
 
 \begin_layout Standard
-Thus, we conclude that
 \begin_inset Formula 
 \[
 \mathbb{P}\left(W\text{\ensuremath{\in}D\ensuremath{\left[0,1\right]^{k}}-}D_{s}\right)=1.
@@ -2801,17 +2433,17 @@ Thus, we conclude that
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\]
-
+\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare}$
+\begin_inset Formula 
+\[
+\]
+
 \end_inset
 
 
@@ -2972,12 +2604,19 @@ Let
 
 \end_inset
 
-where the last inequallity follows from the paper of Frazier [].
+where the last inequality follows from the paper of Frazier 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+.
  
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare}$
+\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare\;\;\;\;}$
 \end_inset
 
 
@@ -2992,7 +2631,7 @@ If samples from system
 \begin_inset Formula $x\in\left\{ 1\ldots,k\right\} $
 \end_inset
 
- are indetically distributed and independent, over time and across alternatives,
+ are identically distributed and independent, over time and across alternatives,
  then 
 \begin_inset Formula $\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right)\geq P*$
 \end_inset
@@ -3054,10 +2693,49 @@ Suppose
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare}$
+\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare}$
 \end_inset
 
 
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring References
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3"
+
+\end_inset
+
+Billingsley, P.
+ 1968.
+ 
+\shape italic
+Convergence of Probability Measures.
+ 
+\shape default
+John Wiley and Sons.
+ New York.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring References
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-5"
+
+\end_inset
+
+Frazier, P.
+ I.
+ A Fully Sequential Elimination Procedure for Indifference-Zone Ranking
+ and Selection with Tight Bounds on Probability of Correct Selection.
+ 
+\shape italic
+Operations Research,
+\shape default
+ to appear.
 \end_layout
 
 \begin_layout Standard
