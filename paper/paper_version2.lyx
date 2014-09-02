@@ -1704,12 +1704,17 @@ Observe that
 \begin{eqnarray*}
 q_{s_{k}x}^{W} & = & \mbox{exp}\left(\frac{W_{x}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x'=k\right\} }\right)\\
  & > & \frac{\mbox{exp}\left(\frac{W_{x}\left(T_{W}^{1}\left(P\right)\right)+v_{k}}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{1}\left(P\right)I_{\left\{ x=k\right\} }\right)}{\sum_{x^{'}\in A}\mbox{exp}\left(\frac{W_{^{x'}}\left(T_{W}^{1}\left(P\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{1}\left(P\right)I_{\left\{ x^{'}=k\right\} }\right)}\times\frac{\sum_{x^{'}\in A}\mbox{exp}\left(\frac{W_{^{x'}}\left(T_{W}^{1}\left(P\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{1}\left(P\right)I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A}\mbox{exp}\left(\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x'=k\right\} }\right)}\\
- & \geq & q_{T_{W}^{1}\left(P\right)x}^{W}\left(A\right)\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\left(1-\delta_{3}\right)\geq q_{T_{W}^{1}\left(P\right)x}^{W}\left(A\right)\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\mbox{exp}\left(\alpha\right)\\
+ & \geq & q_{T_{W}^{1}\left(P\right)x}^{W}\left(A\right)\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\left(1-\delta_{3}\right)\\
+ & \geq & q_{T_{W}^{1}\left(P\right)x}^{W}\left(A\right)\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\mbox{exp}\left(\alpha\right)\\
  & \geq & P\left(1+v_{k}\frac{1}{\lambda_{z}}+\alpha+\frac{\left(v_{k}\frac{1}{\lambda_{z}}+\alpha\right)^{2}}{2}\right)>\left(P+\epsilon_{n}+\delta_{n}\right).
 \end{eqnarray*}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 Consequently, 
 \begin_inset Formula 
 \[
@@ -2275,8 +2280,10 @@ Observe that
 q_{s_{k}x}^{W}\left(A_{1}^{W}\right) & = & \mbox{exp}\left(\frac{W_{x}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x'=k\right\} }\right)\\
  & > & \frac{\mbox{exp}\left(\frac{W_{k}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)+v_{k}}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x=k\right\} }\right)}{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\frac{W_{^{x'}}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x^{'}=k\right\} }\right)}\\
  &  & \times\frac{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\frac{W_{^{x'}}\left(T_{W}^{2}\left(P_{1}^{W}\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{2}\left(P_{1}^{W}\right)I_{\left\{ x^{'}=k\right\} }\right)}{\sum_{x^{'}\in A_{1}^{W}}\mbox{exp}\left(\frac{W_{x'}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}I_{\left\{ x'=k\right\} }\right)}\\
- & \geq & q_{T_{W}^{2}\left(P_{1}^{W}\right)x}^{W}\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\left(1-\delta_{3}\right)\geq q_{T_{W}^{2}\left(P_{1}^{W}\right)x}^{W}\left(A_{1}^{W}\right)\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\mbox{exp}\left(\alpha\right)\\
- &  & \geq P_{1}^{W}\left(1+v_{k}\frac{1}{\lambda_{z}}+\alpha+\frac{\left(v_{k}\frac{1}{\lambda_{z}}+\alpha\right)^{2}}{2}\right)>P_{1}^{W}+\epsilon_{n}+\delta_{n}.
+ & \geq & q_{T_{W}^{2}\left(P_{1}^{W}\right)x}^{W}\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\left(1-\delta_{3}\right)\\
+ & \geq & q_{T_{W}^{2}\left(P_{1}^{W}\right)x}^{W}\left(A_{1}^{W}\right)\mbox{exp}\left(v_{k}\frac{1}{\lambda_{z}}\right)\mbox{exp}\left(\alpha\right)\\
+ & \geq & P_{1}^{W}\left(1+v_{k}\frac{1}{\lambda_{z}}+\alpha+\frac{\left(v_{k}\frac{1}{\lambda_{z}}+\alpha\right)^{2}}{2}\right)\\
+ & > & P_{1}^{W}+\epsilon_{n}+\delta_{n}.
 \end{eqnarray*}
 
 \end_inset
