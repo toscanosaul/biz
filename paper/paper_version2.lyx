@@ -2684,7 +2684,7 @@ Suppose
 \begin_inset Formula 
 \begin{eqnarray*}
 \underline{lim}_{\delta\rightarrow0}\mathbb{P}_{\text{\mu}}\left(CS_{\delta}\mid\mathbf{X}\right) & = & \underline{lim}_{\delta\rightarrow0}\mathbb{P}_{\left(0,\ldots,0,\delta\right)}\left(CS_{\delta}\mid\hat{\mathbf{X}}\right)\\
- & = & \underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(g\left(W\right)=1\right)\\
+ & = & \mathbb{P}\left(g\left(W\right)=1\right)\\
  & \geq & P^{*}.
 \end{eqnarray*}
 
