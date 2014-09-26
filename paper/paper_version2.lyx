@@ -25,6 +25,7 @@
 \def\enoteformat{\rightskip0pt\leftskip0pt\parindent=1.275em
   \leavevmode\llap{\makeenmark}}
 
+\date{}
 
 % Private macros here (check that there is no clash with the style)
 \newcommand{\lambdahat}{\widehat{\lambda}}
@@ -155,6 +156,29 @@ On the Asymptotic Validity of a Fully Sequential Elimination Procedure for
  of Correct Selection
 \end_layout
 
+\begin_layout Author
+Saul Toscano
+\begin_inset Newline newline
+\end_inset
+
+
+\size small
+School of Operations Research and Information Engineering, Cornell University
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+Peter I.
+ Frazier
+\begin_inset Newline newline
+\end_inset
+
+
+\size small
+School of Operations Research and Information Engineering, Cornell University
+\end_layout
+
 \begin_layout Standard
 We prove the validity of the sequential elimination IZ procedure proposed
  by Frazier 
@@ -173,7 +197,11 @@ key "key-5"
 \end_inset
 
 .
- Specifically, we analyze Algorithm 2, when 
+ Specifically, if 
+\begin_inset Formula $k$
+\end_inset
+
+ is the number of systems, we analyze Algorithm 2, when 
 \begin_inset Formula $B_{1}=\cdots=B_{k}=1$
 \end_inset
 
@@ -250,37 +278,27 @@ lambda^2_x$, and set $n_0=0$.
 
 \begin_layout Plain Layout
 
-To compute $
+We define $q_{tx}
 \backslash
-qhat_{tx}(A)$, use 
+left(A
 \backslash
-begin{equation}   q'_{t,x}(A) =    
+right)$ where $A=
 \backslash
-exp
+left
 \backslash
-left(
+{ 1,
 \backslash
-gamma 
+ldots,k
 \backslash
-delta Y'_{tx}
+right
 \backslash
-right) 
+}$ as 
 \backslash
-bigg/ 
+begin{equation}   q_{tx}
 \backslash
-sum_{x'
+left(A
 \backslash
-in A} 
-\backslash
-exp
-\backslash
-left(
-\backslash
-gamma 
-\backslash
-delta Y'_{tx'}
-\backslash
-right)   = 
+right) = 
 \backslash
 exp
 \backslash
@@ -382,9 +400,11 @@ in
 \backslash
 mbox{max}_{x
 \backslash
-in A}
+in A} q_{tx}
 \backslash
-qhat_{tx}(A)<P$}
+left(A
+\backslash
+right)<P$}
 \end_layout
 
 \begin_layout Plain Layout
@@ -395,9 +415,11 @@ WHILE{$
 \backslash
 mbox{min}_{x
 \backslash
-in A} 
+in A} q_{tx}
 \backslash
-qhat_{tx}(A) 
+left(A
+\backslash
+right) 
 \backslash
 le c$}
 \end_layout
@@ -412,9 +434,11 @@ in
 \backslash
 mbox{arg min}_{x
 \backslash
-in A}
+in A} q_{tx}
 \backslash
-qhat_{tx}(A)$.
+left(A
+\backslash
+right)$.
 \end_layout
 
 \begin_layout Plain Layout
@@ -427,9 +451,11 @@ upthresh
 \backslash
 leftarrow 
 \backslash
-upthresh/(1-
+upthresh/(1-q_{tx}
 \backslash
-qhat_{tx}(A))$.
+left(A
+\backslash
+right))$.
      
 \end_layout
 
@@ -572,7 +598,7 @@ To prove the case when the variances are known, we use a theorem for Ergodic
  We also use an extension of the Continuous Mapping Theorem (Theorem 5.5
  of Billingsley 1968) to see that the algorithm behaves like a sequential
  elimination IZ procedure with a Brownian motion process instead of the
- standardize of the sum of the output data in the limit.
+ standardized sum of the output data in the limit.
  Finally, we use the results of the paper of Frazier 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -581,6 +607,7 @@ key "key-5"
 \end_inset
 
  to prove the validity of this algorithm in the limit.
+ 
 \end_layout
 
 \begin_layout Section
@@ -637,11 +664,24 @@ Without loss of generality, suppose that the true means of the systems are
 \end_inset
 
 .
+ First we are going to suppose that 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, 
+\begin_inset Formula $\mu_{k}=\delta$
+\end_inset
+
+,
+\begin_inset Formula $\mu_{k-1}=\cdots=\mu_{\text{1}}=0$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Now we are going to see that the standardize of the sum of the output data
- converges to a Brownian motion in 
+Now we are going to see that the standardized sum of the output data converges
+ to a Brownian motion in 
 \begin_inset Formula $D[0,\infty)$
 \end_inset
 
@@ -655,7 +695,12 @@ Now we are going to see that the standardize of the sum of the output data
 
  that are right-continuous and have left-hand limits, with the Skorohod
  topology.
- The Skorohod metric 
+ We are going to define the Skorohod topology on 
+\begin_inset Formula $D[0,\infty)$
+\end_inset
+
+ by defining a metric on the space.
+ The Skorohod metricric 
 \begin_inset Formula $d_{t}$
 \end_inset
 
@@ -696,7 +741,12 @@ where
 \end_layout
 
 \begin_layout Standard
-For 
+We define the Skorohod topology on 
+\begin_inset Formula $D\left[0,\infty\right)$
+\end_inset
+
+.
+ For 
 \begin_inset Formula $X\in D\left[0,\text{\infty}\right)$
 \end_inset
 
@@ -705,7 +755,7 @@ For
 \end_inset
 
  be the element of 
-\begin_inset Formula $D[0,\infty)$
+\begin_inset Formula $D_{\infty}:=D[0,\infty)$
 \end_inset
 
  defined by
@@ -731,13 +781,44 @@ m-t & \mbox{if }m-1\leq t\leq m,\\
 And now take
 \begin_inset Formula 
 \[
-d_{\infty}\left(X,Y\right)=\sum_{m=1}^{\infty}2^{-m}\left(1\wedge d_{m}\left(X,Y\right)\right)
+d_{\infty}\left(X,Y\right)=\sum_{m=1}^{\infty}2^{-m}\left(1\wedge d_{m}\left(X^{m},Y^{m}\right)\right)
 \]
 
 \end_inset
 
 which is the Skorohod metric on 
 \begin_inset Formula $D\left[0,\infty\right)$
+\end_inset
+
+.
+ By Theorem 16.2 of Billingsley1999, there is convergence 
+\begin_inset Formula $d_{\infty}\left(x_{n},x\right)\rightarrow0$
+\end_inset
+
+ in 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $d_{t}\left(x_{n},x\right)\rightarrow0$
+\end_inset
+
+ for each continuity point 
+\begin_inset Formula $t$
+\end_inset
+
+ of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The following lemma shows that the standardized sum of the output data converges
+ to a Brownian motion in 
+\begin_inset Formula $D_{\infty}$
 \end_inset
 
 .
@@ -755,7 +836,7 @@ If
 , then
 \begin_inset Formula 
 \[
-C_{x}\left(\delta,\cdot\right):=\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\right),x}-\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\Rightarrow W_{x}\left(\cdot\right)
+C_{x}\left(\delta,\cdot\right):=\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\right),x}-\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}\Rightarrow W_{x}\left(\cdot\right)
 \]
 
 \end_inset
@@ -899,15 +980,16 @@ C_{x}\left(\delta,\cdot\right)\Rightarrow W_{x}\left(\cdot\right).
 
 \begin_layout Standard
 Now we are going to define new algorithms that are almost the same than
- the one proposed by Frazier, but instead of 
-\begin_inset Formula $q_{tx}^{\delta}\left(A\right)$
-\end_inset
-
-, these algorithms use new functions 
+ the continuous-time procedure proposed by Frazier, but these algorithms
+ use new functions 
 \begin_inset Formula $q_{tx}^{Y,\delta}\left(A\right)$
 \end_inset
 
- which depend on a function 
+ which depend on 
+\begin_inset Formula $\delta$
+\end_inset
+
+ and a function 
 \begin_inset Formula $Y$
 \end_inset
 
@@ -916,23 +998,153 @@ Now we are going to define new algorithms that are almost the same than
 \end_inset
 
 .
+ More explicity, if we define 
+\begin_inset Formula 
+\[
+q_{tx}\left(A\right)=\mbox{exp}\left(\frac{\delta}{\lambda_{x}^{2}}Y_{n_{x}\left(t\right),x}^{'}\right)\left/\sum_{x'\in A}\right.\mbox{exp}\left(\frac{\delta}{\lambda_{x^{'}}^{2}}Y_{n_{x}^{'}\left(t\right),x^{'}}^{'}\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $Y_{tx}^{'}$
+\end_inset
+
+ is a Brownian motion under 
+\begin_inset Formula $\mathbb{P}_{\mu,\lambda}$
+\end_inset
+
+ starting from 
+\begin_inset Formula $0$
+\end_inset
+
+, with drift 
+\begin_inset Formula $\mu_{x}$
+\end_inset
+
+, volatility 
+\begin_inset Formula $\lambda_{x}$
+\end_inset
+
+, and independence across 
+\begin_inset Formula $x$
+\end_inset
+
+, the procedure proposed by Frazier is defined by first setting
+\begin_inset Formula 
+\[
+\tau_{0}=0,P_{0}=P^{*},A_{0}=\left\{ 1,\ldots,k\right\} 
+\]
+
+\end_inset
+
+then defining recursively, for 
+\begin_inset Formula $n=0,1,\ldots,k-2,$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\tau_{n+1} & = & \mbox{inf}\left\{ t\geq\tau_{n}:\mbox{ min}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\geq P_{n}^{Y,\delta}\right\} \\
+Z_{n+1} & \in & \underset{x\in A_{n}}{\mbox{arg min}}q_{\tau_{n+1},x}\left(A_{n}\right)\\
+A_{n+1} & = & A_{n}\left\backslash \left\{ Z_{n+1}\right\} \right.\\
+P_{n+1} & = & P_{n}\left/\left(1-\mbox{min}_{x\in A_{n}}q_{\tau_{n+1},x}\left(A_{n}\right)\right)\right.
+\end{eqnarray*}
+
+\end_inset
+
+and finally letting the selected alternative 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ be the single entry in 
+\begin_inset Formula $A_{k-1}$
+\end_inset
+
+.
+ We also define
+\begin_inset Formula 
+\[
+M=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n}}q_{\tau_{n},x}\left(A_{n-1}\right)\geq P_{n-1}\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $Y\in D\left[0,\infty\right)^{k}$
+\end_inset
+
+, we define new functions 
+\begin_inset Formula $q_{tx}^{Y,\delta}\left(A\right)$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+q_{tx}^{Y,\delta}\left(A\right)=\mbox{exp}\left(\frac{Y_{x}\left(t\right)}{\lambda_{z}}+\delta^{2}\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)}{\lambda_{z}^{2}}I_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{Y_{x^{'}}\left(t\right)}{\lambda_{z}}+\delta^{2}\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)}{\lambda_{z}^{2}}I_{\left\{ x^{'}=k\right\} }\right).
+\]
+
+\end_inset
+
+The reason of this definition is because 
+\begin_inset Formula $C\left(\delta,\cdot\right)=\left(C_{x}\left(\delta,\cdot\right)\right)_{x\in A}\in D\left[0,\infty\right)^{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\delta}{\lambda_{x}^{2}}Y_{n_{x}\left(\cdot\right),x}=\frac{C_{x}\left(\delta,\cdot\right)}{\lambda_{z}}+\delta^{2}\frac{\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)}{\lambda_{z}^{2}}I_{\left\{ x=k\right\} }\Rightarrow W_{x}^{'}\left(\cdot\right):=\frac{W_{x}\left(\cdot\right)}{\lambda_{z}}+\frac{\cdot}{\lambda_{z}^{2}}I_{\left\{ x=k\right\} }
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $W_{x}^{'}$
+\end_inset
+
+ is a Brownian motion starting from 
+\begin_inset Formula $0$
+\end_inset
+
+, with drift 
+\begin_inset Formula $\frac{\mu_{x}}{\lambda_{z}^{2}}$
+\end_inset
+
+ and volatility 
+\begin_inset Formula $\frac{1}{\lambda_{z}}$
+\end_inset
+
+.
  
 \end_layout
 
 \begin_layout Standard
-First we are going to suppose that 
+Note that the functions 
+\begin_inset Formula $q_{tx}^{Y,\delta}\left(A\right)$
+\end_inset
+
+ define a new algorithm for each 
+\begin_inset Formula $Y\in D\left[0,\infty\right)^{k}$
+\end_inset
+
+and 
 \begin_inset Formula $\delta>0$
 \end_inset
 
- and 
-\begin_inset Formula $\mu_{k}=\delta$
-\end_inset
-
-,
-\begin_inset Formula $\mu_{k-1}=\cdots=\mu_{\text{1}}=0$
-\end_inset
-
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -956,55 +1168,39 @@ q_{tx}^{Y,\delta}\left(A\right): & = & \mbox{exp}\left(\frac{Y_{x}\left(t\right)
 \end_layout
 
 \begin_layout Standard
-We define
-\begin_inset Formula 
-\begin{eqnarray*}
-T_{Y,\delta}^{0} & = & 0\\
-A_{0}^{Y,\delta} & = & \left\{ 1,\ldots,k\right\} \\
-P_{0}^{Y,\delta} & = & P^{*}\\
-T_{Y,\delta}^{n+1}\left(P_{n}^{Y,\delta}\right) & = & \mbox{inf}\left\{ t\geq T_{Y,\delta}^{n}:\mbox{ min}_{x\in A_{n}^{Y,\delta}}q_{tx}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}^{Y,\delta}}q_{tx}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\geq P_{n}^{Y,\delta}\right\} \\
-Z_{n+1}^{Y,\delta} & \in & \mbox{arg min}_{x\in A_{n}^{Y,\delta}}q_{T_{Y,\delta}^{n+1},x}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\\
-A_{n+1}^{Y,\delta} & = & A_{n}-\left\{ Z_{n+1}^{Y,\delta}\right\} \\
-P_{n+1}^{Y,\delta} & = & P_{n}^{Y,\delta}/\left(1-\mbox{min}_{x\in A_{n}^{Y,\delta}}q_{T_{Y,\delta}^{n+1}x}^{Y,\delta}\left(A_{n}^{Y,\delta}\right)\right).
-\end{eqnarray*}
-
-\end_inset
-
-Now, let
-\begin_inset Formula 
-\[
-M_{Y,\delta}=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n-1}^{Y,\delta}}q_{T_{Y,\delta}^{n},x}\left(A_{n-1}^{Y,\delta}\right)\geq P_{n-1}^{Y,\delta}\right\} 
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-and
-\end_layout
-
-\begin_layout Standard
+We also define a new function
 \begin_inset Formula 
 \begin{eqnarray*}
 f\left(Y,\delta\right) & = & \begin{cases}
 1 & \mbox{if }k\mbox{ is chosen}\\
 0 & \mbox{otherwise}
-\end{cases}.
+\end{cases}
 \end{eqnarray*}
 
 \end_inset
 
+using the algorithm that 
+\begin_inset Formula $\left(Y,\delta\right)$
+\end_inset
 
+ induces.
+ 
 \end_layout
 
 \begin_layout Standard
-Now, we also define
-\begin_inset Formula $ $
+Now, we also define new functions 
+\begin_inset Formula $q_{tx}^{Y}\left(A\right)$
 \end_inset
 
+ to analyze the limit of 
+\begin_inset Formula $f\left(Y,\delta\right)$
+\end_inset
 
+ when 
+\begin_inset Formula $\delta$
+\end_inset
+
+ goes to zero:
 \begin_inset Formula 
 \[
 q_{tx}^{Y}\left(A\right):=\mbox{exp}\left(\frac{Y_{x}\left(t\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}tI_{\left\{ x=k\right\} }\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{Y_{x'}\left(t\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}tI_{\left\{ x'=k\right\} }\right)
@@ -1016,32 +1212,7 @@ q_{tx}^{Y}\left(A\right):=\mbox{exp}\left(\frac{Y_{x}\left(t\right)}{\lambda_{z}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-T_{Y}^{0} & = & 0\\
-A_{0}^{Y} & = & \left\{ 1,\ldots,k\right\} \\
-P_{0}^{Y} & = & P^{*}\\
-T_{Y}^{n+1}\left(P_{n}^{Y}\right) & = & \mbox{inf}\left\{ t\geq T_{Y}^{n}:\mbox{ min}_{x\in A_{n}^{Y}}q_{tx}^{Y}\left(A_{n}^{Y}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}^{Y}}q_{tx}^{Y}\left(A_{n}^{Y}\right)\geq P_{n}^{Y}\right\} \\
-Z_{n+1}^{Y} & \in & \mbox{arg min}_{x\in A_{n}^{Y}}q_{T_{Y}^{n+1},x}^{Y}\left(A_{n}^{Y}\right)\\
-A_{n+1}^{Y} & = & A_{n}^{Y}-\left\{ Z_{n+1}^{Y}\right\} \\
-P_{n+1}^{Y} & = & P_{n}^{Y,\delta}/\left(1-\mbox{min}_{x\in A_{n}^{Y,}}q_{T_{Y}^{n+1}x}^{Y}\left(A_{n}^{Y}\right)\right).
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Now, let
-\begin_inset Formula 
-\[
-M_{Y}=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n-1}^{Y}}q_{T_{Y}^{n},x}\left(A_{n-1}^{Y}\right)\geq P_{n-1}^{Y}\right\} 
-\]
-
-\end_inset
-
-and
+and we define the functions
 \begin_inset Formula 
 \[
 \]
@@ -1106,11 +1277,11 @@ Let
 
 .
  If 
-\begin_inset Formula $D_{s}\equiv\{x\in D\left[0,\infty\right)^{k}:\mbox{ for all sequences }\left\{ x_{n}\right\} \subset D\left[0,\infty\right)^{k},\mbox{ such that }$
+\begin_inset Formula $D_{s}\equiv\{x\in D\left[0,\infty\right)^{k}:\mbox{ for all sequences }\left\{ x_{n}\right\} \subset D\left[0,\infty\right)^{k}\mbox{ such that }$
 \end_inset
 
  
-\begin_inset Formula $lim_{n}d\left(x_{n},x\right)=0$
+\begin_inset Formula $\mbox{lim}{}_{n}d\left(x_{n},x\right)=0$
 \end_inset
 
  the sequence 
@@ -1183,12 +1354,16 @@ almost surely for each system
 \begin_inset Formula $\left[0,t\right]^{k}$
 \end_inset
 
-.
+ because 
+\begin_inset Formula $\left[0,t\right]^{k}$
+\end_inset
+
+ is compact.
  We will only consider the event 
 \begin_inset Formula $\mathcal{S}$
 \end_inset
 
- such that the previous properties hold and it has probability one.
+ such that the previous properties hold which has probability one.
 \end_layout
 
 \begin_layout Standard
@@ -1239,7 +1414,7 @@ Let
 \end_inset
 
  in 
-\begin_inset Formula $\Lambda$
+\begin_inset Formula $\Lambda_{s}$
 \end_inset
 
  such that 
@@ -2705,6 +2880,153 @@ Suppose
 \end_inset
 
 
+\end_layout
+
+\begin_layout Paragraph*
+Proposition 1.
+\end_layout
+
+\begin_layout Standard
+Suppose 
+\begin_inset Formula $\left\{ f_{n}\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ g_{n}\right\} $
+\end_inset
+
+ are two sequences of functions on 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+ such that 
+\begin_inset Formula $f_{n}\rightarrow f$
+\end_inset
+
+ and 
+\begin_inset Formula $g_{n}\rightarrow g$
+\end_inset
+
+ in the sense of 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\mbox{min}\left(f_{n},g_{n}\right)\rightarrow\mbox{min}\left(f,g\right)
+\]
+
+\end_inset
+
+in the sense of 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+Proof.
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $f_{n}\rightarrow f$
+\end_inset
+
+ and 
+\begin_inset Formula $g_{n}\rightarrow g$
+\end_inset
+
+, then there exist elements 
+\begin_inset Formula $\lambda_{n},\beta_{n}$
+\end_inset
+
+ of 
+\begin_inset Formula $\Lambda_{\infty}$
+\end_inset
+
+ such that
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\mbox{sup}_{t<\infty}\left|\lambda_{n}t-t\right| & \rightarrow & 0\\
+\mbox{sup}_{t<\infty}\left|\beta_{n}t-t\right| & \rightarrow & 0
+\end{eqnarray*}
+
+\end_inset
+
+and, for each 
+\begin_inset Formula $m$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{eqnarray*}
+\mbox{sup}_{t\leq m}\left|f_{n}\left(\lambda_{n}t\right)-f\left(t\right)\right| & \rightarrow & 0\\
+\mbox{sup}_{t\leq m}\left|g_{n}\left(\lambda_{n}t\right)-g\left(t\right)\right| & \rightarrow & 0.
+\end{eqnarray*}
+
+\end_inset
+
+Define
+\end_layout
+
+\begin_layout Paragraph*
+Proposition 2.
+\end_layout
+
+\begin_layout Standard
+Suppose 
+\begin_inset Formula $\left\{ f_{n}\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ g_{n}\right\} $
+\end_inset
+
+ are two sequences of functions on 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+ such that 
+\begin_inset Formula $f_{n}\rightarrow f$
+\end_inset
+
+ and 
+\begin_inset Formula $g_{n}\rightarrow g$
+\end_inset
+
+ in the sense of 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\left\{ T_{n}\right\} \subset\left[0,\infty\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{n}\rightarrow T$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\mbox{inf}\left\{ t\geq T_{n}:f_{n}\left(t\right)\leq0\right\} \rightarrow\mbox{inf}\left\{ t\geq T:f\left(t\right)\leq0\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Proof.
 \end_layout
 
 \begin_layout Bibliography
