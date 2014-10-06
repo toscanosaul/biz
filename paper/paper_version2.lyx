@@ -617,7 +617,7 @@ Asymptotic Validity when the Variances are Known
 \begin_layout Standard
 Without loss of generality, suppose that the true means of the systems are
  indexed so that 
-\begin_inset Formula $\mu_{k}\geq\mu_{k-1}\geq\cdots\geq\mu_{1}$
+\begin_inset Formula $\mu_{k}>\mu_{k-1}>\cdots>\mu_{1}$
 \end_inset
 
 .
@@ -677,7 +677,7 @@ Without loss of generality, suppose that the true means of the systems are
 \end_inset
 
  such that 
-\begin_inset Formula $a_{k}-a_{i}\leq1$
+\begin_inset Formula $a_{k}-a_{i}\geq1$
 \end_inset
 
  for all 
@@ -1405,12 +1405,12 @@ and, for each
 \begin_inset Formula 
 \begin{eqnarray*}
 \mbox{sup}_{t\leq m}\left|f_{n}\left(\lambda_{n}t\right)-f\left(t\right)\right| & \rightarrow & 0\\
-\mbox{sup}_{t\leq m}\left|g_{n}\left(\lambda_{n}t\right)-g\left(t\right)\right| & \rightarrow & 0.
+\mbox{sup}_{t\leq m}\left|g_{n}\left(\beta_{n}t\right)-g\left(t\right)\right| & \rightarrow & 0.
 \end{eqnarray*}
 
 \end_inset
 
-Define
+Define 
 \end_layout
 
 \begin_layout Paragraph*
@@ -1419,7 +1419,7 @@ Proposition 2.
 
 \begin_layout Standard
 Suppose 
-\begin_inset Formula $\left\{ f_{n}^{\delta_{n}}\right\} $
+\begin_inset Formula $\left\{ f_{n}\right\} $
 \end_inset
 
  is a sequence of functions on 
@@ -1427,7 +1427,7 @@ Suppose
 \end_inset
 
  such that 
-\begin_inset Formula $f_{n}^{\delta_{n}}\rightarrow f$
+\begin_inset Formula $f_{n}\rightarrow f$
 \end_inset
 
  in the sense of 
@@ -1435,14 +1435,10 @@ Suppose
 \end_inset
 
  , 
-\begin_inset Formula $\delta_{n}\rightarrow0$
+\begin_inset Formula $f$
 \end_inset
 
-, 
-\begin_inset Formula $\left\{ \delta_{n}\right\} \subset\left(0,\infty\right)$
-\end_inset
-
- and 
+ is continuous, and 
 \begin_inset Formula $\left\{ T_{n}\right\} \subset\left[0,\infty\right)$
 \end_inset
 
@@ -1460,23 +1456,11 @@ Suppose
 \end_inset
 
 .
- 
-\begin_inset Formula $ $
+ Suppose 
+\begin_inset Formula $T\left(0\right)\in\mathbb{R}$
 \end_inset
 
-Moreover, 
-\begin_inset Formula $f$
-\end_inset
-
- is continuous and 
-\begin_inset Formula $T\left(\delta\right)\in\mathbb{R}$
-\end_inset
-
- where 
-\begin_inset Formula $\delta=sup_{n}\delta_{n}$
-\end_inset
-
- .
+.
  Suppose there exists 
 \begin_inset Formula $\left\{ \epsilon_{n}\right\} \subset\left(0,\infty\right)$
 \end_inset
@@ -1485,7 +1469,11 @@ Moreover,
 \begin_inset Formula $\epsilon_{n}\rightarrow0$
 \end_inset
 
- and
+ , ed
+\begin_inset Formula $\epsilon_{n}\geq\epsilon_{n+1}$
+\end_inset
+
+, and
 \begin_inset Formula $ $
 \end_inset
 
@@ -1498,12 +1486,12 @@ Moreover,
 \end_inset
 
 for all 
-\begin_inset Formula $t\in\left[0,T\left(\delta\right)\right]$
+\begin_inset Formula $t\in\left[0,T\left(0\right)\right]$
 \end_inset
 
 .
  We also suppose that 
-\begin_inset Formula $\mbox{lim sup}_{n}T\left(\epsilon_{n}+\delta_{n}\right)\leq T\left(0\right)$
+\begin_inset Formula $\mbox{lim sup}_{n}T\left(\epsilon_{n}\right)\leq T\left(0\right)$
 \end_inset
 
 .
@@ -1565,7 +1553,11 @@ We are going to suppose
 \end_inset
 
  and 
-\begin_inset Formula $\delta>\epsilon_{n}+\delta_{n}$
+\begin_inset Formula $\epsilon>\epsilon_{n}$
+\end_inset
+
+ where 
+\begin_inset Formula $\epsilon:=sup_{n}\epsilon_{n}$
 \end_inset
 
 .
@@ -1575,7 +1567,7 @@ We are going to suppose
 
 .
  Note that 
-\begin_inset Formula $T_{n}\left(0\right)\leq T_{n}\left(\delta_{n}\right)$
+\begin_inset Formula $T_{n}\left(0\right)\leq T_{n}\left(\epsilon_{n}\right)$
 \end_inset
 
 .
@@ -1583,89 +1575,24 @@ We are going to suppose
 \end_layout
 
 \begin_layout Standard
-Now, let's prove that 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $T_{n}\left(\delta_{n}\right)\leq T\left(\epsilon_{n}+\delta_{n}\right)$
-\end_inset
-
-.
- Observe that 
-\begin_inset Formula $T_{n}<T\left(0\right)\leq T\left(\epsilon_{n}+\delta_{n}\right)$
-\end_inset
-
- and 
-\begin_inset Formula $\delta_{n}\leq f\left(T\left(\epsilon_{n}+\delta_{n}\right)\right)-\epsilon_{n}<f_{n}^{\delta_{n}}\left(T\left(\epsilon_{n}+\delta_{n}\right)\right)$
-\end_inset
-
- because 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-
-\begin_inset Formula $T\left(\epsilon_{n}+\delta_{n}\right)\leq T\left(\delta\right)$
-\end_inset
-
-
-\begin_inset Formula $ $
-\end_inset
-
-, and so 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $T_{n}\left(\delta_{n}\right)\leq T\left(\epsilon_{n}+\delta_{n}\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 We also have that
 \begin_inset Formula 
 \begin{eqnarray}
-T\left(0\right) & \leq & \mbox{lim inf}_{n}T\left(\delta_{n}+\epsilon_{n}\right)\nonumber \\
- & \leq & \mbox{lim sup}_{n}T\left(\delta_{n}+\epsilon_{n}\right)\label{eq:2.3}
+T\left(0\right) & \leq & \mbox{lim inf}_{n}T\left(\epsilon_{n}\right)\nonumber \\
+ & \leq & \mbox{lim sup}_{n}T\left(\epsilon_{n}\right)\label{eq:2.3}
 \end{eqnarray}
 
 \end_inset
 
 Now, since 
-\begin_inset Formula $\mbox{lim sup}_{n}T\left(\delta_{n}+\epsilon_{n}\right)\leq T\left(0\right)$
+\begin_inset Formula $\mbox{lim sup}_{n}T\left(\epsilon_{n}\right)\leq T\left(0\right)$
 \end_inset
 
 , 
 \begin_inset Formula 
 \begin{eqnarray*}
-T\left(0\right) & \geq & \mbox{lim sup}_{n}T\left(\delta_{n}+\epsilon_{n}\right)\\
- & \geq & \mbox{lim inf}_{n}T\left(\delta_{n}+\epsilon_{n}\right)\\
+T\left(0\right) & \geq & \mbox{lim sup}_{n}T\left(\epsilon_{n}\right)\\
+ & \geq & \mbox{lim inf}_{n}T\left(\epsilon_{n}\right)\\
  & \geq & T\left(0\right)
 \end{eqnarray*}
 
@@ -1674,7 +1601,7 @@ T\left(0\right) & \geq & \mbox{lim sup}_{n}T\left(\delta_{n}+\epsilon_{n}\right)
 and so 
 \begin_inset Formula 
 \[
-\mbox{lim inf}_{n}T_{n}\left(0\right)\leq\mbox{lim sup}_{n}T_{n}\left(0\right)\leq\mbox{lim}_{n}T\left(\delta_{n}+\epsilon_{n}\right)=T\left(0\right)
+\mbox{lim inf}_{n}T_{n}\left(0\right)\leq\mbox{lim sup}_{n}T_{n}\left(0\right)\leq\mbox{lim}_{n}T\left(\epsilon_{n}\right)=T\left(0\right)
 \]
 
 \end_inset
@@ -1887,11 +1814,7 @@ which is a contradiction.
 \begin_inset Formula $T\leq T_{n}\left(0\right)$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
-Consequently, 
+ and so
 \begin_inset Formula 
 \[
 \mbox{lim}_{n}T_{n}\left(0\right)=T\left(0\right).
@@ -2280,110 +2203,371 @@ Suppose first that
 \end_layout
 
 \begin_layout Standard
-Let 
+First, we are going to prove that 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $T_{W}^{1}\left(P\right)=\mbox{lim}_{n}T_{W}^{1}\left(P+\epsilon_{n}\right)$
+\end_inset
+
+.
+ Suppose that 
+\begin_inset Formula $k=2$
+\end_inset
+
+ and let 
 \begin_inset Formula $x=\mbox{arg max}q_{T_{W}^{1}x}^{W}\left(A\right)$
 \end_inset
 
 .
- By 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:1.1"
+ By the local version of the law of the iterated logarithm for Brownian
+ motion, for any 
+\begin_inset Formula $\epsilon\in\left(0,1\right)$
+\end_inset
+
+ there exists a monotonically decreasing sequence 
+\begin_inset Formula $\left\{ t_{k}:k=1,2,\ldots\right\} \subset\left(T_{W}^{1}\left(P\right),\infty\right)$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+W_{x}\left(t_{k}\right)-W_{x}\left(T_{W}^{1}\left(P\right)\right)>\epsilon\sqrt{2\left(t_{k}-T_{W}^{1}\left(P\right)\right)\mbox{ln}\left(\mbox{ln}\left(\frac{1}{t_{k}-T_{W}^{1}\left(P\right)}\right)\right)}
+\]
 
 \end_inset
 
-, for any 
-\begin_inset Formula $\varepsilon\in\left(0,1\right)$
-\end_inset
 
-, there exists a monotonically decreasing sequence 
-\begin_inset Formula $\left\{ s_{k}:\mbox{ }k=1,2,\ldots\right\} \subset\left(T_{W}^{1}\left(P\right),\infty\right)$
-\end_inset
-
- such that 
-\begin_inset Formula $\mbox{lim}_{n}s_{n}=T_{W}^{1}\left(P\right)$
-\end_inset
-
-; and for 
-\begin_inset Formula $k=1,2,\ldots$
-\end_inset
-
- we have
 \end_layout
 
 \begin_layout Standard
+Let 
+\begin_inset Formula $N$
+\end_inset
+
+ such that if 
+\begin_inset Formula $m>N$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\frac{\epsilon}{\lambda_{z}}\sqrt{2\left(t_{m}-T_{W}^{1}\left(P\right)\right)^{-1}\mbox{ln}\left(\mbox{ln}\left(\frac{1}{t_{m}-T_{W}^{1}\left(P\right)}\right)\right)}>\frac{a_{x^{'}}-a_{x}}{\lambda_{z}^{2}}-\frac{1}{\lambda_{z}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $\underline{\mbox{lim}}_{h\rightarrow0^{+}}\frac{W_{x^{'}}\left(T_{W}^{1}\left(P\right)+h\right)-W_{x^{'}}\left(T_{W}^{1}\left(P\right)\right)}{h}=-\infty$
+\end_inset
+
+, then there exists 
+\begin_inset Formula $N_{2}$
+\end_inset
+
+ such that if 
+\begin_inset Formula $n>N_{2}$
+\end_inset
+
+, then there exists 
+\begin_inset Formula $m\geq n$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+W_{x^{'}}\left(t_{m}\right)-W_{x^{'}}\left(T_{W}^{1}\left(P\right)\right)<\left(-t_{m}+T_{W}^{1}\left(P\right)\right)
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $m>\mbox{max}\left\{ N,N_{2}\right\} $
+\end_inset
+
+, then
 \begin_inset Formula 
 \begin{eqnarray*}
-\mbox{min}_{y\in A-\left\{ x\right\} }\left\{ W_{x}\left(s_{k}\right)-W_{x}\left(T_{W}^{1}\left(P\right)\right)-W_{y}\left(s_{k}\right)+W_{y}\left(T_{W}^{1}\left(P\right)\right)\right\}  & >v_{k}\left(-\epsilon\right)\equiv & \left(-\varepsilon\right)\sqrt{2\left(s_{k}-T_{W}^{1}\left(A\right)\right)\mbox{ln}\mbox{ln}\left(1/\left(s_{k}-T_{W}^{1}\left(P\right)\right)\right)}.
+ &  & \frac{W_{x^{'}}\left(T_{W}^{1}\left(P\right)\right)-W_{x}\left(T_{W}^{1}\left(P\right)\right)-W_{x^{'}}\left(t_{m}\right)+W_{x}\left(t_{m}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\left(t_{m}-T_{W}^{1}\left(P\right)\right)\left(a_{x}-a_{x^{'}}\right)\\
+ & > & \frac{-T_{W}^{1}\left(P\right)+t_{m}+\epsilon\sqrt{2\left(t_{m}-T_{W}^{1}\left(P\right)\right)\mbox{ln}\left(\mbox{ln}\left(\frac{1}{t_{k}-T_{W}^{1}\left(P\right)}\right)\right)}}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\left(t_{m}-T_{W}^{1}\left(P\right)\right)\left(a_{x}-a_{x^{'}}\right)\\
+ & > & \frac{-T_{W}^{1}\left(P\right)+t_{m}}{\lambda_{z}}+\left(t_{m}-T_{W}^{1}\left(P\right)\right)\left(\frac{a_{x^{'}}-a_{x}}{\lambda_{z}^{2}}-\frac{1}{\lambda_{z}}\right)+\frac{1}{\lambda_{z}^{2}}\left(t_{m}-T_{W}^{1}\left(P\right)\right)\left(a_{x}-a_{x^{'}}\right)\\
+ & = & 0
 \end{eqnarray*}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Notice that 
-\begin_inset Formula $v_{k}>0$
+and so
+\begin_inset Formula $ $
 \end_inset
 
- and 
-\begin_inset Formula $\mbox{lim}_{k}v_{k}=0$
+
+\begin_inset Formula 
+\[
+\frac{W_{x^{'}}\left(T_{W}^{1}\left(P\right)\right)-W_{x}\left(T_{W}^{1}\left(P\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\left(T_{W}^{1}\left(P\right)\right)\left(a_{x^{'}}-a_{x}\right)>\frac{W_{x^{'}}\left(t_{m}\right)-W_{x}\left(t_{m}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}\left(t_{m}\right)\left(a_{x^{'}}-a_{x}\right)
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $q_{t,x}^{W}\left(A\right)=\left(1+\sum_{x^{'}\in A-\left\{ x\right\} }\frac{q_{t,x^{'}}^{W}\left(A\right)}{q_{t,x}^{W}\left(A\right)}\right)^{-1}$
+\end_inset
+
+
+\begin_inset Formula $ $
+\end_inset
+
+, we have that 
+\begin_inset Formula 
+\[
+q_{t_{m},x}^{W}\left(A\right)>q_{T_{W}^{1},x}^{W}\left(A\right)=P
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\mbox{lim}_{n}T_{W}^{1}\left(P+\epsilon_{n}\right)=\mbox{inf}_{n}T_{W}^{1}\left(P+\epsilon_{n}\right)\geq T_{W}^{1}\left(P\right)$
+\end_inset
+
+, then 
+\begin_inset Formula $T_{W}^{1}\left(P\right)=\mbox{lim}_{n}T_{W}^{1}\left(P+\epsilon_{n}\right)$
 \end_inset
 
 .
- Now,
+ Suppose that we have 
+\begin_inset Formula $k+1$
+\end_inset
+
+ systems and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $x=\mbox{arg max }q_{T_{W}^{1}x}^{W}\left(A\right)$
+\end_inset
+
+.
+ Suppose that 
 \begin_inset Formula 
-\begin{eqnarray*}
-\sum_{x^{'}\in A-\left\{ x\right\} }\frac{q_{s_{k},x^{'}}^{W}}{q_{s_{k},x}^{W}} & = & \left(\sum_{x^{'}\in A-\left\{ x\right\} }\mbox{exp}\left(\frac{W_{x^{'}}\left(s_{k}\right)-W_{x}\left(s_{k}\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}\left(a_{x^{'}}-a_{x}\right)\right)\right)\\
- & \leq & \left(\sum_{x^{'}\in A-\left\{ x\right\} }\mbox{exp}\left(\frac{W_{x^{'}}\left(T_{W}^{1}\left(P\right)\right)-W_{x}\left(T_{W}^{1}\left(P\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}s_{k}\left(a_{x^{'}}-a_{x}\right)+\epsilon\frac{v_{k}}{\lambda_{z}}\right)\right)\\
-(a_{x^{'}}-a_{x}\leq0) & \leq & \left(\sum_{x^{'}\in A-\left\{ x\right\} }\mbox{exp}\left(\frac{W_{x^{'}}\left(T_{W}^{1}\left(P\right)\right)-W_{x}\left(T_{W}^{1}\left(P\right)\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}T_{W}^{1}\left(P\right)\left(a_{x^{'}}-a_{x}\right)+\epsilon\frac{v_{k}}{\lambda_{z}}\right)\right)\\
- & \leq & \mbox{exp}\left(\epsilon\frac{v_{k}}{\lambda_{z}}\right)\left(\frac{1}{P}-1\right)
-\end{eqnarray*}
+\[
+\sum_{x^{'}\in A-\left\{ x\right\} -\left\{ y\right\} }\frac{q_{t,x^{'}}^{W}\left(A\right)}{q_{t,x}^{W}\left(A\right)}
+\]
 
 \end_inset
 
-Then
+has no a minimum local in 
+\begin_inset Formula $T_{W}^{1}\left(P\right)$
+\end_inset
+
+.
+ By the previous proof 
+\begin_inset Formula $\frac{q_{t,y}^{W}\left(A\right)}{q_{t,x}^{W}\left(A\right)}$
+\end_inset
+
+ has no a minimum local in 
+\begin_inset Formula $T_{W}^{1}\left(P\right)$
+\end_inset
+
+.
+ Consequently, 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Suppose that there exists a sequence 
+\begin_inset Formula $\left\{ t_{m}\right\} \subset\left(T_{W}^{1}\left(P\right),\infty\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $t_{m}\downarrow T_{W}^{1}\left(P\right)$
+\end_inset
+
+ and there exists 
+\begin_inset Formula $N_{1}$
+\end_inset
+
+ such that if 
+\begin_inset Formula $m>N_{1}$
+\end_inset
+
+, then
 \begin_inset Formula 
-\begin{eqnarray*}
-q_{s_{k},x}^{W} & = & \left[1+\sum_{x^{'}\in A-\left\{ x\right\} }\frac{q_{s_{k},x^{'}}^{W}}{q_{s_{k},x}^{W}}\right]^{-1}\\
- & \geq & \left[1+\mbox{exp}\left(\epsilon\frac{v_{k}}{\lambda_{z}}\right)\left(\frac{1}{P}-1\right)\right]^{-1}\\
- & = & \frac{P}{P+\mbox{exp}\left(\epsilon\frac{v_{k}}{\lambda_{z}}\right)\left(1-P\right)}\\
- & \geq & P+\epsilon_{n}+\delta_{n}-\alpha
-\end{eqnarray*}
+\[
+\sum_{x^{'}\in A-\left\{ x\right\} -\left\{ y\right\} }\frac{q_{t_{m},x^{'}}^{W}\left(A\right)}{q_{t_{m},x}^{W}\left(A\right)}<\sum_{x^{'}\in A-\left\{ x\right\} -\left\{ y\right\} }\frac{q_{T_{W}^{1},x^{'}}^{W}\left(A\right)}{q_{T_{W}^{1},x}^{W}\left(A\right)}
+\]
 
 \end_inset
 
-for all 
-\begin_inset Formula $0<\alpha<1$
+
+\end_layout
+
+\begin_layout Standard
+By the previous proof, there exists 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+a sequence 
+\begin_inset Formula $\left\{ s_{m}\right\} \subset\left(T_{W}^{1}\left(P\right),\infty\right)$
 \end_inset
 
- and 
-\begin_inset Formula $k,n$
+ such that 
+\begin_inset Formula $s_{m}\downarrow T_{W}^{1}\left(P\right)$
 \end_inset
 
- sufficiently large.
- Then 
-\begin_inset Formula $s_{k}\geq T_{W}\left(P+\epsilon_{n}+\delta_{n}-\alpha\right)$
+ and there exists 
+\begin_inset Formula $N_{2}$
 \end_inset
 
- and so if 
-\begin_inset Formula $\alpha_{n}=1/n$
+ such that if 
+\begin_inset Formula $m>N_{2}$
+\end_inset
+
+, then 
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{q_{s_{m},y}^{W}\left(A\right)}{q_{s_{m},x}^{W}\left(A\right)}<\frac{q_{T_{W}^{1},y}^{W}\left(A\right)}{q_{T_{W}^{1},x}^{W}\left(A\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $\frac{q_{s_{m},y}^{W}\left(A\right)}{q_{s_{m},x}^{W}\left(A\right)}$
+\end_inset
+
+ is uniformly continuous on 
+\begin_inset Formula $[T_{W}^{1}\left(P\right),T_{W}^{1}\left(P\right)+1]$
+\end_inset
+
+ there exists 
+\begin_inset Formula $N_{3}$
+\end_inset
+
+ such that if 
+\begin_inset Formula $m>N_{3}$
+\end_inset
+
+ then 
+\begin_inset Formula $ $
 \end_inset
 
 
 \begin_inset Formula 
-\begin{eqnarray*}
-T_{W}\left(P\right) & \geq & \mbox{lim sup}_{m}\mbox{lim sup}_{n}T_{W}\left(P+\epsilon_{n}+\delta_{n}-\alpha_{m}\right)\\
- & = & \mbox{lim sup}_{n}\mbox{lim sup}_{m}T_{W}\left(P+\epsilon_{n}+\delta_{n}-\alpha_{m}\right)\\
- & \geq & \mbox{lim sup}_{n}T_{W}\left(P+\epsilon_{n}+\delta_{n}\right)\\
- & \geq & \mbox{lim inf}_{n}T_{W}\left(P+\epsilon_{n}+\delta_{n}\right)\\
- & \geq & T_{W}\left(P\right)
-\end{eqnarray*}
+\[
+\frac{q_{t_{m},y}^{W}\left(A\right)}{q_{t_{m},x}^{W}\left(A\right)}<\frac{q_{s_{m},y}^{W}\left(A\right)}{q_{s_{m},x}^{W}\left(A\right)}+a
+\]
+
+\end_inset
+
+Consequently, if 
+\begin_inset Formula $m>N=\mbox{max}\left\{ N_{1},N_{2},N_{3}\right\} ,$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\[
+\sum_{x^{'}\in A-\left\{ x\right\} }\frac{q_{t_{m},x^{'}}^{W}\left(A\right)}{q_{t_{m},x}^{W}\left(A\right)}<\sum_{x^{'}\in A-\left\{ x\right\} }\frac{q_{T_{W}^{1},x^{'}}^{W}\left(A\right)}{q_{T_{W}^{1},x}^{W}\left(A\right)}+a
+\]
+
+\end_inset
+
+Thus, by induction for all 
+\begin_inset Formula $a>0$
+\end_inset
+
+, there exists 
+\begin_inset Formula $N$
+\end_inset
+
+ such that if 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $m>N$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\sum_{x^{'}\in A-\left\{ x\right\} }\frac{q_{t_{m},x^{'}}^{W}\left(A\right)}{q_{t_{m},x}^{W}\left(A\right)}<\sum_{x^{'}\in A-\left\{ x\right\} }\frac{q_{T_{W}^{1},x^{'}}^{W}\left(A\right)}{q_{T_{W}^{1},x}^{W}\left(A\right)}+a
+\]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Thus, 
+\begin_inset Formula $T_{W}^{1}\left(P\right)=\mbox{lim}_{n}T_{W}^{1}\left(P+\epsilon_{n}\right)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
