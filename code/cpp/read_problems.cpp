@@ -15,7 +15,7 @@ void usage() {
   exit(-1);
 }
 
-int read_problems(char *filename);
+void read_problems(char *filename);
 
 int main(int argc, char *argv[]) {
   if (argc != 2)
@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   read_problems(argv[1]);
 }
 
-int read_problems(char *filename) {
+void read_problems(char *filename) {
   int nProblems;
 
    FILE *file = fopen(filename,"r");
@@ -77,4 +77,5 @@ int read_problems(char *filename) {
      printf("\n");
    }
    fclose(file);
+    
 }

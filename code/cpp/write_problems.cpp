@@ -13,15 +13,15 @@
 
 #define FILE_DIR "problems/"
 
-int write_SC(const char *filename, int maxk, double pstar, double delta, double sigma1, double sigma2); 
-int write_MDM(const char *filename, int maxk, double pstar, double delta, double sigma1, double sigma2);
+void write_SC(const char *filename, int maxk, double pstar, double delta, double sigma1, double sigma2);
+void write_MDM(const char *filename, int maxk, double pstar, double delta, double sigma1, double sigma2);
 //int write_RPI(const char *filename, int maxk, double pstar, double delta, double sigma, double RPIsigma, int nProblems, int moveToPreferenceZone);
-int write_RPI(const char *filename, int maxk, double pstar, double delta, double lower_sigma, double upper_sigma, double RPIsigma, int nProblems, int moveToPreferenceZone);
-int write_SCvP(const char *filename, int k, double delta, double sigma1, double sigma2); 
-int write_PGS(const char *filename, int k, int m, double pstar, double delta, double sigma);
-int write_animation(const char *filename, int k, double pstar, double delta, double sigma);
-int write_trial(const char *filename);
-int write_trial2(const char *filename);
+void write_RPI(const char *filename, int maxk, double pstar, double delta, double lower_sigma, double upper_sigma, double RPIsigma, int nProblems, int moveToPreferenceZone);
+void write_SCvP(const char *filename, int k, double delta, double sigma1, double sigma2);
+void write_PGS(const char *filename, int k, int m, double pstar, double delta, double sigma);
+void write_animation(const char *filename, int k, double pstar, double delta, double sigma);
+void write_trial(const char *filename);
+void write_trial2(const char *filename);
 
 int main(int argc, char *argv[]) {
 
@@ -106,7 +106,7 @@ int main(int argc, char *argv[]) {
 /*
  * Writes random problem instances to a file.
  */
-int write_RPI(const char *filename, int maxk, double pstar, double delta, double lower_sigma, double upper_sigma, double RPIsigma, int nProblems, int moveToPreferenceZone) {
+void write_RPI(const char *filename, int maxk, double pstar, double delta, double lower_sigma, double upper_sigma, double RPIsigma, int nProblems, int moveToPreferenceZone) {
 #ifdef USE_FIXED_SEED
    int seed = 0;
 #else
@@ -167,7 +167,7 @@ int write_RPI(const char *filename, int maxk, double pstar, double delta, double
 /*
  * Writes slippage configuration problems to a file.
  */
-int write_SC(const char *filename, int maxk, double pstar, double delta, double sigma1, double sigma2)
+void write_SC(const char *filename, int maxk, double pstar, double delta, double sigma1, double sigma2)
 {
 #ifdef USE_FIXED_SEED
    int seed = 0;
@@ -221,7 +221,7 @@ int write_SC(const char *filename, int maxk, double pstar, double delta, double 
 /*
  * Writes monotone decreasing means configuration problems to a file.
  */
-int write_MDM(const char *filename, int maxk, double pstar, double delta, double sigma1, double sigma2)
+void write_MDM(const char *filename, int maxk, double pstar, double delta, double sigma1, double sigma2)
 {
 #ifdef USE_FIXED_SEED
    int seed = 0;
@@ -278,7 +278,7 @@ int write_MDM(const char *filename, int maxk, double pstar, double delta, double
  * pstar but a constant k.  Used to create a plot illustrating the consequences
  * of overdelivery on PCS for the 2013 ICS conference in Sante Fe.
  */
-int write_SCvP(const char *filename, int k, double delta, double sigma1, double sigma2)
+void write_SCvP(const char *filename, int k, double delta, double sigma1, double sigma2)
 {
 #ifdef USE_FIXED_SEED
    int seed = 0;
@@ -336,7 +336,7 @@ int write_SCvP(const char *filename, int k, double delta, double sigma1, double 
  * between delta and 0.  The number of problem configurations created is
  * 2*m+1, where m is an argument to the function. 
  */
-int write_PGS(const char *filename, int k, int m, double pstar, double delta, double sigma)
+void write_PGS(const char *filename, int k, int m, double pstar, double delta, double sigma)
 {
 #ifdef USE_FIXED_SEED
    int seed = 0;
@@ -376,7 +376,7 @@ int write_PGS(const char *filename, int k, int m, double pstar, double delta, do
  * Writes to a file a problem appropriate for animation, which is essentially
  * MDM with k=4.
  */
-int write_animation(const char *filename, int k, double pstar, double delta, double sigma)
+void write_animation(const char *filename, int k, double pstar, double delta, double sigma)
 {
    FILE *file = fopen(filename,"w");
    if (file == NULL) { fprintf(stderr,"could not open ", filename); exit(-1); }
@@ -405,7 +405,7 @@ int write_animation(const char *filename, int k, double pstar, double delta, dou
 /*
  * This function writes a problem that has different variances.
  */
-int write_trial(const char *filename)
+void write_trial(const char *filename)
 {
 #ifdef USE_FIXED_SEED
    int seed = 0;
@@ -449,7 +449,7 @@ int write_trial(const char *filename)
    fclose(file);
 }
 
-int write_trial2(const char *filename)
+void write_trial2(const char *filename)
 {
 #ifdef USE_FIXED_SEED
 	int seed = 0;

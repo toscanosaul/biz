@@ -531,7 +531,9 @@ void CWalleniusNCHypergeometric::findpars() {
    // find r to center peak of integrand at 0.5
    double dd, d1, z, zd, rr, lastr, rrc, rt, r2, r21, a, b, dummy;
    double oo[2];
-   double xx[2] = {x, n-x};
+    double aux=x;
+    double aux1=n-x;
+   double xx[2] = {aux, aux1};
    int i, j = 0;
    if (omega > 1.) { // make both omegas <= 1 to avoid overflow
       oo[0] = 1.;  oo[1] = 1./omega;
@@ -617,7 +619,9 @@ int CWalleniusNCHypergeometric::BernouilliH(int32_t x_, double h, double rh, Sto
    double qi1;                     // 1-qi
    double omegai[2] = {omega,1.};  // weights for each color
    double romegi;                  // r*omega[i]
-   double xi[2] = {x_, n-x_};      // number of each color sampled
+    double aux=x_;
+    double aux2=n-x_;
+   double xi[2] = {aux, aux2};      // number of each color sampled
    double k;                       // adjusted width for majorizing function Ypsilon(t)
    double erfk;                    // erf correction
    double rdm1;                    // rd - 1
@@ -782,7 +786,10 @@ double CWalleniusNCHypergeometric::laplace() {
    int degree;                   // max expansion degree
    double accur;                 // stop expansion when terms below this threshold
    double omegai[COLORS] = {omega, 1.}; // weights for each color
-   double xi[COLORS] = {x, n-x}; // number of each color sampled
+    double aux=x;
+    double aux2=n-x;
+    double xi[COLORS] = {aux, aux2};
+   
    double f0;                    // factor outside integral
    double rho[COLORS];           // r*omegai
    double qi;                    // 2^(-rho)

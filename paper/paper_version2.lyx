@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass article
@@ -98,13 +98,13 @@
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -115,15 +115,24 @@
 \use_hyperref false
 \papersize default
 \use_geometry true
-\use_amsmath 1
-\use_esint 1
-\use_mhchem 1
-\use_mathdots 1
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
@@ -151,9 +160,9 @@
 \begin_body
 
 \begin_layout Title
-On the Asymptotic Validity of a Fully Sequential Elimination Procedure for
- Indifference-Zone Ranking and Selection with Tight Bounds on Probability
- of Correct Selection
+Asymptotic Validity of a Fully Sequential Elimination Procedure for Indifference
+-Zone Ranking and Selection with Tight Bounds on Probability of Correct
+ Selection
 \end_layout
 
 \begin_layout Author
@@ -300,33 +309,59 @@ left(A
 \backslash
 right) = 
 \backslash
-exp
+mbox{exp}
 \backslash
 left(
 \backslash
+delta
+\backslash
 frac{
-\backslash
-delta}{
-\backslash
-lambda^2_x} Y_{n_x(t),x}
-\backslash
-right) 
-\backslash
-bigg/ 
 \backslash
 sum_{x'
 \backslash
-in A} 
+in A}n_{tx'}}{
 \backslash
-exp
+sum_{x'
+\backslash
+in A}
+\backslash
+hat{
+\backslash
+lambda^2}_{tx'}}
+\backslash
+frac{Y_{n_{tx},x}}{n_{tx}}
+\backslash
+right)
+\backslash
+left/
+\backslash
+sum_{x'
+\backslash
+in A}
+\backslash
+mbox{exp}
 \backslash
 left(
 \backslash
+delta
+\backslash
 frac{
 \backslash
-delta}{
+sum_{x''
 \backslash
-lambda^2_{x'}} Y_{n_x'(t),x'}
+in A}n_{tx''}}{
+\backslash
+sum_{x''
+\backslash
+in A}
+\backslash
+hat{
+\backslash
+lambda^2}_{tx''}}
+\backslash
+frac{Y_{n_{tx'},x'}}{n_{tx'}}
+\backslash
+right)
 \backslash
 right), 
 \backslash
@@ -385,9 +420,7 @@ ldots, k
 \backslash
 upthresh 
 \backslash
-leftarrow P^*$, $t 
-\backslash
-leftarrow 1$.
+leftarrow P^*$.
 \end_layout
 
 \begin_layout Plain Layout
@@ -578,6 +611,79 @@ Introduction
 \end_layout
 
 \begin_layout Standard
+One common problem in simulation is that of choosing the best among several
+ simulated systems.
+ The problem of deciding how many samples to use from each alternative to
+ support our selection as the best is the ranking and selection problem.
+ An efficient solution to this problem has to balance between the time spent
+ simulating and the quality of the selection.
+\end_layout
+
+\begin_layout Standard
+This paper will consider the indifference-zone (IZ) formulation of the ranking
+ and selection problem, in which we choose the best system with high probability
+, whenever the distance between the best system and the others is sufficiently
+ large.
+ The seminal work dates back to Bechhofer (1954), with early work compiled
+ in the monograph Bechhofer et al.
+ (1968).
+ Since that time, papers in the are have been published (see, e.g., Paulson
+ (1964), Fabian (1974), Rinott (1978), Hartmann (1988), Paulson (1994),
+ Netson et al.
+ (2001), Goldsman et al.
+ (2002), Hong (2006), Andrad'ottir and Kim (2010)).
+ This progress in the area has been summarized in Bechhofer et al.
+ (1995), and more recent work has been done in Swisher et al.
+ (2003), Kim and Nelson (2006, 2007), Frazier (2014).
+\end_layout
+
+\begin_layout Standard
+The goal of an IZ algorithm is to take as few samples as possible while
+ the IZ guarantee is satisfied.
+ The first IZ procedures presented in Bechhofer (1954), Paulson (1964),
+ Fabian (1974), Rinott (1978), Hartmann (1988, 1991), Paulson (1994) satisfy
+ the IZ guarantee, but they usually take too many samples when there are
+ many alternatives in part because their probability of correct selection
+ (PCS) is much larger than the probability specified by the user.
+ A reason of this is the use of the Bonferroni's inequality which leads
+ to sample more than necessary.
+ More recent algorithms in Kim and Nelson (2001), Goldsman et al.
+ (2002), Hong (2006) improve the performance but they still use the Bonferroni's
+ inequality, and so the methods are unefficient when there are several systems.
+ Procedures in Kim and Dieker (2011), Dieker and Kim (2012) don't use the
+ Bonferroni's inequality only when compare groups of three alternatives.
+ 
+\end_layout
+
+\begin_layout Standard
+Since the classic IZ procedures require to take too many samples with many
+ alternatives, these methods are unpopular when there are more than a few
+ hundred alternatives.
+ However, Frazier (2014) presented a new sequential elimination IZ procedure,
+ called BIZ (Bayes-inspired Indifference Zone), whose lower bound on worst-case
+ probability of correct selection in the preference zone is tight in continuous
+ time, and almost tight in the discrete time.
+ In numerical experiments, the number of samples required by BIZ is significantl
+y smaller than that of the most popular IZ procedures, especially on problems
+ with many alternatives.
+ Unfortunately, the proofs of the theorical results for the discrete-time
+ case assume that variances are known and have an integer multiple structure
+ which is not very realistic.
+ However, asymptotically we can use a central limit theorem that allows
+ us to prove the asymptotic validity of the BIZ procedure for the discrete-time
+ case.
+ Kim et al.
+ (2006) also proves the asymptotiv validity of a IZ procedure.
+ They first prove the case when there are only two systems and then they
+ need to use the Bonferroni's inequality and so their proof is shorter than
+ our proof since we have to analyze all the times when an elimination occurs.
+ However, their proof is still large since they have to use a very specific
+ proposition of Kim et al.
+ (2005).
+ 
+\end_layout
+
+\begin_layout Standard
 This paper is organized as follows: In 
 \begin_inset Formula $\text{§}2$
 \end_inset
@@ -588,7 +694,12 @@ This paper is organized as follows: In
 \begin_inset Formula $\text{§}3$
 \end_inset
 
-, we prove the case when the variances are unknown.
+, we prove the case when the variacnes are unknown.
+ In 
+\begin_inset Formula $\text{§}4$
+\end_inset
+
+, we present some simulations showing the effectiveness of the algorithm.
 \end_layout
 
 \begin_layout Standard
@@ -598,8 +709,8 @@ To prove the case when the variances are known, we use a theorem for Ergodic
  We also use an extension of the Continuous Mapping Theorem (Theorem 5.5
  of Billingsley 1968) to see that the algorithm behaves like a sequential
  elimination IZ procedure with a Brownian motion process instead of the
- standardized sum of the output data in the limit.
- Finally, we use the results of the paper of Frazier 
+ standardized sum of the output data in the limit, and then we use the results
+ of the paper of Frazier 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-5"
@@ -607,7 +718,8 @@ key "key-5"
 \end_inset
 
  to prove the validity of this algorithm in the limit.
- 
+ Finally, we use a random change of time argument to prove the case when
+ the variances are unknown.
 \end_layout
 
 \begin_layout Section
@@ -615,9 +727,8 @@ Asymptotic Validity when the Variances are Known
 \end_layout
 
 \begin_layout Standard
-Without loss of generality, suppose that the true means of the systems are
- indexed so that 
-\begin_inset Formula $\mu_{k}>\mu_{k-1}>\cdots>\mu_{1}$
+Without loss of generality suppose that the true means satisfy that 
+\begin_inset Formula $\mu_{k}>\mu_{k-1}\geq\cdots\geq\mu_{1}$
 \end_inset
 
 .
@@ -647,7 +758,7 @@ Without loss of generality, suppose that the true means of the systems are
 \begin_inset Formula $\mbox{min}{}_{i\in\left\{ 1\ldots,k\right\} }\lambda_{i}^{2}>0$
 \end_inset
 
- and 
+
 \family default
 \series default
 \shape default
@@ -659,10 +770,6 @@ Without loss of generality, suppose that the true means of the systems are
 \uwave default
 \noun default
 \color inherit
-
-\begin_inset Formula $c\neq1/k$
-\end_inset
-
 .
  We are going to suppose that 
 \begin_inset Formula $\delta>0$
@@ -673,24 +780,16 @@ Without loss of generality, suppose that the true means of the systems are
 \end_inset
 
  for some 
-\begin_inset Formula $a$
-\end_inset
-
- such that 
-\begin_inset Formula $a_{k}-a_{i}\geq1$
-\end_inset
-
- for all 
-\begin_inset Formula $i$
+\begin_inset Formula $a\in\mathbb{R}^{k}$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-Now we are going to see that the standardized sum of the output data converges
- to a Brownian motion in 
-\begin_inset Formula $D[0,\infty)$
+Now we are going to see that the the standardized sum of the output data
+ converges to a Brownian motion in the sense of 
+\begin_inset Formula $D_{\infty}:=D[0,\infty)$
 \end_inset
 
 , which is the set of functions from 
@@ -703,133 +802,70 @@ Now we are going to see that the standardized sum of the output data converges
 
  that are right-continuous and have left-hand limits, with the Skorohod
  topology.
- We are going to define the Skorohod topology on 
-\begin_inset Formula $D[0,\infty)$
-\end_inset
-
- by defining a metric on the space.
- The Skorohod metricric 
-\begin_inset Formula $d_{t}$
-\end_inset
-
- on 
-\begin_inset Formula $D\left[0,t\right]$
-\end_inset
-
- is:
-\begin_inset Formula 
-\[
-d_{t}\left(X,Y\right)=\mbox{inf}_{\lambda\in\Lambda_{t}}\left\{ \left\Vert \lambda-I\right\Vert \vee\left\Vert X-Y\circ\lambda\right\Vert \right\} 
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $\Lambda_{t}$
-\end_inset
-
- is the set of strictly increasing, continuous mappings of 
-\begin_inset Formula $\left[0,t\right]$
-\end_inset
-
- onto itself, and 
-\begin_inset Formula $\left\Vert \cdot\right\Vert $
-\end_inset
-
- is the uniform norm, and 
-\begin_inset Formula $I$
-\end_inset
-
- is the identity map.
- Note that uniform convergence on 
-\begin_inset Formula $\left[0,t\right]$
-\end_inset
-
- implies Skorohod convergence.
-\end_layout
-
-\begin_layout Standard
-We define the Skorohod topology on 
-\begin_inset Formula $D\left[0,\infty\right)$
-\end_inset
-
-.
- For 
-\begin_inset Formula $X\in D\left[0,\text{\infty}\right)$
-\end_inset
-
-, let 
-\begin_inset Formula $X^{m}$
-\end_inset
-
- be the element of 
-\begin_inset Formula $D_{\infty}:=D[0,\infty)$
-\end_inset
-
- defined by
-\begin_inset Formula 
-\[
-X^{m}\left(t\right)=g_{m}\left(t\right)X\left(t\right)
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula 
-\[
-g_{m}\left(t\right)=\begin{cases}
-1 & \mbox{if }t\leq m-1,\\
-m-t & \mbox{if }m-1\leq t\leq m,\\
-0 & \mbox{if }t\geq m.
-\end{cases}
-\]
-
-\end_inset
-
-And now take
-\begin_inset Formula 
-\[
-d_{\infty}\left(X,Y\right)=\sum_{m=1}^{\infty}2^{-m}\left(1\wedge d_{m}\left(X^{m},Y^{m}\right)\right)
-\]
-
-\end_inset
-
-which is the Skorohod metric on 
-\begin_inset Formula $D\left[0,\infty\right)$
-\end_inset
-
-.
- By Theorem 16.2 of Billingsley1999, there is convergence 
-\begin_inset Formula $d_{\infty}\left(x_{n},x\right)\rightarrow0$
-\end_inset
-
- in 
-\begin_inset Formula $D_{\infty}$
-\end_inset
-
- if and only if 
-\begin_inset Formula $d_{t}\left(x_{n},x\right)\rightarrow0$
-\end_inset
-
- for each continuity point 
-\begin_inset Formula $t$
-\end_inset
-
- of 
-\begin_inset Formula $x$
-\end_inset
-
-.
+ The definition and the properties of this topology may be found in Chapter
+ 3 of Billingsley 1999 and the appendix.
  
 \end_layout
 
 \begin_layout Standard
-The following lemma shows that the standardized sum of the output data converges
- to a Brownian motion in 
+We are now going to explain the meaning of convergence of random paths in
+ the sense of 
 \begin_inset Formula $D_{\infty}$
 \end_inset
 
 .
+ Suppose that we have a sequence of random paths 
+\begin_inset Formula $\left(\mathcal{X}_{n}\right)_{n\geq0}^{\infty}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathcal{X}_{n}:\mathcal{F}\rightarrow D_{\infty}$
+\end_inset
+
+ where 
+\begin_inset Formula $\left(\Omega,\mathcal{F},\mathbb{P}\right)$
+\end_inset
+
+ is our space of probability.
+ We say that 
+\begin_inset Formula $\mathcal{X}_{n}\Rightarrow\mathcal{X}_{0}$
+\end_inset
+
+ in the sense of 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+ if 
+\begin_inset Formula $P_{n}\Rightarrow P_{0}$
+\end_inset
+
+ where 
+\begin_inset Formula $P_{n}:\mathcal{D}_{\infty}\rightarrow\left[0,1\right]$
+\end_inset
+
+ are defined as 
+\begin_inset Formula $P_{n}\left[A\right]=\mathbb{P}\left[\mathcal{X}_{n}^{-1}\left(A\right)\right]$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\geq0$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{D}_{\infty}$
+\end_inset
+
+ are the Borel subsets for the Skorohod topology.
+\end_layout
+
+\begin_layout Standard
+The following lemma shows that the the standardized sum of the output data
+ converges to a Brownian motion in the sense of 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Paragraph*
@@ -844,12 +880,16 @@ If
 , then
 \begin_inset Formula 
 \[
-C_{x}\left(\delta,\cdot\right):=\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\right),x}-\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}\Rightarrow W_{x}\left(\cdot\right)
+\mathcal{C}_{x}\left(\delta,\cdot\right):=\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\right),x}-\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}\Rightarrow W_{x}\left(\cdot\right)
 \]
 
 \end_inset
 
-in the sense of 
+as 
+\begin_inset Formula $\delta\rightarrow0$
+\end_inset
+
+ in the sense of 
 \begin_inset Formula $D[0,\infty)$
 \end_inset
 
@@ -873,15 +913,73 @@ Proof.
 \end_layout
 
 \begin_layout Standard
-By the Theorem 19.1 of Billingsley 1999 and the sandwich theorem, 
+By the Theorem 19.1 of Billingsley 1999,
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\Rightarrow W_{x}\left(\cdot\right).
+\frac{Y_{\mbox{floor}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{floor}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\Rightarrow W_{x}\left(\cdot\right)
 \]
 
 \end_inset
 
+in the sense of 
+\begin_inset Formula $D[0,\infty)$
+\end_inset
 
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Fix 
+\begin_inset Formula $w\in\Omega$
+\end_inset
+
+.
+ Observe that
+\begin_inset Formula 
+\[
+\frac{Y_{\mbox{floor}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{floor}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}-\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\rightarrow0
+\]
+
+\end_inset
+
+uniformly in 
+\begin_inset Formula $\left[0,s\right]$
+\end_inset
+
+ for all 
+\begin_inset Formula $s\geq0$
+\end_inset
+
+ and then by Theorem A.2 
+\begin_inset Formula 
+\[
+\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\Rightarrow W_{x}\left(\cdot\right)
+\]
+
+\end_inset
+
+in the sense of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $D[0,\infty)$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -902,22 +1000,14 @@ Since
 \end_inset
 
  uniformly on 
-\begin_inset Formula $[0,r]$
+\begin_inset Formula $[0,s]$
 \end_inset
 
  for every 
-\begin_inset Formula $r$
+\begin_inset Formula $s\geq0$
 \end_inset
 
-, then it also converges to 
-\begin_inset Formula $0$
-\end_inset
-
- on 
-\begin_inset Formula $D[0,\infty)$
-\end_inset
-
- and so
+, then
 \family default
 \series default
 \shape default
@@ -929,7 +1019,10 @@ Since
 \uwave default
 \noun default
 \color inherit
- 
+ by Theorem A.2
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\Rightarrow W_{x}\left(\cdot\right).
@@ -941,31 +1034,29 @@ Since
 \end_layout
 
 \begin_layout Standard
-Observe that for 
-\begin_inset Formula $\epsilon>0$
+Finally, observe that for fixed 
+\begin_inset Formula $\omega\in\Omega$
 \end_inset
 
- and 
-\begin_inset Formula $\delta$
-\end_inset
-
- sufficiently small
+,
 \begin_inset Formula 
-\[
-\left|\frac{-Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}t\frac{1}{\delta^{2}}\right),x}+Y_{\mbox{ceil}\left(n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}t\frac{1}{\delta^{2}}\right),x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\right|<\epsilon\left(n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}+2\right)
-\]
+\begin{eqnarray*}
+ &  & \frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}-\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)+n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\right),x}-\mbox{}\left(n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\\
+ & = & \frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)+n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\right),x}+\left(n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\\
+ & \rightarrow & 0
+\end{eqnarray*}
 
 \end_inset
 
-and then 
-\begin_inset Formula 
-\[
-C_{x}\left(\delta,\cdot\right)\Rightarrow W_{x}\left(\cdot\right).
-\]
-
+uniformly in 
+\begin_inset Formula $\left[0,t\right]$
 \end_inset
 
+ for all 
+\begin_inset Formula $t\geq0$
+\end_inset
 
+, and so by Theorem A.2 the result follows.
 \end_layout
 
 \begin_layout Standard
@@ -981,6 +1072,61 @@ C_{x}\left(\delta,\cdot\right)\Rightarrow W_{x}\left(\cdot\right).
 
 
 \begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, we use the topology product in 
+\begin_inset Formula $D^{k}\left[0,\infty\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+.
+ This topology may be described as the one under which 
+\begin_inset Formula $\left(Z_{n}^{1},\ldots,Z_{n}^{k}\right)\rightarrow\left(Z_{0}^{1},\ldots,Z_{0}^{k}\right)$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $Z_{n}^{i}\rightarrow Z_{0}^{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\in\left\{ 1,\ldots,k\right\} $
+\end_inset
+
+.
+ See the Miscellany of Billingsley 1968.
+ The following corollary follows from the previous result and independence.
+\end_layout
+
+\begin_layout Paragraph*
+Corollary 1.
+\end_layout
+
+\begin_layout Standard
+We have that
+\begin_inset Formula 
+\[
+\mathcal{C}\left(\delta,\cdot\right):=\left(\mathcal{C}_{x}\left(\delta,\cdot\right)\right)_{x\in A}\Rightarrow W\left(\cdot\right):=\left(W_{x}\left(\cdot\right)\right)_{x\in A}
+\]
+
+\end_inset
+
+as 
+\begin_inset Formula $\delta\rightarrow0$
+\end_inset
+
+ in the sense of 
+\begin_inset Formula $D_{\infty}^{k}$
+\end_inset
+
+.
+\begin_inset Newline newline
 \end_inset
 
 
@@ -1007,6 +1153,26 @@ Now we are going to define new algorithms that are almost the same as the
 
 .
  More explicity, if we define 
+\begin_inset Formula $\mathbb{P}_{\mu,\lambda}$
+\end_inset
+
+ as the probability measure under which samples from system 
+\begin_inset Formula $x$
+\end_inset
+
+ have mean 
+\begin_inset Formula $\mu_{x}$
+\end_inset
+
+ and variance 
+\begin_inset Formula $\lambda_{x}^{2}$
+\end_inset
+
+, and
+\begin_inset Formula $ $
+\end_inset
+
+ 
 \begin_inset Formula 
 \[
 q_{tx}^{'}\left(A\right)=\mbox{exp}\left(\frac{\delta}{\lambda_{x}^{2}}Y_{n_{x}\left(t\right),x}^{'}\right)\left/\sum_{x'\in A}\right.\mbox{exp}\left(\frac{\delta}{\lambda_{x^{'}}^{2}}Y_{n_{x}^{'}\left(t\right),x^{'}}^{'}\right)
@@ -1020,10 +1186,6 @@ where
 
  is a Brownian motion under 
 \begin_inset Formula $\mathbb{P}_{\mu,\lambda}$
-\end_inset
-
- starting from 
-\begin_inset Formula $0$
 \end_inset
 
 , with drift 
@@ -1054,7 +1216,7 @@ then defining recursively, for
 \begin_inset Formula 
 \begin{eqnarray*}
 \tau_{n+1} & = & \mbox{inf}\left\{ t\geq\tau_{n}:\mbox{ min}_{x\in A_{n}}q_{tx}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{tx}^{'}\left(A_{n}\right)\geq P_{n}\right\} \\
-Z_{n+1} & \in & \underset{x\in A_{n}}{\mbox{arg min}}q_{\tau_{n+1},x}^{'}\left(A_{n}\right)\\
+Z_{n+1} & \in & \underset{x\in A_{n}}{\mbox{arg min }}q_{\tau_{n+1},x}^{'}\left(A_{n}\right)\\
 A_{n+1} & = & A_{n}\left\backslash \left\{ Z_{n+1}\right\} \right.\\
 P_{n+1} & = & P_{n}\left/\left(1-\mbox{min}_{x\in A_{n}}q_{\tau_{n+1},x}^{'}\left(A_{n}\right)\right)\right.
 \end{eqnarray*}
@@ -1072,9 +1234,9 @@ and finally letting the selected alternative
 .
  We also define
 \begin_inset Formula 
-\[
-M=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n}}q_{\tau_{n},x}^{'}\left(A_{n-1}\right)\geq P_{n-1}\right\} .
-\]
+\begin{equation}
+M=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n}}q_{\tau_{n},x}^{'}\left(A_{n-1}\right)\geq P_{n-1}\right\} .\label{eq:0.1}
+\end{equation}
 
 \end_inset
 
@@ -1096,14 +1258,23 @@ If
 
  by
 \begin_inset Formula 
-\[
-q_{tx}^{C,\delta}\left(A\right)=\mbox{exp}\left(\frac{C_{x}\left(t\right)}{\lambda_{z}}+\delta^{2}\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)}{\lambda_{z}^{2}}a_{x}\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{C_{x^{'}}\left(t\right)}{\lambda_{z}}+\delta^{2}\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)}{\lambda_{z}^{2}}a_{x^{'}}\right).
-\]
+\begin{eqnarray}
+q_{tx}^{C,\delta}\left(A\right) & = & \mbox{exp}\left(\frac{\lambda_{x}^{2}C_{x}\left(t\right)\beta_{\delta}\left(t\right)}{\lambda_{z}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)}+\delta^{2}\lambda_{x}^{2}\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)\beta_{\delta}\left(t\right)}{\lambda_{z}^{2}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)}a_{x}\right)\nonumber \\
+ &  & \times\left[\sum_{x^{'}\in A}\mbox{exp}\left(\frac{\lambda_{x'}^{2}C_{x'}\left(t\right)\beta_{\delta}\left(t\right)}{\lambda_{z}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)}+\delta^{2}\lambda_{x'}^{2}\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)\beta_{\delta}\left(t\right)}{\lambda_{z}^{2}\mbox{ceil}\left(\frac{\lambda_{x'}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)}a_{x}\right)\right]^{-1}\label{eq:0.2}
+\end{eqnarray}
 
 \end_inset
 
+where 
+\begin_inset Formula $\beta_{\delta}\left(t\right)=\sum_{x'\in A}\mbox{ceil}\left(\frac{\lambda_{x'}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)/\sum_{x'\in A}\lambda_{x'}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 The reason of this definition is because 
-\begin_inset Formula $C\left(\delta,\cdot\right)=\left(C_{x}\left(\delta,\cdot\right)\right)_{x\in A}\in D\left[0,\infty\right)^{k}$
+\begin_inset Formula $\mathcal{C}\left(\delta,\cdot\right)=\left(\mathcal{C}_{x}\left(\delta,\cdot\right)\right)_{x\in A}\in D\left[0,\infty\right)^{k}$
 \end_inset
 
  and 
@@ -1113,12 +1284,16 @@ The reason of this definition is because
 
 \begin_inset Formula 
 \[
-\frac{\delta}{\lambda_{x}^{2}}Y_{n_{x}\left(\cdot\right),x}=\frac{C_{x}\left(\delta,\cdot\right)}{\lambda_{z}}+\delta^{2}\frac{\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)}{\lambda_{z}^{2}}a_{x}\Rightarrow W_{x}^{'}\left(\cdot\right):=\frac{W_{x}\left(\cdot\right)}{\lambda_{z}}+\frac{\cdot}{\lambda_{z}^{2}}a_{x}
+\frac{\delta}{n_{\cdot x}}\beta_{\delta}\left(\cdot\right)Y_{n_{\cdot x},x}=\frac{\lambda_{x}^{2}\beta_{\delta}\left(\cdot\right)\mathcal{C}_{x}\left(\delta,\cdot\right)}{\lambda_{z}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)}+\delta^{2}\lambda_{x}^{2}\beta_{\delta}\left(\cdot\right)\frac{\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)}{\lambda_{z}^{2}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)}a_{x}\Rightarrow W_{x}^{'}\left(\cdot\right):=\frac{W_{x}\left(\cdot\right)}{\lambda_{z}}+\frac{\cdot}{\lambda_{z}^{2}}a_{x}
 \]
 
 \end_inset
 
-where 
+in the sense of 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+ where 
 \begin_inset Formula $W_{x}^{'}$
 \end_inset
 
@@ -1127,11 +1302,15 @@ where
 \end_inset
 
 , with drift 
-\begin_inset Formula $\frac{\mu_{x}}{\lambda_{z}^{2}}$
+\begin_inset Formula $\frac{a_{x}}{\lambda_{z}^{2}}$
 \end_inset
 
  and volatility 
-\begin_inset Formula $\frac{1}{\lambda_{z}}$
+\begin_inset Formula $\frac{1}{\lambda_{z}^{2}}$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in A$
 \end_inset
 
 .
@@ -1160,7 +1339,7 @@ We also define a new function
 \begin_inset Formula 
 \begin{eqnarray*}
 f\left(C,\delta\right) & = & \begin{cases}
-1 & \mbox{if }k\mbox{ is chosen}\\
+1 & \mbox{if }k\mbox{ is chosen}\mbox{ }\\
 0 & \mbox{otherwise}
 \end{cases}
 \end{eqnarray*}
@@ -1225,12 +1404,16 @@ g\left(Y\right) & = & \begin{cases}
 We want to prove that 
 \begin_inset Formula 
 \[
-f\left(C\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\right).
+f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\right)
 \]
 
 \end_inset
 
+as 
+\begin_inset Formula $\delta\rightarrow0$
+\end_inset
 
+ in distribution.
 \end_layout
 
 \begin_layout Standard
@@ -1265,19 +1448,19 @@ Let
 
 .
  If 
-\begin_inset Formula $D_{s}\equiv\{x\in D\left[0,\infty\right)^{k}:\mbox{ for all sequences }\left\{ x_{n}\right\} \subset D\left[0,\infty\right)^{k}\mbox{ such that }$
+\begin_inset Formula $D_{s}\equiv\{Z\in D\left[0,\infty\right)^{k}:\mbox{ if }\left\{ Z_{n}\right\} \subset D\left[0,\infty\right)^{k}\mbox{ and }$
 \end_inset
 
  
-\begin_inset Formula $\mbox{lim}{}_{n}d\left(x_{n},x\right)=0$
+\begin_inset Formula $\mbox{lim}{}_{n}d_{\infty}\left(Z_{n},Z\right)=0$
 \end_inset
 
- the sequence 
-\begin_inset Formula $\left\{ f\left(x_{n},\delta_{n}\right)\right\} $
+ , then the sequence 
+\begin_inset Formula $\left\{ f\left(Z_{n},\delta_{n}\right)\right\} $
 \end_inset
 
  converges to 
-\begin_inset Formula $\left\{ g\left(x\right)\right\} $
+\begin_inset Formula $\left\{ g\left(Z\right)\right\} $
 \end_inset
 
 
@@ -1301,18 +1484,10 @@ Let
 \end_inset
 
 
-\begin_inset Newline newline
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
-First, we are going to prove the following three propositions.
-\begin_inset Newline newline
-\end_inset
-
-
+First, we are going to prove the following five results.
 \begin_inset Newline newline
 \end_inset
 
@@ -1344,7 +1519,7 @@ Suppose
 \begin_inset Formula $g_{n}\rightarrow g$
 \end_inset
 
- in the sense of 
+ in 
 \begin_inset Formula $D_{\infty}$
 \end_inset
 
@@ -1365,7 +1540,7 @@ Suppose
 
 \end_inset
 
-in the sense of 
+in 
 \begin_inset Formula $D_{\infty}$
 \end_inset
 
@@ -1386,7 +1561,7 @@ Let
 \begin_inset Formula $\mbox{min}\left(f_{n},g_{n}\right)\rightarrow\mbox{min}\left(f,g\right)$
 \end_inset
 
- in 
+ in
 \family roman
 \series medium
 \shape up
@@ -1398,7 +1573,7 @@ Let
 \uwave off
 \noun off
 \color none
-the sense of 
+ 
 \begin_inset Formula $D_{t^{*}}$
 \end_inset
 
@@ -1414,7 +1589,7 @@ the sense of
 \uwave default
 \noun default
 \color inherit
- and the theorem will follow.
+ and the theorem will follow from Theorem 16.2 of Billingsley 1999.
  
 \end_layout
 
@@ -1474,19 +1649,19 @@ Since
 
 .
  Let 
-\begin_inset Formula $a_{f}^{+}=\mbox{max}_{t\in\left[0,t^{*}\right]}f(t)$
+\begin_inset Formula $a_{f}^{+}=\mbox{max}_{t\in\left[0,t^{*}\right]}\left|f(t)\right|$
 \end_inset
 
 , 
-\begin_inset Formula $a_{f}^{-}=\mbox{min}_{t\in\left[0,t^{*}\right]}f(t)$
+\begin_inset Formula $a_{f}^{-}=-a_{f}^{+}$
 \end_inset
 
 , 
-\begin_inset Formula $a_{g}^{+}=\mbox{max}_{t\in\left[0,t^{*}\right]}g(t)$
+\begin_inset Formula $a_{g}^{+}=\mbox{max}_{t\in\left[0,t^{*}\right]}\left|g(t)\right|$
 \end_inset
 
  and 
-\begin_inset Formula $a_{g}^{-}=\mbox{min}_{t\in\left[0,t^{*}\right]}g(t)$
+\begin_inset Formula $a_{g}^{-}=-a_{g}^{+}$
 \end_inset
 
 .
@@ -1498,7 +1673,7 @@ Since
 \begin_inset Formula $n\geq N$
 \end_inset
 
-, then 
+, implies 
 \begin_inset Formula $\left|f_{n}\left(t\right)-f\left(t\right)\right|<1$
 \end_inset
 
@@ -1552,8 +1727,7 @@ Let
 \begin_inset Formula $\epsilon>0$
 \end_inset
 
-.
- Let 
+, then there exists 
 \begin_inset Formula $\delta>0$
 \end_inset
 
@@ -1571,9 +1745,9 @@ Let
 
 , then 
 \begin_inset Formula 
-\[
-\left|\mbox{min}\left(u_{1},u_{2}\right)-\mbox{min}\left(v_{1},v_{2}\right)\right|<\epsilon.
-\]
+\begin{equation}
+\left|\mbox{min}\left(u_{1},u_{2}\right)-\mbox{min}\left(v_{1},v_{2}\right)\right|<\epsilon.\label{eq:1.10}
+\end{equation}
 
 \end_inset
 
@@ -1602,10 +1776,17 @@ for all
 \begin_inset Formula $n>M$
 \end_inset
 
+, by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.10"
+
+\end_inset
+
 , 
 \begin_inset Formula 
 \[
-\left|\mbox{min}\left(f_{n}\left(t\right),g_{n}\left(t\right)\right)-\mbox{min}\left(f\left(t\right),g\left(t\right)\right)\right|<1
+\left|\mbox{min}\left(f_{n}\left(t\right),g_{n}\left(t\right)\right)-\mbox{min}\left(f\left(t\right),g\left(t\right)\right)\right|<\epsilon
 \]
 
 \end_inset
@@ -1631,11 +1812,11 @@ for all
 \uwave off
 \noun off
 \color none
-in the sense of 
+in 
 \begin_inset Formula $D_{t^{*}}$
 \end_inset
 
-.
+, and the result follows.
 \end_layout
 
 \begin_layout Standard
@@ -1665,7 +1846,7 @@ Suppose
 \begin_inset Formula $\left\{ f_{n}\right\} $
 \end_inset
 
- is a sequence of functions on 
+ is a sequence of functions in 
 \begin_inset Formula $D_{\infty}$
 \end_inset
 
@@ -1673,7 +1854,7 @@ Suppose
 \begin_inset Formula $f_{n}\rightarrow f$
 \end_inset
 
- in the sense of 
+ in 
 \begin_inset Formula $D_{\infty}$
 \end_inset
 
@@ -1704,7 +1885,7 @@ Suppose
 \end_inset
 
 .
- Suppose there exists 
+ Furthermore, we suppose that there exists 
 \begin_inset Formula $\left\{ \epsilon_{n}\right\} \subset\left(0,\infty\right)$
 \end_inset
 
@@ -1722,9 +1903,9 @@ Suppose
 
 
 \begin_inset Formula 
-\[
-\left\Vert f_{n}\left(t\right)-f\left(t\right)\right\Vert _{2}<\epsilon_{n}
-\]
+\begin{equation}
+\left\Vert f_{n}\left(t\right)-f\left(t\right)\right\Vert _{2}<\epsilon_{n}\label{eq:2.11}
+\end{equation}
 
 \end_inset
 
@@ -1769,7 +1950,7 @@ We are going to suppose
 \begin_inset Formula $T\left(0\right)>T$
 \end_inset
 
-, and the case when 
+, and the case 
 \begin_inset Formula $T_{n}=T$
 \end_inset
 
@@ -1778,12 +1959,16 @@ We are going to suppose
 \begin_inset Formula $T_{n}\left(a\right):\mbox{inf}\left\{ t\geq T_{n}:f_{n}\left(t\right)\geq a\right\} $
 \end_inset
 
- 
+ for 
 \begin_inset Formula $a\in\mathbb{R}$
 \end_inset
 
 .
- Let 
+ Since 
+\begin_inset Formula $T\left(0\right)>T$
+\end_inset
+
+, we can take 
 \begin_inset Formula $N$
 \end_inset
 
@@ -1791,7 +1976,7 @@ We are going to suppose
 \begin_inset Formula $n>N$
 \end_inset
 
-, 
+, then 
 \begin_inset Formula $T_{n}<T+T\left(0\right)-T=T\left(0\right)$
 \end_inset
 
@@ -1844,7 +2029,7 @@ T\left(0\right) & \geq & \mbox{lim sup}_{n}T\left(\epsilon_{n}\right)\\
 and so 
 \begin_inset Formula 
 \[
-\mbox{lim inf}_{n}T_{n}\left(0\right)\leq\mbox{lim sup}_{n}T_{n}\left(0\right)\leq\mbox{lim}_{n}T\left(\epsilon_{n}\right)=T\left(0\right)
+\mbox{lim inf}_{n}T_{n}\left(0\right)\leq\mbox{lim sup}_{n}T_{n}\left(0\right)\leq\mbox{lim sup}_{n}T_{n}\left(\epsilon_{n}\right)=\mbox{lim}_{n}T\left(\epsilon_{n}\right)=T\left(0\right)
 \]
 
 \end_inset
@@ -1858,7 +2043,11 @@ Now, let's prove that
 \end_inset
 
 .
- Let 
+ Since 
+\begin_inset Formula $T\left(0\right)>T$
+\end_inset
+
+, there exists 
 \begin_inset Formula $M$
 \end_inset
 
@@ -1888,7 +2077,11 @@ Now, let's prove that
 \end_inset
 
 .
- Let 
+ Since 
+\begin_inset Formula $\epsilon_{n}\rightarrow0$
+\end_inset
+
+, there exists 
 \begin_inset Formula $N$
 \end_inset
 
@@ -1904,19 +2097,19 @@ Now, let's prove that
 
 \end_inset
 
-Thus, if 
-\begin_inset Formula $ $
+Thus, since 
+\begin_inset Formula $\left\Vert f_{n}\left(t\right)-f\left(t\right)\right\Vert _{2}<\epsilon_{n}$
 \end_inset
 
-
+ if 
 \begin_inset Formula $t\in\left[T,t_{m}\right]$
 \end_inset
 
-
+, then
 \begin_inset Formula 
-\[
-f_{n}\left(t\right)<f\left(t\right)+\epsilon_{n}\leq0
-\]
+\begin{equation}
+f_{n}\left(t\right)<f\left(t\right)+\epsilon_{n}\leq f\left(t\right)-\alpha_{m}\leq0\label{eq:20.1}
+\end{equation}
 
 \end_inset
 
@@ -1928,8 +2121,19 @@ If
 \begin_inset Formula $T\leq T_{n}\left(0\right)$
 \end_inset
 
+ for all 
+\begin_inset Formula $n>N$
+\end_inset
+
 , then 
 \begin_inset Formula $T_{n}\left(0\right)\geq t_{m}$
+\end_inset
+
+ by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:20.1"
+
 \end_inset
 
  and so 
@@ -1937,7 +2141,11 @@ If
 \end_inset
 
 .
- Consequently, 
+ Taking the limit 
+\begin_inset Formula $m\rightarrow\infty$
+\end_inset
+
+, we conclude that 
 \begin_inset Formula $\mbox{lim inf}_{n}T_{n}\left(0\right)\geq T\left(0\right)$
 \end_inset
 
@@ -1946,7 +2154,7 @@ If
 \end_layout
 
 \begin_layout Standard
-Let's prove that 
+So, we only need to prove that 
 \begin_inset Formula $T\leq T_{n}\left(0\right)$
 \end_inset
 
@@ -1955,12 +2163,13 @@ Let's prove that
 \end_inset
 
  large.
+ We proceed by contradiction.
  Let 
 \begin_inset Formula $s>0$
 \end_inset
 
  be any number.
- Let 
+ Take 
 \begin_inset Formula $N$
 \end_inset
 
@@ -1973,20 +2182,47 @@ Let's prove that
 \end_inset
 
 .
- Suppose that for every 
+ Since we are supposing that for all 
+\begin_inset Formula $N'$
+\end_inset
+
+ there exists 
+\begin_inset Formula $n>N'$
+\end_inset
+
+ such that 
+\begin_inset Formula $T>T_{n}\left(0\right)$
+\end_inset
+
+, and 
+\begin_inset Formula $T_{n}\left(0\right)\geq T_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $T_{n}\rightarrow T$
+\end_inset
+
+, then we have that for every 
 \begin_inset Formula $\epsilon>0$
 \end_inset
 
  there exists 
-\begin_inset Formula $n>N$
+\begin_inset Formula $n$
 \end_inset
 
- such that 
+ large such that 
 \begin_inset Formula $T-\epsilon<T_{n}\left(0\right)<T$
 \end_inset
 
-.
- Note that
+ .
+ By 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2.11"
+
+\end_inset
+
+, 
 \begin_inset Formula 
 \begin{eqnarray*}
 f\left(T_{n}\left(0\right)\right) & \geq & f_{n}\left(T_{n}\left(0\right)\right)-\epsilon_{n}\\
@@ -2052,7 +2288,11 @@ f\left(T\right)\geq0
 
 \end_inset
 
-which is a contradiction.
+which is a contradiction because 
+\begin_inset Formula $T\left(0\right)>T$
+\end_inset
+
+.
  Consequently, 
 \begin_inset Formula $T\leq T_{n}\left(0\right)$
 \end_inset
@@ -2087,11 +2327,28 @@ which is a contradiction.
 \end_layout
 
 \begin_layout Paragraph*
-Corollary 1.
+Proposition 3.
 \end_layout
 
 \begin_layout Standard
 Let 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+ be the event such that 
+\begin_inset Formula $W$
+\end_inset
+
+ is continuous and 
+\begin_inset Formula $\mathbb{P}\left[\mathcal{S}\right]=1$
+\end_inset
+
+.
+ Fix 
+\begin_inset Formula $\omega\in\mathcal{S}$
+\end_inset
+
+ and let 
 \family roman
 \series medium
 \shape up
@@ -2111,16 +2368,16 @@ Let
 \begin_inset Formula $Z_{n}\rightarrow W$
 \end_inset
 
- a.s.
  in 
-\begin_inset Formula $D\left[0,\infty\right)$
+\begin_inset Formula $D^{k}\left[0,\infty\right)$
 \end_inset
 
 , then 
 \begin_inset Formula 
-\[
-f_{Z_{n}}\left(\cdot\right):=\mbox{max}\left\{ c-\mbox{min}_{x\in A}q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),\mbox{max}_{x\in A}q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right)-P\right\} \overset{a.s.}{\rightarrow}f_{W}:=\mbox{max}\left\{ c-\mbox{min}_{x\in A}q_{\cdot x}^{W}\left(A\right),\mbox{max}_{x\in A}q_{\cdot x}^{W}\left(A\right)-P\right\} 
-\]
+\begin{eqnarray*}
+f_{Z_{n}}\left(\cdot\right): & = & \mbox{max}\left\{ c-\mbox{min}_{x\in A}q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),\mbox{max}_{x\in A}q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right)-P\right\} \\
+ & \rightarrow & f_{W}\left(\cdot\right):=\mbox{max}\left\{ c-\mbox{min}_{x\in A}q_{\cdot x}^{W}\left(A\right),\mbox{max}_{x\in A}q_{\cdot x}^{W}\left(A\right)-P\right\} 
+\end{eqnarray*}
 
 \end_inset
 
@@ -2157,27 +2414,11 @@ in
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Furthermore, if 
+ Furthermore, if 
 \begin_inset Formula $m\in\mathbb{N}$
 \end_inset
 
-, there exists almost surely a sequence 
+, there exists a sequence 
 \begin_inset Formula $\left\{ \epsilon_{k}\right\} $
 \end_inset
 
@@ -2200,50 +2441,12 @@ for all
 .
 \end_layout
 
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\begin_inset Formula 
-\[
-\]
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Paragraph*
 Proof.
 \end_layout
 
-\begin_layout Standard
-We will only consider the event 
-\begin_inset Formula $\mathcal{S}$
-\end_inset
+\begin_layout Paragraph*
 
- such that 
-\begin_inset Formula $W$
-\end_inset
-
- is continuous with probability 
-\begin_inset Formula $1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Let 
 \family roman
 \series medium
 \shape up
@@ -2255,34 +2458,16 @@ Let
 \uwave off
 \noun off
 \color none
-
-\begin_inset Formula $\left\{ Z_{n}\right\} \subset D\left[0,\infty\right)^{k}$
-\end_inset
-
- such that 
+Since 
 \begin_inset Formula $Z_{n}\rightarrow W$
 \end_inset
 
- almost surely.
- We Note that 
-\begin_inset Formula $\delta_{n}^{2}\frac{\left(n_{0}+t\frac{1}{\delta_{n}^{2}}\right)}{\lambda_{z}^{2}}a_{x}\rightarrow\frac{t}{\lambda_{z}^{2}}a_{x}$
-\end_inset
-
  in 
 \begin_inset Formula $D\left[0,\infty\right)$
 \end_inset
 
- and 
-\begin_inset Formula $\frac{\delta_{n}\sqrt{\frac{1}{\delta_{n}^{2}}}}{\lambda_{z}}\rightarrow\frac{1}{\lambda_{z}}$
-\end_inset
-
- in 
-\begin_inset Formula $D\left[0,\infty\right)$
-\end_inset
-
- because uniformly convergence implies convergence in the Skorohod topology.
- Consequently, for each 
-\begin_inset Formula $s>0$
+, by Theorem 16.2 of Billingsley 1999, for each 
+\begin_inset Formula $s\geq0$
 \end_inset
 
  there exist functions 
@@ -2321,7 +2506,7 @@ uniformly in
  Then
 \begin_inset Formula 
 \[
-\mbox{lim}_{n}\frac{\delta_{n}\sqrt{\frac{1}{\delta_{n}^{2}}}}{\lambda_{z}}Z_{n}\left(\lambda_{s}^{n}t\right)+\delta_{n}^{2}\frac{\left(n_{0}+\lambda_{s}^{n}\left(t\right)\frac{1}{\delta_{n}^{2}}\right)}{\lambda_{z}^{2}}a_{x}=W\left(t\right)\frac{1}{\lambda_{z}}+\frac{t}{\lambda_{z}^{2}}a_{x}
+\mbox{lim}_{n}\frac{\lambda_{x}^{2}\beta_{\delta}\left(\lambda_{s}^{n}t\right)}{\lambda_{z}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{\lambda_{s}^{n}\left(t\right)}{\delta^{2}}\right)\right)}Z_{n}^{x}\left(\lambda_{s}^{n}t\right)+\delta_{n}^{2}\lambda_{x}^{2}\frac{\left(n_{0}+\lambda_{s}^{n}\left(t\right)\frac{1}{\delta_{n}^{2}}\right)\beta_{\delta}\left(\lambda_{s}^{n}\left(t\right)\right)}{\lambda_{z}^{2}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{\lambda_{s}^{n}\left(t\right)}{\delta^{2}}\right)\right)}a_{x}=W_{x}\left(t\right)\frac{1}{\lambda_{z}}+\frac{t}{\lambda_{z}^{2}}a_{x}
 \]
 
 \end_inset
@@ -2333,7 +2518,7 @@ uniformly in
 , and so
 \begin_inset Formula 
 \[
-\mbox{lim}_{n}\mbox{exp}\left(\frac{\delta_{n}\sqrt{\frac{1}{\delta_{n}^{2}}}}{\lambda_{z}}Z_{n}\left(\lambda_{n}t\right)+\delta_{n}^{2}\frac{\left(n_{0}+\lambda_{s}^{n}\left(t\right)\frac{1}{\delta_{n}^{2}}\right)}{\lambda_{z}^{2}}a_{x}\right)=\mbox{exp}\left(W\left(t\right)\frac{1}{\lambda_{z}}+\frac{t}{\lambda_{z}^{2}}a_{x}\right)
+\mbox{lim}_{n}\mbox{exp}\left(\frac{\lambda_{x}^{2}\beta_{\delta}\left(\lambda_{s}^{n}t\right)}{\lambda_{z}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{\lambda_{s}^{n}\left(t\right)}{\delta^{2}}\right)\right)}Z_{n}^{x}\left(\lambda_{s}^{n}t\right)+\delta_{n}^{2}\lambda_{x}^{2}\frac{\left(n_{0}+\lambda_{s}^{n}\left(t\right)\frac{1}{\delta_{n}^{2}}\right)\beta_{\delta}\left(\lambda_{s}^{n}\left(t\right)\right)}{\lambda_{z}^{2}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{\lambda_{s}^{n}\left(t\right)}{\delta^{2}}\right)\right)}\right)=\mbox{exp}\left(W_{x}\left(t\right)\frac{1}{\lambda_{z}}+\frac{t}{\lambda_{z}^{2}}a_{x}\right)
 \]
 
 \end_inset
@@ -2389,7 +2574,7 @@ uniformly in
 \begin_inset Formula $D\left[0,\infty\right)$
 \end_inset
 
-.
+ by Theorem 16.2 of Billingsley 1999.
  By Proposition 1, 
 \begin_inset Formula $\mbox{min}_{x\in A}q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right)\rightarrow\mbox{min}_{x\in A}q_{\cdot x}^{W}\left(A\right)$
 \end_inset
@@ -2398,10 +2583,14 @@ uniformly in
 \begin_inset Formula $\mbox{max}_{x\in A}q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right)\rightarrow\mbox{max}_{x\in A}q_{\cdot x}^{W}\left(A\right)$
 \end_inset
 
-, and so
+ in 
+\begin_inset Formula $D\left[0,\infty\right)$
+\end_inset
+
+, and so by Proposition 1,
 \begin_inset Formula 
 \[
-f_{Z_{n}}:=\mbox{max}\left\{ c-\mbox{min}_{x\in A}q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),\mbox{max}_{x\in A}q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right)-P_{s}\right\} \rightarrow f_{W}:=\mbox{max}\left\{ c-\mbox{min}_{x\in A}q_{\cdot x}^{W}\left(A\right),\mbox{max}_{x\in A}q_{\cdot x}^{W}\left(A\right)-P_{s}\right\} 
+f_{Z_{n}}:=\mbox{max}\left\{ c-\mbox{min}_{x\in A}q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right),\mbox{max}_{x\in A}q_{\cdot x}^{Z_{n},\delta_{n}}\left(A\right)-P\right\} \rightarrow f_{W}:=\mbox{max}\left\{ c-\mbox{min}_{x\in A}q_{\cdot x}^{W}\left(A\right),\mbox{max}_{x\in A}q_{\cdot x}^{W}\left(A\right)-P\right\} 
 \]
 
 \end_inset
@@ -2411,10 +2600,10 @@ in
 \end_inset
 
  for any 
-\begin_inset Formula $P_{s}$
+\begin_inset Formula $P\in\left(0,1\right)$
 \end_inset
 
- of the algorithm.
+.
 \end_layout
 
 \begin_layout Standard
@@ -2430,23 +2619,34 @@ in
 \uwave off
 \noun off
 \color none
-Then for each 
-\begin_inset Formula $m\geq0$
+Now, let's prove the second part.
+ Fix 
+\begin_inset Formula $m\in\mathbb{N}$
 \end_inset
 
- there exists 
+.
+ By the definition of 
+\begin_inset Formula $d_{m}\left(f_{Z_{n}},f_{W}\right)$
+\end_inset
+
+, we have that there exists 
 \begin_inset Formula $\lambda_{n}\in\Lambda_{\infty}$
 \end_inset
 
  such that 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mbox{sup}_{t\leq m}\left\Vert \lambda_{n}\left(t\right)-t\right\Vert _{2} & \leq & d\left(f_{Z_{n}},f_{W}\right)+\frac{1}{n}\\
-\mbox{sup}_{t\leq m}\left\Vert f_{Z_{n}}\left(t\right)-f_{W}\left(\lambda_{n}t\right)\right\Vert _{2} & \leq & d\left(f_{Z_{n}},f_{W}\right)+\frac{1}{n}.
+\mbox{sup}_{t\leq m}\left\Vert \lambda_{n}\left(t\right)-t\right\Vert _{2} & \leq & d_{m}\left(f_{Z_{n}},f_{W}\right)+\frac{1}{n}\\
+\mbox{sup}_{t\leq m}\left\Vert f_{Z_{n}}\left(t\right)-f_{W}\left(\lambda_{n}t\right)\right\Vert _{2} & \leq & d_{m}\left(f_{Z_{n}},f_{W}\right)+\frac{1}{n}
 \end{eqnarray*}
 
 \end_inset
 
+for all 
+\begin_inset Formula $n$
+\end_inset
+
+.
  Taking 
 \begin_inset Formula $g_{n}\equiv\mbox{sup}_{t\leq m}\left\Vert f_{W}\left(t\right)-f_{W}\left(\lambda_{n}t\right)\right\Vert _{2}$
 \end_inset
@@ -2456,7 +2656,7 @@ Then for each
 \end_inset
 
  on 
-\begin_inset Formula $\left[0,m\right]^{k}$
+\begin_inset Formula $\left[0,m\right]$
 \end_inset
 
  (
@@ -2473,14 +2673,15 @@ Then for each
 \end_inset
 
  Moreover, if we take 
-\begin_inset Formula $\epsilon_{n}=2n^{-1}+2\mbox{sup}\left\{ d\left(f_{Z_{l}},f_{W}\right)+g_{l}:l=n,n+1,\ldots\right\} $
+\begin_inset Formula $\epsilon_{n}=2n^{-1}+2\mbox{sup}\left\{ d_{m}\left(f_{Z_{l}},f_{W}\right)+g_{l}:l=n,n+1,\ldots\right\} $
 \end_inset
 
 , then 
 \begin_inset Formula $\left\{ \epsilon_{n}\right\} $
 \end_inset
 
- is a monotonically decreasing sequence of positive numbers with limit zero.
+ is a monotonically decreasing sequence of positive numbers with limit zero
+ by the previous result.
 \end_layout
 
 \begin_layout Standard
@@ -2488,8 +2689,8 @@ From the definition of
 \begin_inset Formula $\epsilon_{n}$
 \end_inset
 
- we have 
-\begin_inset Formula $d\left(f_{Z_{n}},f_{W}\right)<\epsilon_{n}/2$
+ we have that 
+\begin_inset Formula $d_{m}\left(f_{Z_{n}},f_{W}\right)<\epsilon_{n}/2-\frac{1}{n}$
 \end_inset
 
  and 
@@ -2504,6 +2705,7 @@ From the definition of
 \begin_inset Formula 
 \begin{eqnarray*}
 \left\Vert f_{Z_{n}}\left(t\right)-f_{W}\left(t\right)\right\Vert  & \leq & \left\Vert f_{Z_{n}}\left(t\right)-f_{W}\left(\lambda_{n}t\right)\right\Vert +\left\Vert f_{W}\left(\lambda_{n}t\right)-f_{W}\left(t\right)\right\Vert \\
+ & < & d_{m}\left(f_{Z_{n}},f_{W}\right)+\frac{1}{n}+g_{n}\\
  & < & \epsilon_{n}
 \end{eqnarray*}
 
@@ -2535,7 +2737,7 @@ for all
 \end_layout
 
 \begin_layout Paragraph*
-Proposition 3.
+Proposition 4.
 \end_layout
 
 \begin_layout Standard
@@ -2547,21 +2749,9 @@ Let
 \begin_inset Formula $k-$
 \end_inset
 
-dimensional Brownian motion where each 
-\begin_inset Formula $W_{i}$
-\end_inset
-
- is a standard Brownian motion and 
-\begin_inset Formula $W_{i}\amalg W_{j}$
-\end_inset
-
- for all 
-\begin_inset Formula $i\neq j$
-\end_inset
-
-.
+dimensional independent standard Brownian motion.
  Let 
-\begin_inset Formula $q_{tx}^{W}\left(A\right):=\mbox{exp}\left(\frac{1}{\lambda}\left(W_{x}\left(t\right)+t\frac{a_{x}}{\lambda_{z}}\right)\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{1}{\lambda}\left(W_{x^{'}}\left(t\right)+t\frac{a_{x^{'}}}{\lambda_{z}}\right)\right)$
+\begin_inset Formula $q_{tx}^{W}\left(A\right):=\mbox{exp}\left(\frac{1}{\lambda_{z}^{2}}\left(\lambda_{z}W_{x}\left(t\right)+ta_{x}\right)\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{1}{\lambda_{z}^{2}}\left(\lambda_{z}W_{x^{'}}\left(t\right)+ta_{x^{'}}\right)\right)$
 \end_inset
 
  for all 
@@ -2591,7 +2781,7 @@ dimensional Brownian motion where each
 \end_inset
 
  and 
-\begin_inset Formula $q_{tx}>P_{m-1}$
+\begin_inset Formula $q_{tx}^{W}\left(A_{m-1}\right)>P_{m-1}$
 \end_inset
 
  for some 
@@ -2603,7 +2793,8 @@ dimensional Brownian motion where each
 \end_inset
 
 .
- 
+ (See the definitions in p.
+ 4).
 \end_layout
 
 \begin_layout Paragraph*
@@ -2611,27 +2802,39 @@ Proof.
 \end_layout
 
 \begin_layout Standard
-We know that 
-\begin_inset Formula $\tau_{m}<\infty$
-\end_inset
-
- almost surely by Lemma 4 of the paper of Frazier 
+The proof has the same spirit than the proof of Lemma 4 of Frazier 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-5"
 
 \end_inset
 
+, there Frazier proved that 
+\begin_inset Formula $\tau_{m}<\infty$
+\end_inset
+
+ almost surely.
+ Furthermore, 
+\begin_inset Formula $M\leq k-1$
+\end_inset
+
+ almost surely.
+ We should note that the Lemma 4 supposes that all systems have the same
+ variance which is the case here because 
+\begin_inset Formula $\mbox{Var}\left(\lambda_{z}W_{x}\left(t\right)+ta_{x}\right)=\lambda_{z}^{2}t$
+\end_inset
+
 .
- We will only consider the event 
+ We condition on the event 
 \begin_inset Formula $\mathcal{S}$
 \end_inset
 
- such that the previous property holds with probability 
+ such that the previous properties hold and has probability 
 \begin_inset Formula $1$
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3015,8 +3218,12 @@ and
 
 \end_layout
 
+\begin_layout Standard
+The following proposition can be proved using a similar argument.
+\end_layout
+
 \begin_layout Paragraph*
-Proposition 4.
+Proposition 5.
 \end_layout
 
 \begin_layout Standard
@@ -3028,21 +3235,9 @@ Let
 \begin_inset Formula $k-$
 \end_inset
 
-dimensional Brownian motion where each 
-\begin_inset Formula $W_{i}$
-\end_inset
-
- is a standard Brownian motion and 
-\begin_inset Formula $W_{i}\amalg W_{j}$
-\end_inset
-
- for all 
-\begin_inset Formula $i\neq j$
-\end_inset
-
-.
+dimensional independent standard Brownian motion.
  Let 
-\begin_inset Formula $q_{tx}^{W}\left(A\right):=\mbox{exp}\left(\frac{1}{\lambda}\left(W_{x}\left(t\right)+t\frac{a_{x}}{\lambda_{z}}\right)\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{1}{\lambda}\left(W_{x^{'}}\left(t\right)+t\frac{a_{x^{'}}}{\lambda_{z}}\right)\right)$
+\begin_inset Formula $q_{tx}^{W}\left(A\right):=\mbox{exp}\left(\frac{1}{\lambda_{z}^{2}}\left(\lambda_{z}W_{x}\left(t\right)+ta_{x}\right)\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{1}{\lambda_{z}^{2}}\left(\lambda_{z}W_{x^{'}}\left(t\right)+ta_{x^{'}}\right)\right)$
 \end_inset
 
  for all 
@@ -3072,7 +3267,7 @@ dimensional Brownian motion where each
 \end_inset
 
  and 
-\begin_inset Formula $q_{tx}<c$
+\begin_inset Formula $q_{tx}^{W}\left(A_{m-1}\right)<c$
 \end_inset
 
  for some 
@@ -3080,11 +3275,80 @@ dimensional Brownian motion where each
 \end_inset
 
  almost surely given that 
-\begin_inset Formula $M>m$
+\begin_inset Formula $M=m$
 \end_inset
 
 .
  
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We are now ready to prove the lemma 2.
+\end_layout
+
+\begin_layout Paragraph*
+Lemma 2.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Let 
+\begin_inset Formula $\left\{ \delta_{n}\right\} \subset\left(0,\infty\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\delta_{n}\rightarrow0$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $D_{s}\equiv\{Z\in D\left[0,\infty\right)^{k}:\mbox{ if }\left\{ Z_{n}\right\} \subset D\left[0,\infty\right)^{k}\mbox{ and }$
+\end_inset
+
+ 
+\begin_inset Formula $\mbox{lim}{}_{n}d_{\infty}\left(Z_{n},Z\right)=0$
+\end_inset
+
+ , then the sequence 
+\begin_inset Formula $\left\{ f\left(Z_{n},\delta_{n}\right)\right\} $
+\end_inset
+
+ converges to 
+\begin_inset Formula $\left\{ g\left(Z\right)\right\} $
+\end_inset
+
+
+\begin_inset Formula $\left.\right\} $
+\end_inset
+
+
+\begin_inset Formula $ $
+\end_inset
+
+, then 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\mathbb{P}\left(W\text{\ensuremath{\in}}D_{s}\right)=1$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Paragraph*
@@ -3092,7 +3356,98 @@ Proof of Lemma 2.
 \end_layout
 
 \begin_layout Standard
-Let 
+By Lemma 4 and 6 of Frazier, 
+\begin_inset Formula $\tau_{n}<\infty$
+\end_inset
+
+ for 
+\begin_inset Formula $n=0,1,\ldots,k-1$
+\end_inset
+
+, 
+\begin_inset Formula $M\leq k-1$
+\end_inset
+
+,
+\begin_inset Formula $\tau_{n}=\tau_{M}$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\geq M$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{x}\in\mbox{arg max}_{x\in A_{m-1}}\left(\lambda_{z}W_{x}\left(\tau_{M}\right)+a_{x}\tau_{M}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\tau_{M-1}<\tau_{M}$
+\end_inset
+
+ with probability 1.
+ Then there exists a measurable set 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathbb{P}\left[\mathcal{L}\right]=1$
+\end_inset
+
+ and the previos properties are true, 
+\begin_inset Formula $W$
+\end_inset
+
+ is continuous and Proposition 4 and 5 hold.
+ We will show that 
+\begin_inset Formula $\mathbb{P}\left(W\text{\ensuremath{\in}}D_{s}\mid M_{W}=i,\mathcal{L}\right)=1$
+\end_inset
+
+ for 
+\begin_inset Formula $i\in\left\{ 1,\ldots,k-1\right\} $
+\end_inset
+
+ so that the desired conclusion follows.
+ It will be useful to use the same notation than in Proposition 2: 
+\begin_inset Formula 
+\begin{eqnarray*}
+T_{W}^{m}\left(a\right) & = & \begin{cases}
+\mbox{inf}\left\{ t\geq\tau_{m-1}:\mbox{max}_{x\in A_{m-1}}q_{tx}^{W}\left(A_{m-1}\right)\geq a\right\}  & \mbox{if }m\geq M_{W}\\
+\mbox{inf}\left\{ t\geq\tau_{m-1}:\mbox{min}_{x\in A_{m-1}}q_{tx}^{W}\left(A_{m-1}\right)\leq a\right\}  & \mbox{if }m<M_{W}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+T_{n}^{m}\left(a\right):=\mbox{inf}\left\{ t\geq\tau_{m-1}:\mbox{max}_{x\in A_{m-1}}q_{tx}^{Z_{n},\delta_{n}}\left(A_{m-1}\right)\geq a\mbox{ or }\mbox{min}_{x\in A_{m-1}}q_{tx}^{Z_{n},\delta_{n}}\left(A_{m-1}\right)\leq c\right\} 
+\]
+
+\end_inset
+
+ for any 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq m\leq k-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subparagraph*
+Case I.
+\end_layout
+
+\begin_layout Standard
+First, we fix 
+\begin_inset Formula $\omega\in\mathcal{L}\bigcap\left\{ M_{W}=1\right\} $
+\end_inset
+
+.
+ Let 
 \family roman
 \series medium
 \shape up
@@ -3125,25 +3480,13 @@ Let
 \noun default
 \color inherit
 .
- We will show that 
-\begin_inset Formula $\mathbb{P}\left(W\text{\ensuremath{\in}}D_{s}\mid M_{W}=i\right)=1$
-\end_inset
-
- for 
-\begin_inset Formula $i\in\left\{ 1,\ldots,k-1\right\} $
-\end_inset
-
- so that the desired conclusion follows.
-\end_layout
-
-\begin_layout Standard
-Suppose first that 
-\begin_inset Formula $M_{W}=1$
+ We want to prove that 
+\begin_inset Formula $f\left(Z_{n},\delta_{n}\right)\rightarrow g\left(W\right)$
 \end_inset
 
 .
  Let's prove that 
-\begin_inset Formula $T_{Z_{n},\delta_{n}}^{1}\rightarrow T_{W}^{1}$
+\begin_inset Formula $\tau_{1}^{Z_{n},\delta_{n}}\rightarrow\tau_{1}^{W}$
 \end_inset
 
  as 
@@ -3160,11 +3503,7 @@ First, we are going to prove that
 \end_inset
 
 
-\begin_inset Formula $T_{W}^{1}\left(P\right)=\mbox{lim}_{n}T_{W}^{1}\left(P+\epsilon_{n}\right)$
-\end_inset
-
- with probability 
-\begin_inset Formula $1$
+\begin_inset Formula $T_{W}^{1}\left(P_{0}\right)=\mbox{lim}_{n}T_{W}^{1}\left(P_{0}+\epsilon_{n}\right)$
 \end_inset
 
 .
@@ -3173,7 +3512,7 @@ First, we are going to prove that
 \end_inset
 
  
-\begin_inset Formula $\mbox{lim}_{n}T_{W}^{1}\left(P+\epsilon_{n}\right)=\mbox{inf}_{n}T_{W}^{1}\left(P+\epsilon_{n}\right)$
+\begin_inset Formula $\mbox{lim}_{n}T_{W}^{1}\left(P_{0}+\epsilon_{n}\right)=\mbox{inf}_{n}T_{W}^{1}\left(P_{0}+\epsilon_{n}\right)$
 \end_inset
 
  and so we have to prove that for all 
@@ -3185,48 +3524,36 @@ First, we are going to prove that
 \end_inset
 
  such that 
-\begin_inset Formula $T_{W}^{1}\left(P+\epsilon_{n}\right)<T_{W}^{1}\left(P\right)+M.$
+\begin_inset Formula $T_{W}^{1}\left(P_{0}+\epsilon_{n}\right)<T_{W}^{1}\left(P_{0}\right)+M.$
 \end_inset
 
  Equivalently, we should prove that for all 
-\begin_inset Formula $N$
+\begin_inset Formula $N\in\mathbb{N}$
 \end_inset
 
  there exists 
-\begin_inset Formula $t\in\left(T_{W}^{1}\left(P\right),T_{W}^{1}\left(P\right)+\frac{1}{N}\right]$
+\begin_inset Formula $t\in\left(T_{W}^{1}\left(P_{0}\right),T_{W}^{1}\left(P_{0}\right)+\frac{1}{N}\right]$
 \end_inset
 
  such that for some 
-\begin_inset Formula $x\in A$
+\begin_inset Formula $x\in A_{0}$
 \end_inset
 
 , 
-\begin_inset Formula $q_{t,x}^{W}\left(A\right)>P$
-\end_inset
-
- where 
-\begin_inset Formula $\hat{x}=\mbox{arg max }q_{T_{W}^{1}x}^{W}\left(A\right)$
+\begin_inset Formula $q_{t,x}^{W}\left(A_{0}\right)>P_{0}$
 \end_inset
 
 .
- However, from proposition 2, there is an event 
-\begin_inset Formula $\mathcal{S}$
-\end_inset
-
- such that the previos property holds and has probability 
-\begin_inset Formula $1$
-\end_inset
-
-.
- We will only consider this event.
+ However, this is true by proposition 4.
+ 
 \end_layout
 
 \begin_layout Standard
-By Proposition 2,
+By Proposition 2 and 3,
 \begin_inset Formula 
-\[
-T_{W}^{1}=\mbox{lim}_{n}T_{Z_{n},\delta_{n}}^{1}.
-\]
+\begin{equation}
+T_{W}^{1}\left(P_{0}\right)=\mbox{lim}_{n}T_{n}^{1}\left(P_{0}\right).\label{eq:10.1}
+\end{equation}
 
 \end_inset
 
@@ -3234,17 +3561,28 @@ T_{W}^{1}=\mbox{lim}_{n}T_{Z_{n},\delta_{n}}^{1}.
 \end_layout
 
 \begin_layout Standard
-Let 
-\begin_inset Formula $x\in\gamma:=\mbox{arg max}_{x}q_{T_{W}^{1},x}^{W}\left(A\right)$
+By Proposition 3, we have that 
+\begin_inset Formula $f_{Z_{n}}\left(\cdot\right)\rightarrow f_{W}\left(\cdot\right)$
 \end_inset
 
-.
- Let 
-\begin_inset Formula $\epsilon>0$
+ uniformly in 
+\begin_inset Formula $\left[0,T_{W}^{1}\left(P_{0}\right)+1\right]$
 \end_inset
 
- such that 
-\begin_inset Formula $2\epsilon<-\mbox{max}_{y\in A-\gamma}q_{T_{W}^{1},y}^{W}\left(A\right)+q_{T_{W}^{1},x}^{W}\left(A\right)$
+ and so it should be the case that 
+\begin_inset Formula $\mbox{max}_{x\in A_{0}}q_{T_{n}^{1}\left(P_{0}\right)x}^{Z_{n},\delta_{n}}\left(A_{0}\right)\geq P_{0}$
+\end_inset
+
+ for 
+\begin_inset Formula $n$
+\end_inset
+
+ large.
+\end_layout
+
+\begin_layout Standard
+Recall that 
+\begin_inset Formula $\hat{x}\in\gamma:=\mbox{arg max}_{x\in A_{0}}\left(\lambda_{z}W_{x}\left(T_{W}^{1}\left(P_{0}\right)\right)+a_{x}T_{W}^{1}\left(P_{0}\right)\right)$
 \end_inset
 
 .
@@ -3253,38 +3591,105 @@ Let
 
 \begin_layout Standard
 Let 
-\begin_inset Formula $N$
+\begin_inset Formula $\epsilon=\left(q_{T_{W}^{1}\left(P_{0}\right),\hat{x}}^{W}\left(A_{0}\right)-\mbox{arg max}_{x\in A_{0}-\gamma}q_{T_{W}^{1}\left(P_{0}\right),x}^{W}\left(A_{0}\right)\right)/4$
+\end_inset
+
+.
+ Since the function 
+\begin_inset Formula $q_{\cdot,x}^{W}\left(A_{0}\right)$
+\end_inset
+
+ is uniformly continuous in 
+\begin_inset Formula $\left[0,T_{W}^{1}\left(P_{0}\right)+1\right]$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in A_{0}$
+\end_inset
+
+, then there exists 
+\begin_inset Formula $\delta>0$
 \end_inset
 
  such that if 
-\begin_inset Formula $n>N$
+\begin_inset Formula $\left|t-s\right|<\delta$
 \end_inset
 
+ and 
+\begin_inset Formula $t,s\in\left[0,T_{W}^{1}\left(P_{0}\right)+1\right]$
+\end_inset
 
+, then 
 \begin_inset Formula 
 \[
-\left|q_{T_{W}^{1},x}^{W}\left(A\right)-q_{T_{Z_{n},\delta_{n}}^{1},x}^{Z_{n},\delta_{n}}\left(A\right)\right|<\epsilon
+\left|q_{t,x}^{W}\left(A_{0}\right)-q_{s,x}^{W}\left(A_{0}\right)\right|<\frac{\epsilon}{2}
 \]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 for all 
-\begin_inset Formula $x\in A$
+\begin_inset Formula $x\in A_{0}$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-By Corollary 1, there exist a sequence 
-\begin_inset Formula $\left\{ \epsilon_{n}\right\} $
+ By the proof of Proposition 3, 
+\begin_inset Formula $q_{\cdot,x}^{Z_{n},\delta_{n}}\left(A_{0}\right)\rightarrow q_{\cdot,x}^{W}\left(A_{0}\right)$
 \end_inset
 
- decreasing to zero and 
+ in 
+\begin_inset Formula $\left[0,T_{W}^{1}\left(P_{0}\right)+1\right]$
+\end_inset
+
+ with the Skorohod topology, and then 
+\begin_inset Formula $q_{\cdot,x}^{Z_{n},\delta_{n}}\left(A_{0}\right)\rightarrow q_{\cdot,x}^{W}\left(A_{0}\right)$
+\end_inset
+
+ uniformly in 
+\begin_inset Formula $\left[0,T_{W}^{1}\left(P_{0}\right)+1\right]$
+\end_inset
+
+ because 
+\begin_inset Formula $q_{\cdot,x}^{W}\left(A_{0}\right)$
+\end_inset
+
+ is uniformly continuous in 
+\begin_inset Formula $\left[0,T_{W}^{1}\left(P_{0}\right)+1\right]$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in A_{0}$
+\end_inset
+
+.
+ Consequently, there exists 
+\begin_inset Formula $N_{1}$
+\end_inset
+
+ such that if 
+\begin_inset Formula $n>N_{1}$
+\end_inset
+
+, then 
+\begin_inset Formula $\left|q_{t,x}^{W}\left(A_{0}\right)-q_{t,x}^{Z_{n},\delta_{n}}\left(A_{0}\right)\right|<\frac{\epsilon}{2}$
+\end_inset
+
+ for all 
+\begin_inset Formula $t\in\left[0,T_{W}^{1}\left(P_{0}\right)+1\right]$
+\end_inset
+
+ and all 
+\begin_inset Formula $x\in A_{0}$
+\end_inset
+
+.
+ By 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:10.1"
+
+\end_inset
+
+, there exists 
 \begin_inset Formula $N_{2}$
 \end_inset
 
@@ -3293,46 +3698,26 @@ By Corollary 1, there exist a sequence
 \end_inset
 
 , then 
-\begin_inset Formula $2\epsilon_{n}+2\epsilon<-\mbox{max}_{y\in A-\gamma}q_{T_{W}^{1},y}^{W}\left(A\right)+q_{T_{W}^{1},x}^{W}\left(A\right)$
+\begin_inset Formula $\left|T_{W}^{1}\left(P_{0}\right)-T_{n}^{1}\left(P_{0}\right)\right|<\delta$
 \end_inset
 
- and
-\begin_inset Formula 
-\[
-\left|q_{T_{W}^{1},x}^{W}\left(A\right)-q_{T_{Z_{n},\delta_{n}}^{1},x}^{Z_{n},\delta_{n}}\left(A\right)\right|<\epsilon_{n}
-\]
-
-\end_inset
-
-for all 
-\begin_inset Formula $x\in A$
+ and 
+\begin_inset Formula $T_{n}^{1}\left(P_{0}\right)\in\left[0,T_{W}^{1}\left(P_{0}\right)+1\right]$
 \end_inset
 
 .
- Consequently if
-\begin_inset Formula $ $
+ So if 
+\begin_inset Formula $n>\mbox{max}\left\{ N_{1},N_{2}\right\} $
 \end_inset
 
- 
-\begin_inset Formula $n>N^{*}=\mbox{max}\left\{ N,N_{2}\right\} $
-\end_inset
-
-, then
-\begin_inset Formula $ $
-\end_inset
-
-
-\begin_inset Formula $ $
-\end_inset
-
-
+, we have that
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-\left|q_{T_{W}^{1},x}^{W}\left(A\right)-q_{T_{Z_{n},\delta_{n}}^{1},x}^{Z_{n},\delta_{n}}\left(A\right)\right| & \leq & \left|q_{T_{W}^{1},x}^{W}\left(A\right)-q_{T_{W}^{1},x}^{Z_{n},\delta_{n}}\left(A\right)\right|+\left|q_{T_{W}^{1},x}^{W}\left(A\right)-q_{T_{Z_{n},\delta_{n}}^{1},x}^{Z_{n},\delta_{n}}\left(A\right)\right|\\
- & < & \epsilon+\epsilon_{n}
+\left|q_{T_{W}^{1}\left(P_{0}\right),x}^{W}\left(A_{0}\right)-q_{T_{n}^{1}\left(P_{0}\right),x}^{Z_{n},\delta_{n}}\left(A_{0}\right)\right| & = & \left|q_{T_{W}^{1}\left(P_{0}\right),x}^{W}\left(A_{0}\right)-q_{T_{n}^{1}\left(P_{0}\right),x}^{W}\left(A_{0}\right)\right|+\left|q_{T_{n}^{1}\left(P_{0}\right),x}^{W}\left(A_{0}\right)-q_{T_{n}^{1}\left(P_{0}\right),x}^{Z_{n},\delta_{n}}\left(A_{0}\right)\right|\\
+ & < & \frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
 \end{eqnarray*}
 
 \end_inset
@@ -3342,95 +3727,29 @@ for all
 
 \begin_layout Standard
 for all 
-\begin_inset Formula $x\in A$
+\begin_inset Formula $x\in A_{0}$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-If 
-\begin_inset Formula $z\in A-\gamma$
+By Proposition 3, there exists a sequence 
+\begin_inset Formula $\left\{ \epsilon_{n}\right\} _{n>N^{*}}$
 \end_inset
 
-,
-\begin_inset Formula 
-\begin{eqnarray*}
-q_{T_{Z_{n},\delta_{n}}^{1},z}^{Z_{n},\delta_{n}}\left(A\right) & < & \epsilon+\epsilon_{n}+q_{T_{W}^{1},z}^{W}\left(A\right)\\
- & < & -\epsilon-\epsilon_{n}+q_{T_{W}^{1},x}^{W}\left(A\right)\\
- & < & q_{T_{Z_{n},\delta_{n}}^{1},x}^{Z_{n},\delta_{n}}\left(A\right)
-\end{eqnarray*}
-
+ decreasing to zero for some 
+\begin_inset Formula $N^{*}$
 \end_inset
 
-and so 
-\begin_inset Formula $x\in\mbox{arg max}_{x}q_{T_{Z_{n},\delta_{n}}^{1}\left(P\right),x}^{Z_{n},\delta_{n}}\left(A\right)$
-\end_inset
-
-.
- By Lemma 6 of Frazier 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-5"
-
-\end_inset
-
-, if 
+ such that if 
 \begin_inset Formula $n>N^{*}$
 \end_inset
 
-, both procedures choose 
-\begin_inset Formula $x$
-\end_inset
-
- as the best system.
- Consequently, 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $f\left(Z_{n},\delta_{n}\right)$
-\end_inset
-
- converges to 
-\begin_inset Formula $g\left(W\right)$
-\end_inset
-
- almost surely given that 
-\begin_inset Formula $M_{W}=1$
-\end_inset
-
-.
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- 
+ .
 \begin_inset Formula 
 \[
-\]
-
-\end_inset
-
- 
-\begin_inset Formula 
-\[
+\left|q_{T_{W}^{1}\left(P_{0}\right),\hat{x}}^{W}\left(A_{0}\right)-\mbox{max}_{x\in A_{0}}q_{T_{n}^{1}\left(P_{0}\right),x}^{Z_{n},\delta_{n}}\left(A_{0}\right)\right|<\epsilon_{n}.
 \]
 
 \end_inset
@@ -3439,70 +3758,88 @@ key "key-5"
 \end_layout
 
 \begin_layout Standard
-Now, we suppose that 
-\begin_inset Formula $ $
-\end_inset
-
-
-\begin_inset Formula $M_{W}=2$
+Let 
+\begin_inset Formula $y_{n}\in\mbox{arg max}q_{T_{n}^{1}\left(P_{0}\right),y}^{Z_{n},\delta_{n}}\left(A_{0}\right)$
 \end_inset
 
 .
- By a similar argument than the previous one, we should have that 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $T_{W}^{1}\left(A\right)=\mbox{lim}_{n}T_{Z_{n},\delta_{n}}^{1}$
+ Thus if 
+\begin_inset Formula $n>\mbox{max}\left\{ N^{*},N_{1},N_{2}\right\} $
 \end_inset
 
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-and 
-\begin_inset Formula $T_{W}^{2}\left(P_{1}^{W}\right)=\mbox{lim}_{n}T_{Z_{n},\delta_{n}}^{2}\left(P_{1}^{Z_{n},\delta_{n}}\right)$
+, then
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|q_{T_{W}^{1}\left(P_{0}\right),\hat{x}}^{W}\left(A_{0}\right)-q_{T_{W}^{1}\left(P_{0}\right),y_{n}}^{W}\left(A_{0}\right)\right| & \leq & \left|q_{T_{W}^{1}\left(P_{0}\right),\hat{x}}^{W}\left(A_{0}\right)-q_{T_{n}^{1}\left(P_{0}\right),y_{n}}^{Z_{n},\delta_{n}}\left(A_{0}\right)\right|+\left|-q_{T_{W}^{1}\left(P_{0}\right),y_{n}}^{W}\left(A_{0}\right)+q_{T_{n}^{1}\left(P_{0}\right),y_{n}}^{Z_{n},\delta_{n}}\left(A_{0}\right)\right|\\
+ & < & \epsilon_{n}+\epsilon
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take 
+\begin_inset Formula $N_{3}$
+\end_inset
+
+ such that if 
+\begin_inset Formula $n>N_{3}$
+\end_inset
+
+, then 
+\begin_inset Formula $\epsilon_{n}<\epsilon$
 \end_inset
 
 .
- By a similar argument than before, we can see that 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+ Consequently, if 
+\begin_inset Formula $n>\mbox{max}\left\{ N_{3},N_{1},N_{2},N^{*}\right\} $
+\end_inset
 
-\begin_inset Formula $\mbox{arg max}_{x}q_{T_{Z_{n},\delta_{n}}^{2}\left(P_{1}^{W}\right),x}^{Z_{n},\delta_{n}}\left(A_{1}^{W}\right)=\mbox{arg max}_{x}q_{T_{W}^{2}\left(P_{1}^{W}\right),x}^{W}\left(A_{1}^{W}\right)$
+, we have that
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|q_{T_{W}^{1}\left(P_{0}\right),\hat{x}}^{W}\left(A_{0}\right)-q_{T_{W}^{1}\left(P_{0}\right),y_{n}}^{W}\left(A_{0}\right)\right| & < & \frac{q_{T_{W}^{1}\left(P_{0}\right),\hat{x}}^{W}\left(A_{0}\right)-\mbox{arg max}_{x\in A_{0}-\gamma}q_{T_{W}^{1}\left(P_{0}\right),x}^{W}\left(A_{0}\right)}{2}
+\end{eqnarray*}
+
+\end_inset
+
+if 
+\begin_inset Formula $y_{n}\neq\hat{x}$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\left|q_{T_{W}^{1}\left(P_{0}\right),\hat{x}}^{W}\left(A_{0}\right)-q_{T_{W}^{1}\left(P_{0}\right),y_{n}}^{W}\left(A_{0}\right)\right|<\frac{q_{T_{W}^{1}\left(P_{0}\right),\hat{x}}^{W}\left(A_{0}\right)-q_{T_{W}^{1}\left(P_{0}\right),y_{n}}^{W}\left(A_{0}\right)}{2}
+\]
+
+\end_inset
+
+which is a contradiction.
+ Consequently, 
+\begin_inset Formula $y_{n}=\hat{x}$
 \end_inset
 
  for 
 \begin_inset Formula $n$
 \end_inset
 
- sufficiently large.
+ large.
  Consequently, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
 \begin_inset Formula $f\left(Z_{n},\delta_{n}\right)$
 \end_inset
 
@@ -3510,11 +3847,135 @@ and
 \begin_inset Formula $g\left(W\right)$
 \end_inset
 
- almost surely given that 
-\begin_inset Formula $M_{W}=2$
+.
+ 
+\end_layout
+
+\begin_layout Subparagraph*
+Case II.
+\end_layout
+
+\begin_layout Standard
+Now, we fix we fix 
+\begin_inset Formula $\omega\in\mathcal{L}\bigcap\left\{ M_{W}=2\right\} $
 \end_inset
 
 .
+ Similarly, we take 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left\{ Z_{n}\right\} \subset D\left[0,\infty\right)^{k}$
+\end_inset
+
+ such that 
+\begin_inset Formula $Z_{n}\rightarrow W$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.
+ Let's prove that 
+\begin_inset Formula $\tau_{1}^{Z_{n},\delta_{n}}\rightarrow\tau_{1}^{W}$
+\end_inset
+
+.
+ First, we are going to prove that 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $T_{W}^{1}\left(c\right)=\mbox{lim}_{n}T_{W}^{1}\left(c-\epsilon_{n}\right)$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $ $
+\end_inset
+
+ 
+\begin_inset Formula $\mbox{lim}_{n}T_{W}^{1}\left(c-\epsilon_{n}\right)=\mbox{inf}_{n}T_{W}^{1}\left(c-\epsilon_{n}\right)$
+\end_inset
+
+ and so we have to prove that for all 
+\begin_inset Formula $M>0$
+\end_inset
+
+ there exists 
+\begin_inset Formula $n$
+\end_inset
+
+ such that 
+\begin_inset Formula $T_{W}^{1}\left(c-\epsilon_{n}\right)<T_{W}^{1}\left(c\right)+M.$
+\end_inset
+
+ Equivalently, we should prove that for all 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+ there exists 
+\begin_inset Formula $t\in\left(T_{W}^{1}\left(c\right),T_{W}^{1}\left(c\right)+\frac{1}{N}\right]$
+\end_inset
+
+ such that for some 
+\begin_inset Formula $x\in A_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $q_{t,x}^{W}\left(A_{0}\right)<c$
+\end_inset
+
+.
+ However, this is true by proposition 5.
+ By Proposition 2 and 3, 
+\begin_inset Formula $T_{W}^{1}\left(c\right)=\mbox{lim}_{n}T_{n}^{1}\left(P_{0}\right).$
+\end_inset
+
+ Using similar arguments than the given in Case I, we can conclude that
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $f\left(Z_{n},\delta_{n}\right)$
+\end_inset
+
+ converges to 
+\begin_inset Formula $g\left(W\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3527,30 +3988,8 @@ The cases
 \end_inset
 
  can be proved in a similar way.
- 
-\end_layout
-
-\begin_layout Standard
-Since almost surely 
-\begin_inset Formula $M_{Y}\in\left\{ 1,\ldots,k-1\right\} $
-\end_inset
-
- by Frazier 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "key-5"
-
-\end_inset
-
-, we conclude that
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\mathbb{P}\left(W\text{\ensuremath{\in}D\ensuremath{\left[0,1\right]^{k}}-}D_{s}\right)=1.
-\]
-
+ Then we conclude that 
+\begin_inset Formula $\mathbb{P}\left(W\in D_{s}\right)=1.$
 \end_inset
 
 
@@ -3629,12 +4068,28 @@ If samples from system
 \begin_inset Formula $\mu_{k}=a_{k}\delta,\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$
 \end_inset
 
-.
- We also suppose 
-\begin_inset Formula $B_{1}=\cdots=B_{k}=1$
+, and 
+\begin_inset Formula $\mu_{k}>\mu_{k-1}>\cdots>\mu_{1}$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+Furthermore,
+\begin_inset Formula 
+\[
+\mbox{inf}_{a\in PZ\left(1\right)}\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right)=P^{*}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $PZ\left(1\right)=\left\{ a\in\mathbb{R}^{k}:a_{k}-a_{k-1}\geq1\right\} $
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Paragraph*
@@ -3642,47 +4097,94 @@ Proof.
 \end_layout
 
 \begin_layout Standard
-Let 
+Define 
+\begin_inset Formula $\tau_{0}=0,A_{0}=A,P_{0}=P^{*}$
+\end_inset
+
+ and
 \begin_inset Formula 
-\[
-\hat{T}_{n}\left(\delta\right)=\min\left\{ t\in\left\{ 0,\delta^{2},2\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}^{Y,\delta}}q_{tx}^{C\left(\delta,\cdot\right),\delta}\left(A_{n}^{C\left(\delta,\cdot\right),\delta}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}^{Y,\delta}}q_{tx}^{C\left(\delta,\cdot\right),\delta}\left(A_{n}^{C\left(\delta,\cdot\right),\delta}\right)\geq P_{n}^{C\left(\delta,\cdot\right),\delta}\right\} 
-\]
+\begin{eqnarray*}
+\tilde{\tau}_{n+1} & = & \mbox{inf}\left\{ t\in\left\{ \tilde{\tau}_{n},\tilde{\tau}_{n}+1,\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{tx}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{tx}^{'}\left(A_{n}\right)\geq P_{n}\right\} \\
+Z_{n+1} & \in & \underset{x\in A_{n}}{\mbox{arg min }}q_{\tilde{\tau}_{n+1},x}^{'}\left(A_{n}\right)\\
+A_{n+1} & = & A_{n}\left\backslash \left\{ Z_{n+1}\right\} \right.\\
+P_{n+1} & = & P_{n}\left/\left(1-\mbox{min}_{x\in A_{n}}q_{\tilde{\tau}_{n+1},x}^{'}\left(A_{n}\right)\right)\right.
+\end{eqnarray*}
 
 \end_inset
 
 and 
-\begin_inset Formula $T_{n}\left(\delta\right)$
+\begin_inset Formula 
+\[
+M=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n}}q_{\tilde{\tau}_{n},x}^{'}\left(A_{n-1}\right)\geq P_{n-1}\right\} .
+\]
+
 \end_inset
 
- the usual stopping times of the algorithm.
- Then 
-\begin_inset Formula $T_{n}\left(\delta\right)=\hat{T}_{n}\left(\delta\right)/\delta^{2}$
+
+\end_layout
+
+\begin_layout Standard
+It can be proved that 
+\begin_inset Formula $\tilde{\tau}_{M}=\tilde{\tau}_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mbox{max}_{x\in A_{M-1}}q_{\tilde{\tau}_{M},x}^{'}\left(A_{M-1}\right)=\mbox{max}_{x\in A_{n}}q_{\tilde{\tau}_{n},x}^{'}\left(A_{n}\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\geq M$
 \end_inset
 
 .
- Now, we can prove that 
-\begin_inset Formula $\hat{T}_{n}\left(\delta\right)-T_{C\left(\delta,\cdot\right),\delta}^{n}\left(P_{n}^{C\left(\delta,\cdot\right),\delta}\right)\rightarrow0$
+ 
+\end_layout
+
+\begin_layout Standard
+Similarly, we define
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\tau}_{n+1}\left(\delta\right) & = & \mbox{inf}\left\{ t\in\left\{ \tau_{n}\delta^{2},\left(\tau_{n}+1\right)\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\geq P_{n}\right\} \\
+ & = & \mbox{inf}\left\{ t\in\left\{ \tau_{n}\delta^{2},\left(\tau_{n}+1\right)\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\geq P_{n}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+and then 
+\begin_inset Formula $\hat{\tau}_{n+1}\left(\delta\right)=\delta^{2}\tilde{\tau}_{n+1}$
+\end_inset
+
+.
+ The corresponding continuous hitting times are the times 
+\begin_inset Formula $\left(\tau_{n}\left(\delta\right)\right)_{n=1}^{k-1}$
+\end_inset
+
+ we defined in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:0.2"
+
+\end_inset
+
+ with the functions 
+\begin_inset Formula $q_{t,x}^{\mathcal{C}\left(\delta,\cdot\right),\delta}$
+\end_inset
+
+.
+ Using that 
+\begin_inset Formula $\mathcal{C}\left(\delta,\cdot\right)$
+\end_inset
+
+ is right-continuous, we can prove that 
+\begin_inset Formula $\hat{\tau}_{n}\left(\delta\right)-\tau_{n}\left(\delta\right)\rightarrow0$
 \end_inset
 
  with probability 
 \begin_inset Formula $1$
 \end_inset
 
- as 
-\begin_inset Formula $\delta\rightarrow0$
-\end_inset
-
- using that 
-\begin_inset Formula $C\left(\delta,\cdot\right)$
-\end_inset
-
- is right-continuous and 
-\begin_inset Formula $\delta^{2}\rightarrow0$
-\end_inset
-
-.
- Consequently, we can use 
-\begin_inset Formula $C\left(\delta,T_{C\left(\delta,\cdot\right),\delta}^{n}\left(P_{n}^{C\left(\delta,\cdot\right),\delta}\right)\right)$
+, and so we can use 
+\begin_inset Formula $\mathcal{C}\left(\delta,\tau_{n}\left(\delta\right)\right)$
 \end_inset
 
  instead of 
@@ -3698,10 +4200,10 @@ and
 \noun off
 \color none
 
-\begin_inset Formula $C\left(\delta,\hat{T}_{n}\left(\delta\right)\right)$
+\begin_inset Formula $\mathcal{C}\left(\delta,\hat{\tau}_{n}\left(\delta\right)\right)$
 \end_inset
 
-.
+ in the limit.
 \end_layout
 
 \begin_layout Standard
@@ -3710,7 +4212,7 @@ Let
 \end_inset
 
  be the event of doing a correct selection given the configuration 
-\begin_inset Formula $\mu_{k}=a_{k}\delta,\mu_{k-1},\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$
+\begin_inset Formula $\mu_{k}=a_{k}\delta,\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$
 \end_inset
 
  
@@ -3718,21 +4220,41 @@ Let
 \end_inset
 
 .
- Then 
+ Then by the previous argument and the Corollary 2, 
 \begin_inset Formula 
 \begin{eqnarray*}
-\underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right) & = & \underline{lim}_{\delta\rightarrow0}\mathbb{P}\left(f\left(C\left(\delta,t\right),\delta\right)=1\right)\\
+\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right) & = & \mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(f\left(\mathcal{C}\left(\delta,t\right),\delta\right)=1\right)\\
  & = & \mathbb{P}\left(g\left(W\right)=1\right)\\
  & \geq & P^{*}
 \end{eqnarray*}
 
 \end_inset
 
-where the last inequality follows from the paper of Frazier 
+where the last inequality follows from the Theorem 2 of Frazier 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "key-5"
 
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Furthermore, by the same theorem 2,
+\begin_inset Formula 
+\[
+\mbox{inf}_{a\in PZ\left(1\right)}\mathbb{P}\left(g\left(W\right)=1\right)=P^{*}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $PZ\left(1\right)=\left\{ a\in\mathbb{R}^{k}:a_{k}-a_{k-1}\geq1\right\} $
 \end_inset
 
 .
@@ -3751,6 +4273,614 @@ Asymptotic Validity when the Variances are Unknown
 \end_layout
 
 \begin_layout Standard
+We use a random change of time to prove that the new 
+\begin_inset Formula $\hat{\mathcal{C}}_{x}$
+\end_inset
+
+ defined using the sample variances also converges to a Brownian motion
+ in the sense of 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph*
+Lemma 3.
+\end_layout
+
+\begin_layout Standard
+We have that
+\begin_inset Formula 
+\[
+\hat{\mathcal{C}}_{x}\left(\delta,\cdot\right):=\frac{Y_{\mbox{ceil}\left(\frac{\hat{\lambda}_{t/\delta^{2},x}^{2}}{\hat{\lambda}_{t/\delta^{2},z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\right),x}-\frac{\hat{\lambda}_{t/\delta^{2},x}^{2}}{\hat{\lambda}_{t/\delta^{2},z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\mu_{x}}{\frac{\hat{\lambda}_{t/\delta^{2},x}^{2}}{\hat{\lambda}_{t/\delta^{2},z}}\frac{1}{\delta}}\Rightarrow W_{x}\left(\cdot\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in the sense of 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+ for each 
+\begin_inset Formula $x\in A$
+\end_inset
+
+, where 
+\begin_inset Formula $\hat{\lambda}_{t/\delta^{2},x}^{2}=\frac{1}{n_{t/\delta^{2},x}-1}\sum_{i=1}^{n_{t/\delta^{2},x}}\left(X_{xi}-Y_{n_{t/\delta^{2},x}}\right)^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+Proof.
+ 
+\end_layout
+
+\begin_layout Standard
+Fix 
+\begin_inset Formula $x\in A$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $\Psi_{\delta}:\left[0,\infty\right)\rightarrow\left[0,\infty\right)$
+\end_inset
+
+ by 
+\begin_inset Formula $\Psi_{\delta}\left(t\right)=-n_{0}\delta^{2}+\frac{\lambda_{z}^{2}}{\lambda_{x}^{2}}\frac{\hat{\lambda}_{t/\delta^{2},x}^{2}}{\hat{\lambda}_{t/\delta^{2},z}^{2}}\left(t+\delta^{2}n_{0}\right)$
+\end_inset
+
+, then 
+\begin_inset Formula $\Psi_{\delta}\in D_{\infty}$
+\end_inset
+
+.
+ Now define 
+\begin_inset Formula $\varphi:D_{\infty}\times D_{\infty}\rightarrow D_{\infty}$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+\varphi\left(\mathcal{X},\mathcal{Y}\right)=\mathcal{X}\circ\mathcal{Y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using Lemma 1, we have that 
+\begin_inset Formula $\left(\mathcal{C}_{x}\left(\delta,\cdot\right),\Psi_{\delta}\left(\cdot\right)\right)\Rightarrow\left(W_{x}\left(\cdot\right),I\left(\cdot\right)\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $\delta\rightarrow0$
+\end_inset
+
+ in the sense of 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+.
+ We can prove that 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is measurable, and since 
+\begin_inset Formula $W_{x}$
+\end_inset
+
+ is continuous almost surely, we can use a generalization of the Lemma from
+ the chapter Random Change of Time of Billingsley (1999) to conclude that
+ 
+\begin_inset Formula $\varphi\left(\mathcal{C}_{x}\left(\delta,\cdot\right),\Psi_{\delta}\left(\cdot\right)\right)\Rightarrow\varphi\left(W_{x}\left(\cdot\right),I\left(\cdot\right)\right)=W_{x}\left(\cdot\right)$
+\end_inset
+
+ in the sense of 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+ as we wanted to prove.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare\;\;\;\;}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the previous proof, we only have to replace 
+\begin_inset Formula $\lambda_{x}^{2}$
+\end_inset
+
+ by its estimators and we get the same result.
+ We should note that
+\begin_inset Formula 
+\[
+\mbox{ceil}\left(\frac{\hat{\lambda}_{t/\delta^{2},x}^{2}}{\hat{\lambda}_{t/\delta^{2},z}^{2}}\left(n_{0}+\cdot\frac{1}{\delta^{2}}\right)\right)-n_{t/\delta^{2},x}\rightarrow0
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Consequently, we will have that
+\begin_inset Formula 
+\[
+\frac{Y_{n_{t/\delta^{2},x},x}-n_{t/\delta^{2},x}\mu_{x}}{\frac{\hat{\lambda}_{t/\delta^{2},x}^{2}}{\hat{\lambda}_{t/\delta^{2},z}}\frac{1}{\delta}}\Rightarrow W_{x}\left(\cdot\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So, we have the following theorem.
+\end_layout
+
+\begin_layout Paragraph*
+Theorem 2.
+\end_layout
+
+\begin_layout Standard
+If samples from system 
+\begin_inset Formula $x\in\left\{ 1\ldots,k\right\} $
+\end_inset
+
+ are identically distributed and independent, over time and across alternatives,
+ then 
+\begin_inset Formula $\mbox{lim}_{\delta\rightarrow0}Pr\left\{ \mbox{BIZ selects }k\right\} \geq P*$
+\end_inset
+
+ provided 
+\begin_inset Formula $\mu_{k}=a_{k}\delta,\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$
+\end_inset
+
+, and 
+\begin_inset Formula $\mu_{k}>\mu_{k-1}>\cdots>\mu_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Furthermore,
+\begin_inset Formula 
+\[
+\mbox{inf}_{a\in PZ\left(1\right)}\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right)=P^{*}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $PZ\left(1\right)=\left\{ a\in\mathbb{R}^{k}:a_{k}-a_{k-1}\geq1\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Probability of Good Selection
+\end_layout
+
+\begin_layout Standard
+Ideally, we would like that the difference between the choosen system and
+ the best system is practically insignificant.
+ We thus define the probability of good selection as
+\begin_inset Formula 
+\[
+\mbox{PGS}\left(\mu\right)=\mathbb{P}\left(\mu_{k}-\mu_{\hat{x}}\leq\delta\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We would like to prove the PGS guarantee:
+\begin_inset Formula 
+\[
+\forall\mu,\mbox{ PGS}\left(\mu\right)\geq P^{*}.
+\]
+
+\end_inset
+
+First, observe that if 
+\begin_inset Formula $\mu_{k}-\mu_{k-1}>\delta$
+\end_inset
+
+, then 
+\begin_inset Formula $\mbox{PGS}\left(\mu\right)=\mbox{PCS}\left(\mu\right)$
+\end_inset
+
+ and so 
+\begin_inset Formula $\mbox{PGS}\left(\mu\right)\geq P^{*}$
+\end_inset
+
+.
+ Consequently, we only need to prove that if 
+\begin_inset Formula $\mu_{k}-\mu_{k-1}\leq\delta$
+\end_inset
+
+, then we have that 
+\begin_inset Formula $\mbox{PGS}\left(\mu\right)\geq P^{*}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Inspired on Frazier (2014), we first construct a probability measure 
+\begin_inset Formula $Q$
+\end_inset
+
+ as follows.
+ Let 
+\begin_inset Formula $X^{*}$
+\end_inset
+
+ be chosen uniformly at random from among 
+\begin_inset Formula $1,\ldots,k$
+\end_inset
+
+ and let 
+\begin_inset Formula $\theta_{X^{*}}=\delta$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{x}=0$
+\end_inset
+
+ if 
+\begin_inset Formula $x\neq X^{*}$
+\end_inset
+
+.
+ We then define a family of probability measures 
+\begin_inset Formula $Q_{u}$
+\end_inset
+
+ that i
+\end_layout
+
+\begin_layout Section
+Simulations
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Section
+Appendix A: Skorohod topology
+\end_layout
+
+\begin_layout Standard
+We are going to define the Skorohod topology on 
+\begin_inset Formula $D[0,\infty)$
+\end_inset
+
+ by defining a metric on the space.
+ The Skorohod metricric 
+\begin_inset Formula $d_{t}$
+\end_inset
+
+ on 
+\begin_inset Formula $D\left[0,t\right]$
+\end_inset
+
+ for each 
+\begin_inset Formula $t\geq0$
+\end_inset
+
+ is:
+\begin_inset Formula 
+\[
+d_{t}\left(\mathcal{X},\mathcal{Y}\right)=\mbox{inf}_{\lambda\in\Lambda_{t}}\left\{ \left\Vert \lambda-I\right\Vert \vee\left\Vert \mathcal{X}-\mathcal{Y}\circ\lambda\right\Vert \right\} 
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\Lambda_{t}$
+\end_inset
+
+ is the set of strictly increasing, continuous mappings of 
+\begin_inset Formula $\left[0,t\right]$
+\end_inset
+
+ onto itself, and 
+\begin_inset Formula $\left\Vert \cdot\right\Vert $
+\end_inset
+
+ is the uniform norm, and 
+\begin_inset Formula $I$
+\end_inset
+
+ is the identity map.
+ Note that uniform convergence on 
+\begin_inset Formula $\left[0,t\right]$
+\end_inset
+
+ implies Skorohod convergence.
+\end_layout
+
+\begin_layout Standard
+We define the Skorohod topology on 
+\begin_inset Formula $D\left[0,\infty\right)$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\mathcal{X}\in D\left[0,\text{\infty}\right)$
+\end_inset
+
+, let 
+\begin_inset Formula $\mathcal{X}^{m}$
+\end_inset
+
+ be the element of 
+\begin_inset Formula $D_{\infty}:=D[0,\infty)$
+\end_inset
+
+ defined by
+\begin_inset Formula 
+\[
+\mathcal{X}^{m}\left(t\right)=g_{m}\left(t\right)\mathcal{X}\left(t\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\[
+g_{m}\left(t\right)=\begin{cases}
+1 & \mbox{if }t\leq m-1,\\
+m-t & \mbox{if }m-1\leq t\leq m,\\
+0 & \mbox{if }t\geq m.
+\end{cases}
+\]
+
+\end_inset
+
+And now take
+\begin_inset Formula 
+\[
+d_{\infty}\left(\mathcal{X},\mathcal{Y}\right)=\sum_{m=1}^{\infty}2^{-m}\left(1\wedge d_{m}\left(\mathcal{X}^{m},\mathcal{Y}^{m}\right)\right)
+\]
+
+\end_inset
+
+which is the Skorohod metric on 
+\begin_inset Formula $D\left[0,\infty\right)$
+\end_inset
+
+.
+ By Theorem 16.2 of Billingsley1999, there is convergence 
+\begin_inset Formula $d_{\infty}\left(x_{n},x\right)\rightarrow0$
+\end_inset
+
+ in 
+\begin_inset Formula $D_{\infty}$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $d_{t}\left(x_{n},x\right)\rightarrow0$
+\end_inset
+
+ for each continuity point 
+\begin_inset Formula $t$
+\end_inset
+
+ of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We can also define
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d_{\infty}^{\circ}\left(\mathcal{X},Y\right)=\sum_{m=1}^{\infty}2^{-m}\left(1\wedge d_{m}^{\circ}\left(\mathcal{X}^{m},\mathcal{Y}^{m}\right)\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $d_{m}^{\circ}\left(\mathcal{X}^{m},\mathcal{Y}^{m}\right)=\mbox{inf}_{\lambda\in\Lambda_{m}}\left\{ \mbox{sup}_{s<t}\left|\mbox{log}\frac{\lambda t-\lambda s}{t-s}\right|\vee\left\Vert \mathcal{X}-\mathcal{Y}\circ\lambda\right\Vert \right\} $
+\end_inset
+
+.
+ This is also a metric and the proof is in Bilingsley 1999 and these two
+ metrics are equivalent.
+\end_layout
+
+\begin_layout Subparagraph*
+Theorem A.1
+\end_layout
+
+\begin_layout Standard
+We have that 
+\begin_inset Formula $d_{\infty}\left(\mathcal{X}_{n},\mathcal{Y}_{n}\right)\rightarrow0$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $d_{\infty}^{\circ}\left(\mathcal{X}_{n},\mathcal{Y}_{n}\right)\rightarrow0$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{t}\left(\mathcal{X}_{n},\mathcal{Y}_{n}\right)\rightarrow0$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $d_{t}^{\circ}\left(\mathcal{X}_{n},\mathcal{Y}_{n}\right)\rightarrow0$
+\end_inset
+
+ for all 
+\begin_inset Formula $t\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subparagraph*
+Theorem A.2
+\end_layout
+
+\begin_layout Standard
+Suppose we have two sequences of random paths 
+\begin_inset Formula $\left\{ \mathcal{X}_{n}=\left(X_{n}\left(t\right):0\leq t<\infty\right)\right\} _{n\geq0}^{\infty}$
+\end_inset
+
+,
+\begin_inset Formula $\left\{ \mathcal{Y}_{n}=\left(Y_{n}\left(t\right):0\leq t<\infty\right)\right\} _{n\geq1}^{\infty}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathcal{X}_{n},\mathcal{Y}_{n}:\mathcal{F}\rightarrow D_{\infty}$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\geq0$
+\end_inset
+
+ where 
+\begin_inset Formula $\left(\Omega,\mathcal{F},\mathbb{P}\right)$
+\end_inset
+
+ is our space of probability.
+ Suppose that 
+\begin_inset Formula $\mathcal{X}_{n}\Rightarrow\mathcal{X}_{0}$
+\end_inset
+
+ in the sense of 
+\begin_inset Formula $D\left[0,\infty\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{X}_{n}-\mathcal{Y}_{n}\rightarrow0$
+\end_inset
+
+ uniformly in 
+\begin_inset Formula $\left[0,m\right]$
+\end_inset
+
+ for all 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+ with probability 1, then 
+\begin_inset Formula $\mathcal{Y}_{n}\Rightarrow\mathcal{X}_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subparagraph*
+Proof.
+\end_layout
+
+\begin_layout Standard
+We only need to prove that 
+\begin_inset Formula $d_{\infty}\left(\mathcal{X}_{n},\mathcal{Y}_{n}\right)\rightarrow0$
+\end_inset
+
+ almost surely and the result will follow by Theorem 3.1 of Billingsley 1999.
+ Then we only need to prove that 
+\begin_inset Formula $d_{m}\left(\mathcal{Y}_{n}^{m},\mathcal{X}_{n}^{m}\right)\rightarrow0$
+\end_inset
+
+ almost surely for all 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+.
+ Fix 
+\begin_inset Formula $\omega\in\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathcal{X}_{n}-\mathcal{Y}_{n}\rightarrow0$
+\end_inset
+
+ uniformly in 
+\begin_inset Formula $\left[0,m\right]$
+\end_inset
+
+.
+ Observe that 
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{m}\left(\mathcal{Y}_{n}^{m},\mathcal{X}_{n}^{m}\right) & = & \mbox{inf}_{\lambda\in\Lambda_{m}}\left\{ \left\Vert \lambda-I\right\Vert \vee\left\Vert \mathcal{Y}_{n}^{m}-\mathcal{X}_{n}^{m}\circ\lambda\right\Vert \right\} \\
+ & \leq & \left\Vert \mathcal{Y}_{n}^{m}-\mathcal{X}_{n}^{m}\right\Vert \\
+ & = & \left\Vert g_{m}\mathcal{Y}_{n}-g_{m}\mathcal{X}_{n}\right\Vert \\
+ & = & \mbox{sup}_{t\leq m-1}\left\Vert Y_{n}\left(t\right)-X_{n}\left(t\right)\right\Vert \lor\mbox{sup}_{t>m-1}\left\Vert Y_{n}\left(t\right)-X_{n}\left(t\right)\right\Vert \left(m-t\right)\\
+ & \leq & \mbox{sup}_{t\leq m}\left\Vert Y_{n}\left(t\right)-X_{n}\left(t\right)\right\Vert \\
+ & \rightarrow & 0
+\end{eqnarray*}
+
+\end_inset
+
+as we wanted to prove.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\color{white}sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss}$
+\end_inset
+
+
+\begin_inset Formula $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\blacksquare}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
 
 \end_layout
 

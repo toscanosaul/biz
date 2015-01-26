@@ -25,8 +25,10 @@ ERFRES_L =   48    (length of each table)
 * Copyright 2004-2008 by Agner Fog. 
 * GNU General Public License http://www.gnu.org/licenses/gpl.html
 *****************************************************************************/
-extern "C" {
 
+extern "C" {
+    int ERFRES_N =   13 ;
+    const int ERFRES_L =   48  ;
    //number of standard deviations to integrate
    double NumSDev[ERFRES_N] = {
    4.324919041, 4.621231001, 4.900964208, 5.16657812, 5.419983175, 5.662697617, 5.895951217, 6.120756286, 6.337957755, 6.548269368, 6.752300431, 6.950575948, 7.143552034};
