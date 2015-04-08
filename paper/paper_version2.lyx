@@ -459,339 +459,13 @@ s are eliminated.
  
 \end_layout
 
-\begin_layout Subsection
-The BIZ Procedure with Known Common Variance
-\end_layout
-
 \begin_layout Standard
-We first define the Bayes-inspired indifference zone (BIZ) procedure for
- the case of known common variance, when 
-\begin_inset Formula $\lambda_{x}^{2}=\sigma^{2}<\infty$
-\end_inset
-
- for all 
-\begin_inset Formula $x$
-\end_inset
-
-.
- Frazier (2014) showed that this procedure satisfies the IZ guarantee when
- the systems follow the normal distribution, with tight bounds on worst-case
- preference-zone in continuous time.
-\end_layout
-
-\begin_layout Standard
-BIZ depends on 
-\begin_inset Formula $P^{*}\in\left(1/k,1\right)$
-\end_inset
-
- and 
-\begin_inset Formula $\delta>0$
-\end_inset
-
- for which we desire an IZ guarantee, and a parameter 
-\begin_inset Formula $c$
-\end_inset
-
- such that
-\begin_inset Formula 
-\begin{eqnarray*}
-c & \in & \left[0,1-\left(P^{*}\right)^{\frac{1}{k-1}}\right]\mbox{ if }k>2\\
-c & = & 0\mbox{ if }k=2
-\end{eqnarray*}
-
-\end_inset
-
-The parameter 
-\begin_inset Formula $c$
-\end_inset
-
-controls how aggressively the alternatives are eliminated.
- It is recommended to choose 
-\begin_inset Formula $c$
-\end_inset
-
- equal to 
-\begin_inset Formula $1-\left(P^{*}\right)^{\frac{1}{k-1}}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-For each 
-\begin_inset Formula $t$
-\end_inset
-
-, 
-\begin_inset Formula $x\in\left\{ 1,\ldots,k\right\} $
-\end_inset
-
-, and subset 
-\begin_inset Formula $A\subset\left\{ 1,\ldots,k\right\} $
-\end_inset
-
-, we define a function
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\hat{q}_{tx}\left(A\right)=\mbox{exp}\left(\frac{\delta}{\sigma^{2}}Y_{tx}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\frac{\delta}{\sigma^{2}}Y_{tx'}\right)\right.
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $Y_{tx}$
-\end_inset
-
- is the sum of the samples observed from alternative 
-\begin_inset Formula $x$
-\end_inset
-
- by time 
-\begin_inset Formula $t$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Then, the BIZ procedure for known common variance is defined by Alg.
- 1.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-paragraph{Algorithm 1: BIZ for known common sampling variance, in discrete
- time.}    
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{algorithmic}[1]   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-label{alg:hetero-BIZ}   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-REQUIRE $c 
-\backslash
-in [0,
-\backslash
-cmax]$, $
-\backslash
-delta>0$, $P^*
-\backslash
-in(1/k,1)$, common sampling variance $
-\backslash
-sigma^2>0$.
-     
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-STATE Let $A 
-\backslash
-leftarrow 
-\backslash
-{ 1,
-\backslash
-ldots, k
-\backslash
-}$, $
-\backslash
-upthresh 
-\backslash
-leftarrow P^*$, $Y_{0x} 
-\backslash
-leftarrow 0$ for each $x$.
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-WHILE{${max}_{x
-\backslash
-in A} 
-\backslash
-hat{q}_{tx}
-\backslash
-left(A
-\backslash
-right)<P$}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-WHILE{$
-\backslash
-mbox{min}_{x
-\backslash
-in A} 
-\backslash
-hat{q}_{tx}
-\backslash
-left(A
-\backslash
-right) 
-\backslash
-le c$}
-\end_layout
-
-\begin_layout Plain Layout
-
- 
-\backslash
-STATE Let $x
-\backslash
-in
-\backslash
-mbox{arg min}_{x
-\backslash
-in A} 
-\backslash
-hat{q}_{tx}
-\backslash
-left(A
-\backslash
-right)$.
-\end_layout
-
-\begin_layout Plain Layout
-
-    
-\backslash
-STATE Let $
-\backslash
-upthresh 
-\backslash
-leftarrow 
-\backslash
-upthresh/(1-
-\backslash
-hat{q}_{tx}
-\backslash
-left(A
-\backslash
-right))$.
-     
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-STATE Remove $x$ from $A$.
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-ENDWHILE
-\end_layout
-
-\begin_layout Plain Layout
-
-  
-\backslash
-STATE Sample from each $x 
-\backslash
-in A$ and add this sample to $Y_{tx}$ to obtain $Y_{t+1,x}$.
- Then increment $t$.
-        
-\end_layout
-
-\begin_layout Plain Layout
-
- 
-\backslash
-ENDWHILE
-\end_layout
-
-\begin_layout Plain Layout
-
-  
-\backslash
-STATE Select $
-\backslash
-xhat 
-\backslash
-in
-\backslash
-mbox{arg max}_{x
-\backslash
-in A} Y_{tx}$ as our estimate of the best.
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{algorithmic}   
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-The BIZ Procedure with Heterogeneous and Unknown Sampling Variances
-\end_layout
-
-\begin_layout Standard
-Frazier (2014) showed that this procedure retains the IZ guarantee when
- the systems follow the normal distribution, and the variances are known
- and are integer multiples of a common value.
+Frazier (2014) showed that the BIZ procedure with known common variance
+ satisfies the IZ guarantee when the systems follow the normal distribution
+ , with tight bounds on worst-case preference-zone in continuous time.
+ He also proved that this procedure retains the IZ guarantee when the systems
+ follow the normal distribution, and the variances are known and are integer
+ multiples of a common value.
  The continuous time version of this procedure also satisfies the IZ guarantee,
  with a tight worst-case preference-zone PCS bound.
 \end_layout
@@ -1147,7 +821,7 @@ in
 \backslash
 mbox{arg max}_{x
 \backslash
-in A} W_{tx} / n_{tx}$ as our estimate of the best.
+in A} Z_{tx} / n_{tx}$ as our estimate of the best.
 \end_layout
 
 \begin_layout Plain Layout
@@ -1163,7 +837,28 @@ in A} W_{tx} / n_{tx}$ as our estimate of the best.
 
 
 \backslash
-end{algorithmic}   
+end{algorithmic} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{10mm}
+\end_layout
+
+\begin_layout Plain Layout
+
+This algorithm generalizes the BIZ procedure with known common variance.
+ In that case, we have that$B_1=
+\backslash
+cdots=B_k=1$ and $n_{tx}=t$.
+ The algorithm 2 can be generalized to the continuous case (See appendix
+ B and Frazier (2014)).
 \end_layout
 
 \begin_layout Plain Layout
@@ -1173,252 +868,6 @@ end{algorithmic}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Generalization to Continuous Time
-\end_layout
-
-\begin_layout Standard
-We let 
-\begin_inset Formula $\left(Y_{tx}:t\in\mathbb{R}_{+}\right)$
-\end_inset
-
- be a Brownian motion under 
-\begin_inset Formula $\mathbb{P}_{\mu,\lambda}$
-\end_inset
-
- starting from 
-\begin_inset Formula $0$
-\end_inset
-
-, with drift 
-\begin_inset Formula $\mu_{x}$
-\end_inset
-
-, volatility 
-\begin_inset Formula $\lambda_{x}$
-\end_inset
-
- and independence across 
-\begin_inset Formula $x$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsubsection
-Generalization to Continuous Time: The BIZ Procedure with Common Variance
-\end_layout
-
-\begin_layout Standard
-In this section, we assume 
-\begin_inset Formula $\lambda_{x}^{2}=\sigma^{2}$
-\end_inset
-
- for all 
-\begin_inset Formula $x$
-\end_inset
-
-, with 
-\begin_inset Formula $\sigma^{2}$
-\end_inset
-
- known.
- To define this procedure, we recursively define the stopping times 
-\begin_inset Formula $0=\tau_{1}\leq\tau_{2}\leq\cdots\leq\tau_{k-1}\leq\infty$
-\end_inset
-
-, random variables 
-\begin_inset Formula $Z_{1},\ldots,Z_{k-1}$
-\end_inset
-
-, and 
-\begin_inset Formula $P_{0},\ldots,P_{k-1}$
-\end_inset
-
-, and random sets 
-\begin_inset Formula $A_{0},A_{1},\ldots,A_{k-1}$
-\end_inset
-
-.
- We first define 
-\begin_inset Formula $\tau_{0},A_{0}$
-\end_inset
-
- and 
-\begin_inset Formula $P_{0}$
-\end_inset
-
- as 
-\begin_inset Formula 
-\[
-\tau_{0}=0,\mbox{ }A_{0}=\left\{ 1,\ldots,k\right\} ,\mbox{ },P_{0}=P^{*}.
-\]
-
-\end_inset
-
-Then, for each 
-\begin_inset Formula $n=0,1,\ldots,k-2$
-\end_inset
-
-, we define
-\begin_inset Formula 
-\begin{eqnarray*}
-\tau_{n+1} & = & \mbox{inf }\left\{ t\in\mathbb{R}_{+}\bigcap\left[\tau_{n},\infty\right):\mbox{min}_{x\in A_{n}}\hat{q}_{tx}\left(A_{n}\right)\leq c\mbox{ or}\mbox{max}_{x\in A_{n}}\hat{q}_{tx}\left(A_{n}\right)\geq P\right\} \\
-Z_{n+1} & \in & \mbox{arg min}_{x\in A_{n}}\hat{q}_{\tau_{n+1},x}\left(A_{n}\right)\\
-A_{n+1} & = & A_{n}\left\backslash \left\{ Z_{n+1}\right\} \right.\\
-P_{n+1} & = & P_{n}\left/\left(1-\mbox{min}_{x\in A_{n}}\hat{q}_{\tau_{n+1},x}\left(A_{n}\right)\right)\right.
-\end{eqnarray*}
-
-\end_inset
-
-Finally, 
-\begin_inset Formula $\hat{x}$
-\end_inset
-
- is the single alternative in 
-\begin_inset Formula $A_{k-1}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-We also define
-\begin_inset Formula 
-\[
-M=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n-1}}\hat{q}_{\tau_{n},x}\left(A_{n-1}\right)\geq P_{n-1}\right\} .
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Frazier (2014) showed that 
-\begin_inset Formula $\tau_{M}=\tau_{M+1}=\cdots=\tau_{k-1}$
-\end_inset
-
-, and that the one alternative remaining in 
-\begin_inset Formula $A_{k-1}$
-\end_inset
-
- is the one whose 
-\begin_inset Formula $\hat{q}_{tx}\left(A_{n}\right)$
-\end_inset
-
- satisfied 
-\begin_inset Formula $\hat{q}_{tx}\left(A_{n}\right)\geq P_{n}$
-\end_inset
-
- at time 
-\begin_inset Formula $\tau_{M}$
-\end_inset
-
-.
- He also showed that 
-\begin_inset Formula $\tau_{M}<\infty$
-\end_inset
-
- almost surely under any 
-\begin_inset Formula $\mathbb{P}_{\mu,\sigma}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Subsubsection
-Generalization to Continuous Time: The BIZ Procedure for the Heterogeneous
- Variance Setting
-\end_layout
-
-\begin_layout Standard
-This procedure is similar than the one given in 3.4.
- For each 
-\begin_inset Formula $x$
-\end_inset
-
- let 
-\begin_inset Formula $n_{x}\left(t\right)=\gamma\lambda_{x}^{2}t$
-\end_inset
-
-.
- Now, we define a stochastic process 
-\begin_inset Formula $\left(Y'_{tx}:t\geq0\right)$
-\end_inset
-
- as 
-\begin_inset Formula $Y'_{tx}=Y_{n_{x}\left(t\right),x}/\gamma\lambda_{x}^{2}$
-\end_inset
-
-.
- We have that 
-\begin_inset Formula $\left(Y'_{tx}:t\geq0\right)$
-\end_inset
-
- is a Brownian motion with drift 
-\begin_inset Formula $\mu_{x}$
-\end_inset
-
- and volatility 
-\begin_inset Formula $1/\gamma$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-The procedure is defined by first defining 
-\begin_inset Formula $\tau_{0},A_{0}$
-\end_inset
-
- and 
-\begin_inset Formula $P_{0}$
-\end_inset
-
- as 
-\begin_inset Formula 
-\[
-\tau_{0}=0,\mbox{ }A_{0}=\left\{ 1,\ldots,k\right\} ,\mbox{ },P_{0}=P^{*},
-\]
-
-\end_inset
-
-then defining recursively, for 
-\begin_inset Formula $n=0,1,\ldots,k-2$
-\end_inset
-
-, 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\tau_{n+1} & = & \mbox{inf }\left\{ t\in\mathbb{R}_{+}\bigcap\left[\tau_{n},\infty\right):\mbox{min}_{x\in A_{n}}q'_{tx}\left(A_{n}\right)\leq c\mbox{ or}\mbox{max}_{x\in A_{n}}q'_{tx}\left(A_{n}\right)\geq P\right\} \\
-Z_{n+1} & \in & \mbox{arg min}_{x\in A_{n}}q'_{\tau_{n+1},x}\left(A_{n}\right)\\
-A_{n+1} & = & A_{n}\left\backslash \left\{ Z_{n+1}\right\} \right.\\
-P_{n+1} & = & P_{n}\left/\left(1-\mbox{min}_{x\in A_{n}}q'_{\tau_{n+1},x}\left(A_{n}\right)\right)\right.
-\end{eqnarray*}
-
-\end_inset
-
-where 
-\begin_inset Formula $q'_{tx}\left(A\right)$
-\end_inset
-
- is defined by
-\begin_inset Formula 
-\[
-q'_{tx}\left(A\right)=\mbox{exp}\left(\gamma\delta Y'_{tx}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\gamma\delta Y'_{tx'}\right)\right.=\mbox{exp}\left(\frac{\delta}{\lambda_{x}^{2}}Y_{n_{x}\left(t\right),x}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\frac{\delta}{\lambda_{x'}^{2}}Y_{n_{x'}\left(t\right),x'}\right)\right..
-\]
-
-\end_inset
-
-Frazier (2014) showed that this procedure satisfies the IZ guarantee, and
- and its worst-case preference-zone PCS bound is tight in continuous time.
 \end_layout
 
 \begin_layout Section
@@ -1499,8 +948,91 @@ In this section we prove that the BIZ procedure satisfies the IZ guarantee
 \end_layout
 
 \begin_layout Standard
-First we are going to see that the the standardized sum of the output data
- converges to a Brownian motion in the sense of 
+The original BIZ procedure maps 
+\begin_inset Formula $\left(Y_{n_{x}\left(t\right),x}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
+\end_inset
+
+ to a selection decision, where 
+\begin_inset Formula $Y_{n_{x}\left(t\right),t}$
+\end_inset
+
+ is the sum of samples observed by time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ In more detail, it works by transforming 
+\begin_inset Formula $\left(Y_{n_{x}\left(t\right),x}:A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
+\end_inset
+
+ to 
+\begin_inset Formula $\left(q'_{tx}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
+\end_inset
+
+.
+ This 
+\begin_inset Formula $q'$
+\end_inset
+
+ process is given by time process with jumps at 
+\begin_inset Formula $t\in\mathbb{N}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+q'_{tx}\left(A\right)=q'\left(\left(Z_{tx},t:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\right.
+\]
+
+\end_inset
+
+where the variances are fixed.
+ The same distribtuion over selection decision will result if we apply the
+ same same selection process to the following time process with jumps at
+ 
+\begin_inset Formula $t\in\left\{ 0,\delta^{2},2\delta^{2},\ldots\right\} =\delta^{2}\mathbb{N}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+q'_{tx}\left(A\right)=q'\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
+\]
+
+\end_inset
+
+Later, we can approximate the previous process by the continuous time process
+\begin_inset Formula 
+\begin{eqnarray}
+q_{tx}\left(A\right) & = & q\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)\label{eq:0.001}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $t\geq0$
+\end_inset
+
+ .
+ Later we will show the difference in selection decisions vanishes as 
+\begin_inset Formula $\delta\rightarrow0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+After that, we would like to use a kind of central limit theorem for 
+\begin_inset Formula $Z_{\frac{t}{\delta^{2}}x}=Y_{n_{x}\left(t/\delta^{2}\right),x}$
+\end_inset
+
+ when 
+\begin_inset Formula $\delta$
+\end_inset
+
+ goes to zero to work with a Brownian motion instead.
+ Specifically, we are going to see that the the standardized sum of the
+ output data converges to a Brownian motion in the sense of 
 \begin_inset Formula $D_{\infty}:=D[0,\infty)$
 \end_inset
 
@@ -1516,7 +1048,8 @@ First we are going to see that the the standardized sum of the output data
  topology.
  The definition and the properties of this topology may be found in Chapter
  3 of Billingsley 1999 and the appendix.
- 
+ We will first see this result because it will give us a clue for proving
+ the asymptotic validity of the Algorithm 2.
 \end_layout
 
 \begin_layout Standard
@@ -1571,7 +1104,15 @@ We briefly recall the definition of convergence of random paths in the sense
 \end_layout
 
 \begin_layout Standard
-The following lemma shows that the the standardized sum of the output data
+The following lemma shows that the standardized sum of the output data with
+ 
+\begin_inset Formula $t$
+\end_inset
+
+ changed by 
+\begin_inset Formula $t/\delta^{2}$
+\end_inset
+
  converges to a Brownian motion in the sense of 
 \begin_inset Formula $D_{\infty}$
 \end_inset
@@ -1592,7 +1133,7 @@ For each
 , we define
 \begin_inset Formula 
 \[
-\mathcal{C}_{x}\left(\delta,t\right)=\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+t\frac{1}{\delta^{2}}\right)\right),x}-\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+t\frac{1}{\delta^{2}}\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}
+\mathcal{C}_{x}\left(\delta,t\right)=\frac{Y_{n_{x}\left(t\right),x}-t\lambda_{x}^{2}\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}
 \]
 
 \end_inset
@@ -1607,10 +1148,6 @@ where
 
  samples from alternative 
 \begin_inset Formula $x$
-\end_inset
-
-, and 
-\begin_inset Formula $\lambda_{z}^{2}:=\max_{i\in\left\{ 1\ldots,k\right\} }\lambda_{i}^{2}$
 \end_inset
 
 .
@@ -1652,7 +1189,7 @@ By Theorem 19.1 of Billingsley 1999,
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{Y_{\mbox{floor}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{floor}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\Rightarrow W_{x}\left(\cdot\right)
+\frac{Y_{n_{x}\left(t\right),x}-\mbox{floor}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\Rightarrow W_{x}\left(\cdot\right)
 \]
 
 \end_inset
@@ -1866,73 +1403,79 @@ as
 \end_layout
 
 \begin_layout Standard
-Now we define new algorithms that are almost the same as the continuous-time
- procedure for the heterogeneous variance setting proposed by Frazier, but
- these algorithms use new functions 
-\begin_inset Formula $q_{tx}^{F,\delta}\left(A\right)$
+We now gain the insight that we were looking for.
+ We will use 
+\begin_inset Formula $\mathcal{C}_{x}\left(\delta,\cdot\right)$
 \end_inset
 
- which depend on 
-\begin_inset Formula $\delta$
+ instead of 
+\begin_inset Formula $Z_{\frac{t}{\delta^{2}}x}$
 \end_inset
 
- and a function 
-\begin_inset Formula $F$
+ in 
+\begin_inset Formula $\left(1\right)$
 \end_inset
 
- that is in 
-\begin_inset Formula $D\left[0,\infty\right)^{k}$
+, which is the definition of 
+\begin_inset Formula $q_{tx}\left(A\right)$
 \end_inset
 
-.
- We motivate these definitions as follows.
- First, observe that the algorithm proposed by Frazier uses Brownian motions
- in its definition, so it makes sense to use the paths 
-\begin_inset Formula $\mathcal{C}\left(\delta,\cdot\right)$
-\end_inset
-
- instead of the Brownian motion because those paths converge to a Brownian
- motion.
- Observe that 
-\begin_inset Formula $\mathcal{C}\left(\delta,\cdot\right)\in D\left[0,\infty\right)^{k}$
-\end_inset
-
- and
-\end_layout
-
-\begin_layout Standard
+,
 \begin_inset Formula 
 \[
-Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+t\frac{1}{\delta^{2}}\right)\right),x}=\mathcal{C}_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+t\frac{1}{\delta^{2}}\right)\delta a_{x}.
+q_{tx}\left(A\right)=q'\left(\left(C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right),
 \]
 
 \end_inset
 
-Then, for each 
-\begin_inset Formula $F\in D\left[0,\infty\right)^{k}$
-\end_inset
-
-, we define new functions 
-\begin_inset Formula $q_{tx}^{F,\delta}\left(A\right)$
-\end_inset
-
- by
+the previous equation is true beucase 
 \begin_inset Formula 
-\begin{eqnarray}
-q_{tx}^{F,\delta}\left(A\right) & = & \mbox{exp}\left(\delta\frac{\beta_{\delta}\left(t\right)}{n_{\frac{t}{\delta^{2}}x}}\left(F_{x}\left(t\right)\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+t\frac{1}{\delta^{2}}\right)\delta a_{x}\right)\right)\nonumber \\
- &  & \times\left[\sum_{x'\in A}\mbox{exp}\left(\delta\frac{\beta_{\delta}\left(t\right)}{n_{\frac{t}{\delta^{2}}x'}}\left(F_{x'}\left(t\right)\frac{\lambda_{x'}^{2}}{\lambda_{z}\delta}+\frac{\lambda_{x'}^{2}}{\lambda_{z}^{2}}\left(n_{0}+t\frac{1}{\delta^{2}}\right)\delta a_{x'}\right)\right)\right]^{-1}\\
- & = & \mbox{exp}\left(\frac{\lambda_{x}^{2}F_{x}\left(t\right)\beta_{\delta}\left(t\right)}{\lambda_{z}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)}+\delta^{2}\lambda_{x}^{2}\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)\beta_{\delta}\left(t\right)}{\lambda_{z}^{2}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)}a_{x}\right)\\
- &  & \times\left[\sum_{x^{'}\in A}\mbox{exp}\left(\frac{\lambda_{x'}^{2}F_{x'}\left(t\right)\beta_{\delta}\left(t\right)}{\lambda_{z}\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)}+\delta^{2}\lambda_{x'}^{2}\frac{\left(n_{0}+t\frac{1}{\delta^{2}}\right)\beta_{\delta}\left(t\right)}{\lambda_{z}^{2}\mbox{ceil}\left(\frac{\lambda_{x'}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)}a_{x}\right)\right]^{-1}\label{eq:0.2}
-\end{eqnarray}
+\[
+Z_{\frac{t}{\delta^{2}}x}=C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right).
+\]
 
 \end_inset
 
-where 
-\begin_inset Formula $\beta_{\delta}\left(t\right)=\sum_{x'\in A}\mbox{ceil}\left(\frac{\lambda_{x'}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\right)/\sum_{x'\in A}\lambda_{x'}^{2}$
+
+\end_layout
+
+\begin_layout Standard
+Observe that 
+\begin_inset Formula $\mathcal{C}\left(\delta,\cdot\right)\in D\left[0,\infty\right)^{k}$
+\end_inset
+
+ and the convergence of Lemma 1 is in 
+\begin_inset Formula $D\left[0,\infty\right)^{k}$
+\end_inset
+
+, consequently the following natural step is to generalize the continuous-time
+ procedure for the heterogeneous variance setting, see Appendix B, to the
+ space 
+\begin_inset Formula $D\left[0,\infty\right)^{k}$
 \end_inset
 
 .
- Note that if we replace 
+ Specifically, for each 
+\begin_inset Formula $F\in D\left[0,\infty\right)^{k}$
+\end_inset
+
+, we define 
+\begin_inset Formula $q_{tx}^{F,\delta}\left(A\right)$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+q_{tx}^{F,\delta}\left(A\right)=q'\left(\left(F_{x}\left(t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that if we replace 
 \begin_inset Formula $F$
 \end_inset
 
@@ -1941,31 +1484,30 @@ where
 \end_inset
 
 , we get 
-\begin_inset Formula $q'_{tx}\left(A\right)$
+\begin_inset Formula $q{}_{tx}\left(A\right)$
 \end_inset
 
  in the previous equation.
-\end_layout
-
-\begin_layout Standard
-Note that the functions 
-\begin_inset Formula $q_{tx}^{F,\delta}\left(A\right)$
+ Using the continuous-time procedure for the heterogeneous variance setting
+ with the paths 
+\begin_inset Formula $\left(q_{tx}^{F,\delta}\left(A\right):t\geq0\right)$
 \end_inset
 
- define a new algorithm for each 
+, we see that there exists a selection decision for each 
 \begin_inset Formula $F\in D\left[0,\infty\right)^{k}$
 \end_inset
 
-and 
-\begin_inset Formula $\delta>0$
+.
+ Since we are interested in the right selection, ( i.e.
+ in choosing 
+\begin_inset Formula $k$
 \end_inset
 
-.
- 
-\end_layout
+) for each 
+\begin_inset Formula $F\in D\left[0,\infty\right)^{k}$
+\end_inset
 
-\begin_layout Standard
-We also define a new function
+, we define the following function 
 \begin_inset Formula 
 \begin{eqnarray*}
 f\left(F,\delta\right) & = & \begin{cases}
@@ -1976,36 +1518,42 @@ f\left(F,\delta\right) & = & \begin{cases}
 
 \end_inset
 
-using the algorithm that 
-\begin_inset Formula $\left(F,\delta\right)$
-\end_inset
-
- induces.
  Observe that 
 \begin_inset Formula $f$
 \end_inset
 
- is a function from the path 
-\begin_inset Formula $\left\{ F\left(t\right):t\geq0\right\} $
+ is a function that depends in the path 
+\begin_inset Formula $\left\{ q_{tx}^{F,\delta}\left(A\right):t\geq0\right\} $
 \end_inset
 
- to a binary variable.
-\end_layout
-
-\begin_layout Standard
-Now, we also define new functions 
-\begin_inset Formula $q_{tx}^{F}\left(A\right)$
+.
+ We are doing all this because we want to see that 
+\begin_inset Formula $f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)$
 \end_inset
 
- to analyze the limit of 
-\begin_inset Formula $f\left(F,\delta\right)$
+ looks like the right or wrong selection decision of an algorithm that depends
+ on a standard Brownian motion instead of 
+\begin_inset Formula $\mathcal{C}\left(\delta,\cdot\right)$
+\end_inset
+
+, and this will give us the proof because we will be able to use the theory
+ developed by Frazier (2014) to prove the theorem.
+ Thus, the following step is to find the limit of 
+\begin_inset Formula $q_{tx}^{F,\delta}\left(A\right)$
 \end_inset
 
  when 
 \begin_inset Formula $\delta$
 \end_inset
 
- goes to zero:
+ goes to zero, which is called 
+\begin_inset Formula $q_{tx}^{F}\left(A\right)$
+\end_inset
+
+ and equal to
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 q_{tx}^{F}\left(A\right):=\mbox{exp}\left(\frac{F_{x}\left(t\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}ta_{x}\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{F_{x'}\left(t\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}ta_{x^{'}}\right).
@@ -2013,16 +1561,11 @@ q_{tx}^{F}\left(A\right):=\mbox{exp}\left(\frac{F_{x}\left(t\right)}{\lambda_{z}
 
 \end_inset
 
-Observe that the previous equation is the limit of 
-\begin_inset Formula $q_{tx}^{F,\delta}\left(A\right)$
+ Using the same previous idea, for each 
+\begin_inset Formula $F\in D\left[0,\infty\right)^{k}$
 \end_inset
 
- when 
-\begin_inset Formula $\delta\rightarrow0$
-\end_inset
-
-.
- We define the functions
+, we define the new functions
 \begin_inset Formula 
 \[
 \]
@@ -2044,7 +1587,7 @@ g\left(F\right) & = & \begin{cases}
 \end_layout
 
 \begin_layout Standard
-We want to prove that 
+So, we want to prove that 
 \begin_inset Formula 
 \[
 f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\right)
@@ -4740,43 +4283,52 @@ Proof.
 \end_layout
 
 \begin_layout Standard
-Define 
-\begin_inset Formula $\tau_{0}=0,A_{0}=A,P_{0}=P^{*}$
-\end_inset
+By the comments given at the beginning of this section, we know that we
+ can work with the algorithm defined by
+\end_layout
 
- and
-\begin_inset Formula 
-\begin{eqnarray*}
-\tilde{\tau}_{n+1} & = & \mbox{inf}\left\{ t\in\left\{ \tilde{\tau}_{n},\tilde{\tau}_{n}+1,\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{tx}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{tx}^{'}\left(A_{n}\right)\geq P_{n}\right\} \\
-Z_{n+1} & \in & \underset{x\in A_{n}}{\mbox{arg min }}q_{\tilde{\tau}_{n+1},x}^{'}\left(A_{n}\right)\\
-A_{n+1} & = & A_{n}\left\backslash \left\{ Z_{n+1}\right\} \right.\\
-P_{n+1} & = & P_{n}\left/\left(1-\mbox{min}_{x\in A_{n}}q_{\tilde{\tau}_{n+1},x}^{'}\left(A_{n}\right)\right)\right.
-\end{eqnarray*}
-
-\end_inset
-
-and 
+\begin_layout Standard
 \begin_inset Formula 
 \[
-M=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n}}q_{\tilde{\tau}_{n},x}^{'}\left(A_{n-1}\right)\geq P_{n-1}\right\} .
+q'_{tx}\left(A\right)=q'\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)
 \]
 
 \end_inset
 
+where 
+\begin_inset Formula $t\in\delta^{2}\mathbb{N}$
+\end_inset
 
+, instead of the algorithm defined by
+\begin_inset Formula 
+\[
+q'_{tx}\left(A\right)=q'\left(\left(Z_{tx},t:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $t\in\mathbb{N}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-It can be proved that 
-\begin_inset Formula $\tilde{\tau}_{M}=\tilde{\tau}_{n}$
+Now, we define
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\tau}_{n+1}\left(\delta\right) & = & \mbox{inf}\left\{ t\in\left\{ \tau_{n}\delta^{2},\left(\tau_{n}+1\right)\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\geq P_{n}\right\} 
+\end{eqnarray*}
+
 \end_inset
 
- and 
-\begin_inset Formula $\mbox{max}_{x\in A_{M-1}}q_{\tilde{\tau}_{M},x}^{'}\left(A_{M-1}\right)=\mbox{max}_{x\in A_{n}}q_{\tilde{\tau}_{n},x}^{'}\left(A_{n}\right)$
+We denote the corresponding continuous hitting times by 
+\begin_inset Formula $\left(\tau_{n}\left(\delta\right)\right)_{n}$
 \end_inset
 
- for all 
-\begin_inset Formula $n\geq M$
+, which are defined as 
+\begin_inset Formula $\tau_{n+1}=\mbox{inf}\left\{ t\geq\tilde{\tau}_{n}:\mbox{ min}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\geq P_{n}\right\} $
 \end_inset
 
 .
@@ -4784,37 +4336,7 @@ It can be proved that
 \end_layout
 
 \begin_layout Standard
-Similarly, we define
-\begin_inset Formula 
-\begin{eqnarray*}
-\hat{\tau}_{n+1}\left(\delta\right) & = & \mbox{inf}\left\{ t\in\left\{ \tau_{n}\delta^{2},\left(\tau_{n}+1\right)\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\geq P_{n}\right\} \\
- & = & \mbox{inf}\left\{ t\in\left\{ \tau_{n}\delta^{2},\left(\tau_{n}+1\right)\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\geq P_{n}\right\} 
-\end{eqnarray*}
-
-\end_inset
-
-and then 
-\begin_inset Formula $\hat{\tau}_{n+1}\left(\delta\right)=\delta^{2}\tilde{\tau}_{n+1}$
-\end_inset
-
-.
- The corresponding continuous hitting times are the times 
-\begin_inset Formula $\left(\tau_{n}\left(\delta\right)\right)_{n=1}^{k-1}$
-\end_inset
-
- we defined in 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:0.2"
-
-\end_inset
-
- with the functions 
-\begin_inset Formula $q_{t,x}^{\mathcal{C}\left(\delta,\cdot\right),\delta}$
-\end_inset
-
-.
- Using that 
+Using that 
 \begin_inset Formula $\mathcal{C}\left(\delta,\cdot\right)$
 \end_inset
 
@@ -4824,6 +4346,10 @@ reference "eq:0.2"
 
  with probability 
 \begin_inset Formula $1$
+\end_inset
+
+ as 
+\begin_inset Formula $\delta\rightarrow0$
 \end_inset
 
 , and so we can use 
@@ -5212,11 +4738,27 @@ Inspired on Frazier (2014), we first construct a probability measure
 Simulations
 \end_layout
 
+\begin_layout Standard
+
+\end_layout
+
 \begin_layout Section
 Conclusion
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+We have proved the asymptotic validity of the Bayes-inspired Zone procedure
+ (Frazier 2014) when the variances are known, which is a new sequential
+ elemination procedure.
+ This algorithm is relevant because it takes fewer samples than other IZ
+ procedures, especially for problems with large numbers of alternatives.
+ Even though this proof does not guarantee that the algorithm will work
+ for any sample, we know that it will work if the alternatives are not very
+ different, which are the most difficult cases.
+ 
+\end_layout
+
+\begin_layout Section*
 Appendix A: Skorohod topology
 \end_layout
 
@@ -5515,6 +5057,974 @@ as we wanted to prove.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section*
+Appendix B: The BIZ Procedure
+\end_layout
+
+\begin_layout Subsection*
+B.1 The BIZ Procedure with Known Common Variance
+\end_layout
+
+\begin_layout Standard
+We first define the Bayes-inspired indifference zone (BIZ) procedure for
+ the case of known common variance, when 
+\begin_inset Formula $\lambda_{x}^{2}=\sigma^{2}<\infty$
+\end_inset
+
+ for all 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Frazier (2014) showed that this procedure satisfies the IZ guarantee when
+ the systems follow the normal distribution, with tight bounds on worst-case
+ preference-zone in continuous time.
+\end_layout
+
+\begin_layout Standard
+BIZ depends on 
+\begin_inset Formula $P^{*}\in\left(1/k,1\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ for which we desire an IZ guarantee, and a parameter 
+\begin_inset Formula $c$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\begin{eqnarray*}
+c & \in & \left[0,1-\left(P^{*}\right)^{\frac{1}{k-1}}\right]\mbox{ if }k>2\\
+c & = & 0\mbox{ if }k=2
+\end{eqnarray*}
+
+\end_inset
+
+The parameter 
+\begin_inset Formula $c$
+\end_inset
+
+controls how aggressively the alternatives are eliminated.
+ It is recommended to choose 
+\begin_inset Formula $c$
+\end_inset
+
+ equal to 
+\begin_inset Formula $1-\left(P^{*}\right)^{\frac{1}{k-1}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For each 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $x\in\left\{ 1,\ldots,k\right\} $
+\end_inset
+
+, and subset 
+\begin_inset Formula $A\subset\left\{ 1,\ldots,k\right\} $
+\end_inset
+
+, we define a function
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{q}_{tx}\left(A\right)=\mbox{exp}\left(\frac{\delta}{\sigma^{2}}Y_{tx}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\frac{\delta}{\sigma^{2}}Y_{tx'}\right)\right.
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $Y_{tx}$
+\end_inset
+
+ is the sum of the samples observed from alternative 
+\begin_inset Formula $x$
+\end_inset
+
+ by time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Then, the BIZ procedure for known common variance is defined by Alg.
+ 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+paragraph{Algorithm 1: BIZ for known common sampling variance, in discrete
+ time.}    
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{alg:hetero-BIZ}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+REQUIRE $c 
+\backslash
+in [0,
+\backslash
+cmax]$, $
+\backslash
+delta>0$, $P^*
+\backslash
+in(1/k,1)$, common sampling variance $
+\backslash
+sigma^2>0$.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Let $A 
+\backslash
+leftarrow 
+\backslash
+{ 1,
+\backslash
+ldots, k
+\backslash
+}$, $
+\backslash
+upthresh 
+\backslash
+leftarrow P^*$, $Y_{0x} 
+\backslash
+leftarrow 0$ for each $x$.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+WHILE{$
+\backslash
+mbox{max}_{x
+\backslash
+in A} 
+\backslash
+hat{q}_{tx}
+\backslash
+left(A
+\backslash
+right)<P$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+WHILE{$
+\backslash
+mbox{min}_{x
+\backslash
+in A} 
+\backslash
+hat{q}_{tx}
+\backslash
+left(A
+\backslash
+right) 
+\backslash
+le c$}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+STATE Let $x
+\backslash
+in
+\backslash
+mbox{arg min}_{x
+\backslash
+in A} 
+\backslash
+hat{q}_{tx}
+\backslash
+left(A
+\backslash
+right)$.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+STATE Let $
+\backslash
+upthresh 
+\backslash
+leftarrow 
+\backslash
+upthresh/(1-
+\backslash
+hat{q}_{tx}
+\backslash
+left(A
+\backslash
+right))$.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Remove $x$ from $A$.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDWHILE
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+STATE Sample from each $x 
+\backslash
+in A$ and add this sample to $Y_{tx}$ to obtain $Y_{t+1,x}$.
+ Then increment $t$.
+        
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+ENDWHILE
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+STATE Select $
+\backslash
+xhat 
+\backslash
+in
+\backslash
+mbox{arg max}_{x
+\backslash
+in A} Y_{tx}$ as our estimate of the best.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+B.2 The BIZ Procedure with Heterogeneous and Unknown Sampling Variances
+\end_layout
+
+\begin_layout Standard
+Frazier (2014) showed that this procedure retains the IZ guarantee when
+ the systems follow the normal distribution, and the variances are known
+ and are integer multiples of a common value.
+ The continuous time version of this procedure also satisfies the IZ guarantee,
+ with a tight worst-case preference-zone PCS bound.
+\end_layout
+
+\begin_layout Standard
+The discrete-time BIZ procedure for unknown and/or heterogeneous sampling
+ variances is given in Alg.
+ 2.
+ It takes a variable number of samples from each alternative, and 
+\begin_inset Formula $n_{tx}$
+\end_inset
+
+ is this number.
+ This algorithm depends on a collection of integers 
+\begin_inset Formula $B_{1},\ldots,B_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $P^{*},c,\delta$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ is the number of samples to use in the first stage of samples, and 
+\begin_inset Formula $100$
+\end_inset
+
+ is the recommended value for 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $B_{x}$
+\end_inset
+
+ controls the number of samples taken from system 
+\begin_inset Formula $x$
+\end_inset
+
+ in each stage.
+ 
+\end_layout
+
+\begin_layout Standard
+For each 
+\begin_inset Formula $t$
+\end_inset
+
+, 
+\begin_inset Formula $x\in\left\{ 1,\ldots,k\right\} $
+\end_inset
+
+, and subset 
+\begin_inset Formula $A\subset\left\{ 1,\ldots,k\right\} $
+\end_inset
+
+, we define a function
+\begin_inset Formula 
+\[
+q_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx'}}{n_{tx'}}\right),\right.\mbox{ }\beta_{t}=\frac{\sum_{x'\in A}n_{tx'}}{\sum_{x'\in A}\hat{\lambda}_{tx'}^{2}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\hat{\lambda}_{tx'}^{2}$
+\end_inset
+
+ is the sample variance of all samples from alternative 
+\begin_inset Formula $x$
+\end_inset
+
+ thus far and 
+\begin_inset Formula $Z_{tx}=Y_{n_{tx},x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+paragraph{Algorithm 2: Discrete-time implementation of BIZ, for unknown
+ and/or heterogeneous variances.}    
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1]   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{alg:hetero-BIZ}   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+REQUIRE $c 
+\backslash
+in [0,
+\backslash
+cmax]$, $
+\backslash
+delta>0$, $P^*
+\backslash
+in(1/k,1)$, $n_0
+\backslash
+ge0$ an integer, $B_1,
+\backslash
+ldots,B_k$ strictly positive integers.
+  Recommended choices are $c=
+\backslash
+cmax$, $B_1=
+\backslash
+cdots=B_k=1$ and $n_0$ between $10$ and $30$.
+     If the sampling variances $
+\backslash
+lambda^2_x$ are known, replace the estimators     
+\end_layout
+
+\begin_layout Plain Layout
+
+$
+\backslash
+lambdahat^2_{tx}$ with the true values $
+\backslash
+lambda^2_x$, and set $n_0=0$.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE For each $x$, sample alternative $x$ $n_0$ times and set $n_{0x} 
+\backslash
+leftarrow n_0$.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+Let $W_{0x}$ and $
+\backslash
+lambdahat^2_{0x}$ be the sample mean and sample variance respectively of
+ these samples.
+     Let $t
+\backslash
+leftarrow 0$.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Let $A 
+\backslash
+leftarrow 
+\backslash
+{ 1,
+\backslash
+ldots, k
+\backslash
+}$, $
+\backslash
+upthresh 
+\backslash
+leftarrow P^*$.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+WHILE{$x
+\backslash
+in
+\backslash
+mbox{max}_{x
+\backslash
+in A} q_{tx}
+\backslash
+left(A
+\backslash
+right)<P$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+WHILE{$
+\backslash
+mbox{min}_{x
+\backslash
+in A} q_{tx}
+\backslash
+left(A
+\backslash
+right) 
+\backslash
+le c$}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+STATE Let $x
+\backslash
+in
+\backslash
+mbox{arg min}_{x
+\backslash
+in A} q_{tx}
+\backslash
+left(A
+\backslash
+right)$.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+STATE Let $
+\backslash
+upthresh 
+\backslash
+leftarrow 
+\backslash
+upthresh/(1-q_{tx}
+\backslash
+left(A
+\backslash
+right))$.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Remove $x$ from $A$.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDWHILE
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+STATE Let $z 
+\backslash
+in 
+\backslash
+mbox{arg min}_{x
+\backslash
+in A} n_{tx} / 
+\backslash
+lambdahat^2_{tx}$.
+     
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE For each $x
+\backslash
+in A$, let      $n_{t+1,x} = 
+\backslash
+ceil
+\backslash
+left( 
+\backslash
+lambdahat^2_{tx} (n_{tz} + B_z) / 
+\backslash
+lambdahat^2_{tz} 
+\backslash
+right)$.
+     
+\backslash
+STATE For each $x
+\backslash
+in A$, if $n_{t+1,x}>n_{tx}$, take $n_{t+1,x}-n_{tx}$ additional samples
+ from alternative $x$.
+  Let $W_{t+1,x}$ and $
+\backslash
+lambdahat^2_{t+1,x}$ be the sample mean and sample variance respectively
+ of all samples from alternative $x$ thus far.
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Increment $t$.
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+ENDWHILE
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+STATE Select $
+\backslash
+xhat 
+\backslash
+in
+\backslash
+mbox{arg max}_{x
+\backslash
+in A} W_{tx} / n_{tx}$ as our estimate of the best.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+B.3 Generalization to Continuous Time
+\end_layout
+
+\begin_layout Standard
+We let 
+\begin_inset Formula $\left(Y_{tx}:t\in\mathbb{R}_{+}\right)$
+\end_inset
+
+ be a Brownian motion under 
+\begin_inset Formula $\mathbb{P}_{\mu,\lambda}$
+\end_inset
+
+ starting from 
+\begin_inset Formula $0$
+\end_inset
+
+, with drift 
+\begin_inset Formula $\mu_{x}$
+\end_inset
+
+, volatility 
+\begin_inset Formula $\lambda_{x}$
+\end_inset
+
+ and independence across 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+B.3.1 Generalization to Continuous Time: The BIZ Procedure with Common Variance
+\end_layout
+
+\begin_layout Standard
+In this section, we assume 
+\begin_inset Formula $\lambda_{x}^{2}=\sigma^{2}$
+\end_inset
+
+ for all 
+\begin_inset Formula $x$
+\end_inset
+
+, with 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ known.
+ To define this procedure, we recursively define the stopping times 
+\begin_inset Formula $0=\tau_{1}\leq\tau_{2}\leq\cdots\leq\tau_{k-1}\leq\infty$
+\end_inset
+
+, random variables 
+\begin_inset Formula $Z_{1},\ldots,Z_{k-1}$
+\end_inset
+
+, and 
+\begin_inset Formula $P_{0},\ldots,P_{k-1}$
+\end_inset
+
+, and random sets 
+\begin_inset Formula $A_{0},A_{1},\ldots,A_{k-1}$
+\end_inset
+
+.
+ We first define 
+\begin_inset Formula $\tau_{0},A_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+\tau_{0}=0,\mbox{ }A_{0}=\left\{ 1,\ldots,k\right\} ,\mbox{ },P_{0}=P^{*}.
+\]
+
+\end_inset
+
+Then, for each 
+\begin_inset Formula $n=0,1,\ldots,k-2$
+\end_inset
+
+, we define
+\begin_inset Formula 
+\begin{eqnarray*}
+\tau_{n+1} & = & \mbox{inf }\left\{ t\in\mathbb{R}_{+}\bigcap\left[\tau_{n},\infty\right):\mbox{min}_{x\in A_{n}}\hat{q}_{tx}\left(A_{n}\right)\leq c\mbox{ or}\mbox{max}_{x\in A_{n}}\hat{q}_{tx}\left(A_{n}\right)\geq P\right\} \\
+Z_{n+1} & \in & \mbox{arg min}_{x\in A_{n}}\hat{q}_{\tau_{n+1},x}\left(A_{n}\right)\\
+A_{n+1} & = & A_{n}\left\backslash \left\{ Z_{n+1}\right\} \right.\\
+P_{n+1} & = & P_{n}\left/\left(1-\mbox{min}_{x\in A_{n}}\hat{q}_{\tau_{n+1},x}\left(A_{n}\right)\right)\right.
+\end{eqnarray*}
+
+\end_inset
+
+Finally, 
+\begin_inset Formula $\hat{x}$
+\end_inset
+
+ is the single alternative in 
+\begin_inset Formula $A_{k-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We also define
+\begin_inset Formula 
+\[
+M=\mbox{inf}\left\{ n=1,\ldots,k-1:\mbox{max}_{x\in A_{n-1}}\hat{q}_{\tau_{n},x}\left(A_{n-1}\right)\geq P_{n-1}\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Frazier (2014) showed that 
+\begin_inset Formula $\tau_{M}=\tau_{M+1}=\cdots=\tau_{k-1}$
+\end_inset
+
+, and that the one alternative remaining in 
+\begin_inset Formula $A_{k-1}$
+\end_inset
+
+ is the one whose 
+\begin_inset Formula $\hat{q}_{tx}\left(A_{n}\right)$
+\end_inset
+
+ satisfied 
+\begin_inset Formula $\hat{q}_{tx}\left(A_{n}\right)\geq P_{n}$
+\end_inset
+
+ at time 
+\begin_inset Formula $\tau_{M}$
+\end_inset
+
+.
+ He also showed that 
+\begin_inset Formula $\tau_{M}<\infty$
+\end_inset
+
+ almost surely under any 
+\begin_inset Formula $\mathbb{P}_{\mu,\sigma}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+B.3.2 Generalization to Continuous Time: The BIZ Procedure for the Heterogeneous
+ Variance Setting
+\end_layout
+
+\begin_layout Standard
+This procedure is similar than the one given in 3.4.
+ For each 
+\begin_inset Formula $x$
+\end_inset
+
+ let 
+\begin_inset Formula $n_{x}\left(t\right)=\gamma\lambda_{x}^{2}t$
+\end_inset
+
+.
+ Now, we define a stochastic process 
+\begin_inset Formula $\left(Y'_{tx}:t\geq0\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $Y'_{tx}=Y_{n_{x}\left(t\right),x}/\gamma\lambda_{x}^{2}$
+\end_inset
+
+.
+ We have that 
+\begin_inset Formula $\left(Y'_{tx}:t\geq0\right)$
+\end_inset
+
+ is a Brownian motion with drift 
+\begin_inset Formula $\mu_{x}$
+\end_inset
+
+ and volatility 
+\begin_inset Formula $1/\gamma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The procedure is defined by first defining 
+\begin_inset Formula $\tau_{0},A_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+\tau_{0}=0,\mbox{ }A_{0}=\left\{ 1,\ldots,k\right\} ,\mbox{ },P_{0}=P^{*},
+\]
+
+\end_inset
+
+then defining recursively, for 
+\begin_inset Formula $n=0,1,\ldots,k-2$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\tau_{n+1} & = & \mbox{inf }\left\{ t\in\mathbb{R}_{+}\bigcap\left[\tau_{n},\infty\right):\mbox{min}_{x\in A_{n}}q'_{tx}\left(A_{n}\right)\leq c\mbox{ or}\mbox{max}_{x\in A_{n}}q'_{tx}\left(A_{n}\right)\geq P\right\} \\
+Z_{n+1} & \in & \mbox{arg min}_{x\in A_{n}}q'_{\tau_{n+1},x}\left(A_{n}\right)\\
+A_{n+1} & = & A_{n}\left\backslash \left\{ Z_{n+1}\right\} \right.\\
+P_{n+1} & = & P_{n}\left/\left(1-\mbox{min}_{x\in A_{n}}q'_{\tau_{n+1},x}\left(A_{n}\right)\right)\right.
+\end{eqnarray*}
+
+\end_inset
+
+where 
+\begin_inset Formula $q'_{tx}\left(A\right)$
+\end_inset
+
+ is defined by
+\begin_inset Formula 
+\[
+q'_{tx}\left(A\right)=\mbox{exp}\left(\gamma\delta Y'_{tx}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\gamma\delta Y'_{tx'}\right)\right.=\mbox{exp}\left(\frac{\delta}{\lambda_{x}^{2}}Y_{n_{x}\left(t\right),x}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\frac{\delta}{\lambda_{x'}^{2}}Y_{n_{x'}\left(t\right),x'}\right)\right..
+\]
+
+\end_inset
+
+Frazier (2014) showed that this procedure satisfies the IZ guarantee, and
+ and its worst-case preference-zone PCS bound is tight in continuous time.
 \end_layout
 
 \begin_layout Standard
