@@ -566,8 +566,8 @@ status open
 
 
 \backslash
-paragraph{Algorithm 2: Discrete-time implementation of BIZ, for unknown
- and/or heterogeneous variances.}    
+paragraph{Algorithm: Discrete-time implementation of BIZ, for unknown and/or
+ heterogeneous variances.}    
 \end_layout
 
 \begin_layout Plain Layout
@@ -859,6 +859,8 @@ This algorithm generalizes the BIZ procedure with known common variance.
 cdots=B_k=1$ and $n_{tx}=t$.
  The algorithm 2 can be generalized to the continuous case (See appendix
  B and Frazier (2014)).
+ This procedure is a slightly modification of the original BIZ procedure
+ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -948,7 +950,7 @@ In this section we prove that the BIZ procedure satisfies the IZ guarantee
 \end_layout
 
 \begin_layout Standard
-The original BIZ procedure maps 
+The BIZ procedure maps 
 \begin_inset Formula $\left(Y_{n_{x}\left(t\right),x}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
 \end_inset
 
@@ -4736,10 +4738,6 @@ Inspired on Frazier (2014), we first construct a probability measure
 
 \begin_layout Section
 Simulations
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Section
