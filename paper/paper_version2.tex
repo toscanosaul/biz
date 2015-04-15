@@ -277,15 +277,14 @@ from alternative $x$ thus far and $Z_{tx}=Y_{n_{tx},x}$.
 $\lambdahat^2_{tx}$ with the true values $\lambda^2_x$, and set $n_0=0$.     
 
 \STATE For each $x$, sample alternative $x$ $n_0$ times and set $n_{0x} \leftarrow n_0$.     
-Let $W_{0x}$ and $\lambdahat^2_{0x}$ be the sample mean and sample variance respectively of these samples.     Let $t\leftarrow 0$.     
+Let $W_{0x}$ and $\lambdahat^2_{0x}$ be the sample mean and sample variance respectively of these samples.     Let $t\leftarrow 0$.Let $z \in \mbox{arg max}_{x\in A} \lambdahat^2_{tx}$.     
 \STATE Let $A \leftarrow \{ 1,\ldots, k\}$, $\upthresh \leftarrow P^*$.
 \WHILE{$x\in\mbox{max}_{x\in A} q_{tx}\left(A\right)<P$}
 \WHILE{$\mbox{min}_{x\in A} q_{tx}\left(A\right) \le c$}
  \STATE Let $x\in\mbox{arg min}_{x\in A} q_{tx}\left(A\right)$.
     \STATE Let $\upthresh \leftarrow \upthresh/(1-q_{tx}\left(A\right))$.     
 \STATE Remove $x$ from $A$.
-\ENDWHILE
-  \STATE Let $z \in \mbox{arg min}_{x\in A} n_{tx} / \lambdahat^2_{tx}$.     
+\ENDWHILE    
 \STATE For each $x\in A$, let      $n_{t+1,x} = \ceil\left( \lambdahat^2_{tx} (n_{tz} + B_z) / \lambdahat^2_{tz} \right)$.     \STATE For each $x\in A$, if $n_{t+1,x}>n_{tx}$, take $n_{t+1,x}-n_{tx}$ additional samples from alternative $x$.  Let $W_{t+1,x}$ and $\lambdahat^2_{t+1,x}$ be the sample mean and sample variance respectively of all samples from alternative $x$ thus far.    
 \STATE Increment $t$.
  \ENDWHILE
@@ -295,7 +294,7 @@ Let $W_{0x}$ and $\lambdahat^2_{0x}$ be the sample mean and sample variance resp
 \end{algorithmic} 
 
 \vspace{10mm}
-This algorithm generalizes the BIZ procedure with known common variance. In that case, we have that$B_1=\cdots=B_k=1$ and $n_{tx}=t$. The algorithm 2 can be generalized to the continuous case (See appendix B and Frazier (2014)). This procedure is a slightly modification of the original BIZ procedure 
+This algorithm generalizes the BIZ procedure with known common variance. In that case, we have that$B_1=\cdots=B_k=1$ and $n_{tx}=t$. The algorithm 2 can be generalized to the continuous case (See appendix B and Frazier (2014)). This procedure is a slightly modification of the original BIZ procedure where $z \in \mbox{arg max}_{x\in A} \lambdahat^2_{tx}$, instead of $z \in \mbox{arg min}_{x\in A} n_{tx} / \lambdahat^2_{tx}$.
 
 
 
@@ -313,18 +312,36 @@ $\lambda_{z}^{2}:=\max_{i\in\left\{ 1\ldots,k\right\} }\lambda_{i}^{2}$
 and we suppose that $\mbox{min}{}_{i\in\left\{ 1\ldots,k\right\} }\lambda_{i}^{2}>0$
 and $\mbox{max}{}_{i\in\left\{ 1\ldots,k\right\} }\lambda_{i}^{2}<\infty$. 
 
-The BIZ procedure maps $\left(Y_{n_{x}\left(t\right),x}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
-to a selection decision, where $Y_{n_{x}\left(t\right),t}$ is the
-sum of samples observed by time $t$. In more detail, it works by
-transforming $\left(Y_{n_{x}\left(t\right),x}:A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
-to $\left(q'_{tx}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$.
-This $q'$ process is given by time process with jumps at $t\in\mathbb{N}$,
+Any ranking and selection algorithm can be viewed as mapping from
+paths of the $k$-dimensional discrete-time random walk $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
+onto selection decisions. The BIZ procedure's mapping from paths onto
+selections decisions can be understood as the composition of three
+simpler maps.
+
+The first is the mapping from the raw discrete-time random walk $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
+onto a time changed version of this random walk, written as $\left(Z_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$,
+where we recall $Z_{tx}=Y_{n_{x}\left(t\right),t}$ is the sum of
+the samples from alternative $x$ observed by stage $t$.
+
+The second maps this time-changed random walk through a non-linear
+mapping for each $t,x$ and subset $A\subset\left\{ 1,\ldots,k\right\} $,
+to obtain $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$,
+where
+
 \[
-q'_{tx}\left(A\right)=q'\left(\left(Z_{tx},t:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\right.
+q'_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\right.:=q'\left(\left(Z_{tx},t:x\in A\right),\delta,t\right)
 \]
-where the variances are fixed. The same distribtuion over selection
-decision will result if we apply the same same selection process to
-the following time process with jumps at $t\in\left\{ 0,\delta^{2},2\delta^{2},\ldots\right\} =\delta^{2}\mathbb{N}$,
+where we note that $n_{x}\left(t\right)$ and $\beta_{t}$ are deterministic
+in the version of the known-variance BIZ procedure that we consider
+here.
+
+The third maps the paths of $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
+onto selection decisions. Specifically, this mapping finds the first
+time.
+
+The same distribution over selection decision will result if we apply
+the same same selection process to the following time process with
+jumps at $t\in\left\{ 0,\delta^{2},2\delta^{2},\ldots\right\} =\delta^{2}\mathbb{N}$,
 \[
 q'_{tx}\left(A\right)=q'\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
 \]
@@ -333,7 +350,7 @@ process
 \begin{eqnarray}
 q_{tx}\left(A\right) & = & q\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)\label{eq:0.001}
 \end{eqnarray}
-where $t\geq0$ . Later we will show the difference in selection decisions
+where $t\geq0$ . Then we will show the difference in selection decisions
 vanishes as $\delta\rightarrow0$.
 
 After that, we would like to use a kind of central limit theorem for
@@ -442,7 +459,7 @@ is the definition of $q_{tx}\left(A\right)$,
 \[
 q_{tx}\left(A\right)=q'\left(\left(C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right),
 \]
-the previous equation is true beucase 
+the previous equation is true because 
 \[
 Z_{\frac{t}{\delta^{2}}x}=C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right).
 \]
@@ -570,7 +587,7 @@ for all $t\in\left[0,t^{*}\right]$. Consequently, if $n>M$, by (\ref{eq:1.10}),
 \left|\mbox{min}\left(f_{n}\left(t\right),g_{n}\left(t\right)\right)-\mbox{min}\left(f\left(t\right),g\left(t\right)\right)\right|<\epsilon
 \]
 for all $t\in\left[0,t^{*}\right]$. Since uniform convergence implies
-Skorohod convergente, then $\mbox{min}\left(f_{n},g_{n}\right)\rightarrow\mbox{min}\left(f,g\right)$
+Skorohod convergence, then $\mbox{min}\left(f_{n},g_{n}\right)\rightarrow\mbox{min}\left(f,g\right)$
 in $D_{t^{*}}$, and the result follows.
 
 $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{\ensuremath{\blacksquare}}$
@@ -842,7 +859,7 @@ Thus, replacing $\tau$ with $\tau_{m}+\frac{t^{*}}{nN}$,
 \[
 \mathbb{P}\left\{ T^{*}\leq\tau_{m}+\frac{t^{*}}{nN}+\frac{1}{nN}\mid\mathcal{F}_{\tau_{m}+\frac{t^{*}}{nN}},T^{*}>\tau_{m}+\frac{t^{*}}{nN}\right\} \geq\Phi\left(\frac{\mbox{min}_{x}a_{x}}{N}\frac{x_{0}}{\lambda_{z}}\right)\Phi\left(-a-\frac{\mbox{max}_{x}a_{x}}{N}\frac{x_{0}^{+}}{\lambda_{z}}\right)^{k-1}
 \]
-Let $\epsilon$ be the quantity on the righ-hand side of this inequality,
+Let $\epsilon$ be the quantity on the right-hand side of this inequality,
 then $\epsilon<1$ and it does not depend on $t^{*}$ and $n$. 
 
 By repeated application of this inequality, we have that $\mathbb{P}\left\{ T^{*}>T_{W}^{1}\left(P\right)+\frac{1}{N}\mid\mathcal{F}_{\tau_{m}}\right\} \leq\left(1-\epsilon\right)^{n}$
@@ -1215,7 +1232,7 @@ $Q_{u}$ that i
 
 We have proved the asymptotic validity of the Bayes-inspired Zone
 procedure (Frazier 2014) when the variances are known, which is a
-new sequential elemination procedure. This algorithm is relevant because
+new sequential elimination procedure. This algorithm is relevant because
 it takes fewer samples than other IZ procedures, especially for problems
 with large numbers of alternatives. Even though this proof does not
 guarantee that the algorithm will work for any sample, we know that
@@ -1226,8 +1243,8 @@ the most difficult cases.
 \section*{Appendix A: Skorohod topology}
 
 We are going to define the Skorohod topology on $D[0,\infty)$ by
-defining a metric on the space. The Skorohod metricric $d_{t}$ on
-$D\left[0,t\right]$ for each $t\geq0$ is:
+defining a metric on the space. The Skorohod metric $d_{t}$ on $D\left[0,t\right]$
+for each $t\geq0$ is:
 \[
 d_{t}\left(\mathcal{X},\mathcal{Y}\right)=\mbox{inf}_{\lambda\in\Lambda_{t}}\left\{ \left\Vert \lambda-I\right\Vert \vee\left\Vert \mathcal{X}-\mathcal{Y}\circ\lambda\right\Vert \right\} 
 \]

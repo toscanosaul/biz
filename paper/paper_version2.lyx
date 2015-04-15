@@ -643,7 +643,15 @@ lambdahat^2_{0x}$ be the sample mean and sample variance respectively of
  these samples.
      Let $t
 \backslash
-leftarrow 0$.
+leftarrow 0$.Let $z 
+\backslash
+in 
+\backslash
+mbox{arg max}_{x
+\backslash
+in A} 
+\backslash
+lambdahat^2_{tx}$.
      
 \end_layout
 
@@ -746,23 +754,7 @@ STATE Remove $x$ from $A$.
 
 
 \backslash
-ENDWHILE
-\end_layout
-
-\begin_layout Plain Layout
-
-  
-\backslash
-STATE Let $z 
-\backslash
-in 
-\backslash
-mbox{arg min}_{x
-\backslash
-in A} n_{tx} / 
-\backslash
-lambdahat^2_{tx}$.
-     
+ENDWHILE    
 \end_layout
 
 \begin_layout Plain Layout
@@ -860,7 +852,23 @@ cdots=B_k=1$ and $n_{tx}=t$.
  The algorithm 2 can be generalized to the continuous case (See appendix
  B and Frazier (2014)).
  This procedure is a slightly modification of the original BIZ procedure
- 
+ where $z 
+\backslash
+in 
+\backslash
+mbox{arg max}_{x
+\backslash
+in A} 
+\backslash
+lambdahat^2_{tx}$, instead of $z 
+\backslash
+in 
+\backslash
+mbox{arg min}_{x
+\backslash
+in A} n_{tx} / 
+\backslash
+lambdahat^2_{tx}$.
 \end_layout
 
 \begin_layout Plain Layout
@@ -950,46 +958,92 @@ In this section we prove that the BIZ procedure satisfies the IZ guarantee
 \end_layout
 
 \begin_layout Standard
-The BIZ procedure maps 
-\begin_inset Formula $\left(Y_{n_{x}\left(t\right),x}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
+Any ranking and selection algorithm can be viewed as mapping from paths
+ of the 
+\begin_inset Formula $k$
 \end_inset
 
- to a selection decision, where 
-\begin_inset Formula $Y_{n_{x}\left(t\right),t}$
+-dimensional discrete-time random walk 
+\begin_inset Formula $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
 \end_inset
 
- is the sum of samples observed by time 
+ onto selection decisions.
+ The BIZ procedure's mapping from paths onto selections decisions can be
+ understood as the composition of three simpler maps.
+\end_layout
+
+\begin_layout Standard
+The first is the mapping from the raw discrete-time random walk 
+\begin_inset Formula $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
+\end_inset
+
+ onto a time changed version of this random walk, written as 
+\begin_inset Formula $\left(Z_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
+\end_inset
+
+, where we recall 
+\begin_inset Formula $Z_{tx}=Y_{n_{x}\left(t\right),t}$
+\end_inset
+
+ is the sum of the samples from alternative 
+\begin_inset Formula $x$
+\end_inset
+
+ observed by stage 
 \begin_inset Formula $t$
 \end_inset
 
 .
- In more detail, it works by transforming 
-\begin_inset Formula $\left(Y_{n_{x}\left(t\right),x}:A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
+\end_layout
+
+\begin_layout Standard
+The second maps this time-changed random walk through a non-linear mapping
+ for each 
+\begin_inset Formula $t,x$
 \end_inset
 
- to 
-\begin_inset Formula $\left(q'_{tx}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
+ and subset 
+\begin_inset Formula $A\subset\left\{ 1,\ldots,k\right\} $
 \end_inset
 
-.
- This 
-\begin_inset Formula $q'$
+, to obtain 
+\begin_inset Formula $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
 \end_inset
 
- process is given by time process with jumps at 
-\begin_inset Formula $t\in\mathbb{N}$
-\end_inset
+, where
+\end_layout
 
-,
+\begin_layout Standard
 \begin_inset Formula 
 \[
-q'_{tx}\left(A\right)=q'\left(\left(Z_{tx},t:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\right.
+q'_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\right.:=q'\left(\left(Z_{tx},t:x\in A\right),\delta,t\right)
 \]
 
 \end_inset
 
-where the variances are fixed.
- The same distribtuion over selection decision will result if we apply the
+where we note that 
+\begin_inset Formula $n_{x}\left(t\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{t}$
+\end_inset
+
+ are deterministic in the version of the known-variance BIZ procedure that
+ we consider here.
+\end_layout
+
+\begin_layout Standard
+The third maps the paths of 
+\begin_inset Formula $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
+\end_inset
+
+ onto selection decisions.
+ Specifically, this mapping finds the first time.
+\end_layout
+
+\begin_layout Standard
+The same distribution over selection decision will result if we apply the
  same same selection process to the following time process with jumps at
  
 \begin_inset Formula $t\in\left\{ 0,\delta^{2},2\delta^{2},\ldots\right\} =\delta^{2}\mathbb{N}$
@@ -1016,7 +1070,7 @@ where
 \end_inset
 
  .
- Later we will show the difference in selection decisions vanishes as 
+ Then we will show the difference in selection decisions vanishes as 
 \begin_inset Formula $\delta\rightarrow0$
 \end_inset
 
@@ -1430,7 +1484,7 @@ q_{tx}\left(A\right)=q'\left(\left(C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{
 
 \end_inset
 
-the previous equation is true beucase 
+the previous equation is true because 
 \begin_inset Formula 
 \[
 Z_{\frac{t}{\delta^{2}}x}=C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right).
@@ -1984,7 +2038,7 @@ for all
 \end_inset
 
 .
- Since uniform convergence implies Skorohod convergente, then 
+ Since uniform convergence implies Skorohod convergence, then 
 \begin_inset Formula $\mbox{min}\left(f_{n},g_{n}\right)\rightarrow\mbox{min}\left(f,g\right)$
 \end_inset
 
@@ -3297,7 +3351,7 @@ Let
 \begin_inset Formula $\epsilon$
 \end_inset
 
- be the quantity on the righ-hand side of this inequality, then 
+ be the quantity on the right-hand side of this inequality, then 
 \begin_inset Formula $\epsilon<1$
 \end_inset
 
@@ -4747,7 +4801,7 @@ Conclusion
 \begin_layout Standard
 We have proved the asymptotic validity of the Bayes-inspired Zone procedure
  (Frazier 2014) when the variances are known, which is a new sequential
- elemination procedure.
+ elimination procedure.
  This algorithm is relevant because it takes fewer samples than other IZ
  procedures, especially for problems with large numbers of alternatives.
  Even though this proof does not guarantee that the algorithm will work
@@ -4766,7 +4820,7 @@ We are going to define the Skorohod topology on
 \end_inset
 
  by defining a metric on the space.
- The Skorohod metricric 
+ The Skorohod metric 
 \begin_inset Formula $d_{t}$
 \end_inset
 
