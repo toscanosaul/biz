@@ -533,7 +533,7 @@ For each
 , we define a function
 \begin_inset Formula 
 \[
-q_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx'}}{n_{tx'}}\right),\right.\mbox{ }\beta_{t}=\frac{\sum_{x'\in A}n_{tx'}}{\sum_{x'\in A}\hat{\lambda}_{tx'}^{2}}
+q'_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx'}}{n_{tx'}}\right),\right.\mbox{ }\beta_{t}=\frac{\sum_{x'\in A}n_{tx'}}{\sum_{x'\in A}\hat{\lambda}_{tx'}^{2}}
 \]
 
 \end_inset
@@ -684,7 +684,7 @@ in
 \backslash
 mbox{max}_{x
 \backslash
-in A} q_{tx}
+in A} q'_{tx}
 \backslash
 left(A
 \backslash
@@ -699,7 +699,7 @@ WHILE{$
 \backslash
 mbox{min}_{x
 \backslash
-in A} q_{tx}
+in A} q'_{tx}
 \backslash
 left(A
 \backslash
@@ -1039,28 +1039,26 @@ The third maps the paths of
 \end_inset
 
  onto selection decisions.
- Specifically, this mapping finds the first time.
+ Specifically, this mapping finds the first time that 
+\begin_inset Formula $\mbox{max}_{x\in A}q_{tx}\left(A\right)$
+\end_inset
+
+ is larger than some threshold 
+\begin_inset Formula $P$
+\end_inset
+
+, and then it chooses the system with the largest empirical mean 
+\begin_inset Formula $Z_{tx}/n_{tx}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-The same distribution over selection decision will result if we apply the
- same same selection process to the following time process with jumps at
- 
-\begin_inset Formula $t\in\left\{ 0,\delta^{2},2\delta^{2},\ldots\right\} =\delta^{2}\mathbb{N}$
-\end_inset
-
-,
-\begin_inset Formula 
-\[
-q'_{tx}\left(A\right)=q'\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
-\]
-
-\end_inset
-
 Later, we can approximate the previous process by the continuous time process
 \begin_inset Formula 
 \begin{eqnarray}
-q_{tx}\left(A\right) & = & q\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)\label{eq:0.001}
+q_{tx}\left(A\right) & = & q\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)\label{eq:0.001-1}
 \end{eqnarray}
 
 \end_inset
@@ -1079,7 +1077,7 @@ where
 
 \begin_layout Standard
 After that, we would like to use a kind of central limit theorem for 
-\begin_inset Formula $Z_{\frac{t}{\delta^{2}}x}=Y_{n_{x}\left(t/\delta^{2}\right),x}$
+\begin_inset Formula $Z_{\frac{t}{\delta^{2}}x}$
 \end_inset
 
  when 
@@ -1087,8 +1085,82 @@ After that, we would like to use a kind of central limit theorem for
 \end_inset
 
  goes to zero to work with a Brownian motion instead.
- Specifically, we are going to see that the the standardized sum of the
- output data converges to a Brownian motion in the sense of 
+ In order to do this, we are going to rewrite equation (1) in terms of a
+ centralized version of 
+\begin_inset Formula $Z$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{C}_{x}\left(\delta,t\right)=\frac{Y_{n_{x}\left(t\right),x}-t\lambda_{x}^{2}\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}
+\]
+
+\end_inset
+
+and the resulting expresion is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q_{tx}\left(A\right)=q\left(\left(C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus, we can see the selection decision resulting from the BIZ algorithm
+ as the result of applying some mapping 
+\begin_inset Formula $f\left(\cdot,\delta\right)$
+\end_inset
+
+ to the paths 
+\begin_inset Formula $t\mapsto\mathcal{C}_{x}\left(\delta,t\right)$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+The last part of our proof is to observe that (1) 
+\begin_inset Formula $\mathcal{C}\left(\delta,\cdot\right)$
+\end_inset
+
+ converges to a multivariate Brownian motion 
+\begin_inset Formula $W$
+\end_inset
+
+ as 
+\begin_inset Formula $\delta$
+\end_inset
+
+ goes to 0; (2) the function 
+\begin_inset Formula $f$
+\end_inset
+
+ has a continuity property that causes 
+\begin_inset Formula 
+\[
+f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\right)
+\]
+
+\end_inset
+
+where g is the selection decision from applying the BIZ procedure in continuous
+ time; and (3) the BIZ procedure satsifies the IZ guarantee when applied
+ in continuous time.
+\end_layout
+
+\begin_layout Standard
+First, we are going to see that the the standardized sum of the output data
+ converges to a Brownian motion in the sense of 
 \begin_inset Formula $D_{\infty}:=D[0,\infty)$
 \end_inset
 
@@ -1104,8 +1176,7 @@ After that, we would like to use a kind of central limit theorem for
  topology.
  The definition and the properties of this topology may be found in Chapter
  3 of Billingsley 1999 and the appendix.
- We will first see this result because it will give us a clue for proving
- the asymptotic validity of the Algorithm 2.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1459,43 +1530,6 @@ as
 \end_layout
 
 \begin_layout Standard
-We now gain the insight that we were looking for.
- We will use 
-\begin_inset Formula $\mathcal{C}_{x}\left(\delta,\cdot\right)$
-\end_inset
-
- instead of 
-\begin_inset Formula $Z_{\frac{t}{\delta^{2}}x}$
-\end_inset
-
- in 
-\begin_inset Formula $\left(1\right)$
-\end_inset
-
-, which is the definition of 
-\begin_inset Formula $q_{tx}\left(A\right)$
-\end_inset
-
-,
-\begin_inset Formula 
-\[
-q_{tx}\left(A\right)=q'\left(\left(C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right),
-\]
-
-\end_inset
-
-the previous equation is true because 
-\begin_inset Formula 
-\[
-Z_{\frac{t}{\delta^{2}}x}=C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right).
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Observe that 
 \begin_inset Formula $\mathcal{C}\left(\delta,\cdot\right)\in D\left[0,\infty\right)^{k}$
 \end_inset
@@ -1659,8 +1693,9 @@ as
 \end_layout
 
 \begin_layout Standard
-In order to prove this, we first prove Lemma 2, which will allow us to use
- Theorem 5.5 of Billingsley 1968, which implies the desired result.
+In order to prove this, we first prove a continuity property in Lemma 2,
+ which will allow us to use Theorem 5.5 of Billingsley 1968, which implies
+ the desired result.
 \end_layout
 
 \begin_layout Paragraph*
