@@ -1101,7 +1101,7 @@ After that, we would like to use a kind of central limit theorem for
 
 \end_inset
 
-and the resulting expresion is
+and the resulting expression is
 \end_layout
 
 \begin_layout Standard
@@ -1154,7 +1154,7 @@ f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\ri
 \end_inset
 
 where g is the selection decision from applying the BIZ procedure in continuous
- time; and (3) the BIZ procedure satsifies the IZ guarantee when applied
+ time; and (3) the BIZ procedure satisfies the IZ guarantee when applied
  in continuous time.
 \end_layout
 
