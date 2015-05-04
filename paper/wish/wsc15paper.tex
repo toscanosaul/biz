@@ -386,8 +386,10 @@ $\lambda_{z}^{2}:=\max_{i\in\left\{ 1\ldots,k\right\} }\lambda_{i}^{2}$.
 
 Any ranking and selection algorithm can be viewed as mapping from
 paths of the $k$-dimensional discrete-time random walk $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
-onto selection decisions. The BIZ procedure's mapping from paths onto
-selections decisions can be understood as the composition of three
+onto selection decisions. 
+Our proof uses this viewpoint, noting that 
+the BIZ procedure's mapping from paths onto
+selections decisions is the composition of three
 simpler maps.
 
 The first is the mapping from the raw discrete-time random walk $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
@@ -401,46 +403,75 @@ to obtain $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldot
 where
 
 \[
-q'_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\right.:=q'\left(\left(Z_{tx},t:x\in A\right),\delta,t\right)
+q'_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\right.:=q'\left(\left(Z_{tx}:x\in A\right),\delta,t\right)
 \]
 where we note that $n_{x}\left(t\right)$ and $\beta_{t}$ are deterministic
 in the version of the known-variance BIZ procedure that we consider
 here.
 
 The third maps the paths of $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
-onto selection decisions. Specifically, this mapping finds the first
-time that $\mbox{max}_{x\in A}q_{tx}\left(A\right)$ is larger than
-some threshold $P$, and then it chooses the system with the largest
-empirical mean $Z_{tx}/n_{tx}$.
+onto selection decisions. Specifically, this mapping begins with $A_0 = \{1,\ldots,k\}$,
+$P_0=P^*$, 
+and finds the first time $\tau_1$ that $q'_{tx}(A_0)$ falls above the threshold $P_0$,
+or below the threshold $c$.
+If the first case occurs, the alternative with the largest $q'_{\tau_1,x}(A_0)$ is selected as the best.
+If the second case occurs, the alternative with the smallest
+$q'_{\tau_1,x}(A_0)$ is eliminated, resulting in a new set $A_1$, a new selection threshold 
+$P_1$ is calculated from $P_0$ and the eliminated alternative's value of $q'_{\tau_1,x}(A_0)$, and the process continues.
+This process is repeated until an alternative is selected as the best.
+Call this mapping $h$, so that the BIZ selection decision is
+$h\left(\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)\right)$.
 
-Later, we can approximate the previous process by the continuous time
-process
-\begin{eqnarray}
-q_{tx}\left(A\right) & = & q\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)\label{eq:0.001-1}
-\end{eqnarray}
-where $t\geq0$ . Then we will show the difference in selection decisions
-vanishes as $\delta\rightarrow0$.
+\subsection{Proof Outline}
+Based on this view of the BIZ procedure as a composition of three maps, we outline the main ideas of our proof here. 
 
-After that, we would like to use a kind of central limit theorem for
-$Z_{\frac{t}{\delta^{2}}x}$ when $\delta$ goes to zero to work with
-a Brownian motion instead. In order to do this, we are going to rewrite
-equation (1) in terms of a centralized version of $Z$:
+Our proof first notes that the same selection decision is obtained if we apply
+the BIZ selection map $h$ to a time-changed version of 
+$\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$, specifically to 
+\begin{equation*}
+\left(q_{tx}\left(A\right):t\in\delta^2 \mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right),
+\end{equation*}
+where
+$q_{tx}\left(A\right) := q'\left(\left(Z_{\frac{t}{\delta^{2}}x}:x\in A\right),\delta,t \right)$.
 
+This discrete-time process is interpolated by the continuous-time process 
+\begin{equation}
+\left(q_{tx}\left(A\right):t\in\mathbb{R},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right).
+\label{eq:q-continuous}
+\end{equation}
+If we apply the BIZ selection map $h$ to this continuous-time process, the selection decision will differ from BIZ's selection decision for $\delta>0$, but we show that this difference vanishes as $\delta\to0$.  Thus, our proof focuses on showing that, as $\delta\to0$, applying the third map to \eqref{eq:q-continuous} produces a selection decision that satisfies the indifference-zone guarantee. 
+
+To accomplish this, we use a functional central limit theorem for
+$Z_{\frac{t}{\delta^{2}}x}$, which shows that a centralized
+version of $Z_{\frac{t}{\delta^{2}}x}$ converges to a Brownian motion as $\delta$ goes to $0$.
+This centralized version of $Z_{\frac{t}{\delta^{2}}x}$ is 
 \[
-\mathcal{C}_{x}\left(\delta,t\right)=\frac{Y_{n_{x}\left(t\right),x}-t\lambda_{x}^{2}\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}
+\mathcal{C}_{x}\left(\delta,t\right):=\frac{Y_{n_{x}\left(t\right),x}-t\lambda_{x}^{2}\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}.
 \]
-and the resulting expression is
+Rewriting $Z_{\frac{t}{\delta^{2}}x}$ in terms of $\mathcal{C}_{x}\left(\delta,t\right)$ and substituting into the definition of $q_{tx}(A)$ provides the expression
+\begin{equation}
+    q_{tx}\left(A\right)=q\left(\left(\mathcal{C}_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x}:x\in A\right),\delta,t \right).
+    \label{eq:q}
+\end{equation}
 
-\[
-q_{tx}\left(A\right)=q\left(\left(C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
-\]
-
-
-Thus, we can see the selection decision resulting from the BIZ algorithm
-as the result of applying some mapping $f\left(\cdot,\delta\right)$
+We will construct a mapping $f\left(\cdot,\delta\right)$ that takes as input the process
+$\left(\mathcal{C}_{x}\left(\delta,t\right) : x\in \{1,\ldots,k\}, t\in\mathbb{R}\right)$,
+calculates 
+\eqref{eq:q-continuous}
+% \left(q_{tx}\left(A\right):t\in\mathbb{R},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right).
+from it,
+applies the BIZ selection map $h$ to \eqref{eq:q-continuous}, 
+and then returns $1$ if the correct selection was made,
+and $0$ otherwise.
+Thus, the correct selection event that results from applying
+the BIZ selection map $h$ to \eqref{eq:q-continuous} is the result
+of applying the mapping $f\left(\cdot,\delta\right)$
 to the paths $t\mapsto\mathcal{C}_{x}\left(\delta,t\right)$ .
 
-The last part of our proof is to observe that (1) $\mathcal{C}\left(\delta,\cdot\right)$
+
+% Thus, we can see the selection decision resulting from BIZ as being closely app
+
+With these pieces in place, the last part of our proof is to observe that (1) $\mathcal{C}\left(\delta,\cdot\right)$
 converges to a multivariate Brownian motion $W$ as $\delta$ goes
 to 0; (2) the function $f$ has a continuity property that causes
 \[
@@ -448,10 +479,12 @@ f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\ri
 \]
 where g is the selection decision from applying the BIZ procedure
 in continuous time; and (3) the BIZ procedure satisfies the IZ guarantee
-when applied in continuous time.
+when applied in continuous time (Theorem~1 in \cite{Frazier:BIZ}), and so $E[g(W)] \ge P^*$ with equality for the worst configurations in the preference zone.
 
-First, we are going to see that the the standardized sum of the output
-data converges to a Brownian motion in the sense of $D_{\infty}:=D[0,\infty)$,
+\subsection{Preliminary Results}
+
+First, we are going to see that the centralized sum of the output
+data $\mathcal{C}_x(\delta,t)$ converges to a Brownian motion in the sense of $D_{\infty}:=D[0,\infty)$,
 which is the set of functions from $\left[0,\infty\right)$ to $\mathbb{R}$
 that are right-continuous and have left-hand limits, with the Skorohod
 topology. The definition and the properties of this topology may be
@@ -467,24 +500,23 @@ are defined as $P_{n}\left[A\right]=\mathbb{P}\left[\mathcal{X}_{n}^{-1}\left(A\
 for all $n\geq0$ and $\mathcal{D}_{\infty}$ are the Borel subsets
 for the Skorohod topology.
 
-The following lemma shows that the standardized sum of the output
+The following lemma shows that the centralized sum of the output
 data with $t$ changed by $t/\delta^{2}$ converges to a Brownian
 motion in the sense of $D_{\infty}$. 
 \\
 \begin{lemma}
-For each $x\in\left\{ 1\ldots,k\right\} $, we define
-\[
-\mathcal{C}_{x}\left(\delta,t\right)=\frac{Y_{n_{x}\left(t\right),x}-t\lambda_{x}^{2}\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}
-\]
-where $Y_{n,x}$ is the sum of the first $n$ samples from alternative
-$x$. Let $x\in\left\{ 1\ldots,k\right\} $, then
+% For each $x\in\left\{ 1\ldots,k\right\} $, we define
+% \[
+% % \mathcal{C}_{x}\left(\delta,t\right)=\frac{Y_{n_{x}\left(t\right),x}-t\lambda_{x}^{2}\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}
+% \]
+% where $Y_{n,x}$ is the sum of the first $n$ samples from alternative
+$x$. 
+Let $x\in\left\{ 1\ldots,k\right\} $, then
 \[
 \mathcal{C}_{x}\left(\delta,\cdot\right)\Rightarrow W_{x}\left(\cdot\right)
 \]
 as $\delta\rightarrow0$ in the sense of $D[0,\infty)$, where $W_{x}$
 is a standard Brownian motion.
-
-
 \end{lemma}
 
 \begin{proof}
@@ -545,33 +577,41 @@ as $\delta\rightarrow0$ in the sense of $D_{\infty}^{k}$.
 
 \vspace{5mm}
 
-Observe that $\mathcal{C}\left(\delta,\cdot\right)\in D\left[0,\infty\right)^{k}$
-and the convergence of Lemma 1 is in $D\left[0,\infty\right)^{k}$,
-consequently the following natural step is to generalize the continuous-time
-procedure for the heterogeneous variance setting, see Appendix B,
-to the space $D\left[0,\infty\right)^{k}$. Specifically, for each
-$F\in D\left[0,\infty\right)^{k}$, we define $q_{tx}^{F,\delta}\left(A\right)$
-as
+Now that we have obtained this functional central limit theorem for 
+$\mathcal{C}\left(\delta,\cdot\right)$, we now continue along the proof outline and define the function $f(\cdot,\delta)$ that was sketched there.
+This function has three parts: first, computing a ``non-centralized'' path from an arbitrary input ``centralized'' path in $D\left[0,\infty\right)^{k}$; and second, applying the BIZ selection map $h$ to this non-centralized path; and third, reporting when selection was correct or not.
+
+% Observe that $\mathcal{C}\left(\delta,\cdot\right)\in D\left[0,\infty\right)^{k}$ and the convergence of Lemma 1 is in $D\left[0,\infty\right)^{k}$, consequently the following natural step is to generalize the continuous-time procedure for the heterogeneous variance setting, see Appendix B, to the space $D\left[0,\infty\right)^{k}$. 
+To accomplish the first part, for each $F\in D\left[0,\infty\right)^{k}$, 
+we define $q_{tx}^{F,\delta}\left(A\right)$ as
 \[
 q_{tx}^{F,\delta}\left(A\right)=q'\left(\left(F_{x}\left(t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
 \]
-
-
 Note that if we replace $F$ by $\mathcal{C}\left(\delta,t\right)$,
-we get $q{}_{tx}\left(A\right)$ in the previous equation. Using the
-continuous-time procedure for the heterogeneous variance setting with
-the paths $\left(q_{tx}^{F,\delta}\left(A\right):t\geq0\right)$,
-we see that there exists a selection decision for each $F\in D\left[0,\infty\right)^{k}$.
-Since we are interested in the right selection, ( i.e. in choosing
-$k$) for each $F\in D\left[0,\infty\right)^{k}$, we define the following
-function 
+we get $q_{tx}\left(A\right)$ in \eqref{eq:q}.   
+% In this sense, 
+% we consider to be $q_{tx}^{F,\delta}\left(A\right)$ a ``non-centralized'' version of $F$.
+
+To accomplish the second and third parts, we define
+$f\left(F,\delta\right)$ to be obtained by applying the BIZ selection map $h$ to the process
+$\left(q_{tx}^{F,\delta}\left(A\right):t\in\mathbb{R},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$, and then reporting whether the selection was correct.
+More precisely, $f(F,\delta)$ is defined to be
+% Using the
+% continuous-time procedure for the heterogeneous variance setting with
+% the paths $\left(q_{tx}^{F,\delta}\left(A\right):t\geq0\right)$,
+% we see that there exists a selection decision for each $F\in D\left[0,\infty\right)^{k}$.
+% Since we are interested in the right selection, ( i.e. in choosing
+% $k$) for each $F\in D\left[0,\infty\right)^{k}$, we define the following
+% function 
 \begin{eqnarray*}
 f\left(F,\delta\right) & = & \begin{cases}
-1 & \mbox{if }k\mbox{ is chosen}\mbox{ }\\
-0 & \mbox{otherwise}
+    1 & \text{if $h\left(\left(q_{tx}^{F,\delta}\left(A\right):t\in\mathbb{R},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)\right) = k$,}\\
+0 & \text{otherwise.}
 \end{cases}
 \end{eqnarray*}
- Observe that $f$ is a function that depends in the path $\left\{ q_{tx}^{F,\delta}\left(A\right):t\geq0\right\} $.
+ % Observe that $f$ is a function that depends in the path $\left\{ q_{tx}^{F,\delta}\left(A\right):t\geq0\right\} $.
+
+{\it PF: I stopped here.}
 We are doing all this because we want to see that $f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)$
 looks like the right or wrong selection decision of an algorithm that
 depends on a standard Brownian motion instead of $\mathcal{C}\left(\delta,\cdot\right)$,
