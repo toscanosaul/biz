@@ -4419,10 +4419,13 @@ We denote the corresponding continuous hitting times by
 \end_inset
 
 , which are defined as 
-\begin_inset Formula $\tau_{n+1}=\mbox{inf}\left\{ t\geq\tilde{\tau}_{n}:\mbox{ min}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\geq P_{n}\right\} $
+\begin_inset Formula 
+\[
+\tau_{n+1}=\mbox{inf}\left\{ t\geq\tilde{\tau}_{n}:\mbox{ min}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\geq P_{n}\right\} .
+\]
+
 \end_inset
 
-.
  
 \end_layout
 

@@ -1,0 +1,835 @@
+%**************************************************************************
+%*
+%*  Paper: ``INSTRUCTIONS FOR AUTHORS OF LATEX DOCUMENTS''
+%*
+%*  Publication: 2015 Winter Simulation Conference Author Kit
+%*
+%*  Filename: wsc15paper.tex
+%*
+%*  Date: January 31, 2001   Time:  9:45 PM
+%*      BASE of current version: Feb 01, 2010 (primary WSC'10 LaTeX file)
+%*
+%*  Word Processing System: TeXnicCenter and MiKTeX
+%*
+%*
+%*  All files need the following
+\input{wsc15style.tex}     % download from author kit.  Style files for wsc formatting. Don't remove this line - required for generating the final paper!
+
+\documentclass{wscpaperproc}
+\usepackage{latexsym}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{mathptmx}
+
+
+%
+%****************************************************************************
+% AUTHOR: You may want to use some of these packages. (Optional)
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amsthm}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%****************************************************************************
+
+
+
+%
+%****************************************************************************
+% AUTHOR: If you do not wish to use hyperlinks, then just comment
+% out the hyperref usepackage commands below.
+
+%% This version of the command is used if you use pdflatex. In this case you
+%% cannot use ps or eps files for graphics, but pdf, jpeg, png etc are fine.
+
+\usepackage[pdftex,colorlinks=true,urlcolor=blue,citecolor=black,anchorcolor=black,linkcolor=black]{hyperref}
+
+%% The next versions of the hyperref command are used if you adopt the
+%% outdated latex-dvips-ps2pdf route in generating your pdf file. In
+%% this case you can use ps or eps files for graphics, but not pdf, jpeg, png etc.
+%% However, the final pdf file should embed all fonts required which means that you have to use file
+%% formats which can embed fonts. Please note that the final PDF file will not be generated on your computer!
+%% If you are using WinEdt or PCTeX, then use the following. If you are using
+%% Y&Y TeX then replace "dvips" with "dvipsone"
+
+%%\usepackage[dvips,colorlinks=true,urlcolor=blue,citecolor=black,%
+%% anchorcolor=black,linkcolor=black]{hyperref}
+%****************************************************************************
+
+
+
+		
+
+
+
+%
+%****************************************************************************
+%*
+%* AUTHOR: YOUR CALL!  Document-specific macros can come here.
+%*
+%****************************************************************************
+
+% Private macros here (check that there is no clash with the style)
+\newcommand{\lambdahat}{\widehat{\lambda}}
+\newcommand{\xtilde}{\tilde{x}}
+\newcommand{\qhat}{\widehat{q}}
+\newcommand{\as}{\ a.s.}
+\newcommand{\zap}[1]{}
+\newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\Nat}{\mathbb{N}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Pb}[2]{\mathbb{P}_{#1}\left\{#2\right\}}
+\newcommand{\Ybar}{\overline{Y}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+% \newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
+% \newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+\newcommand{\g}{\,\vert\,}
+\newcommand{\ind}[1]{1_{\left\{#1\right\}}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Gcal}{\mathcal{G}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\xwig}{\tilde{x}}
+\newcommand{\PZ}{\mbox{PZ}}
+\newcommand{\PCS}{\mbox{PCS}}
+\newcommand{\PGS}{\mbox{PGS}}
+\newcommand{\uLFC}{\underline{u}}
+\newcommand{\e}[1]{\left\{ #1 \right\}}
+\newcommand{\T}{\mathbb{T}} % Time index set.
+\newcommand{\CS}{\mbox{CS}}
+\newcommand{\Ft}{\mathcal{F}_t}
+\newcommand{\F}[1]{\mathcal{F}_{#1}}
+\newcommand{\Ftau}{\mathcal{F}_\tau}
+\newcommand{\Rcal}{\mathcal{R}}
+\newcommand{\upthresh}{P}
+\newcommand{\xstar}{X^*}
+\newcommand{\cmax}{1-(P^*)^{\frac1{k-1}}}
+\newcommand{\NewN}{M}
+\newcommand{\thetavec}{\vec{\theta}}
+\newcommand{\uvec}{\vec{u}}
+\newcommand{\sigmavec}{\lambda}
+\newcommand{\sigmacom}{\sigma}
+\newcommand{\sigmascal}{\lambda}
+\newcommand{\PstarB}{\mathcal{P}^*_B}
+\newcommand{\Ymod}{Y'}
+\newcommand{\ceil}{\mathrm{ceil}}
+% How to state the common variance assumption at the beginning of lemmas, propositions and theorems
+\newcommand{\homog}{Suppose $\lambda^2_x = \sigma^2>0\ \forall x$.  }
+\newcommand{\algref}[1]{Alg.~\ref{#1}}
+
+% If you use theoremes
+\newtheoremstyle{wsc}% hnamei
+{3pt}% hSpace abovei
+{3pt}% hSpace belowi
+{}% hBody fonti
+{}% hIndent amounti1
+{\bf}% hTheorem head fontbf
+{}% hPunctuation after theorem headi
+{.5em}% hSpace after theorem headi2
+{}% hTheorem head spec (can be left empty, meaning `normal')i
+
+\theoremstyle{wsc}
+\newtheorem{theorem}{Theorem}
+\renewcommand{\thetheorem}{ \arabic{theorem}}
+\newtheorem{corollary}{Corollary}
+\renewcommand{\thecorollary}{\arabic{corollary}}
+\newtheorem{definition}{Definition}
+\renewcommand{\thedefinition}{\arabic{definition}}
+\newtheorem{lemma}{Lemma}
+\renewcommand{\thelemma}{\arabic{lemma}}
+
+
+
+
+
+
+%#########################################################
+%*
+%*  The Document.
+%*
+\begin{document}
+
+%***************************************************************************
+% AUTHOR: AUTHOR NAMES GO HERE
+% FORMAT AUTHORS NAMES Like: Author1, Author2 and Author3 (last names)
+%
+%		You need to change the author listing below!
+%               Please list ALL authors using last name only, separate by a comma except
+%               for the last author, separate with "and"
+%
+\WSCpagesetup{Toscano-Palmerin, Frazier}
+
+% AUTHOR: Enter the title, all letters in upper case
+\title{ASYMPTOTIC VALIDITY OF A FULLY SEQUENTIAL ELIMINATION PROCEDURE FOR INDIFFERENCE-ZONE RANKING AND SELECTION WITH TIGHT BOUNDS ON PROBABILITY OF CORRECT SELECTION}
+
+
+\maketitle
+
+\begin{figure*}[htb]
+{
+\centering
+Saul Toscano-Palmerin \\
+Peter I. Frazier \\
+\vspace{12pt}
+Cornell University \\
+257 Rhodes Hall \\
+206 Rhodes Hall \\
+Ithaca, NY 14853, USA\\
+}
+\end{figure*}
+
+
+\section*{ABSTRACT}
+We consider the indifference-zone (IZ) formulation of the ranking
+and selection problem in which the goal is to choose with high probability 
+an alternative with similar mean than the one with largest mean. 
+Conservatism leads classical IZ procedures
+to take too many samples in problems with many alternatives. The Bayes-inspired
+Indifference Zone (BIZ) procedure, proposed in \citeN{Frazier:BIZ}, is
+less conservative than previous procedures, but its proof of validity
+requires strong assumptions, specifically it assumes that the variances are known 
+and have an integer multiple structure. In this paper, we consider a slightly
+modification of the original BIZ procedure in order to simplify the analysis, and we
+present a new proof of its asymptotic validity that relaxes these assumptions.
+Specifically, we prove the validity of the algorithm when the variances are known
+and the difference between the best alternative and the second best goes to zero. 
+
+\section{INTRODUCTION}
+\label{sec:intro}
+
+
+There are many applications where we have to choose the best alternative
+among a finite number of simulated alternatives. For example, in inventory problems, we may want to choose the best inventory policy $(s,S)$ for a finite number of values of $s$ and $S$. The ranking and selection problem has to decide how many samples are needed to find the alternative with the largest mean. A good solution to the problem is efficient and accurate, i.e. the procedure proposed for the problem must balance between the number of samples required and quality of the selection.
+
+
+
+This paper considers the indifference-zone (IZ) formulation of
+the ranking and selection problem, in which the distance between the best system and
+the other systems is sufficiently large and the best system is chosen with probability larger
+than some threshold given by the user. This property is called the IZ guarantee, and the preference zone (PZ)
+is defined as the set of system configurations under which the difference between the best system and the others is
+at least some given  $\delta>0$. The paper \citeN{Bechhofer:1954} is considered the seminal work, and early work is 
+presented in the monograph \citeN{Bechhofer:1968}. Some compilations of the theory developed in the area can be found
+in \citeN{Bechhofer:1995}, \citeN{swisher:survey}, \citeN{kim:20062} and \citeN{kim:2007}. Beyond these classical approaches, 
+there are the Bayesian approach \cite{Frazier:Tutorial} and the optimal computing budget allocation approach \cite{chen:ocva}.
+
+A good IZ procedure satisfies the IZ guarantee and requires as few samples as possible.
+The first IZ procedures presented in \citeN{Bechhofer:1954}, \citeN{Paulson:01}, \citeN{Fabian}, \citeN{Rinott},
+\citeN{Harmann:1988}, \citeN{hartmann:sequential}, \citeN{Paulson:1994} 
+satisfy the IZ guarantee, but they usually take too many samples when there are many alternatives,
+in part because their probability of correct selection (PCS) is much
+larger than the probability specified by the user \cite{kim:Conserv}. One reason for this
+is that these procedures use Bonferroni's inequality, which leads then to sample more
+than necessary. More recently, new algorithms were developed in \citeN{Kim:2001}, \citeN{Goldsman:2002}, 
+\citeN{Hong}, and they improve the performance but they still
+use the Bonferroni's inequality, and so the methods are inefficient
+when there are many alternatives. Procedures in \citeN{kim:2011},
+\citeN{dieker:2012} do not use the Bonferroni's inequality 
+when there are only three alternatives, but when they compare more than three
+alternatives, they do use the Bonferroni's inequality.
+
+Conservative algorithms lead to take more samples than needed, and consequently conservative procedures are unpopular 
+when there are more than a few hundred of alternatives. Three common sources of conservativeness are
+ the Bonferroni's inequality, the change from discrete process to continuous process, and bound the worst case which is not a common case.
+  \citeN{Frazier:BIZ} eliminates one source of conservativeness: the Bonferroni's inequality. He presented  a new sequential elimination
+IZ procedure, called BIZ (Bayes-inspired Indifference Zone), whose
+lower bound on worst-case probability of correct selection in the
+preference zone is tight in continuous time, and almost tight in the
+discrete time. In numerical experiments, the number of samples required
+by BIZ is significantly smaller than that of procedures like the KN procedure of \citeN{Kim:2001} and
+the $\mathcal{P}_{B}^{*}$ procedure of \citeN{Bechhofer:1968}, 
+especially on problems with many alternatives. Unfortunately, the
+proof that the BIZ procedure satisfies the IZ guarantee for the discrete-time
+case assumes that variances are known and have an integer multiple
+structure which is not very realistic. 
+
+The contribution of this work is that we prove the asymptotic validity of the 
+BIZ procedure for the discrete-time case when the variances are known and $\delta$ goes to zero. 
+In order to simplify analysis, we consider a slightly modification of this procedure.
+Although we only proved it in the known variance setting, it is still a significantly
+generalization over the assumption that the variances are known and have an integer multiple
+structure. Furthermore, we do not need to assume that the alternatives follow a normal distribution. 
+The only assumptios are that the alternatives are independent, identically distributed and have
+finite variance. We conjecture that these techniques can be used to show the validity of this procedure when
+the variances are unknown, and we present numerical experiments that support this belief. 
+\citeN{kim:asympt} also proves the asymptotical validity of a IZ procedure in the same limit.
+Our proof shares some similarities since we both use a central limit theorem.
+
+
+
+This paper is organized as follows: In $\text{ß}2$, we recall the
+indifference-zone ranking and selection problem. In $\text{ß}3$,
+we recall the Bayes-inspired IZ (BIZ) procedure from \citeN{Frazier:BIZ}. In $\text{ß}4$,
+we present the proof of the validity of the algorithm when the variances
+are known. In $\text{ß}5$, we present some numerical experiments. 
+In $\text{ß}6$, we conclude.
+
+
+
+\section{INDIFFERENCE-ZONE RANKING AND SELECTION}
+
+Ranking and Selection is a problem where we have to select the best system
+among a finite set of alternatives, i.e. the system with the largest
+mean. The method selects a system as the best based on the samples
+that are observed sequentially over time. We suppose that samples
+are identically distributed and independent, over time and across alternatives, and
+each alernative $x$ has mean $\mu_{x}$. We define $\mu=(\mu_{1},\ldots,\mu_{k})$.
+
+If the best system is selected, we say that the procedure has made the \emph{correct selection}
+(CS). We define the \emph{probability of correct selection} as 
+\[
+\mbox{PCS}\left(\mu\right)=\mathbb{P}_{\mu}\left(\hat{x}\in\mbox{arg max}_{x}\mu_{x}\right)
+\]
+where $\hat{x}$ is the alternative chosen by the procedure and $\mathbb{P}_{\mu}$
+is the probability measure under which samples from system $x$ have
+mean $\mu_{x}$ and finite variance $\lambda_{x}^{2}$.
+
+In the Indifference-Zone Ranking and Selection, the procedure is indifferent
+in the selection of a system whenever the means of the populations
+are nearly the same. Formally, let $\mu=\left[\mu_{k},\ldots,\mu_{1}\right]$
+be the vector of the true means, the \emph{indifference zone} is defined
+as the set $\left\{ \mu\in\mathbb{R}^{k}:\mu_{\left[k\right]}-\mu_{\left[k-1\right]}<\delta\right\} $.
+The complement of the indifference zone is called the \emph{preference
+zone} (PZ) and $\delta>0$ is called the indifference zone parameter.
+We say that a procedure meets the \emph{indifference-zone (IZ) guarantee
+}at $P^{*}\in\left(1/k,1\right)$ and $\delta>0$ if
+\[
+\mbox{PCS}\left(\mu\right)\geq P^{*}\mbox{ for all }\mu\in\mbox{PZ}\left(\delta\right).
+\]
+We assume $P^{*}>1/k$ because IZ guarantees can be meet by choosing
+$\hat{x}$ uniformly at random from among $\left\{ 1,\ldots,k\right\} $.
+
+
+\section{THE BAYES-INSPIRED IZ (BIZ) PROCEDURE}
+
+BIZ is an elimination procedure. This procedure maintains a set of
+alternatives that are candidates for the best system, and it takes samples from each
+alternative in this set at each point in time. At beginning, all alternatives
+are possible candidates for the best system, and over the time alternatives are eliminated.
+The procedure ends when there is only one alternative in the contention
+set and this remain alternative is chosen as the best. 
+
+Frazier \cite{Frazier:BIZ} showed that the BIZ procedure with known common variance
+satisfies the IZ guarantee when the systems follow the normal distribution
+, with tight bounds on worst-case preference-zone in continuous time.
+He also proved that this procedure retains the IZ guarantee when the
+systems follow the normal distribution, and the variances are known
+and are integer multiples of a common value. The continuous time version
+of this procedure also satisfies the IZ guarantee, with a tight worst-case
+preference-zone PCS bound.
+
+The discrete-time BIZ procedure for unknown and/or heterogeneous sampling
+variances is given below.  It takes a variable number of samples
+from each alternative, and $n_{tx}$ is this number. This algorithm
+depends on a collection of integers $B_{1},\ldots,B_{k}$, $P^{*},c,\delta$
+and $n_{0}$. $n_{0}$ is the number of samples to use in the first
+stage of samples, and $100$ is the recommended value for $n_{0}$.
+$B_{x}$ controls the number of samples taken from system $x$ in
+each stage. The procedure presented is a slightly modification of the original BIZ 
+procedure where $z \in \mbox{arg max}_{x\in A} \lambdahat^2_{tx}$, instead 
+of $z \in \mbox{arg min}_{x\in A} n_{tx} / \lambdahat^2_{tx}$.
+
+For each $t$, $x\in\left\{ 1,\ldots,k\right\} $, and subset $A\subset\left\{ 1,\ldots,k\right\} $,
+we define a function
+\[
+q'_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx'}}{n_{tx'}}\right),\right.\mbox{ }\beta_{t}=\frac{\sum_{x'\in A}n_{tx'}}{\sum_{x'\in A}\hat{\lambda}_{tx'}^{2}}
+\]
+where $\hat{\lambda}_{tx'}^{2}$ is the sample variance of all samples
+from alternative $x$ thus far and $Z_{tx}=Y_{n_{tx},x}$.
+
+\vspace{5mm}
+   
+\paragraph{Algorithm: Discrete-time implementation of BIZ, for unknown and/or heterogeneous variances.}    
+\begin{algorithmic}[1]   
+\label{alg:hetero-BIZ}   
+\REQUIRE $c \in [0,\cmax]$, $\delta>0$, $P^*\in(1/k,1)$, $n_0\ge0$ an integer, $B_1,\ldots,B_k$ strictly positive integers.  Recommended choices are $c=\cmax$, $B_1=\cdots=B_k=1$ and $n_0$ between $10$ and $30$.     If the sampling variances $\lambda^2_x$ are known, replace the estimators     
+$\lambdahat^2_{tx}$ with the true values $\lambda^2_x$, and set $n_0=0$.     
+
+\STATE For each $x$, sample alternative $x$ $n_0$ times and set $n_{0x} \leftarrow n_0$.     
+Let $W_{0x}$ and $\lambdahat^2_{0x}$ be the sample mean and sample variance respectively of these samples.     Let $t\leftarrow 0$.Let $z \in \mbox{arg max}_{x\in A} \lambdahat^2_{tx}$.     
+\STATE Let $A \leftarrow \{ 1,\ldots, k\}$, $\upthresh \leftarrow P^*$.
+\WHILE{$x\in\mbox{max}_{x\in A} q'_{tx}\left(A\right)<P$}
+\WHILE{$\mbox{min}_{x\in A} q'_{tx}\left(A\right) \le c$}
+ \STATE Let $x\in\mbox{arg min}_{x\in A} q_{tx}\left(A\right)$.
+    \STATE Let $\upthresh \leftarrow \upthresh/(1-q_{tx}\left(A\right))$.     
+\STATE Remove $x$ from $A$.
+\ENDWHILE    
+\STATE For each $x\in A$, let      $n_{t+1,x} = \ceil\left( \lambdahat^2_{tx} (n_{tz} + B_z) / \lambdahat^2_{tz} \right)$.     \STATE For each $x\in A$, if $n_{t+1,x}>n_{tx}$, take $n_{t+1,x}-n_{tx}$ additional samples from alternative $x$.  Let $W_{t+1,x}$ and $\lambdahat^2_{t+1,x}$ be the sample mean and sample variance respectively of all samples from alternative $x$ thus far.    
+\STATE Increment $t$.
+ \ENDWHILE
+  \STATE Select $\xhat \in\mbox{arg max}_{x\in A} Z_{tx} / n_{tx}$ as our estimate of the best.
+
+   
+\end{algorithmic} 
+
+\vspace{10mm}
+This algorithm generalizes the BIZ procedure with known common variance. In that case, we have that$B_1=\cdots=B_k=1$ and $n_{tx}=t$. The algorithm 2 can be generalized to the continuous case (See  \citeN{Frazier:BIZ}). 
+
+\section{ASYMPTOTIC VALIDITY WHEN THE VARIANCES ARE KNOWN}
+
+In this section we prove that the BIZ procedure satisfies asymptotically the IZ guarantee
+when the variances are known. This means that we consider a collection of
+ranking and selection problems parametrized by $\delta>0$.  
+For the problem given $\delta$, we suppose that the vector of the true means
+$\mu=\left[\mu_{k},\ldots,\mu_{1}\right]$ is equal to $\delta a$ for some fixed $a\in\mathbb{R}^{k}$ that
+does not depend on $\delta$ and $a_{k}>a_{k-1}\geq \cdots \geq a_{1}$, $a_{k}-a_{k-1}>1$.
+Moreover, the variances of the alternatives are finite, strictly greater than zero and do not depend on $\delta$.
+We also suppose that samples from system $x\in\left\{ 1\ldots,k\right\} $ are identically distributed
+and independent, over time and across alternatives. We also define
+$\lambda_{z}^{2}:=\max_{i\in\left\{ 1\ldots,k\right\} }\lambda_{i}^{2}$.
+
+Any ranking and selection algorithm can be viewed as mapping from
+paths of the $k$-dimensional discrete-time random walk $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
+onto selection decisions. The BIZ procedure's mapping from paths onto
+selections decisions can be understood as the composition of three
+simpler maps.
+
+The first is the mapping from the raw discrete-time random walk $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
+onto a time changed version of this random walk, written as $\left(Z_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$,
+where we recall $Z_{tx}=Y_{n_{x}\left(t\right),t}$ is the sum of
+the samples from alternative $x$ observed by stage $t$.
+
+The second maps this time-changed random walk through a non-linear
+mapping for each $t,x$ and subset $A\subset\left\{ 1,\ldots,k\right\} $,
+to obtain $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$,
+where
+
+\[
+q'_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\right.:=q'\left(\left(Z_{tx},t:x\in A\right),\delta,t\right)
+\]
+where we note that $n_{x}\left(t\right)$ and $\beta_{t}$ are deterministic
+in the version of the known-variance BIZ procedure that we consider
+here.
+
+The third maps the paths of $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
+onto selection decisions. Specifically, this mapping finds the first
+time that $\mbox{max}_{x\in A}q_{tx}\left(A\right)$ is larger than
+some threshold $P$, and then it chooses the system with the largest
+empirical mean $Z_{tx}/n_{tx}$.
+
+Later, we can approximate the previous process by the continuous time
+process
+\begin{eqnarray}
+q_{tx}\left(A\right) & = & q\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)\label{eq:0.001-1}
+\end{eqnarray}
+where $t\geq0$ . Then we will show the difference in selection decisions
+vanishes as $\delta\rightarrow0$.
+
+After that, we would like to use a kind of central limit theorem for
+$Z_{\frac{t}{\delta^{2}}x}$ when $\delta$ goes to zero to work with
+a Brownian motion instead. In order to do this, we are going to rewrite
+equation (1) in terms of a centralized version of $Z$:
+
+\[
+\mathcal{C}_{x}\left(\delta,t\right)=\frac{Y_{n_{x}\left(t\right),x}-t\lambda_{x}^{2}\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}
+\]
+and the resulting expression is
+
+\[
+q_{tx}\left(A\right)=q\left(\left(C_{x}\left(\delta,t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
+\]
+
+
+Thus, we can see the selection decision resulting from the BIZ algorithm
+as the result of applying some mapping $f\left(\cdot,\delta\right)$
+to the paths $t\mapsto\mathcal{C}_{x}\left(\delta,t\right)$ .
+
+The last part of our proof is to observe that (1) $\mathcal{C}\left(\delta,\cdot\right)$
+converges to a multivariate Brownian motion $W$ as $\delta$ goes
+to 0; (2) the function $f$ has a continuity property that causes
+\[
+f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\right)
+\]
+where g is the selection decision from applying the BIZ procedure
+in continuous time; and (3) the BIZ procedure satisfies the IZ guarantee
+when applied in continuous time.
+
+First, we are going to see that the the standardized sum of the output
+data converges to a Brownian motion in the sense of $D_{\infty}:=D[0,\infty)$,
+which is the set of functions from $\left[0,\infty\right)$ to $\mathbb{R}$
+that are right-continuous and have left-hand limits, with the Skorohod
+topology. The definition and the properties of this topology may be
+found in Chapter 3 of \citeN{billingsley:convergnce2}. 
+
+We briefly recall the definition of convergence of random paths in
+the sense of $D_{\infty}$. Suppose that we have a sequence of random
+paths $\left(\mathcal{X}_{n}\right)_{n\geq0}^{\infty}$ such that
+$\mathcal{X}_{n}:\varOmega\rightarrow D_{\infty}$ where $\left(\Omega,\mathcal{F},\mathbb{P}\right)$
+is our probability space. We say that $\mathcal{X}_{n}\Rightarrow\mathcal{X}_{0}$
+in the sense of $D_{\infty}$ if $P_{n}\Rightarrow P_{0}$ where $P_{n}:\mathcal{D}_{\infty}\rightarrow\left[0,1\right]$
+are defined as $P_{n}\left[A\right]=\mathbb{P}\left[\mathcal{X}_{n}^{-1}\left(A\right)\right]$
+for all $n\geq0$ and $\mathcal{D}_{\infty}$ are the Borel subsets
+for the Skorohod topology.
+
+The following lemma shows that the standardized sum of the output
+data with $t$ changed by $t/\delta^{2}$ converges to a Brownian
+motion in the sense of $D_{\infty}$. 
+\\
+\begin{lemma}
+For each $x\in\left\{ 1\ldots,k\right\} $, we define
+\[
+\mathcal{C}_{x}\left(\delta,t\right)=\frac{Y_{n_{x}\left(t\right),x}-t\lambda_{x}^{2}\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}\delta}}
+\]
+where $Y_{n,x}$ is the sum of the first $n$ samples from alternative
+$x$. Let $x\in\left\{ 1\ldots,k\right\} $, then
+\[
+\mathcal{C}_{x}\left(\delta,\cdot\right)\Rightarrow W_{x}\left(\cdot\right)
+\]
+as $\delta\rightarrow0$ in the sense of $D[0,\infty)$, where $W_{x}$
+is a standard Brownian motion.
+
+
+\end{lemma}
+
+\begin{proof}
+By Theorem 19.1 of  \citeN{billingsley:convergnce2},
+
+\[
+\frac{Y_{n_{x}\left(t\right),x}-\mbox{floor}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\Rightarrow W_{x}\left(\cdot\right)
+\]
+in the sense of $D[0,\infty)$. 
+
+Fix $w\in\Omega$. Observe that
+\[
+\frac{Y_{\mbox{floor}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{floor}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}-\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\rightarrow0
+\]
+uniformly in $\left[0,s\right]$ for all $s\geq0$ and then by Theorem
+A.2 
+\[
+\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\Rightarrow W_{x}\left(\cdot\right)
+\]
+in the sense of $D[0,\infty)$. 
+
+Since $\frac{\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}t\frac{1}{\delta^{2}}-ceil\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}t\frac{1}{\delta^{2}}\right)}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\rightarrow0$
+uniformly on $[0,s]$ for every $s\geq0$, then by Theorem A.2
+
+\[
+\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\Rightarrow W_{x}\left(\cdot\right).
+\]
+
+
+Finally, observe that for fixed $\omega\in\Omega$,
+\begin{eqnarray*}
+ &  & \frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-\mbox{}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}-\frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)+n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\right),x}-\mbox{}\left(n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\\
+ & = & \frac{Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)\right),x}-Y_{\mbox{ceil}\left(\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(\cdot\frac{1}{\delta^{2}}\right)+n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\right),x}+\left(n_{0}\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\right)\mu_{x}}{\frac{\lambda_{x}^{2}}{\lambda_{z}}\sqrt{\frac{1}{\delta^{2}}}}\\
+ & \rightarrow & 0
+\end{eqnarray*}
+uniformly in $\left[0,t\right]$ for all $t\geq0$, and so by Theorem
+A.2 the result follows.
+
+\end{proof}
+
+
+Now, we use the product topology in $D^{k}\left[0,\infty\right)$
+for $k\in\mathbb{N}$. This topology may be described as the one under
+which $\left(Z_{n}^{1},\ldots,Z_{n}^{k}\right)\rightarrow\left(Z_{0}^{1},\ldots,Z_{0}^{k}\right)$
+if and only if $Z_{n}^{i}\rightarrow Z_{0}^{i}$ for all $i\in\left\{ 1,\ldots,k\right\} $.
+See the Miscellany of  \citeN{billingsley:convergence}. The following corollary follows
+from the previous result and independence.
+
+\vspace{5mm}
+
+\begin{corollary}
+We have that
+\[
+\mathcal{C}\left(\delta,\cdot\right):=\left(\mathcal{C}_{x}\left(\delta,\cdot\right)\right)_{x\in A}\Rightarrow W\left(\cdot\right):=\left(W_{x}\left(\cdot\right)\right)_{x\in A}
+\]
+as $\delta\rightarrow0$ in the sense of $D_{\infty}^{k}$.
+\end{corollary}
+
+\vspace{5mm}
+
+Observe that $\mathcal{C}\left(\delta,\cdot\right)\in D\left[0,\infty\right)^{k}$
+and the convergence of Lemma 1 is in $D\left[0,\infty\right)^{k}$,
+consequently the following natural step is to generalize the continuous-time
+procedure for the heterogeneous variance setting, see Appendix B,
+to the space $D\left[0,\infty\right)^{k}$. Specifically, for each
+$F\in D\left[0,\infty\right)^{k}$, we define $q_{tx}^{F,\delta}\left(A\right)$
+as
+\[
+q_{tx}^{F,\delta}\left(A\right)=q'\left(\left(F_{x}\left(t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
+\]
+
+
+Note that if we replace $F$ by $\mathcal{C}\left(\delta,t\right)$,
+we get $q{}_{tx}\left(A\right)$ in the previous equation. Using the
+continuous-time procedure for the heterogeneous variance setting with
+the paths $\left(q_{tx}^{F,\delta}\left(A\right):t\geq0\right)$,
+we see that there exists a selection decision for each $F\in D\left[0,\infty\right)^{k}$.
+Since we are interested in the right selection, ( i.e. in choosing
+$k$) for each $F\in D\left[0,\infty\right)^{k}$, we define the following
+function 
+\begin{eqnarray*}
+f\left(F,\delta\right) & = & \begin{cases}
+1 & \mbox{if }k\mbox{ is chosen}\mbox{ }\\
+0 & \mbox{otherwise}
+\end{cases}
+\end{eqnarray*}
+ Observe that $f$ is a function that depends in the path $\left\{ q_{tx}^{F,\delta}\left(A\right):t\geq0\right\} $.
+We are doing all this because we want to see that $f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)$
+looks like the right or wrong selection decision of an algorithm that
+depends on a standard Brownian motion instead of $\mathcal{C}\left(\delta,\cdot\right)$,
+and this will give us the proof because we will be able to use the
+theory developed by Frazier (2014) to prove the theorem. Thus, the
+following step is to find the limit of $q_{tx}^{F,\delta}\left(A\right)$
+when $\delta$ goes to zero, which is called $q_{tx}^{F}\left(A\right)$
+and equal to
+
+\[
+q_{tx}^{F}\left(A\right):=\mbox{exp}\left(\frac{F_{x}\left(t\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}ta_{x}\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{F_{x'}\left(t\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}ta_{x^{'}}\right).
+\]
+ Using the same previous idea, for each $F\in D\left[0,\infty\right)^{k}$,
+we define the new functions
+\[
+\]
+\begin{eqnarray*}
+g\left(F\right) & = & \begin{cases}
+1 & \mbox{if }k\mbox{ is chosen}\mbox{ }\\
+0 & \mbox{otherwise}
+\end{cases}.
+\end{eqnarray*}
+
+
+So, we want to prove that 
+\[
+f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\right)
+\]
+as $\delta\rightarrow0$ in distribution.
+
+In order to prove this, we first proved a continuity property in Lemma
+2, which allows us to use Theorem 5.5 of \citeN{billingsley:convergence}, which
+implies the desired result. A proof of Lemma 2 may be found in a full version which will be
+submitted soon to arXiv. 
+\\
+\begin{lemma}
+
+Let $\left\{ \delta_{n}\right\} \subset\left(0,\infty\right)$ such
+that $\delta_{n}\rightarrow0$. If $D_{s}\equiv\{Z\in D\left[0,\infty\right)^{k}:\mbox{ if }\left\{ Z_{n}\right\} \subset D\left[0,\infty\right)^{k}\mbox{ and }$
+$\mbox{lim}{}_{n}d_{\infty}\left(Z_{n},Z\right)=0$ , then the sequence
+$\left\{ f\left(Z_{n},\delta_{n}\right)\right\} $ converges to $\left\{ g\left(Z\right)\right\} $$\left.\right\} $$ $,
+then $ $$\mathbb{P}\left(W\text{\ensuremath{\in}}D_{s}\right)=1$.
+
+
+\end{lemma}
+\vspace{5mm}
+By the extension of the CMT \cite{billingsley:convergence}, we
+have the following corollary.
+\vspace{5mm}
+
+
+
+\begin{corollary}
+
+We have that 
+
+\[
+f\left(C\left(\delta,t\right),\delta\right)\Rightarrow g\left(W\left(t\right)\right)
+\]
+in distribution as $\delta\rightarrow0$.
+
+\[
+\]
+\end{corollary}
+\vspace{1mm}
+
+\begin{theorem}
+If samples from system $x\in\left\{ 1\ldots,k\right\} $ are identically
+distributed and independent, over time and across alternatives, then
+$\mbox{lim}_{\delta\rightarrow0}Pr\left\{ \mbox{BIZ selects }k\right\} \geq P*$
+provided $\mu_{k}=a_{k}\delta,\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$,
+$a_{k}>a_{k-1}\geq \cdots \geq a_{1}$, $a_{k}-a_{k-1}>1$, and the variances are finite and
+do not depend on $\delta$.
+
+Furthermore,
+\[
+\mbox{inf}_{a\in PZ\left(1\right)}\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right)=P^{*}
+\]
+where $PZ\left(1\right)=\left\{ a\in\mathbb{R}^{k}:a_{k}-a_{k-1}>1, a_{k}>a_{k-1}\geq \cdots \geq a_{1} \right\} $. 
+
+\end{theorem}
+
+\begin{proof}
+
+
+By the comments given at the beginning of this section, we know that
+we can work with the algorithm defined by
+
+\[
+q'_{tx}\left(A\right)=q'\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)
+\]
+where $t\in\delta^{2}\mathbb{N}$, instead of the algorithm defined
+by
+\[
+q'_{tx}\left(A\right)=q'\left(\left(Z_{tx},t:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)
+\]
+where $t\in\mathbb{N}$.
+
+Now, we define
+\begin{eqnarray*}
+\hat{\tau}_{n+1}\left(\delta\right) & = & \mbox{inf}\left\{ t\in\left\{ \tau_{n}\delta^{2},\left(\tau_{n}+1\right)\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\geq P_{n}\right\} 
+\end{eqnarray*}
+We denote the corresponding continuous hitting times by $\left(\tau_{n}\left(\delta\right)\right)_{n}$,
+which are defined as 
+
+\[
+\tau_{n+1}=\mbox{inf}\left\{ t\geq\tau_{n}:\mbox{ min}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\geq P_{n}\right\} .
+\]
+
+Using that $\mathcal{C}\left(\delta,\cdot\right)$ is right-continuous,
+we can prove that $\hat{\tau}_{n}\left(\delta\right)-\tau_{n}\left(\delta\right)\rightarrow0$
+with probability $1$ as $\delta\rightarrow0$, and so we can use
+$\mathcal{C}\left(\delta,\tau_{n}\left(\delta\right)\right)$ instead
+of $\mathcal{C}\left(\delta,\hat{\tau}_{n}\left(\delta\right)\right)$
+in the limit.
+
+Let $CS_{\delta}$ be the event of doing a correct selection given
+the configuration $\mu_{k}=a_{k}\delta,\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$
+$ $. Then by the previous argument and the Corollary 2, 
+\begin{eqnarray*}
+\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right) & = & \mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(f\left(\mathcal{C}\left(\delta,t\right),\delta\right)=1\right)\\
+ & = & \mathbb{P}\left(g\left(W\right)=1\right)\\
+ & \geq & P^{*}
+\end{eqnarray*}
+where the last inequality follows from the Theorem 2 of \citeN{Frazier:BIZ}.
+
+Furthermore, by the same theorem 2,
+\[
+\mbox{inf}_{a\in PZ\left(1\right)}\mathbb{P}\left(g\left(W\right)=1\right)=P^{*}
+\]
+
+
+where $PZ\left(1\right)=\left\{ a\in\mathbb{R}^{k}:a_{k}-a_{k-1}\geq1\right\} $. 
+
+\end{proof}
+
+
+\section{NUMERICAL EXPERIMENTS}
+
+We show the performance of the BIZ procedure in discrete time with maximum elimination
+($c=1-(P^*)^\frac{1}{k-1}$)when $\delta$ goes to zero. We plot both the PCS and the expected total number 
+of samples simulated divided by the number of systems, denoted by $E[N]/k$. We consider this quotient 
+to normalize the number of samples used by the algorithm.
+
+First, we consider the known variance case. Specifically, we consider a slippage configuration 
+with $100$ systems normally distributed, where $\mu_{k}=\delta,\mu_{k-1}=0,\dots,\mu_{1}=0$, $\delta$ is 
+within the interval $[0.1,10]$, and $\lambda_{100}=1,\lambda_{99}=1+\frac{(0.5)(98)}{99},\cdots,\lambda_{1}=0.5$. Here, $P^*=0.9$ and $n_{0}=0$.
+Figure ~\ref{fig: tahi3} shows that in this case the IZ guarantee is always satisfied, and the bound on probability of correct selection is tight when $\delta$ goes to zero.
+When $\delta$ is big enough, the PCS is almost one because the difference between the best system and the others is large enough to be easily identifiable by the
+BIZ procedure.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plot5}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plot6}
+    \end{subfigure}
+    \caption{Known variances and $P^*=0.9$. $\lambda_{100}=1,\lambda_{99}=1+\frac{(0.5)(98)}{99},\cdots,\lambda_{1}=0.5,n_{0}=0$.
+    In this example, our theorem is true: the IZ guarantee is always satisfied and the inequality is tight as $\delta$ goes to zero.
+    \label{fig: tahi3}}
+\end{figure}  
+
+
+We now consider the unknown variance case. Specifically, we consider a slippage configuration 
+with $100$ systems normally distributed, where $\mu_{100}=\delta,\mu_{99}=0,\dots,\mu_{1}=0$, $\delta$ is 
+within the interval $[0.1,10]$, and $\lambda_{100}=10,\lambda_{99}=\cdots=\lambda_{1}=1$. Here, $P^*=0.9$ and $n_{0}=15$.
+Figure ~\ref{fig: tahi2} gives us evidence that our theorem should also be true when the variances are unknown. We should note that
+this is a difficult example, and still we have a good performance in most of the cases. However, if we want to always satisfy the IZ guarantee, 
+we can just increment the parameter $n_{0}$.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plot3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plot4}
+    \end{subfigure}
+    \caption{Unknown variances and $P^*=0.9$. $\lambda_{100}=10\sqrt(2),\lambda_{99}=10+\frac{(10)(98)}{99}(\sqrt(2)-1),\cdots,\lambda_{1}=10,n_{0}=15$.
+    In this example, our theorem is true: the IZ guarantee is satisfied and the inequality is tight as delta goes to zero. If we want that the IZ guarantee be 
+    satisfied in all the cases, we can just increment $n_{0}$.
+    \label{fig: tahi2}}
+\end{figure}  
+
+ Now, we consider a pathological case when the variances are known. Specifically, we consider a slippage configuration 
+with $100$ systems normally distributed, where $\mu_{100}=\delta,\mu_{99}=0,\dots,\mu_{1}=0$, $\delta$ is 
+within the interval $[0.1,10]$, and $\lambda_{100}=10,\lambda_{99}=\cdots=\lambda_{1}=1$. Here, $P^*=0.9$ and $n_{0}=0$.
+This configurations was specially chosen to ilustrate our theorem, and so it is harder than typical configurations.
+In fact, in most of the configurations the algorithm always satisfies the IZ guarantee. Furthermore, in practice, we would
+have run the algorithm with $n_{0}>0$, and the BIZ algorithm would have worked well even in this pathological example. 
+Figure ~\ref{fig: tahi} shows that PCS converges to $0.9$ as $\delta$ goes to zero. Specifically, PCS is equal to $0.904$ when $\delta=0.1$.
+This figure also shows that the bound is tight  on probability of correct selection. We should also note that the number of samples required increases very fast. 
+Here, the points plotted have central confidence intervals of length at most $0.014$. 
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plot1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{plot2}
+    \end{subfigure}
+    \caption{Known variances, $P^*=0.9$, $\lambda_{100}=10,\lambda_{99}=\cdots=\lambda_{1}=1,n_{0}=0$. This was a hard example to find
+    and it was specially chosen to ilustrate our theorem. In practice, we would choose $n_{0}>0$ and the IZ guarantee will be satisfied. \label{fig: tahi}}
+\end{figure}
+
+
+
+
+
+
+
+\section{CONCLUSION}
+
+We have proved the asymptotic validity of the Bayes-inspired Zone
+procedure \cite{Frazier:BIZ} when the variances are known, which is a
+new sequential elimination procedure. This algorithm is relevant because
+it takes fewer samples than other IZ procedures, especially for problems
+with large numbers of alternatives. Even though this proof does not
+guarantee that the algorithm will work for any sample, we know that
+it will work if the alternatives are not very different, which are
+the most difficult cases. 
+
+
+\section*{ACKNOWLEDGMENTS}
+Peter Frazier and Saul Toscano-Palmerin were partially supported by NSF CAREER CMMI-1254298, AFOSR FA9550-12-1-0200, and AFOSR FA9550-15-1-0038.
+Peter Frazier was also partially supported by NSF IIS-1247696 and the Atkinson Center for a Sustainable Future Academic Venture Fund.
+Saul Toscano-Palmerin was also partially supported by the Mexican Secretariat of Public Education (SEP).
+
+
+
+
+
+% Please don't exchange the bibliographystyle style
+\bibliographystyle{wsc}
+% AUTHOR: Include your bib file here
+\bibliography{wsc15paper}
+
+\section*{AUTHOR BIOGRAPHIES}
+
+\noindent {\bf SAUL TOSCANO-PALMERIN} is a Ph.D. student of the School of Operations Research and Information Engineering at Cornell University, Ithaca, NY. His research interest is in simulation optimization, machine learning and sequential decision-making under uncertainty. His email address is \email{st684@cornell.edu}. \\
+
+\noindent {\bf PETER I. FRAZIER} is an Assistant Professor of the School of Operations Research and Information Engineering at Cornell University, Ithaca, NY.  He holds a Ph.D. in operations research and financial engineering industrial engineering from Princeton University. His research interests include optimal learning, sequential decision-making under uncertainty, and machine learning, focusing on applications in simulation optimization, design of experiments, materials science, e-commerce and medicine. He is a member of INFORMS, and SIAM. His e-mail address is \email{pf98@cornell.edu}.\\
+
+
+
+
+
+\end{document}
+

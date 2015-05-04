@@ -1,0 +1,181 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Bechhofer}{Bechhofer}{1954}]{Bechhofer:1954}
+Bechhofer, R.~E. 1954.
+\newblock ``A Single-Sample multiple-decision procedure for selecting the
+  multinomial event which has the highest probability''.
+\newblock {\em The Annals of Mathematical Statistics\/}~25 (1): 16--39.
+
+
+\bibitem[\protect\citeauthoryear{Bechhofer, Kiefer, and Sobel}{Bechhofer
+  et~al.}{1968}]{Bechhofer:1968}
+Bechhofer, R.~E., J.~Kiefer, and M.~Sobel. 1968.
+\newblock {\em Sequential Identification and Ranking Procedures}.
+\newblock Chicago: University of Chicago Press.
+
+
+\bibitem[\protect\citeauthoryear{Billingsley}{Billingsley}{1968}]{billingsley:convergence}
+Billingsley, P. 1968.
+\newblock {\em Convergence of Probability Measures}.
+\newblock New York: John Wiley and Sons.
+
+
+\bibitem[\protect\citeauthoryear{Billingsley}{Billingsley}{1999}]{billingsley:convergnce2}
+Billingsley, P. 1999.
+\newblock {\em Convergence of Probability Measures\/}. 2nd ed.
+\newblock New York: John Wiley and Sons.
+
+
+\bibitem[\protect\citeauthoryear{Chen and Lee}{Chen and Lee}{2011}]{chen:ocva}
+Chen, C.-H., and L.~H. Lee. 2011.
+\newblock {\em Stohcastic Simulation Optimization: An Optimal Computing Budget
+  Allocation}, Volume~1.
+\newblock Singapore: World Scientific.
+
+
+\bibitem[\protect\citeauthoryear{Dieker and Kim}{Dieker and
+  Kim}{2012}]{dieker:2012}
+Dieker, A., and S.-H. Kim. 2012.
+\newblock ``Selecting the best by comparing simulated systems in a group of
+  three when variances are known and unequal''.
+\newblock In {\em Proceedings of the 2012 Winter Simulation Conference.},
+  edited by\ IEEE.
+
+\bibitem[\protect\citeauthoryear{Fabian}{Fabian}{1974}]{Fabian}
+Fabian, V. 1974.
+\newblock ``Note on Anderson's sequential procedures with triangular
+  boundary.''.
+\newblock {\em The Annals of Mathematical Statistics\/}~2 (1): 170--176.
+
+
+\bibitem[\protect\citeauthoryear{Frazier}{Frazier}{2012}]{Frazier:Tutorial}
+Frazier, P. 2012.
+\newblock ``TUTORIAL: OPTIMIZATION VIA SIMULATION WITH BAYESIAN STATISTICS AND
+  DYNAMIC PROGRAMMING''.
+\newblock {\em Proceedings of the 2012 Winter Simulation Conference.\/}.
+
+
+\bibitem[\protect\citeauthoryear{Frazier}{Frazier}{2014}]{Frazier:BIZ}
+Frazier, P.~I. 2014.
+\newblock ``A Fully Sequential Elimination Procedure for Indifference-Zone
+  Ranking and Selection with Tight Bounds on Probability of Correct
+  Selection''.
+\newblock {\em Operations Research\/}.
+
+
+\bibitem[\protect\citeauthoryear{Goldsman, Kim, Marshall, and Nelson}{Goldsman
+  et~al.}{2002}]{Goldsman:2002}
+Goldsman, D., S.~Kim, W.~Marshall, and B.~Nelson. 2002.
+\newblock ``Ranking and selection for steady-state simulation: Procedures and
+  perspectives.''.
+\newblock {\em INFORMS Journal on Computing\/}~14 (1): 2--19.
+
+
+\bibitem[\protect\citeauthoryear{Hartmann}{Hartmann}{1988}]{Harmann:1988}
+Hartmann, M. 1988.
+\newblock ``An improvement on Paulson's sequential ranking procedure''.
+\newblock {\em Sequential Analysis\/}~7 (4): 363--372.
+
+
+\bibitem[\protect\citeauthoryear{Hartmann}{Hartmann}{1991}]{hartmann:sequential}
+Hartmann, M. 1991.
+\newblock ``An improvement on {P}aulson's procedure for selecting the
+  population with the largest mean from k normal populations with a common
+  unknown variance''.
+\newblock {\em Sequential Analysis\/}~10:1--16.
+
+
+\bibitem[\protect\citeauthoryear{Hong}{Hong}{2006}]{Hong}
+Hong, J. 2006.
+\newblock ``Fully sequential indi?erence-zone selection procedures with
+  variance-dependent sampling''.
+\newblock {\em Naval Research Logistics\/}~53 (5): 464--476.
+
+
+\bibitem[\protect\citeauthoryear{Kim and Nelson}{Kim and
+  Nelson}{2006a}]{kim:20062}
+Kim, S., and B.~Nelson. 2006a.
+\newblock ``Selecting the best system''.
+\newblock In {\em Handbook in Operations Research and Management Science:
+  Simulation}, edited by\ e.~S.G.~Henderson, B.L.~Nelson,  501--534.
+\newblock Elsevier, Amsterdam.
+
+\bibitem[\protect\citeauthoryear{Kim and Nelson}{Kim and
+  Nelson}{2007}]{kim:2007}
+Kim, S., and B.~Nelson. 2007.
+\newblock ``Recent advances in ranking and selection''.
+\newblock In {\em Proceedings of the 39th conference on Winter simulation: 40
+  years! The best is yet to come.}, edited by\ I.~Press,  162--172.
+\newblock Piscataway, New Jersey.
+
+\bibitem[\protect\citeauthoryear{Kim and Dieker}{Kim and
+  Dieker}{2011}]{kim:2011}
+Kim, S.-H., and A.~Dieker. 2011.
+\newblock ``Selecting the best by comparing simulated systems in a group of
+  three.''.
+\newblock {\em Proceedings of the 2011 Simulation Conference.\/}:3987--3997.
+
+
+\bibitem[\protect\citeauthoryear{Kim and Nelson}{Kim and
+  Nelson}{2001}]{Kim:2001}
+Kim, S.-H., and B.~L. Nelson. 2001.
+\newblock ``A fully sequential procedure for indiference-zone selection in
+  simulation''.
+\newblock {\em ACM Trans. Model. Comput. Simul.\/}~11 (3): 251--273.
+
+
+\bibitem[\protect\citeauthoryear{Kim and Nelson}{Kim and
+  Nelson}{2006b}]{kim:asympt}
+Kim, S.-H., and B.~L. Nelson. 2006b.
+\newblock ``On the Asymptotic Validity of Fully Sequential Selection Procedures
+  for Steady-State Simulation''.
+\newblock {\em Operations Research\/}~54 (3): 475--488.
+
+
+\bibitem[\protect\citeauthoryear{Paulson}{Paulson}{1964}]{Paulson:01}
+Paulson, E. 1964.
+\newblock ``A sequential procedure for selecting the population with the
+  largest mean from k normal populations''.
+\newblock {\em The Annals of Mathematical Statistics\/}~35 (1): 174--180.
+
+
+\bibitem[\protect\citeauthoryear{Paulson}{Paulson}{1994}]{Paulson:1994}
+Paulson, E. 1994.
+\newblock ``Sequential procedures for selecting the best one of k
+  Koopman-Darmois populations''.
+\newblock {\em Sequential Analysis\/}~13 (3).
+
+
+\bibitem[\protect\citeauthoryear{R.~E.~Bechhofer}{R.~E.~Bechhofer}{1995}]{Bechhofer:1995}
+R.~E.~Bechhofer, T.J.~Santner, D.~G. 1995.
+\newblock {\em Design and Analysis of Experiments for Statistical Selection,
+  Screening and Multiple Comparisons.}
+\newblock New York: J.Wiley and Sons.
+
+
+\bibitem[\protect\citeauthoryear{Rinott}{Rinott}{1978}]{Rinott}
+Rinott, Y. 1978.
+\newblock ``On Two-Stage Selection Procedures and Related
+  Probability-Inequalities''.
+\newblock {\em Communications in Statistics-Theory and Methods\/}~7 (8):
+  799--811.
+
+
+\bibitem[\protect\citeauthoryear{Swisher, Jacobson, and Y{\"u}cesan}{Swisher
+  et~al.}{2003}]{swisher:survey}
+Swisher, J., S.~Jacobson, and E.~Y{\"u}cesan. 2003.
+\newblock ``Discrete-event simulation optimization using ranking, selection,
+  and multiple comparison procedures: A survey.''.
+\newblock {\em ACM Transactions on Modeling and Computer Simulation\/}~13 (2):
+  134--154.
+
+
+\bibitem[\protect\citeauthoryear{Wang and Kim}{Wang and
+  Kim}{2013}]{kim:Conserv}
+Wang, H., and S.-H. Kim. 2013.
+\newblock ``Reducing the conservativeness of fully sequential indifference-zone
+  procedures''.
+\newblock {\em IEEE Transactions on automatic control\/}~58 (6): 1613--1619.
+
+
+\end{thebibliography}

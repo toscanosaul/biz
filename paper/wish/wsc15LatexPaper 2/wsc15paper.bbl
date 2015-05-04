@@ -1,0 +1,88 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Banks, Carson, Nelson, and Nicol}{Banks
+  et~al.}{2000}]{bcnn:simulation}
+Banks, J., J.~S. Carson, B.~L. Nelson, and D.~M. Nicol. 2000.
+\newblock {\em {D}iscrete-{E}vent {S}ystem {S}imulation\/}. 3rd ed.
+\newblock Upper Saddle River, New Jersey: Prentice-Hall, Inc.
+
+
+\bibitem[\protect\citeauthoryear{Cheng}{Cheng}{1994}]{cheng:input94}
+Cheng, R. C.~H. 1994.
+\newblock ``Selecting Input Models''.
+\newblock In {\em Proceedings of the 1994 Winter Simulation Conference}, edited
+  by\ J.~D. Tew, S.~Manivannan, D.~A. Sadowski, and A.~F. Seila,  184--191.
+\newblock Piscataway, New Jersey: Institute of Electrical and Electronics
+  Engineers, Inc.
+
+\bibitem[\protect\citeauthoryear{Cheng and Kleijnen}{Cheng and
+  Kleijnen}{1999}]{cheng:queuehetero}
+Cheng, R. C.~H., and J.~P.~C. Kleijnen. 1999.
+\newblock ``Improved Design of Queueing Simulation Experiments with Highly
+  Heteroscedastic Responses''.
+\newblock {\em Operations Research\/}~47 (3): 762--777.
+
+
+\bibitem[\protect\citeauthoryear{Chien}{Chien}{1989}]{chi89}
+Chien, C. 1989.
+\newblock ``Small Sample Theory for Steady State Confidence Intervals''.
+\newblock Technical Report No. 37, Department of Operations Research, Stanford
+  University, Stanford, California.
+
+\bibitem[\protect\citeauthoryear{Gupta, Nagel, and Panchapakesan}{Gupta
+  et~al.}{1973}]{gupta:mnormal}
+Gupta, S.~S., K.~Nagel, and S.~Panchapakesan. 1973.
+\newblock ``On the Order Statistics from Equally Correlated Normal Random
+  Variables''.
+\newblock {\em Biometrika\/}~60:403--413.
+
+
+\bibitem[\protect\citeauthoryear{Hammersley and Handscomb}{Hammersley and
+  Handscomb}{1964}]{hammersley:montecarlo}
+Hammersley, J.~M., and D.~C. Handscomb. 1964.
+\newblock {\em Monte Carlo Methods}.
+\newblock London: Methuen.
+
+
+\bibitem[\protect\citeauthoryear{Law and Kelton}{Law and
+  Kelton}{2000}]{law:simulationc}
+Law, A.~M., and W.~D. Kelton. 2000.
+\newblock {\em Simulation Modeling \& Analysis\/}. 3rd ed.
+\newblock New York: McGraw-Hill, Inc.
+
+
+\bibitem[\protect\citeauthoryear{Schruben}{Schruben}{1979}]{sch79}
+Schruben, L.~W. 1979.
+\newblock ``Designing Correlation Induction Strategies for Simulation
+  Experiments''.
+\newblock In {\em Current Issues in Computer Simulation}, edited by\ N.~R. Adam
+  and A.~Dogramaci,  235--256. New York: Academic Press.
+
+\bibitem[\protect\citeauthoryear{Steiger}{Steiger}{1999}]{ste99}
+Steiger, N.~M. 1999.
+\newblock {\em Improved Batching for Confidence Interval Construction in
+  Steady-State Simulation}.
+\newblock {Ph.D.} thesis, Department of Industrial Engineering, North Carolina
+  State University, Raleigh, North Carolina.
+\newblock Available via \url{http://www.lib.ncsu.edu/resolver/1840.16/4713}
+  [accessed January 10, 2012].
+
+\bibitem[\protect\citeauthoryear{{The University of Chicago Press}}{{The
+  University of Chicago Press}}{2010}]{chicago03}
+{The University of Chicago Press} 2010.
+\newblock {\em The Chicago Manual of Style\/}. 16th ed.
+\newblock Chicago: The University of Chicago Press.
+
+\bibitem[\protect\citeauthoryear{{Winter Simulation Conference}}{{Winter
+  Simulation Conference}}{2015}]{WSC}
+{Winter Simulation Conference} 2015.
+\newblock ``Winter Simulation Conference''.
+\newblock Accessed Feb. 1, 2015. \url{http://www.wintersim.org}.
+
+\bibitem[\protect\citeauthoryear{{WSC Foundation}}{{WSC
+  Foundation}}{2011}]{Foundation}
+{WSC Foundation} 2011.
+\newblock ``The {WSC} {F}oundation''.
+\newblock Last modified January 15. \url{http://www.wscfoundation.org}.
+
+\end{thebibliography}
