@@ -612,12 +612,12 @@ f\left(F,\delta\right) & = & \begin{cases}
  % Observe that $f$ is a function that depends in the path $\left\{ q_{tx}^{F,\delta}\left(A\right):t\geq0\right\} $.
 
 {\it PF: I stopped here.}
-We are doing all this because we want to see that $f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)$
-looks like the right or wrong selection decision of an algorithm that
-depends on a standard Brownian motion instead of $\mathcal{C}\left(\delta,\cdot\right)$,
-and this will give us the proof because we will be able to use the
-theory developed by Frazier (2014) to prove the theorem. Thus, the
-following step is to find the limit of $q_{tx}^{F,\delta}\left(A\right)$
+%We are doing all this because we want to see that $f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)$
+%looks like the right or wrong selection decision of an algorithm that
+%depends on a standard Brownian motion instead of $\mathcal{C}\left(\delta,\cdot\right)$,
+%and this will give us the proof because we will be able to use the
+%theory developed by Frazier (2014) to prove the theorem. Thus, the
+The following step is to find the limit of $q_{tx}^{F,\delta}\left(A\right)$
 when $\delta$ goes to zero, which is called $q_{tx}^{F}\left(A\right)$
 and equal to
 
@@ -678,6 +678,8 @@ in distribution as $\delta\rightarrow0$.
 \end{corollary}
 \vspace{1mm}
 
+\subsection{The Main Result}
+
 \begin{theorem}
 If samples from system $x\in\left\{ 1\ldots,k\right\} $ are identically
 distributed and independent, over time and across alternatives, then
@@ -698,7 +700,7 @@ where $PZ\left(1\right)=\left\{ a\in\mathbb{R}^{k}:a_{k}-a_{k-1}>1, a_{k}>a_{k-1
 
 
 By the comments given at the beginning of this section, we know that
-we can work with the algorithm defined by
+we can work with the algorithm, which we call the discrete-time BIZ algorithm, defined by
 
 \[
 q'_{tx}\left(A\right)=q'\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)
@@ -714,7 +716,7 @@ Now, we define
 \begin{eqnarray*}
 \hat{\tau}_{n+1}\left(\delta\right) & = & \mbox{inf}\left\{ t\in\left\{ \tau_{n}\delta^{2},\left(\tau_{n}+1\right)\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\geq P_{n}\right\} 
 \end{eqnarray*}
-We denote the corresponding continuous hitting times by $\left(\tau_{n}\left(\delta\right)\right)_{n}$,
+The corresponding BIZ algorithm is called the continuous-time BIZ algorithm. We denote the corresponding continuous hitting times by $\left(\tau_{n}\left(\delta\right)\right)_{n}$,
 which are defined as 
 
 \[
@@ -722,11 +724,8 @@ which are defined as
 \]
 
 Using that $\mathcal{C}\left(\delta,\cdot\right)$ is right-continuous,
-we can prove that $\hat{\tau}_{n}\left(\delta\right)-\tau_{n}\left(\delta\right)\rightarrow0$
-with probability $1$ as $\delta\rightarrow0$, and so we can use
-$\mathcal{C}\left(\delta,\tau_{n}\left(\delta\right)\right)$ instead
-of $\mathcal{C}\left(\delta,\hat{\tau}_{n}\left(\delta\right)\right)$
-in the limit.
+we can prove that the difference of the probability of correct selection of the discrete-time BIZ algorithm and the  probability of correct selection of the continuous-time BIZ algorithm converge to zero as $\delta$ goes to zero. Then we can use the continuous-time BIZ algorithm in the limit, i.e. we can use $\mathcal{C}\left(\delta,\tau_{n}\left(\delta\right)\right)$ instead
+of $\mathcal{C}\left(\delta,\hat{\tau}_{n}\left(\delta\right)\right)$. (The details may be found in a full version which will be submitted soon to arXiv). 
 
 Let $CS_{\delta}$ be the event of doing a correct selection given
 the configuration $\mu_{k}=a_{k}\delta,\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$
@@ -763,20 +762,33 @@ Figure ~\ref{fig: tahi3} shows that in this case the IZ guarantee is always sati
 When $\delta$ is big enough, the PCS is almost one because the difference between the best system and the others is large enough to be easily identifiable by the
 BIZ procedure.
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{plot5}
-    \end{subfigure}
+
+
+\begin{figure}[h]
+  \centering
+   \begin{subfigure}[b]{0.4\textwidth}
+      \centering
+       \includegraphics[width=0.7\textwidth]{plot5}
+    \caption{Known variances and $P^*=0.9$. In this example, our theorem is true: the IZ guarantee is always satisfied and the inequality is tight as $\delta$ goes to zero.
+    \label{fig: tahi3}}
+   \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.4\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{plot6}
+         \includegraphics[width=0.7\textwidth]{plot3}
+             \caption{Unknown variances and $P^*=0.9$. In this example, our theorem is true: the IZ guarantee is satisfied and the inequality is tight as delta goes to zero. If we want that the IZ guarantee be 
+    satisfied in all the cases, we can just increment $n_{0}$.
+    \label{fig: tahi2}}
     \end{subfigure}
-    \caption{Known variances and $P^*=0.9$. $\lambda_{100}=1,\lambda_{99}=1+\frac{(0.5)(98)}{99},\cdots,\lambda_{1}=0.5,n_{0}=0$.
-    In this example, our theorem is true: the IZ guarantee is always satisfied and the inequality is tight as $\delta$ goes to zero.
-    \label{fig: tahi3}}
+        \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+         \includegraphics[width=0.7\textwidth]{plot1}
+    \caption{Known variances, $P^*=0.9$ This was a hard example to find and it was specially chosen to ilustrate our theorem. In practice, we would choose $n_{0}>0$ and the IZ guarantee will be satisfied. \label{fig: tahi}}
+    \end{subfigure}
+    \caption{PCS for different numerical experiments
+\label{fig:tahi10}}
+
 \end{figure}  
 
 
@@ -787,22 +799,6 @@ Figure ~\ref{fig: tahi2} gives us evidence that our theorem should also be true 
 this is a difficult example, and still we have a good performance in most of the cases. However, if we want to always satisfy the IZ guarantee, 
 we can just increment the parameter $n_{0}$.
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{plot3}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{plot4}
-    \end{subfigure}
-    \caption{Unknown variances and $P^*=0.9$. $\lambda_{100}=10\sqrt(2),\lambda_{99}=10+\frac{(10)(98)}{99}(\sqrt(2)-1),\cdots,\lambda_{1}=10,n_{0}=15$.
-    In this example, our theorem is true: the IZ guarantee is satisfied and the inequality is tight as delta goes to zero. If we want that the IZ guarantee be 
-    satisfied in all the cases, we can just increment $n_{0}$.
-    \label{fig: tahi2}}
-\end{figure}  
 
  Now, we consider a pathological case when the variances are known. Specifically, we consider a slippage configuration 
 with $100$ systems normally distributed, where $\mu_{100}=\delta,\mu_{99}=0,\dots,\mu_{1}=0$, $\delta$ is 
@@ -814,20 +810,7 @@ Figure ~\ref{fig: tahi} shows that PCS converges to $0.9$ as $\delta$ goes to ze
 This figure also shows that the bound is tight  on probability of correct selection. We should also note that the number of samples required increases very fast. 
 Here, the points plotted have central confidence intervals of length at most $0.014$. 
 
-\begin{figure}
-    \centering
-    \begin{subfigure}[b]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{plot1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{plot2}
-    \end{subfigure}
-    \caption{Known variances, $P^*=0.9$, $\lambda_{100}=10,\lambda_{99}=\cdots=\lambda_{1}=1,n_{0}=0$. This was a hard example to find
-    and it was specially chosen to ilustrate our theorem. In practice, we would choose $n_{0}>0$ and the IZ guarantee will be satisfied. \label{fig: tahi}}
-\end{figure}
+
 
 
 
