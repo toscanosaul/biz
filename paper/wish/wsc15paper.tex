@@ -166,7 +166,11 @@
 \WSCpagesetup{Toscano-Palmerin, Frazier}
 
 % AUTHOR: Enter the title, all letters in upper case
-\title{ASYMPTOTIC VALIDITY OF A FULLY SEQUENTIAL ELIMINATION PROCEDURE FOR INDIFFERENCE-ZONE RANKING AND SELECTION WITH TIGHT BOUNDS ON PROBABILITY OF CORRECT SELECTION}
+\title{ASYMPTOTIC VALIDITY OF THE BAYES-INSPIRED INDIFFERENCE ZONE PROCEDURE: 
+%THE NON-NORMAL KNOWN VARIANCE CASE}
+THE GENERAL DISTRIBUTION  KNOWN VARIANCE CASE}
+
+
 
 
 \maketitle
@@ -186,19 +190,15 @@ Ithaca, NY 14853, USA\\
 
 
 \section*{ABSTRACT}
-We consider the indifference-zone (IZ) formulation of the ranking
-and selection problem in which the goal is to choose with high probability 
-an alternative with similar mean than the one with largest mean. 
-Conservatism leads classical IZ procedures
-to take too many samples in problems with many alternatives. The Bayes-inspired
+We consider the indifference-zone (IZ) formulation of the ranking and selection problem in which the goal is to choose an alternative with the largest mean with guaranteed probability, as long as the difference between this mean and the second largest exceeds a threshold.
+Conservatism leads classical IZ procedures to take too many samples in problems with many alternatives. The Bayes-inspired
 Indifference Zone (BIZ) procedure, proposed in \citeN{Frazier:BIZ}, is
 less conservative than previous procedures, but its proof of validity
-requires strong assumptions, specifically it assumes that the variances are known 
-and have an integer multiple structure. In this paper, we consider a slightly
-modification of the original BIZ procedure in order to simplify the analysis, and we
-present a new proof of its asymptotic validity that relaxes these assumptions.
-Specifically, we prove the validity of the algorithm when the variances are known
-and the difference between the best alternative and the second best goes to zero. 
+requires strong assumptions, specifically that samples are normal, and variances are known 
+with an integer multiple structure. In this paper, 
+we show asymptotic validity of a slight modification of the original BIZ procedure 
+as the difference between the best alternative and the second best goes to zero,
+when the variances are known and finite, and samples are independent and identically distributed, but not necessarily normal.
 
 \section{INTRODUCTION}
 \label{sec:intro}

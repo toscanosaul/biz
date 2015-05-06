@@ -3,6 +3,22 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: wsc15paper.aux
 The style file: wsc.bst
 Database file #1: wsc15paper.bib
+I was expecting a `,' or a `}'---line 322 of file wsc15paper.bib
+ :     
+ :     Author = {Saul Toscano-Palmerin and Peter I. Frazier},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--no key, author in fullpaper
+Warning--no author, editor, or organization in fullpaper
+Warning--to sort, need author or key in fullpaper
+Warning--no key, author in fullpaper
+Warning--no author, editor, or organization in fullpaper
+Warning--no key, author in fullpaper
+Warning--no author, editor, or organization in fullpaper
+Warning--no key, author in fullpaper
+Warning--no author, editor, or organization in fullpaper
+Warning--empty author in fullpaper
+Warning--empty institution in fullpaper
 Warning--empty organization in dieker:2012
 Warning--no number and no volume in Frazier:Tutorial
 Warning--page numbers missing in Frazier:Tutorial
@@ -12,46 +28,45 @@ Warning--empty organization in kim:20062
 Warning--empty organization in kim:2007
 Warning--no number and no volume in kim:2011
 Warning--page numbers missing in Paulson:1994
-Warning--empty institution in fullpaper
 You've used 25 entries,
             2956 wiz_defined-function locations,
-            785 strings with 8916 characters,
-and the built_in function-call counts, 16223 in all, are:
-= -- 1433
-> -- 1005
+            783 strings with 8814 characters,
+and the built_in function-call counts, 15962 in all, are:
+= -- 1409
+> -- 953
 < -- 3
-+ -- 295
-- -- 369
-* -- 1337
-:= -- 2938
-add.period$ -- 78
++ -- 279
+- -- 349
+* -- 1327
+:= -- 2850
+add.period$ -- 77
 call.type$ -- 25
-change.case$ -- 142
+change.case$ -- 140
 chr.to.int$ -- 24
-cite$ -- 35
-duplicate$ -- 459
-empty$ -- 1072
-format.name$ -- 416
-if$ -- 3013
+cite$ -- 49
+duplicate$ -- 460
+empty$ -- 1086
+format.name$ -- 392
+if$ -- 2977
 int.to.chr$ -- 2
 int.to.str$ -- 0
 missing$ -- 29
-newline$ -- 152
-num.names$ -- 251
-pop$ -- 123
+newline$ -- 151
+num.names$ -- 241
+pop$ -- 124
 preamble$ -- 1
-purify$ -- 314
+purify$ -- 312
 quote$ -- 0
-skip$ -- 502
+skip$ -- 496
 stack$ -- 0
-substring$ -- 886
+substring$ -- 890
 swap$ -- 144
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 525
-warning$ -- 10
-while$ -- 271
+warning$ -- 20
+while$ -- 261
 width$ -- 0
-write$ -- 366
-(There were 10 warnings)
+write$ -- 363
+(There was 1 error message)
