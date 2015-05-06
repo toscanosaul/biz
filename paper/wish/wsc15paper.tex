@@ -205,39 +205,33 @@ when the variances are known and finite, and samples are independent and identic
 
 
 There are many applications where we have to choose the best alternative
-among a finite number of simulated alternatives. For example, in inventory problems, we may want to choose the best inventory policy $(s,S)$ for a finite number of values of $s$ and $S$. The ranking and selection problem has to decide how many samples are needed to find the alternative with the largest mean. A good solution to the problem is efficient and accurate, i.e. the procedure proposed for the problem must balance between the number of samples required and quality of the selection.
+among a finite number of simulated alternatives. For example, in inventory problems, we may want to choose the best inventory policy $(s,S)$ for a finite number of values of $s$ and $S$. 
+This is called the ranking and selection problem.
+% In such ranking and selection problems, we must decide how many samples we need to accurately find the alternative with the largest mean. 
+A good procedure for addressing this problem should be both efficient and accurate, i.e. it should balance the number of samples it takes with the quality of its selection.
 
-
-
-This paper considers the indifference-zone (IZ) formulation of
-the ranking and selection problem, in which the distance between the best system and
-the other systems is sufficiently large and the best system is chosen with probability larger
-than some threshold given by the user. This property is called the IZ guarantee, and the preference zone (PZ)
-is defined as the set of system configurations under which the difference between the best system and the others is
-at least some given  $\delta>0$. The paper \citeN{Bechhofer:1954} is considered the seminal work, and early work is 
+This paper considers the indifference-zone (IZ) formulation of the ranking and selection problem, in which we require that a procedure satisfy the IZ guarantee, i.e., that the best system be chosen with probability larger than some threshold $P^*$ given by the user, when the distance between the best system and the others is larger than some other user-specified threshold $\delta>0$.  The set of problem configurations satisfying this constraint on the difference in means is called the preference zone.
+The paper \citeN{Bechhofer:1954} is considered the seminal work, and early work is 
 presented in the monograph \citeN{Bechhofer:1968}. Some compilations of the theory developed in the area can be found
-in \citeN{Bechhofer:1995}, \citeN{swisher:survey}, \citeN{kim:20062} and \citeN{kim:2007}. Beyond these classical approaches, 
-there are the Bayesian approach \cite{Frazier:Tutorial} and the optimal computing budget allocation approach \cite{chen:ocva}.
+in \citeN{Bechhofer:1995}, \citeN{swisher:survey}, \citeN{kim:20062} and \citeN{kim:2007}. Other approaches, beyond the indifference-zone approach, include the Bayesian approach \cite{Frazier:Tutorial}, the optimal computing budget allocation approach \cite{chen:ocva}, and the large deviations approach \cite{glynn2004large}.
 
 A good IZ procedure satisfies the IZ guarantee and requires as few samples as possible.
 The first IZ procedures presented in \citeN{Bechhofer:1954}, \citeN{Paulson:01}, \citeN{Fabian}, \citeN{Rinott},
 \citeN{Harmann:1988}, \citeN{hartmann:sequential}, \citeN{Paulson:1994} 
 satisfy the IZ guarantee, but they usually take too many samples when there are many alternatives,
-in part because their probability of correct selection (PCS) is much
+in part because they are conservative: their probability of correct selection (PCS) is much
 larger than the probability specified by the user \cite{kim:Conserv}. One reason for this
 is that these procedures use Bonferroni's inequality, which leads then to sample more
-than necessary. More recently, new algorithms were developed in \citeN{Kim:2001}, \citeN{Goldsman:2002}, 
-\citeN{Hong}, and they improve the performance but they still
-use the Bonferroni's inequality, and so the methods are inefficient
+than necessary. The Bonferonni-based bounds underlying these procedures become looser, and the tendency to take more samples than necessary increases, as the number of alternatives grow.
+More recently, new algorithms were developed in \citeN{Kim:2001}, \citeN{Goldsman:2002}, 
+\citeN{Hong}, and they improve performance but they still
+use Bonferroni's inequality, and so the methods are inefficient
 when there are many alternatives. Procedures in \citeN{kim:2011},
-\citeN{dieker:2012} do not use the Bonferroni's inequality 
-when there are only three alternatives, but when they compare more than three
-alternatives, they do use the Bonferroni's inequality.
+\citeN{dieker:2012} do not use Bonferroni's inequality 
+when there are only three alternatives, but again use Bonferroni's inequality when 
+comparing more than three alternatives.
 
-Conservative algorithms lead to take more samples than needed, and consequently conservative procedures are unpopular 
-when there are more than a few hundred of alternatives. Three common sources of conservativeness are
- the Bonferroni's inequality, the change from discrete process to continuous process, and bound the worst case which is not a common case.
-  \citeN{Frazier:BIZ} eliminates one source of conservativeness: the Bonferroni's inequality. He presented  a new sequential elimination
+\citeN{Frazier:BIZ} eliminates the use of Bonferroni's inequality, reducing conservatism. This paper presents a new sequential elimination
 IZ procedure, called BIZ (Bayes-inspired Indifference Zone), whose
 lower bound on worst-case probability of correct selection in the
 preference zone is tight in continuous time, and almost tight in the
@@ -260,6 +254,11 @@ finite variance. We conjecture that these techniques can be used to show the val
 the variances are unknown, and we present numerical experiments that support this belief. 
 \citeN{kim:asympt} also proves the asymptotical validity of a IZ procedure in the same limit.
 Our proof shares some similarities since we both use a central limit theorem.
+
+Two other common sources of conservatism are the change from discrete-time processes to continuous-time processes used to show IZ guarantees, and the fact that typically, the configuration under consideration is not a worst-case configuration \cite{kim:20062}.  
+This last source tends to be the largest in terms of its contribution to conservatism, and the first tends to be the smallest, with the contribution from Bonferonni inequality's lying between \cite{kim:20062}.
+Although the BIZ procedure avoids the Bonferonni inequality, it does not avoid these other two sources of conservatism.
+Indeed, all indifference zone procedures must meet the PCS guarantee for all configurations in the preference zone, including worst-case configurations.  In this sense, this last source of conservatism arises from the indifference zone guarantee itself, rather than the from a design of a particular procedure.
 
 
 

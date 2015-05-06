@@ -28,45 +28,45 @@ Warning--empty organization in kim:20062
 Warning--empty organization in kim:2007
 Warning--no number and no volume in kim:2011
 Warning--page numbers missing in Paulson:1994
-You've used 25 entries,
+You've used 26 entries,
             2956 wiz_defined-function locations,
-            783 strings with 8814 characters,
-and the built_in function-call counts, 15962 in all, are:
-= -- 1409
-> -- 953
-< -- 3
-+ -- 279
-- -- 349
-* -- 1327
-:= -- 2850
-add.period$ -- 77
-call.type$ -- 25
-change.case$ -- 140
-chr.to.int$ -- 24
-cite$ -- 49
-duplicate$ -- 460
-empty$ -- 1086
-format.name$ -- 392
-if$ -- 2977
+            788 strings with 8977 characters,
+and the built_in function-call counts, 16695 in all, are:
+= -- 1474
+> -- 1005
+< -- 4
++ -- 297
+- -- 369
+* -- 1384
+:= -- 2979
+add.period$ -- 81
+call.type$ -- 26
+change.case$ -- 146
+chr.to.int$ -- 25
+cite$ -- 50
+duplicate$ -- 483
+empty$ -- 1133
+format.name$ -- 416
+if$ -- 3117
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 29
-newline$ -- 151
-num.names$ -- 241
-pop$ -- 124
+missing$ -- 30
+newline$ -- 157
+num.names$ -- 251
+pop$ -- 134
 preamble$ -- 1
-purify$ -- 312
+purify$ -- 325
 quote$ -- 0
-skip$ -- 496
+skip$ -- 519
 stack$ -- 0
-substring$ -- 890
-swap$ -- 144
-text.length$ -- 3
+substring$ -- 912
+swap$ -- 151
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 525
+type$ -- 549
 warning$ -- 20
-while$ -- 261
+while$ -- 271
 width$ -- 0
-write$ -- 363
+write$ -- 380
 (There was 1 error message)

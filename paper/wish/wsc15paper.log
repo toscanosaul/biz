@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/MacPorts 2014_1) (preloaded format=pdflatex 2014.7.15)  6 MAY 2015 11:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/MacPorts 2014_1) (preloaded format=pdflatex 2014.7.15)  6 MAY 2015 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -581,18 +581,18 @@ Missing character: There is no Ÿ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no Ÿ in font ptmr7t!
  [2] [3]
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 505--509
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 504--508
 
  []
 
-[5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 648--653
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 647--652
 
  []
 
 
-Overfull \hbox (15.82785pt too wide) in paragraph at lines 654--660
+Overfull \hbox (15.82785pt too wide) in paragraph at lines 653--659
 [][]\OT1/ptm/b/n/10.95 Lemma 2 []\OT1/ptm/m/n/10.95 Let $[] \OMS/ztmcm/m/n/10.9
 5 ^^Z []$ \OT1/ptm/m/n/10.95 such that $\OML/ztmcm/m/it/10.95 ^^N[] \OMS/ztmcm/
 m/n/10.95 ! \OT1/ztmcm/m/n/10.95 0$\OT1/ptm/m/n/10.95 . If $\OML/ztmcm/m/it/10.
@@ -601,63 +601,66 @@ m/n/10.95 ! \OT1/ztmcm/m/n/10.95 0$\OT1/ptm/m/n/10.95 . If $\OML/ztmcm/m/it/10.
  ^^Z \OML/ztmcm/m/it/10.95 D [][] []$ $[][][]d[] [] \OT1/ztmcm/m/n/10.95 =
  []
 
-[7]
 
-LaTeX Warning: Reference `l:new' on page 8 undefined on input line 727.
+LaTeX Warning: Reference `l:new' on page 8 undefined on input line 726.
 
-[8] <plot5.png, id=196, 578.16pt x 433.62pt>
+[8] <plot5.png, id=200, 578.16pt x 433.62pt>
 File: plot5.png Graphic file (type png)
  <use plot5.png>
-Package pdftex.def Info: plot5.png used on input line 809.
+Package pdftex.def Info: plot5.png used on input line 808.
 (pdftex.def)             Requested size: 131.52881pt x 98.64539pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 811.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 810.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 811.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 810.
 
-<plot3.png, id=198, 578.16pt x 433.62pt>
+<plot3.png, id=202, 578.16pt x 433.62pt>
 File: plot3.png Graphic file (type png)
  <use plot3.png>
-Package pdftex.def Info: plot3.png used on input line 816.
+Package pdftex.def Info: plot3.png used on input line 815.
 (pdftex.def)             Requested size: 131.52881pt x 98.64539pt.
 
-<plot1.png, id=199, 578.16pt x 433.62pt>
+<plot1.png, id=203, 578.16pt x 433.62pt>
 File: plot1.png Graphic file (type png)
  <use plot1.png>
-Package pdftex.def Info: plot1.png used on input line 824.
+Package pdftex.def Info: plot1.png used on input line 823.
 (pdftex.def)             Requested size: 131.52881pt x 98.64539pt.
- [9 <./plot5.png> <./plot3.png> <./plot1.png>] (./wsc15paper.bbl [10])
-Underfull \hbox (badness 10000) in paragraph at lines 887--888
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9] (./wsc15paper.bbl [10 <./plot5.png> <./plot3.png> <./plot1.png>] [11])
+Underfull \hbox (badness 10000) in paragraph at lines 886--887
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 889--890
+Underfull \hbox (badness 10000) in paragraph at lines 888--889
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 895.
-[11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 895.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 894.
+[12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 894.
  (./wsc15paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 895.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 895.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 894.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 894.
 Package rerunfilecheck Info: File `wsc15paper.out' has not changed.
 (rerunfilecheck)             Checksum: 852098786C4B9EDE834C1736B85E812D;601.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 895.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 894.
  ) 
 Here is how much of TeX's memory you used:
- 7937 strings out of 495025
- 116302 string characters out of 6181438
- 205050 words of memory out of 5000000
- 10913 multiletter control sequences out of 15000+600000
+ 7940 strings out of 495025
+ 116344 string characters out of 6181438
+ 205135 words of memory out of 5000000
+ 10914 multiletter control sequences out of 15000+600000
  46285 words of font info for 114 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,19n,47p,682b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,19n,47p,682b,542s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/opt/local/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</opt/local/share
 /texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/local/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/local/share/texmf-tex
@@ -669,10 +672,10 @@ mbol/usyr.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pfb><
 /opt/local/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></opt/local/sha
 re/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></opt/local/share/texmf-texli
 ve/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wsc15paper.pdf (11 pages, 239715 bytes).
+Output written on wsc15paper.pdf (12 pages, 241041 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 248 compressed objects within 3 object streams
- 75 named destinations out of 1000 (max. 500000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 257 compressed objects within 3 object streams
+ 77 named destinations out of 1000 (max. 500000)
  88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
