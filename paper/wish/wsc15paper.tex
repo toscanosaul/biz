@@ -439,7 +439,7 @@ This discrete-time process is interpolated by the continuous-time process
 \left(q_{tx}\left(A\right):t\in\mathbb{R},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right).
 \label{eq:q-continuous}
 \end{equation}
-If we apply the BIZ selection map $h$ to this continuous-time process, the selection decision will differ from BIZ's selection decision for $\delta>0$, but we show that this difference vanishes as $\delta\to0$.  Thus, our proof focuses on showing that, as $\delta\to0$, applying the third map to \eqref{eq:q-continuous} produces a selection decision that satisfies the indifference-zone guarantee. 
+If we apply the BIZ selection map $h$ to this continuous-time process, the selection decision will differ from BIZ's selection decision for $\delta>0$, but we show that this difference vanishes as $\delta\to0$.  Thus, our proof focuses on showing that, as $\delta\to0$, applying the BIZ selection map $h$ to \eqref{eq:q-continuous} produces a selection decision that satisfies the indifference-zone guarantee. 
 
 To accomplish this, we use a functional central limit theorem for
 $Z_{\frac{t}{\delta^{2}}x}$, which shows that a centralized
@@ -481,7 +481,9 @@ where g is the selection decision from applying the BIZ procedure
 in continuous time; and (3) the BIZ procedure satisfies the IZ guarantee
 when applied in continuous time (Theorem~1 in \cite{Frazier:BIZ}), and so $E[g(W)] \ge P^*$ with equality for the worst configurations in the preference zone.
 
-\subsection{Preliminary Results}
+\subsection{Preliminaries for the Proof of the Main Theorem}
+
+In this section, we present preliminary results and definitions used in the proof of the main theorem: first, a central limit theorem Corollary~\ref{cor:CLT}; second, definitions of the functions $f(\cdot,\delta)$ and $g(\cdot)$; and third, a continuity result Lemma~\ref{l:continuity}.
 
 First, we are going to see that the centralized sum of the output
 data $\mathcal{C}_x(\delta,t)$ converges to a Brownian motion in the sense of $D_{\infty}:=D[0,\infty)$,
@@ -568,6 +570,7 @@ from the previous result and independence.
 \vspace{5mm}
 
 \begin{corollary}
+    \label{cor:CLT}
 We have that
 \[
 \mathcal{C}\left(\delta,\cdot\right):=\left(\mathcal{C}_{x}\left(\delta,\cdot\right)\right)_{x\in A}\Rightarrow W\left(\cdot\right):=\left(W_{x}\left(\cdot\right)\right)_{x\in A}
@@ -579,13 +582,13 @@ as $\delta\rightarrow0$ in the sense of $D_{\infty}^{k}$.
 
 Now that we have obtained this functional central limit theorem for 
 $\mathcal{C}\left(\delta,\cdot\right)$, we now continue along the proof outline and define the function $f(\cdot,\delta)$ that was sketched there.
-This function has three parts: first, computing a ``non-centralized'' path from an arbitrary input ``centralized'' path in $D\left[0,\infty\right)^{k}$; and second, applying the BIZ selection map $h$ to this non-centralized path; and third, reporting when selection was correct or not.
+This function has three parts: first, computing a ``non-centralized'' path from an arbitrary input ``centralized'' path in $D\left[0,\infty\right)^{k}$; second, applying the BIZ selection map $h$ to this non-centralized path; and third, reporting whether selection was correct or not.
 
 % Observe that $\mathcal{C}\left(\delta,\cdot\right)\in D\left[0,\infty\right)^{k}$ and the convergence of Lemma 1 is in $D\left[0,\infty\right)^{k}$, consequently the following natural step is to generalize the continuous-time procedure for the heterogeneous variance setting, see Appendix B, to the space $D\left[0,\infty\right)^{k}$. 
 To accomplish the first part, for each $F\in D\left[0,\infty\right)^{k}$, 
 we define $q_{tx}^{F,\delta}\left(A\right)$ as
 \[
-q_{tx}^{F,\delta}\left(A\right)=q'\left(\left(F_{x}\left(t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
+q_{tx}^{F,\delta}\left(A\right)=q'\left(\left(F_{x}\left(t\right)\frac{\lambda_{x}^{2}}{\delta\lambda_{z}^{2}}+\frac{\lambda_{x}^{2}}{\lambda_{z}^{2}}\left(n_{0}+\frac{t}{\delta^{2}}\right)\delta a_{x}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right).
 \]
 Note that if we replace $F$ by $\mathcal{C}\left(\delta,t\right)$,
 we get $q_{tx}\left(A\right)$ in \eqref{eq:q}.   
@@ -611,72 +614,51 @@ f\left(F,\delta\right) & = & \begin{cases}
 \end{eqnarray*}
  % Observe that $f$ is a function that depends in the path $\left\{ q_{tx}^{F,\delta}\left(A\right):t\geq0\right\} $.
 
-{\it PF: I stopped here.}
 %We are doing all this because we want to see that $f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)$
 %looks like the right or wrong selection decision of an algorithm that
 %depends on a standard Brownian motion instead of $\mathcal{C}\left(\delta,\cdot\right)$,
 %and this will give us the proof because we will be able to use the
 %theory developed by Frazier (2014) to prove the theorem. Thus, the
-The following step is to find the limit of $q_{tx}^{F,\delta}\left(A\right)$
-when $\delta$ goes to zero, which is called $q_{tx}^{F}\left(A\right)$
-and equal to
+We now construct a function $g(\cdot)$ that, when applied to the path of a $k$-dimensional standard Brownian motion, will be equal in distribution to the indicator of the correct selection event from the continuous-time BIZ procedure from \cite{Frazier:BIZ} 
+% to a problem with indifference-zone parameter equal to 1, where each alternative's observation process has volatility $\lambda_z$ and drift $a_x$.
+to a transformed problem that does not depend on $\delta$.
 
+We construct $g$ analogously to $f(\cdot,\delta)$, but we replace the path $q_{tx}^{F,\delta}$ used in the construction of $f(\cdot,\delta)$ by a new path $q_{tx}^{F}$ that doesn't depend on $\delta$, and is obtained by taking the limit as $\delta\to0$.  This path is
+% Going back to the proof outline, 
+% the next step is to find the limit of $q_{tx}^{F,\delta}\left(A\right)$
+% when $\delta$ goes to zero, which we denote $q_{tx}^{F}\left(A\right)$, 
+% and is equal to
 \[
 q_{tx}^{F}\left(A\right):=\mbox{exp}\left(\frac{F_{x}\left(t\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}ta_{x}\right)/\sum_{x^{'}\in A}\mbox{exp}\left(\frac{F_{x'}\left(t\right)}{\lambda_{z}}+\frac{1}{\lambda_{z}^{2}}ta_{x^{'}}\right).
 \]
- Using the same previous idea, for each $F\in D\left[0,\infty\right)^{k}$,
-we define the new functions
-\[
-\]
+Then, $g$ is defined to be
+ %Using the same previous idea, for each $F\in D\left[0,\infty\right)^{k}$,
+%we define the new functions
 \begin{eqnarray*}
 g\left(F\right) & = & \begin{cases}
-1 & \mbox{if }k\mbox{ is chosen}\mbox{ }\\
-0 & \mbox{otherwise}
-\end{cases}.
+    1 & \text{if $h\left(\left(q_{tx}^{F}\left(A\right):t\in\mathbb{R},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)\right) = k$,}\\
+0 & \text{otherwise.}
+\end{cases}
 \end{eqnarray*}
 
 
-So, we want to prove that 
+In the proof of the main theorem, we will show that 
 \[
 f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\right)
 \]
-as $\delta\rightarrow0$ in distribution.
-
-In order to prove this, we first proved a continuity property in Lemma
-2, which allows us to use Theorem 5.5 of \citeN{billingsley:convergence}, which
-implies the desired result. A proof of Lemma 2 may be found in a full version which will be
-submitted soon to arXiv. 
+as $\delta\rightarrow0$ in distribution. We will use the following lemma, which shows a continuity property.
+A proof of Lemma~\ref{l:continuity} may be found in a full version of this paper \cite{fullpaper},
+which will be submitted soon to arXiv. 
 \\
 \begin{lemma}
-
 Let $\left\{ \delta_{n}\right\} \subset\left(0,\infty\right)$ such
 that $\delta_{n}\rightarrow0$. If $D_{s}\equiv\{Z\in D\left[0,\infty\right)^{k}:\mbox{ if }\left\{ Z_{n}\right\} \subset D\left[0,\infty\right)^{k}\mbox{ and }$
 $\mbox{lim}{}_{n}d_{\infty}\left(Z_{n},Z\right)=0$ , then the sequence
 $\left\{ f\left(Z_{n},\delta_{n}\right)\right\} $ converges to $\left\{ g\left(Z\right)\right\} $$\left.\right\} $$ $,
 then $ $$\mathbb{P}\left(W\text{\ensuremath{\in}}D_{s}\right)=1$.
-
-
+\label{l:continuity}
 \end{lemma}
 \vspace{5mm}
-By the extension of the CMT \cite{billingsley:convergence}, we
-have the following corollary.
-\vspace{5mm}
-
-
-
-\begin{corollary}
-
-We have that 
-
-\[
-f\left(C\left(\delta,t\right),\delta\right)\Rightarrow g\left(W\left(t\right)\right)
-\]
-in distribution as $\delta\rightarrow0$.
-
-\[
-\]
-\end{corollary}
-\vspace{1mm}
 
 \subsection{The Main Result}
 
@@ -685,67 +667,123 @@ If samples from system $x\in\left\{ 1\ldots,k\right\} $ are identically
 distributed and independent, over time and across alternatives, then
 $\mbox{lim}_{\delta\rightarrow0}Pr\left\{ \mbox{BIZ selects }k\right\} \geq P*$
 provided $\mu_{k}=a_{k}\delta,\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$,
-$a_{k}>a_{k-1}\geq \cdots \geq a_{1}$, $a_{k}-a_{k-1}>1$, and the variances are finite and
+$a_{k}>a_{k-1}\geq \cdots \geq a_{1}$, $a_{k}-a_{k-1}\ge1$, and the variances are finite and
 do not depend on $\delta$.
 
 Furthermore,
 \[
-\mbox{inf}_{a\in PZ\left(1\right)}\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right)=P^{*}
+\inf_{a\in PZ\left(1\right)}\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right)=P^{*}
 \]
 where $PZ\left(1\right)=\left\{ a\in\mathbb{R}^{k}:a_{k}-a_{k-1}>1, a_{k}>a_{k-1}\geq \cdots \geq a_{1} \right\} $. 
 
 \end{theorem}
 
+
+
+%By the comments given at the beginning of this section, we know that
+%we can work with the algorithm, which we call the discrete-time BIZ algorithm, defined by
+
+%\[
+%q'_{tx}\left(A\right)=q'\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)
+%\]
+%where $t\in\delta^{2}\mathbb{N}$, instead of the algorithm defined
+%by
+%\[
+%q'_{tx}\left(A\right)=q'\left(\left(Z_{tx},t:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)
+%\]
+%where $t\in\mathbb{N}$.
+%
+%Now, we define
+%\begin{eqnarray*}
+%%\hat{\tau}_{n+1}\left(\delta\right) & = & \mbox{inf}\left\{ t\in\left\{ \tau_{n}\delta^{2},\left(\tau_{n}+1\right)\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\geq P_{n}\right\} 
+%\end{eqnarray*}
+% The corresponding BIZ algorithm is called the continuous-time BIZ algorithm. We denote the corresponding continuous hitting times by $\left(\tau_{n}\left(\delta\right)\right)_{n}$,
+% which are defined as 
+
+
+% Maybe some of this goes into the proof of the new lemma
+\[
+% \tau_{n+1}=\mbox{inf}\left\{ t\geq\tau_{n}:\mbox{ min}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\geq P_{n}\right\} .
+\]
+
+% Using that $\mathcal{C}\left(\delta,\cdot\right)$ is right-continuous,
+% we can prove that the difference of the probability of correct selection of the discrete-time BIZ algorithm and the  probability of correct selection of the continuous-time BIZ algorithm converge to zero as $\delta$ goes to zero. Then we can use the continuous-time BIZ algorithm in the limit, i.e. we can use $\mathcal{C}\left(\delta,\tau_{n}\left(\delta\right)\right)$ instead
+% of $\mathcal{C}\left(\delta,\hat{\tau}_{n}\left(\delta\right)\right)$. The details may be found in the full version of this paper \cite{fullpaper}. 
+
+
+% and allows us to use Theorem~5.5 of \citeN{billingsley:convergence}.
+
+
 \begin{proof}
+Using the definitions given at the beginning of this section,
+the selection decision of the discrete-time BIZ procedure for a particular $\delta>0$ when $\mu_{k}=a_{k}\delta,\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$ is given by
+\begin{equation*}
+h\left(\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)\right)
+\end{equation*}
+and the probability of correct selection $\mbox{PCS}(\delta)$ is
+\begin{equation*}
+    \mbox{PCS}(\delta) = P\left( h\left( \left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right) \right) =k\right).
+\end{equation*}
+By Lemma~\ref{l:new}, as $\delta\to0$, we have that 
+\begin{equation}
+\lim_{\delta\to0}
+\mbox{PCS}(\delta)
+% P\left( h\left( \left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right) \right) =k\right)
+ = \lim_{\delta\rightarrow0}
+ \mathbb{P}\left(
+ f\left(\mathcal{C}\left(\delta,t\right),\delta\right)=1
+ \right)
+ \label{eq:convergence1}
+\end{equation}
 
+We also have, by Lemma~\ref{l:continuity} and an extension of the continuous mapping theorem (Theorem~5.5 of \citeN{billingsley:convergence}), 
+\begin{equation*}
+    f\left(\mathcal{C}\left(\delta,t\right),\delta\right)\Rightarrow g\left(W\left(t\right)\right)
+%\label{eq:convergence}
+\end{equation*}
+in distribution as $\delta\rightarrow0$.
+This implies that
+\begin{equation}
+\lim_{\delta\rightarrow0}\mathbb{P}\left(f\left(\mathcal{C}\left(\delta,t\right),\delta\right)=1\right)
+ = \mathbb{P}\left(g\left(W\right)=1\right)
+ \label{eq:convergence2}
+\end{equation}
 
-By the comments given at the beginning of this section, we know that
-we can work with the algorithm, which we call the discrete-time BIZ algorithm, defined by
+The random variable $g(W)$ is equal in distribution to the indicator of the event of correct selection that results from applying the continuous-time BIZ procedure from \cite{Frazier:BIZ} in a problem with indifference-zone parameter equal to 1, where each alternative's observation process has volatility $\lambda_z$ and drift $a_x$.
+This can be seen by noting that the path $(q^{W}_{tx}(A) : t\ge0)$ defined above is equal in distribution to the path $(q_{tx}(A) : t\ge0)$ defined in equation (2) of \citeN{Frazier:BIZ}, and that the selection decision of the continuous-time algorithm in \citeN{Frazier:BIZ} is obtained by applying $h$ to this path.
 
-\[
-q'_{tx}\left(A\right)=q'\left(\left(Z_{\frac{t}{\delta^{2}}x},\frac{t}{\delta^{2}}:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)
-\]
-where $t\in\delta^{2}\mathbb{N}$, instead of the algorithm defined
-by
-\[
-q'_{tx}\left(A\right)=q'\left(\left(Z_{tx},t:x\in A\right),\delta,A\subset\left\{ 1,\ldots,k\right\} \right)
-\]
-where $t\in\mathbb{N}$.
+Theorem 1 in \citeN{Frazier:BIZ} states that 
+\begin{equation}
+\mathbb{P}\left(g\left(W\right)=1\right)\ge P^{*}.
+\label{eq:correct}
+\end{equation}
 
-Now, we define
-\begin{eqnarray*}
-\hat{\tau}_{n+1}\left(\delta\right) & = & \mbox{inf}\left\{ t\in\left\{ \tau_{n}\delta^{2},\left(\tau_{n}+1\right)\delta^{2},\ldots\right\} :\mbox{ min}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{t/\delta^{2},x}^{'}\left(A_{n}\right)\geq P_{n}\right\} 
-\end{eqnarray*}
-The corresponding BIZ algorithm is called the continuous-time BIZ algorithm. We denote the corresponding continuous hitting times by $\left(\tau_{n}\left(\delta\right)\right)_{n}$,
-which are defined as 
+Combining 
+\eqref{eq:convergence1}, 
+\eqref{eq:convergence2}, and
+\eqref{eq:correct}, we have
+\begin{equation*}
+    \lim_{\delta\to0} \mbox{PCS}(\delta) \ge P^*.
+\end{equation*}
 
-\[
-\tau_{n+1}=\mbox{inf}\left\{ t\geq\tau_{n}:\mbox{ min}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\leq c\mbox{ or }\mbox{max}_{x\in A_{n}}q_{tx}\left(A_{n}\right)\geq P_{n}\right\} .
-\]
-
-Using that $\mathcal{C}\left(\delta,\cdot\right)$ is right-continuous,
-we can prove that the difference of the probability of correct selection of the discrete-time BIZ algorithm and the  probability of correct selection of the continuous-time BIZ algorithm converge to zero as $\delta$ goes to zero. Then we can use the continuous-time BIZ algorithm in the limit, i.e. we can use $\mathcal{C}\left(\delta,\tau_{n}\left(\delta\right)\right)$ instead
-of $\mathcal{C}\left(\delta,\hat{\tau}_{n}\left(\delta\right)\right)$. (The details may be found in a full version which will be submitted soon to arXiv). 
-
-Let $CS_{\delta}$ be the event of doing a correct selection given
-the configuration $\mu_{k}=a_{k}\delta,\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$
-$ $. Then by the previous argument and the Corollary 2, 
-\begin{eqnarray*}
-\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right) & = & \mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(f\left(\mathcal{C}\left(\delta,t\right),\delta\right)=1\right)\\
- & = & \mathbb{P}\left(g\left(W\right)=1\right)\\
- & \geq & P^{*}
-\end{eqnarray*}
-where the last inequality follows from the Theorem 2 of \citeN{Frazier:BIZ}.
-
-Furthermore, by the same theorem 2,
-\[
+Furthermore, Theorem~1 in \citeN{Frazier:BIZ} shows that 
+\begin{equation}
 \mbox{inf}_{a\in PZ\left(1\right)}\mathbb{P}\left(g\left(W\right)=1\right)=P^{*}
-\]
-
-
+\label{eq:tight}
+\end{equation}
 where $PZ\left(1\right)=\left\{ a\in\mathbb{R}^{k}:a_{k}-a_{k-1}\geq1\right\} $. 
 
+
+Combining 
+\eqref{eq:convergence1}, 
+\eqref{eq:convergence2}, and
+\eqref{eq:tight}, shows
+\begin{equation*}
+\inf_{a\in PZ\left(1\right)}\lim_{\delta\rightarrow0}\mbox{PCS}(\delta)=P^{*}.
+\end{equation*}
+
 \end{proof}
+
 
 
 \section{NUMERICAL EXPERIMENTS}
