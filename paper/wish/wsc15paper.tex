@@ -804,10 +804,10 @@ Combining
 
 \section{NUMERICAL EXPERIMENTS}
 
-We now use simulation experiments to illustrate and further investigate the phenomenon characterized by Theorem~\ref{t:main}. Using the version of BIZ described in Section~\ref{sec:BIZ} with maximum elimination ($c=1-(P^*)^\frac{1}{k-1}$), we estimate and then plot the PCS as a function of $\delta$ using 10,000 independent replications. We consider three different examples, setting $P^*=0.9$ in all three.
+We now use simulation experiments to illustrate and further investigate the phenomenon characterized by Theorem~\ref{t:main}. Using the version of BIZ described in Section~\ref{sec:BIZ} with maximum elimination ($c=1-(P^*)^\frac{1}{k-1}$), we estimate and then plot the PCS as a function of $\delta$.
+In all examples, $P^*=0.9$, PCS was estimated using 10,000 independent replications, and confidence intervals have length at most $0.014$.
 
-
-Our first example, illustrated in Figure~\ref{fig: tahi3}, is a known variance slippage configuration. Specifically, we consider $100$ systems with independent normally distributed samples, where $\mu_{k}=\delta,\mu_{k-1}=0,\dots,\mu_{1}=0$, $\delta$ is within the interval $[0.1,10]$, and $\lambda_{100}=1,\lambda_{99}=1+\frac{(0.5)(98)}{99},\cdots,\lambda_{1}=0.5$. Here, $n_{0}=0$. Figure ~\ref{fig: tahi3} shows that in this example the IZ guarantee is always satisfied, and the PCS approaches $P^*$ as $\delta$ goes to zero. When $\delta$ is big enough, the PCS is almost one because the difference between the best system and the others is large enough to be easily identifiable by the BIZ procedure. Here, the points plotted have central confidence intervals of length at most $0.014$.
+Our first example, illustrated in Figure~\ref{fig: tahi3}, is a known variance slippage configuration. Specifically, we consider $100$ systems with independent normally distributed samples, where $\mu_{k}=\delta,\mu_{k-1}=0,\dots,\mu_{1}=0$, $\delta$ is within the interval $[0.1,10]$, and $\lambda_{100}=1,\lambda_{99}=1+\frac{(0.5)(98)}{99},\cdots,\lambda_{1}=0.5$. Here, $n_{0}=0$. Figure ~\ref{fig: tahi3} shows that in this example the IZ guarantee is always satisfied, and the PCS approaches $P^*$ as $\delta$ goes to zero. When $\delta$ is big enough, the PCS is almost one because the difference between the best system and the others is large enough to be easily identifiable by the BIZ procedure. 
 
 \begin{figure}[h]
   \centering
@@ -840,7 +840,7 @@ In this example, we have intentionally chosen $n_0$ to be small, and have chosen
 
 We should note that
 this is a difficult example, and still we have a good performance in most of the cases. However, if we want to always satisfy the IZ guarantee, 
-we can just increment the parameter $n_{0}$. Here, the points plotted have central confidence intervals of length at most $0.014$. 
+we can just increment the parameter $n_{0}$. 
 
 
 Now, we consider a pathological case when the variances are known. Specifically, we consider a slippage configuration 
@@ -850,7 +850,7 @@ This configurations was specially chosen to illustrate our theorem, and so it is
 In fact, in most of the configurations the algorithm always satisfies the IZ guarantee. Furthermore, in practice, we would
 have run the algorithm with $n_{0}>0$, and the BIZ algorithm would have worked well even in this pathological example. 
 Figure ~\ref{fig: tahi} shows that PCS converges to $0.9$ as $\delta$ goes to zero. Specifically, PCS is equal to $0.904$ when $\delta=0.1$.
-This figure also shows that the bound is tight  on probability of correct selection. We should also note that the number of samples required increases very fast. Here, the points plotted have central confidence intervals of length at most $0.014$. 
+This figure also shows that the bound is tight  on probability of correct selection. We should also note that the number of samples required increases very fast. 
 
 
 
