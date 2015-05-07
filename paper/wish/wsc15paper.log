@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/MacPorts 2014_1) (preloaded format=pdflatex 2014.7.15)  7 MAY 2015 14:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/MacPorts 2014_1) (preloaded format=pdflatex 2014.7.15)  7 MAY 2015 14:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -586,46 +586,33 @@ m/n/10.95 ! \OT1/ztmcm/m/n/10.95 0$\OT1/ptm/m/n/10.95 . If $\OML/ztmcm/m/it/10.
  ^^Z \OML/ztmcm/m/it/10.95 D [][] []$ $[][][]d[] [] \OT1/ztmcm/m/n/10.95 =
  []
 
-[8]
+[8] <plot5.pdf, id=209, 578.16pt x 433.62pt>
+File: plot5.pdf Graphic file (type pdf)
+ <use plot5.pdf>
+Package pdftex.def Info: plot5.pdf used on input line 816.
+(pdftex.def)             Requested size: 140.92792pt x 105.69196pt.
 
-LaTeX Warning: File `plot5.pdf' not found on input line 816.
-
-
-! Package pdftex.def Error: File `plot5.pdf' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.816 ...egraphics[width=0.9\textwidth]{plot5.pdf}
-                                                  
-? 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 816.
-
-(/opt/local/share/texmf-texlive/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-<unknown.pdf, id=209, 578.16pt x 433.62pt>
+<unknown.pdf, id=210, 578.16pt x 433.62pt>
 File: unknown.pdf Graphic file (type pdf)
  <use unknown.pdf>
 Package pdftex.def Info: unknown.pdf used on input line 823.
-(pdftex.def)             Requested size: 169.10806pt x 126.82506pt.
+(pdftex.def)             Requested size: 140.92792pt x 105.69196pt.
 
-<plot3.pdf, id=210, 578.16pt x 433.62pt>
+<plot3.pdf, id=211, 578.16pt x 433.62pt>
 File: plot3.pdf Graphic file (type pdf)
  <use plot3.pdf>
 Package pdftex.def Info: plot3.pdf used on input line 830.
-(pdftex.def)             Requested size: 169.10806pt x 126.82506pt.
+(pdftex.def)             Requested size: 140.92792pt x 105.69196pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9] [10 <./unknown.pdf> <./plot3.pdf>] (./wsc15paper.bbl [11])
+[9] (./wsc15paper.bbl [10 <./plot5.pdf> <./unknown.pdf> <./plot3.pdf>])
 Underfull \hbox (badness 10000) in paragraph at lines 891--892
 
  []
 
-
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 893--895
 
  []
@@ -638,18 +625,14 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 900.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 900.
 Package rerunfilecheck Info: File `wsc15paper.out' has not changed.
 (rerunfilecheck)             Checksum: 852098786C4B9EDE834C1736B85E812D;601.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 900.
  ) 
 Here is how much of TeX's memory you used:
- 7942 strings out of 495025
- 116451 string characters out of 6181438
+ 7911 strings out of 495025
+ 116006 string characters out of 6181438
  204670 words of memory out of 5000000
- 10921 multiletter control sequences out of 15000+600000
- 36387 words of font info for 90 fonts, out of 8000000 for 9000
+ 10895 multiletter control sequences out of 15000+600000
+ 35872 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  36i,19n,47p,828b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/opt/local/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</opt/local/share
@@ -658,16 +641,15 @@ f-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/local/share/texmf-tex
 live/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb></opt/local/share/texmf-texlive/fonts/
 type1/public/amsfonts/symbols/msbm10.pfb></opt/local/share/texmf-texlive/fonts/
-type1/public/rsfs/rsfs10.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/co
-urier/ucrr8a.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pf
-b></opt/local/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pfb></opt/local/s
-hare/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></opt/local/share/texmf-tex
-live/fonts/type1/urw/times/utmr8a.pfb></opt/local/share/texmf-texlive/fonts/typ
-e1/urw/times/utmri8a.pfb>
-Output written on wsc15paper.pdf (12 pages, 238635 bytes).
+type1/public/rsfs/rsfs10.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/sy
+mbol/usyr.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pfb><
+/opt/local/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></opt/local/sha
+re/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></opt/local/share/texmf-texli
+ve/fonts/type1/urw/times/utmri8a.pfb>
+Output written on wsc15paper.pdf (12 pages, 262727 bytes).
 PDF statistics:
- 321 PDF objects out of 1000 (max. 8388607)
- 284 compressed objects within 3 object streams
+ 328 PDF objects out of 1000 (max. 8388607)
+ 288 compressed objects within 3 object streams
  77 named destinations out of 1000 (max. 500000)
- 83 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
