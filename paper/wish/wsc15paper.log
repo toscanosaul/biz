@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  7 MAY 2015 14:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  7 MAY 2015 14:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -626,16 +626,12 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 909.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 909.
 Package rerunfilecheck Info: File `wsc15paper.out' has not changed.
 (rerunfilecheck)             Checksum: 852098786C4B9EDE834C1736B85E812D;601.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 909.
  ) 
 Here is how much of TeX's memory you used:
  7909 strings out of 493117
  116469 string characters out of 6135433
- 209337 words of memory out of 5000000
+ 209344 words of memory out of 5000000
  11142 multiletter control sequences out of 15000+600000
  35872 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
