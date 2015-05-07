@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/MacPorts 2014_1) (preloaded format=pdflatex 2014.7.15)  7 MAY 2015 14:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/MacPorts 2014_1) (preloaded format=pdflatex 2014.7.15)  7 MAY 2015 14:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -586,55 +586,71 @@ m/n/10.95 ! \OT1/ztmcm/m/n/10.95 0$\OT1/ptm/m/n/10.95 . If $\OML/ztmcm/m/it/10.
  ^^Z \OML/ztmcm/m/it/10.95 D [][] []$ $[][][]d[] [] \OT1/ztmcm/m/n/10.95 =
  []
 
-[8] <plot5.pdf, id=209, 578.16pt x 433.62pt>
+[8] <plot5.pdf, id=207, 578.16pt x 433.62pt>
 File: plot5.pdf Graphic file (type pdf)
  <use plot5.pdf>
-Package pdftex.def Info: plot5.pdf used on input line 816.
+Package pdftex.def Info: plot5.pdf used on input line 814.
 (pdftex.def)             Requested size: 140.92792pt x 105.69196pt.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 817.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 817.
 
-<unknown.pdf, id=210, 578.16pt x 433.62pt>
+Underfull \hbox (badness 1199) in paragraph at lines 817--817
+[]\OT1/ptm/m/n/10 (a) |Known het-ero-ge-neous vari-
+ []
+
+<unknown.pdf, id=208, 578.16pt x 433.62pt>
 File: unknown.pdf Graphic file (type pdf)
  <use unknown.pdf>
-Package pdftex.def Info: unknown.pdf used on input line 823.
+Package pdftex.def Info: unknown.pdf used on input line 822.
 (pdftex.def)             Requested size: 140.92792pt x 105.69196pt.
 
-<plot3.pdf, id=211, 578.16pt x 433.62pt>
+<plot3.pdf, id=209, 578.16pt x 433.62pt>
 File: plot3.pdf Graphic file (type pdf)
  <use plot3.pdf>
-Package pdftex.def Info: plot3.pdf used on input line 830.
+Package pdftex.def Info: plot3.pdf used on input line 831.
 (pdftex.def)             Requested size: 140.92792pt x 105.69196pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9] (./wsc15paper.bbl [10 <./plot5.pdf> <./unknown.pdf> <./plot3.pdf>])
-Underfull \hbox (badness 10000) in paragraph at lines 891--892
+[9] (./wsc15paper.bbl [10 <./plot5.pdf> <./unknown.pdf
+
+pdfTeX warning: pdflatex (file ./unknown.pdf): PDF inclusion: multiple pdfs wit
+h page group included in a single page
+> <./plot3.pdf
+
+pdfTeX warning: pdflatex (file ./plot3.pdf): PDF inclusion: multiple pdfs with 
+page group included in a single page
+>])
+Underfull \hbox (badness 10000) in paragraph at lines 888--889
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 893--895
+Underfull \hbox (badness 10000) in paragraph at lines 890--892
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 900.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 897.
 [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 900.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 897.
  (./wsc15paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 900.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 900.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 897.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 897.
 Package rerunfilecheck Info: File `wsc15paper.out' has not changed.
 (rerunfilecheck)             Checksum: 852098786C4B9EDE834C1736B85E812D;601.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 900.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 897.
  ) 
 Here is how much of TeX's memory you used:
- 7911 strings out of 495025
- 116006 string characters out of 6181438
- 204670 words of memory out of 5000000
- 10895 multiletter control sequences out of 15000+600000
- 35872 words of font info for 88 fonts, out of 8000000 for 9000
+ 7942 strings out of 495025
+ 116374 string characters out of 6181438
+ 205104 words of memory out of 5000000
+ 10916 multiletter control sequences out of 15000+600000
+ 47727 words of font info for 115 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,19n,47p,828b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,19n,47p,877b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/opt/local/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</opt/local/share
 /texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/local/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/local/share/texmf-tex
@@ -646,10 +662,10 @@ mbol/usyr.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pfb><
 /opt/local/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></opt/local/sha
 re/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></opt/local/share/texmf-texli
 ve/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wsc15paper.pdf (12 pages, 262727 bytes).
+Output written on wsc15paper.pdf (12 pages, 175658 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 288 compressed objects within 3 object streams
+ 379 PDF objects out of 1000 (max. 8388607)
+ 309 compressed objects within 4 object streams
  77 named destinations out of 1000 (max. 500000)
  88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
