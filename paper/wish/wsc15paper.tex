@@ -163,7 +163,7 @@
 %               Please list ALL authors using last name only, separate by a comma except
 %               for the last author, separate with "and"
 %
-\WSCpagesetup{Toscano-Palmerin, Frazier}
+\WSCpagesetup{Toscano-Palmerin, and Frazier}
 
 % AUTHOR: Enter the title, all letters in upper case
 \title{ASYMPTOTIC VALIDITY OF THE BAYES-INSPIRED INDIFFERENCE ZONE PROCEDURE: 
@@ -173,20 +173,21 @@ THE GENERAL DISTRIBUTION  KNOWN VARIANCE CASE}
 
 
 
+\author{
+	Saul Toscano-Palmerin\\ 
+    	Peter I. Frazier\\[12pt]
+	Cornell University \\
+	257 Rhodes Hall \\
+	206 Rhodes Hall \\
+	Ithaca, NY 14853, USA\\
+}
+
+
+
+
+
 \maketitle
 
-\begin{figure*}[htb]
-{
-\centering
-Saul Toscano-Palmerin \\
-Peter I. Frazier \\
-\vspace{12pt}
-Cornell University \\
-257 Rhodes Hall \\
-206 Rhodes Hall \\
-Ithaca, NY 14853, USA\\
-}
-\end{figure*}
 
 
 \section*{ABSTRACT}
@@ -220,7 +221,7 @@ The first IZ procedures presented in \citeN{Bechhofer:1954}, \citeN{Paulson:01},
 \citeN{Harmann:1988}, \citeN{hartmann:sequential}, \citeN{Paulson:1994} 
 satisfy the IZ guarantee, but they usually take too many samples when there are many alternatives,
 in part because they are conservative: their probability of correct selection (PCS) is much
-larger than the probability specified by the user \cite{kim:Conserv}. One reason for this
+larger than the probability specified by the user \cite{Kim:Conserv}. One reason for this
 is that these procedures use Bonferroni's inequality, which leads then to sample more
 than necessary. The Bonferonni-based bounds underlying these procedures become looser, and the tendency to take more samples than necessary increases, as the number of alternatives grow.
 More recently, new algorithms were developed in \citeN{Kim:2001}, \citeN{Goldsman:2002}, 
@@ -255,8 +256,8 @@ the variances are unknown, and we present numerical experiments that support thi
 \citeN{kim:asympt} also proves the asymptotical validity of a IZ procedure in the same limit.
 Our proof shares some similarities since we both use a central limit theorem.
 
-Two other common sources of conservatism are the change from discrete-time processes to continuous-time processes used to show IZ guarantees, and the fact that typically, the configuration under consideration is not a worst-case configuration \cite{kim:20062}.  
-This last source tends to be the largest in terms of its contribution to conservatism, and the first tends to be the smallest, with the contribution from Bonferonni inequality's lying between \cite{kim:20062}.
+Two other common sources of conservatism are the change from discrete-time processes to continuous-time processes used to show IZ guarantees, and the fact that typically, the configuration under consideration is not a worst-case configuration \cite{Kim:Conserv}.  
+This last source tends to be the largest in terms of its contribution to conservatism, and the first tends to be the smallest, with the contribution from Bonferonni inequality's lying between \cite{Kim:Conserv}.
 Although the BIZ procedure avoids the Bonferonni inequality, it does not avoid these other two sources of conservatism.
 Indeed, all indifference zone procedures must meet the PCS guarantee for all configurations in the preference zone, including worst-case configurations.  In this sense, this last source of conservatism arises from the indifference zone guarantee itself, rather than the from a design of a particular procedure.
 
@@ -342,8 +343,6 @@ q'_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right
 where $\hat{\lambda}_{tx'}^{2}$ is the sample variance of all samples
 from alternative $x$ thus far and $Z_{tx}=Y_{n_{tx},x}$.
 
-\vspace{5mm}
-   
 \paragraph{Algorithm: Discrete-time implementation of BIZ, for unknown and/or heterogeneous variances.}    
 \begin{algorithmic}[1]   
 \label{alg:hetero-BIZ}   
@@ -366,8 +365,8 @@ Let $W_{0x}$ and $\lambdahat^2_{0x}$ be the sample mean and sample variance resp
 
    
 \end{algorithmic} 
+\hspace{5 mm}
 
-\vspace{10mm}
 This algorithm generalizes the BIZ procedure with known common variance. In that case, we have that$B_1=\cdots=B_k=1$ and $n_{tx}=t$. The algorithm 2 can be generalized to the continuous case (See  \citeN{Frazier:BIZ}). 
 
 \section{ASYMPTOTIC VALIDITY WHEN THE VARIANCES ARE KNOWN}
@@ -482,7 +481,7 @@ when applied in continuous time (Theorem~1 in \cite{Frazier:BIZ}), and so $E[g(W
 
 \subsection{Preliminaries for the Proof of the Main Theorem}
 
-In this section, we present preliminary results and definitions used in the proof of the main theorem: first, a central limit theorem Corollary~\ref{cor:CLT}; second, definitions of the functions $f(\cdot,\delta)$ and $g(\cdot)$; and third, a continuity result Lemma~\ref{l:continuity}.
+In this section, we present preliminary results and definitions used in the proof of the main theorem: first, a central limit theorem Corollary~\ref{cor:CLT}; second, definitions of the functions $f(\cdot,\delta)$ and $g(\cdot)$; third, a continuity result Lemma~\ref{l:continuity}; and fourth, a result Lemma~\ref{l:interpolation} that allows us to change from discrete-time processes to continuous-time processes.
 
 First, we are going to see that the centralized sum of the output
 data $\mathcal{C}_x(\delta,t)$ converges to a Brownian motion in the sense of $D_{\infty}:=D[0,\infty)$,
@@ -504,7 +503,7 @@ for the Skorohod topology.
 The following lemma shows that the centralized sum of the output
 data with $t$ changed by $t/\delta^{2}$ converges to a Brownian
 motion in the sense of $D_{\infty}$. 
-\\
+
 \begin{lemma}
 % For each $x\in\left\{ 1\ldots,k\right\} $, we define
 % \[
@@ -566,7 +565,6 @@ if and only if $Z_{n}^{i}\rightarrow Z_{0}^{i}$ for all $i\in\left\{ 1,\ldots,k\
 See the Miscellany of  \citeN{billingsley:convergence}. The following corollary follows
 from the previous result and independence.
 
-\vspace{5mm}
 
 \begin{corollary}
     \label{cor:CLT}
@@ -577,7 +575,6 @@ We have that
 as $\delta\rightarrow0$ in the sense of $D_{\infty}^{k}$.
 \end{corollary}
 
-\vspace{5mm}
 
 Now that we have obtained this functional central limit theorem for 
 $\mathcal{C}\left(\delta,\cdot\right)$, we now continue along the proof outline and define the function $f(\cdot,\delta)$ that was sketched there.
@@ -648,7 +645,7 @@ f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\ri
 as $\delta\rightarrow0$ in distribution. We will use the following lemma, which shows a continuity property.
 A proof of Lemma~\ref{l:continuity} may be found in a full version of this paper \cite{fullpaper},
 which will be submitted soon to arXiv. 
-\\
+
 \begin{lemma}
 Let $\left\{ \delta_{n}\right\} \subset\left(0,\infty\right)$ such
 that $\delta_{n}\rightarrow0$. If $D_{s}\equiv\{Z\in D\left[0,\infty\right)^{k}:\mbox{ if }\left\{ Z_{n}\right\} \subset D\left[0,\infty\right)^{k}\mbox{ and }$
@@ -657,21 +654,42 @@ $\left\{ f\left(Z_{n},\delta_{n}\right)\right\} $ converges to $\left\{ g\left(Z
 then $ $$\mathbb{P}\left(W\text{\ensuremath{\in}}D_{s}\right)=1$.
 \label{l:continuity}
 \end{lemma}
-\vspace{5mm}
+
+
+% Using that $\mathcal{C}\left(\delta,\cdot\right)$ is right-continuous,
+% we can prove that the difference of the probability of correct selection of the discrete-time BIZ algorithm and the  probability of correct selection of the continuous-time BIZ algorithm converge to zero as $\delta$ goes to zero. Then we can use the continuous-time BIZ algorithm in the limit, i.e. we can use $\mathcal{C}\left(\delta,\tau_{n}\left(\delta\right)\right)$ instead
+% of $\mathcal{C}\left(\delta,\hat{\tau}_{n}\left(\delta\right)\right)$. The details may be found in the full version of this paper \cite{fullpaper}. 
+The following lemma allows us to use the continuous-time BIZ algorithm in the limit. A proof Lemma~\ref{l:interpolation} may be found in a full version of this paper \cite{fullpaper}.
+
+\begin{lemma}
+If samples from system $x\in\left\{ 1\ldots,k\right\} $ are identically
+distributed with finite variance and independent, over time and across alternatives, then
+\begin{equation*}
+    \lim_{\delta\rightarrow0} \mathbb{P}\left( h\left( \left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right) \right) =k\right) = \lim_{\delta\rightarrow0}
+ \mathbb{P}\left(
+ f\left(\mathcal{C}\left(\delta,t\right),\delta\right)=1
+ \right).
+\end{equation*}
+
+\label{l:interpolation}
+\end{lemma}
+
+
+
 
 \subsection{The Main Result}
 
 \begin{theorem}
 If samples from system $x\in\left\{ 1\ldots,k\right\} $ are identically
 distributed and independent, over time and across alternatives, then
-$\mbox{lim}_{\delta\rightarrow0}Pr\left\{ \mbox{BIZ selects }k\right\} \geq P*$
+$\mbox{lim}_{\delta\rightarrow0}\mbox{PCS}(\delta) \geq P*$
 provided $\mu_{k}=a_{k}\delta,\mu_{k-1}=a_{k-1}\delta,\ldots,\mu_{1}=a_{1}\delta$,
 $a_{k}>a_{k-1}\geq \cdots \geq a_{1}$, $a_{k}-a_{k-1}\ge1$, and the variances are finite and
 do not depend on $\delta$.
 
 Furthermore,
 \[
-\inf_{a\in PZ\left(1\right)}\mbox{lim}_{\delta\rightarrow0}\mathbb{P}\left(CS_{\delta}\right)=P^{*}
+\inf_{a\in PZ\left(1\right)}\mbox{lim}_{\delta\rightarrow0}\mbox{PCS}(\delta)=P^{*}
 \]
 where $PZ\left(1\right)=\left\{ a\in\mathbb{R}^{k}:a_{k}-a_{k-1}>1, a_{k}>a_{k-1}\geq \cdots \geq a_{1} \right\} $. 
 
@@ -721,9 +739,9 @@ h\left(\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\
 \end{equation*}
 and the probability of correct selection $\mbox{PCS}(\delta)$ is
 \begin{equation*}
-    \mbox{PCS}(\delta) = P\left( h\left( \left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right) \right) =k\right).
+    \mbox{PCS}(\delta) =  \mathbb{P}\left( h\left( \left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right) \right) =k\right).
 \end{equation*}
-By Lemma~\ref{l:new}, as $\delta\to0$, we have that 
+By Lemma~\ref{l:interpolation}, as $\delta\to0$, we have that 
 \begin{equation}
 \lim_{\delta\to0}
 \mbox{PCS}(\delta)
@@ -788,42 +806,40 @@ Combining
 \section{NUMERICAL EXPERIMENTS}
 
 We show the performance of the BIZ procedure in discrete time with maximum elimination
-($c=1-(P^*)^\frac{1}{k-1}$)when $\delta$ goes to zero. We plot both the PCS and the expected total number 
-of samples simulated divided by the number of systems, denoted by $E[N]/k$. We consider this quotient 
-to normalize the number of samples used by the algorithm.
+($c=1-(P^*)^\frac{1}{k-1}$) when $\delta$ goes to zero. We plot the PCS of three different examples.
+
 
 First, we consider the known variance case. Specifically, we consider a slippage configuration 
 with $100$ systems normally distributed, where $\mu_{k}=\delta,\mu_{k-1}=0,\dots,\mu_{1}=0$, $\delta$ is 
 within the interval $[0.1,10]$, and $\lambda_{100}=1,\lambda_{99}=1+\frac{(0.5)(98)}{99},\cdots,\lambda_{1}=0.5$. Here, $P^*=0.9$ and $n_{0}=0$.
 Figure ~\ref{fig: tahi3} shows that in this case the IZ guarantee is always satisfied, and the bound on probability of correct selection is tight when $\delta$ goes to zero.
 When $\delta$ is big enough, the PCS is almost one because the difference between the best system and the others is large enough to be easily identifiable by the
-BIZ procedure.
+BIZ procedure. Here, the points plotted have central confidence intervals of length at most $0.014$. 
 
 
 
 \begin{figure}[h]
   \centering
-   \begin{subfigure}[b]{0.4\textwidth}
+   \begin{subfigure}[b]{0.3\textwidth}
       \centering
        \includegraphics[width=0.7\textwidth]{plot5}
-    \caption{Known variances and $P^*=0.9$. In this example, our theorem is true: the IZ guarantee is always satisfied and the inequality is tight as $\delta$ goes to zero.
+    \caption{
     \label{fig: tahi3}}
    \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
          \includegraphics[width=0.7\textwidth]{plot3}
-             \caption{Unknown variances and $P^*=0.9$. In this example, our theorem is true: the IZ guarantee is satisfied and the inequality is tight as delta goes to zero. If we want that the IZ guarantee be 
-    satisfied in all the cases, we can just increment $n_{0}$.
+             \caption{
     \label{fig: tahi2}}
     \end{subfigure}
         \hfill
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{subfigure}[b]{0.3\textwidth}
         \centering
          \includegraphics[width=0.7\textwidth]{plot1}
-    \caption{Known variances, $P^*=0.9$ This was a hard example to find and it was specially chosen to ilustrate our theorem. In practice, we would choose $n_{0}>0$ and the IZ guarantee will be satisfied. \label{fig: tahi}}
+    \caption{ \label{fig: tahi}}
     \end{subfigure}
-    \caption{PCS for different numerical experiments
+    \caption{(a)  Known variances and $P^*=0.9$. In this example, our theorem is true: the IZ guarantee is always satisfied and the inequality is tight as $\delta$ goes to zero. (b) Unknown variances and $P^*=0.9$. In this example, our theorem is true: the IZ guarantee is satisfied and the inequality is tight as delta goes to zero. If we want that the IZ guarantee be satisfied in all the cases, we can just increment $n_{0}$. (c) Known variances, $P^*=0.9$ This was a hard example to find and it was specially chosen to illustrate our theorem. In practice, we would choose $n_{0}>0$ and the IZ guarantee will be satisfied.
 \label{fig:tahi10}}
 
 \end{figure}  
@@ -834,18 +850,17 @@ with $100$ systems normally distributed, where $\mu_{100}=\delta,\mu_{99}=0,\dot
 within the interval $[0.1,10]$, and $\lambda_{100}=10,\lambda_{99}=\cdots=\lambda_{1}=1$. Here, $P^*=0.9$ and $n_{0}=15$.
 Figure ~\ref{fig: tahi2} gives us evidence that our theorem should also be true when the variances are unknown. We should note that
 this is a difficult example, and still we have a good performance in most of the cases. However, if we want to always satisfy the IZ guarantee, 
-we can just increment the parameter $n_{0}$.
+we can just increment the parameter $n_{0}$. Here, the points plotted have central confidence intervals of length at most $0.014$. 
 
 
- Now, we consider a pathological case when the variances are known. Specifically, we consider a slippage configuration 
+Now, we consider a pathological case when the variances are known. Specifically, we consider a slippage configuration 
 with $100$ systems normally distributed, where $\mu_{100}=\delta,\mu_{99}=0,\dots,\mu_{1}=0$, $\delta$ is 
 within the interval $[0.1,10]$, and $\lambda_{100}=10,\lambda_{99}=\cdots=\lambda_{1}=1$. Here, $P^*=0.9$ and $n_{0}=0$.
-This configurations was specially chosen to ilustrate our theorem, and so it is harder than typical configurations.
+This configurations was specially chosen to illustrate our theorem, and so it is harder than typical configurations.
 In fact, in most of the configurations the algorithm always satisfies the IZ guarantee. Furthermore, in practice, we would
 have run the algorithm with $n_{0}>0$, and the BIZ algorithm would have worked well even in this pathological example. 
 Figure ~\ref{fig: tahi} shows that PCS converges to $0.9$ as $\delta$ goes to zero. Specifically, PCS is equal to $0.904$ when $\delta=0.1$.
-This figure also shows that the bound is tight  on probability of correct selection. We should also note that the number of samples required increases very fast. 
-Here, the points plotted have central confidence intervals of length at most $0.014$. 
+This figure also shows that the bound is tight  on probability of correct selection. We should also note that the number of samples required increases very fast. Here, the points plotted have central confidence intervals of length at most $0.014$. 
 
 
 

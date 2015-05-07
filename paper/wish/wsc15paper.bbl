@@ -1,11 +1,5 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\citeauthoryear{??}{ful}{2015}]{fullpaper}
- 2015.
-\newblock ``Asymptotic Validity of the Bayes-Inspired Indifference Zone
-  Procedure: The General Distribution Known Variance Case''.
-\newblock Technical report.
-
 \bibitem[\protect\citeauthoryear{Bechhofer}{Bechhofer}{1954}]{Bechhofer:1954}
 Bechhofer, R.~E. 1954.
 \newblock ``A Single-Sample multiple-decision procedure for selecting the
@@ -184,8 +178,16 @@ Swisher, J., S.~Jacobson, and E.~Y{\"u}cesan. 2003.
   134--154.
 
 
+\bibitem[\protect\citeauthoryear{Toscano-Palmerin and Frazier}{Toscano-Palmerin
+  and Frazier}{2015}]{fullpaper}
+Toscano-Palmerin, S., and P.~I. Frazier. 2015.
+\newblock ``Asymptotic Validity of the Bayes-Inspired Indifference Zone
+  Procedure: The General Distribution Known Variance Case''.
+\newblock Technical report.
+\newblock in preparation.
+
 \bibitem[\protect\citeauthoryear{Wang and Kim}{Wang and
-  Kim}{2013}]{kim:Conserv}
+  Kim}{2013}]{Kim:Conserv}
 Wang, H., and S.-H. Kim. 2013.
 \newblock ``Reducing the conservativeness of fully sequential indifference-zone
   procedures''.

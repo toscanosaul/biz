@@ -1,24 +1,8 @@
-This is BibTeX, Version 0.99d (TeX Live 2014/MacPorts 2014_1)
+This is BibTeX, Version 0.99d (TeX Live 2014/MacPorts 2014_5)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: wsc15paper.aux
 The style file: wsc.bst
 Database file #1: wsc15paper.bib
-I was expecting a `,' or a `}'---line 322 of file wsc15paper.bib
- :     
- :     Author = {Saul Toscano-Palmerin and Peter I. Frazier},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Warning--no key, author in fullpaper
-Warning--no author, editor, or organization in fullpaper
-Warning--to sort, need author or key in fullpaper
-Warning--no key, author in fullpaper
-Warning--no author, editor, or organization in fullpaper
-Warning--no key, author in fullpaper
-Warning--no author, editor, or organization in fullpaper
-Warning--no key, author in fullpaper
-Warning--no author, editor, or organization in fullpaper
-Warning--empty author in fullpaper
-Warning--empty institution in fullpaper
 Warning--empty organization in dieker:2012
 Warning--no number and no volume in Frazier:Tutorial
 Warning--page numbers missing in Frazier:Tutorial
@@ -28,45 +12,46 @@ Warning--empty organization in kim:20062
 Warning--empty organization in kim:2007
 Warning--no number and no volume in kim:2011
 Warning--page numbers missing in Paulson:1994
+Warning--empty institution in fullpaper
 You've used 26 entries,
             2956 wiz_defined-function locations,
-            788 strings with 8977 characters,
-and the built_in function-call counts, 16695 in all, are:
-= -- 1474
-> -- 1005
+            790 strings with 9033 characters,
+and the built_in function-call counts, 16956 in all, are:
+= -- 1498
+> -- 1057
 < -- 4
-+ -- 297
-- -- 369
-* -- 1384
-:= -- 2979
-add.period$ -- 81
++ -- 313
+- -- 389
+* -- 1394
+:= -- 3067
+add.period$ -- 82
 call.type$ -- 26
-change.case$ -- 146
+change.case$ -- 148
 chr.to.int$ -- 25
-cite$ -- 50
-duplicate$ -- 483
-empty$ -- 1133
-format.name$ -- 416
-if$ -- 3117
+cite$ -- 36
+duplicate$ -- 482
+empty$ -- 1119
+format.name$ -- 440
+if$ -- 3153
 int.to.chr$ -- 2
 int.to.str$ -- 0
 missing$ -- 30
-newline$ -- 157
-num.names$ -- 251
-pop$ -- 134
+newline$ -- 158
+num.names$ -- 261
+pop$ -- 133
 preamble$ -- 1
-purify$ -- 325
+purify$ -- 327
 quote$ -- 0
-skip$ -- 519
+skip$ -- 525
 stack$ -- 0
-substring$ -- 912
+substring$ -- 908
 swap$ -- 151
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 549
-warning$ -- 20
-while$ -- 271
+warning$ -- 10
+while$ -- 281
 width$ -- 0
-write$ -- 380
-(There was 1 error message)
+write$ -- 383
+(There were 10 warnings)
