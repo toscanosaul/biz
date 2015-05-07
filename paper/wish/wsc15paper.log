@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/MacPorts 2014_1) (preloaded format=pdflatex 2014.7.15)  7 MAY 2015 13:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/MacPorts 2014_1) (preloaded format=pdflatex 2014.7.15)  7 MAY 2015 14:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -412,7 +412,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \c@definition=\count122
 \c@lemma=\count123
 
-(./wsc15paper.aux)
+No file wsc15paper.aux.
 \openout1 = `wsc15paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 156.
@@ -431,7 +431,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 156.
 LaTeX Font Info:    ... okay on input line 156.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 156.
 
- (/opt/local/share/texmf-texlive/tex/latex/psnfss/ot1ptm.fd
+(/opt/local/share/texmf-texlive/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 Package caption Info: Begin \AtBeginDocument code.
@@ -533,9 +533,137 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 190.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 190.
- [1{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+LaTeX Warning: Citation `Bechhofer:1954' on page 1 undefined on input line 215.
+
+
+
+LaTeX Warning: Citation `Bechhofer:1968' on page 1 undefined on input line 216.
+
+
+
+LaTeX Warning: Citation `Bechhofer:1995' on page 1 undefined on input line 217.
+
+
+
+LaTeX Warning: Citation `swisher:survey' on page 1 undefined on input line 217.
+
+
+
+LaTeX Warning: Citation `kim:20062' on page 1 undefined on input line 217.
+
+
+LaTeX Warning: Citation `kim:2007' on page 1 undefined on input line 217.
+
+
+LaTeX Warning: Citation `Frazier:Tutorial' on page 1 undefined on input line 21
+7.
+
+
+LaTeX Warning: Citation `chen:ocva' on page 1 undefined on input line 217.
+
+
+LaTeX Warning: Citation `glynn2004large' on page 1 undefined on input line 217.
+
+
+
+LaTeX Warning: Citation `Bechhofer:1954' on page 1 undefined on input line 220.
+
+
+
+LaTeX Warning: Citation `Paulson:01' on page 1 undefined on input line 220.
+
+
+LaTeX Warning: Citation `Fabian' on page 1 undefined on input line 220.
+
+
+LaTeX Warning: Citation `Rinott' on page 1 undefined on input line 220.
+
+
+LaTeX Warning: Citation `Harmann:1988' on page 1 undefined on input line 221.
+
+
+LaTeX Warning: Citation `hartmann:sequential' on page 1 undefined on input line
+ 221.
+
+
+LaTeX Warning: Citation `Paulson:1994' on page 1 undefined on input line 221.
+
+
+LaTeX Warning: Citation `Kim:Conserv' on page 1 undefined on input line 224.
+
+
+LaTeX Warning: Citation `Kim:2001' on page 1 undefined on input line 227.
+
+
+LaTeX Warning: Citation `Goldsman:2002' on page 1 undefined on input line 227.
+
+
+LaTeX Warning: Citation `Hong' on page 1 undefined on input line 228.
+
+
+LaTeX Warning: Citation `kim:2011' on page 1 undefined on input line 230.
+
+
+LaTeX Warning: Citation `dieker:2012' on page 1 undefined on input line 231.
+
+[1{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
+
+LaTeX Warning: Citation `Kim:Conserv' on page 2 undefined on input line 235.
+
+
+LaTeX Warning: Citation `Kim:Conserv' on page 2 undefined on input line 235.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 2 undefined on input line 239.
+
+
+LaTeX Warning: Citation `Kim:2001' on page 2 undefined on input line 245.
+
+
+LaTeX Warning: Citation `Bechhofer:1968' on page 2 undefined on input line 246.
+
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 2 undefined on input line 248.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 2 undefined on input line 252.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 2 undefined on input line 254.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 2 undefined on input line 256.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 2 undefined on input line 256.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 2 undefined on input line 256.
+
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Ÿ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Ÿ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Ÿ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Ÿ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Ÿ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Ÿ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Ÿ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Ÿ in font ptmr7t!
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 2 undefined on input line 266.
+
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no Ÿ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
@@ -560,23 +688,71 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no Ÿ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no Ÿ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no Ÿ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no Ÿ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no Ÿ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no Ÿ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no Ÿ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no Ÿ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no Ÿ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no Ÿ in font ptmr7t!
- [2] [3] [4] [5] [6] [7]
+[2]
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 3 undefined on input line 317.
+
+[3]
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 4 undefined on input line 369.
+
+[4]
+
+LaTeX Warning: Reference `eq:q-continuous' on page 5 undefined on input line 43
+9.
+
+
+LaTeX Warning: Reference `eq:q-continuous' on page 5 undefined on input line 45
+7.
+
+
+LaTeX Warning: Reference `eq:q-continuous' on page 5 undefined on input line 46
+0.
+
+
+LaTeX Warning: Reference `eq:q-continuous' on page 5 undefined on input line 46
+4.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 5 undefined on input line 479.
+
+
+LaTeX Warning: Reference `cor:CLT' on page 5 undefined on input line 483.
+
+
+LaTeX Warning: Reference `l:continuity' on page 5 undefined on input line 483.
+
+
+LaTeX Warning: Reference `l:interpolation' on page 5 undefined on input line 48
+3.
+
+
+LaTeX Warning: Citation `billingsley:convergnce2' on page 5 undefined on input 
+line 490.
+
+[5]
+
+LaTeX Warning: Citation `billingsley:convergnce2' on page 6 undefined on input 
+line 522.
+
+[6]
+
+LaTeX Warning: Citation `billingsley:convergence' on page 7 undefined on input 
+line 564.
+
+
+LaTeX Warning: Reference `eq:q' on page 7 undefined on input line 589.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 7 undefined on input line 617.
+
+
+LaTeX Warning: Reference `l:continuity' on page 7 undefined on input line 645.
+
+
+LaTeX Warning: Citation `fullpaper' on page 7 undefined on input line 645.
+
+
 Overfull \hbox (15.82785pt too wide) in paragraph at lines 649--655
 [][]\OT1/ptm/b/n/10.95 Lemma 2 []\OT1/ptm/m/n/10.95 Let $[] \OMS/ztmcm/m/n/10.9
 5 ^^Z []$ \OT1/ptm/m/n/10.95 such that $\OML/ztmcm/m/it/10.95 ^^N[] \OMS/ztmcm/
@@ -586,70 +762,191 @@ m/n/10.95 ! \OT1/ztmcm/m/n/10.95 0$\OT1/ptm/m/n/10.95 . If $\OML/ztmcm/m/it/10.
  ^^Z \OML/ztmcm/m/it/10.95 D [][] []$ $[][][]d[] [] \OT1/ztmcm/m/n/10.95 =
  []
 
-[8] <plot5.png, id=209, 578.16pt x 433.62pt>
-File: plot5.png Graphic file (type png)
- <use plot5.png>
-Package pdftex.def Info: plot5.png used on input line 823.
-(pdftex.def)             Requested size: 140.92792pt x 105.69196pt.
 
-<plot3.png, id=211, 578.16pt x 433.62pt>
-File: plot3.png Graphic file (type png)
- <use plot3.png>
-Package pdftex.def Info: plot3.png used on input line 830.
-(pdftex.def)             Requested size: 140.92792pt x 105.69196pt.
+LaTeX Warning: Reference `l:interpolation' on page 7 undefined on input line 66
+2.
 
-<plot1.png, id=212, 578.16pt x 433.62pt>
-File: plot1.png Graphic file (type png)
- <use plot1.png>
-Package pdftex.def Info: plot1.png used on input line 837.
-(pdftex.def)             Requested size: 140.92792pt x 105.69196pt.
 
+LaTeX Warning: Citation `fullpaper' on page 7 undefined on input line 662.
+
+[7]
+
+LaTeX Warning: Reference `l:interpolation' on page 8 undefined on input line 74
+3.
+
+
+LaTeX Warning: Reference `l:continuity' on page 8 undefined on input line 755.
+
+
+LaTeX Warning: Citation `billingsley:convergence' on page 8 undefined on input 
+line 755.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 8 undefined on input line 768.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 8 undefined on input line 769.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 8 undefined on input line 769.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 8 undefined on input line 771.
+
+
+LaTeX Warning: Reference `eq:convergence1' on page 8 undefined on input line 77
+8.
+
+
+LaTeX Warning: Reference `eq:convergence2' on page 8 undefined on input line 77
+9.
+
+
+LaTeX Warning: Reference `eq:correct' on page 8 undefined on input line 780.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 8 undefined on input line 785.
+
+[8]
+
+LaTeX Warning: Reference `eq:convergence1' on page 9 undefined on input line 79
+4.
+
+
+LaTeX Warning: Reference `eq:convergence2' on page 9 undefined on input line 79
+5.
+
+
+LaTeX Warning: Reference `eq:tight' on page 9 undefined on input line 796.
+
+
+LaTeX Warning: Reference `t:main' on page 9 undefined on input line 807.
+
+
+LaTeX Warning: Reference `sec:BIZ' on page 9 undefined on input line 807.
+
+
+LaTeX Warning: Reference `fig: tahi3' on page 9 undefined on input line 810.
+
+
+LaTeX Warning: Reference `fig: tahi3' on page 9 undefined on input line 810.
+
+
+LaTeX Warning: File `plot5.pdf' not found on input line 816.
+
+
+! Package pdftex.def Error: File `plot5.pdf' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.816 ...egraphics[width=0.9\textwidth]{plot5.pdf}
+                                                  
+? 
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 816.
+
+(/opt/local/share/texmf-texlive/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+
+LaTeX Warning: File `unknown.pdf' not found on input line 823.
+
+
+! Package pdftex.def Error: File `unknown.pdf' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.823 ...raphics[width=0.9\textwidth]{unknown.pdf}
+                                                  
+? 
+
+LaTeX Warning: File `plot3.pdf' not found on input line 830.
+
+
+! Package pdftex.def Error: File `plot3.pdf' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.830 ...egraphics[width=0.9\textwidth]{plot3.pdf}
+                                                  
+? 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9] (./wsc15paper.bbl [10 <./plot5.png> <./plot3.png> <./plot1.png>])
-Underfull \hbox (badness 10000) in paragraph at lines 899--900
+
+LaTeX Warning: Reference `fig: tahi2' on page 9 undefined on input line 837.
+
+
+LaTeX Warning: Reference `t:main' on page 9 undefined on input line 837.
+
+
+LaTeX Warning: Reference `fig: tahi' on page 9 undefined on input line 852.
+
+
+LaTeX Warning: Citation `Frazier:BIZ' on page 9 undefined on input line 866.
+
+[9] (./wsc15paper.bbl [10])
+Underfull \hbox (badness 10000) in paragraph at lines 891--892
 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 901--903
+
+Underfull \hbox (badness 10000) in paragraph at lines 893--895
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 908.
-[12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 908.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 900.
+[11] [12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 900.
  (./wsc15paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 908.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 908.
-Package rerunfilecheck Info: File `wsc15paper.out' has not changed.
-(rerunfilecheck)             Checksum: 852098786C4B9EDE834C1736B85E812D;601.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 908.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 900.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 900.
+
+
+Package rerunfilecheck Warning: File `wsc15paper.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `wsc15paper.out':
+(rerunfilecheck)             Before: 3FA5F25AD5519A51348A704825E7F1BA;500
+(rerunfilecheck)             After:  852098786C4B9EDE834C1736B85E812D;601.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 900.
  ) 
 Here is how much of TeX's memory you used:
- 7912 strings out of 495025
- 116000 string characters out of 6181438
- 204670 words of memory out of 5000000
- 10895 multiletter control sequences out of 15000+600000
- 35872 words of font info for 88 fonts, out of 8000000 for 9000
+ 7930 strings out of 495025
+ 116273 string characters out of 6181438
+ 200881 words of memory out of 5000000
+ 10911 multiletter control sequences out of 15000+600000
+ 36387 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,19n,47p,754b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,19n,47p,828b,718s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/opt/local/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</opt/local/share
 /texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/local/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/local/share/texmf-tex
 live/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb></opt/local/share/texmf-texlive/fonts/
 type1/public/amsfonts/symbols/msbm10.pfb></opt/local/share/texmf-texlive/fonts/
-type1/public/rsfs/rsfs10.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/sy
-mbol/usyr.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pfb><
-/opt/local/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></opt/local/sha
-re/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></opt/local/share/texmf-texli
-ve/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wsc15paper.pdf (12 pages, 241880 bytes).
+type1/public/rsfs/rsfs10.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/co
+urier/ucrr8a.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pf
+b></opt/local/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pfb></opt/local/s
+hare/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></opt/local/share/texmf-tex
+live/fonts/type1/urw/times/utmr8a.pfb></opt/local/share/texmf-texlive/fonts/typ
+e1/urw/times/utmri8a.pfb>
+Output written on wsc15paper.pdf (12 pages, 160909 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
- 267 compressed objects within 3 object streams
+ 213 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
  77 named destinations out of 1000 (max. 500000)
- 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
 
