@@ -4,54 +4,51 @@ The top-level auxiliary file: wsc15paper.aux
 The style file: wsc.bst
 Database file #1: wsc15paper.bib
 Warning--empty organization in dieker:2012
-Warning--no number and no volume in Frazier:Tutorial
-Warning--page numbers missing in Frazier:Tutorial
-Warning--no number and no volume in Frazier:BIZ
-Warning--page numbers missing in Frazier:BIZ
+Warning--empty organization in Frazier:Tutorial
+Warning--empty organization in glynn2004large
 Warning--empty organization in kim:20062
 Warning--empty organization in kim:2007
-Warning--no number and no volume in kim:2011
-Warning--page numbers missing in Paulson:1994
+Warning--empty organization in kim:2011
 Warning--empty institution in fullpaper
-You've used 26 entries,
+You've used 25 entries,
             2956 wiz_defined-function locations,
-            790 strings with 9033 characters,
-and the built_in function-call counts, 16956 in all, are:
-= -- 1498
-> -- 1057
-< -- 4
-+ -- 313
-- -- 389
-* -- 1394
-:= -- 3067
+            797 strings with 9319 characters,
+and the built_in function-call counts, 17452 in all, are:
+= -- 1535
+> -- 1096
+< -- 6
++ -- 324
+- -- 398
+* -- 1440
+:= -- 3114
 add.period$ -- 82
-call.type$ -- 26
-change.case$ -- 148
+call.type$ -- 25
+change.case$ -- 142
 chr.to.int$ -- 25
-cite$ -- 36
-duplicate$ -- 482
-empty$ -- 1119
-format.name$ -- 440
-if$ -- 3153
-int.to.chr$ -- 2
+cite$ -- 32
+duplicate$ -- 513
+empty$ -- 1158
+format.name$ -- 446
+if$ -- 3302
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 30
-newline$ -- 158
-num.names$ -- 261
-pop$ -- 133
+missing$ -- 29
+newline$ -- 153
+num.names$ -- 256
+pop$ -- 132
 preamble$ -- 1
-purify$ -- 327
+purify$ -- 316
 quote$ -- 0
-skip$ -- 525
+skip$ -- 555
 stack$ -- 0
-substring$ -- 908
-swap$ -- 151
-text.length$ -- 4
+substring$ -- 985
+swap$ -- 179
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 549
-warning$ -- 10
-while$ -- 281
+type$ -- 530
+warning$ -- 7
+while$ -- 282
 width$ -- 0
-write$ -- 383
-(There were 10 warnings)
+write$ -- 382
+(There were 7 warnings)
