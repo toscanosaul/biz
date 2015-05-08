@@ -252,7 +252,7 @@ The contribution of this work is to prove the asymptotic validity of the BIZ pro
 We also show that this bound on worst-case PCS is asymptotically tight as $\delta$ goes to zero, 
 showing that the BIZ procedure successfully eliminates conservatism due to Bonferonni's inequality in this more general setting, just as was demonstrated by \citeN{Frazier:BIZ} for more restricted settings.
 
-To simplify our analysis, we analyze a slight modification of the version of the BIZ procedure presented in \cite{Frazier:BIZ}, which keeps a certain parameter $\lambda^2_z$ fixed rather than letting it vary as did \cite{Frazier:BIZ}.  Numerical experiments on typical cases show little difference in performance between the version of BIZ we analyze and the version in \cite{Frazier:BIZ}.
+To simplify our analysis, we analyze a slight modification of the version of the BIZ procedure presented in \cite{Frazier:BIZ}, which keeps a certain parameter $\lambda^2_z$ fixed rather than letting it vary as did \cite{Frazier:BIZ}.  Numerical experiments on typical cases show little difference in performance between the version of BIZ we analyze and the version in \citeN{Frazier:BIZ}.
 We conjecture that a proof technique similar to the one presented here can be used to show asymptotic validity of the BIZ procedure when
 the variances are unknown, and we present numerical experiments that support this belief. 
 
@@ -310,27 +310,23 @@ are possible candidates for the best system, and over the time alternatives are 
 The procedure ends when there is only one alternative in the contention
 set and this remain alternative is chosen as the best. 
 
-Frazier \cite{Frazier:BIZ} showed that the BIZ procedure with known common variance
-satisfies the IZ guarantee when the systems follow the normal distribution
-, with tight bounds on worst-case preference-zone in continuous time.
-He also proved that this procedure retains the IZ guarantee when the
-systems follow the normal distribution, and the variances are known
-and are integer multiples of a common value. The continuous time version
-of this procedure also satisfies the IZ guarantee, with a tight worst-case
+\citeN{Frazier:BIZ} shows that the BIZ procedure satisfies the IZ guarantee 
+under the assumptions that samples are normally distributed, variances are known, and
+the variances are either common across alternatives, or have an integer multiple structure.
+The continuous time version of this procedure also satisfies the IZ guarantee, with a tight worst-case
 preference-zone PCS bound.
 
-The discrete-time BIZ procedure for unknown and/or heterogeneous sampling
+A slight modification of the discrete-time BIZ procedure for unknown and/or heterogeneous sampling
 variances is given below.  It takes a variable number of samples
 from each alternative, and $n_{tx}$ is this number. This algorithm
 depends on a collection of integers $B_{1},\ldots,B_{k}$, $P^{*},c,\delta$
-and $n_{0}$. $n_{0}$ is the number of samples to use in the first
-stage of samples, and $100$ is the recommended value for $n_{0}$.
+and $n_{0}$. Here, $n_{0}$ is the number of samples to use in the first
+stage of samples, and $100$ is the recommended value for $n_{0}$. The paramater
 $B_{x}$ controls the number of samples taken from system $x$ in
 each stage. To simplify our analysis, the procedure presented is a slight modification of the original BIZ 
-procedure \cite{Frazier:BIZ} where $z \in \mbox{arg max}_{x\in A} \lambdahat^2_{tx}$, instead 
-of $z \in \mbox{arg min}_{x\in A} n_{tx} / \lambdahat^2_{tx}$. Numerical experiments on 
-common cases show little difference in the PCS between the version of BIZ
-we analyze and the version in \cite{Frazier:BIZ}.
+procedure \cite{Frazier:BIZ} where $z \in \mbox{arg max}_{x\in A} \lambda^2_{x}$, instead 
+of $z \in \mbox{arg min}_{x\in A} n_{tx} / \lambda^2_{x}$. According to numerical experiments on common cases, there is little difference in the PCS between the version of BIZ
+we analyze and the version in \citeN{Frazier:BIZ}.
 
 For each $t$, $x\in\left\{ 1,\ldots,k\right\} $, and subset $A\subset\left\{ 1,\ldots,k\right\} $,
 we define a function
@@ -347,7 +343,7 @@ from alternative $x$ thus far and $Z_{tx}=Y_{n_{tx},x}$.
 $\lambdahat^2_{tx}$ with the true values $\lambda^2_x$, and set $n_0=0$.     
 
 \STATE For each $x$, sample alternative $x$ $n_0$ times and set $n_{0x} \leftarrow n_0$.     
-Let $W_{0x}$ and $\lambdahat^2_{0x}$ be the sample mean and sample variance respectively of these samples.     Let $t\leftarrow 0$.Let $z \in \mbox{arg max}_{x\in A} \lambdahat^2_{tx}$.     
+Let $W_{0x}$ and $\lambdahat^2_{0x}$ be the sample mean and sample variance respectively of these samples.     Let $t\leftarrow 0$. Let $z \in \mbox{arg max}_{x\in A} \lambdahat^2_{x}$, where $\lambdahat^2_{x}$ is the empirical estimator of the variance $\lambda^2_x$ using $n_0$ samples if $x\in A$.    
 \STATE Let $A \leftarrow \{ 1,\ldots, k\}$, $\upthresh \leftarrow P^*$.
 \WHILE{$x\in\mbox{max}_{x\in A} q'_{tx}\left(A\right)<P$}
 \WHILE{$\mbox{min}_{x\in A} q'_{tx}\left(A\right) \le c$}
