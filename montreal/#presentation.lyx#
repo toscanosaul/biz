@@ -456,7 +456,186 @@ textrm{}
 
 \end_deeper
 \end_deeper
-\begin_layout Standard
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Conservatism Causes the Number of Samples Taken to Be Larger than Necessary
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A user wants to meet the IZ guarantee and have 
+\begin_inset Formula $\mathbb{E}\left[\mbox{\# of samples}\right]$
+\end_inset
+
+ as small as possible.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textrm{}
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The conservatism can be defined as 
+\begin_inset Formula $\mbox{PCS}\left(\mu\right)-P^{*}$
+\end_inset
+
+.
+ If this number is large, then 
+\begin_inset Formula $\mathbb{E}\left[\mbox{\# of samples}\right]$
+\end_inset
+
+ may be large.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mbox{sample size}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Sources of Conservatism
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The change from discrete time to continuous time often used to show IZ guarantee
+s.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textrm{}
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The configuration under consideration is not a worst-case configuration.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textrm{}
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bonferroni’s inequality.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
 
 \end_layout
 
@@ -489,7 +668,8 @@ status open
 
 \begin_deeper
 \begin_layout Itemize
-BIZ is an elimination procedure that does not use Bonferroni's inequality.
+BIZ is an elimination procedure that eliminates the use of Bonferroni’s
+ inequality, reducing conservatism.
  
 \begin_inset Newline newline
 \end_inset
@@ -570,6 +750,40 @@ textrm{}
 
 \end_layout
 
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Bayes-Inspired IZ (BIZ) Procedure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
 \begin_layout Itemize
 It satisfies the IZ guarantee under the follwing assumptions:
 \end_layout
@@ -594,10 +808,62 @@ Known variances.
 \begin_layout Itemize
 Variances are either common across alternatives, or have an integer multiple
  structure.
- 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textrm{}
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+Based on empirical eveidence, the BIZ procedure satisfies the IZ guarantee
+ almost always even when the last two assumptios are not true.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textrm{}
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Our contribution is to theoretically explain why it works.
+ Specifically, we show asymptotic validity of the BIZ procedure.
+ 
+\end_layout
+
 \end_deeper
 \end_deeper
 \begin_layout Separator
@@ -783,7 +1049,7 @@ The second maps the previous time-changed random walk through a non-linear
 , where
 \begin_inset Formula 
 \[
-q_{tx}^{'}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx'}}{n_{tx'}}\right)\right.
+q_{tx}^{'}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx'}}{n_{tx'}}\right):=q^{'}\left(\left(Z_{tx}:x\in A\right),\delta,t\right)\right.
 \]
 
 \end_inset
@@ -950,8 +1216,7 @@ The same selection decision is obtained if we apply the map
 \begin_inset Formula $\left(q_{tx}\left(A\right):t\in\delta^{2}\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
 \end_inset
 
- 
-where 
+ where 
 \begin_inset Formula $q_{tx}\left(A\right):=q^{'}\left(\left(Z_{\frac{t}{\delta^{2}}x}:x\in A\right),\delta,t\right)$
 \end_inset
 
@@ -959,8 +1224,6 @@ where
 \begin_inset Newline newline
 \end_inset
 
-
-\lang english
 
 \begin_inset ERT
 status open
@@ -1097,7 +1360,6 @@ status open
 
 \begin_deeper
 \begin_layout Itemize
-
 The following centralized version of 
 \begin_inset Formula $Z_{\frac{t}{\delta^{2}}x}$
 \end_inset
@@ -1118,8 +1380,6 @@ converges to a Brownian motion as
 \begin_inset Newline newline
 \end_inset
 
-
-\lang english
 
 \begin_inset ERT
 status open
@@ -1229,12 +1489,9 @@ status open
 
  is the selection decision from applying the BIZ procedure in continuous
  time.
-
 \begin_inset Newline newline
 \end_inset
 
-
-\lang english
 
 \begin_inset ERT
 status open
@@ -1256,7 +1513,6 @@ textrm{}
 \end_layout
 
 \begin_layout Itemize
-
 The BIZ procedure satisfies the IZ guarantee when applied in continuous
  time, and so 
 \begin_inset Formula $\mathbb{E}\left[g\left(W\right)\right]\geq P^{*}$
@@ -1266,8 +1522,6 @@ The BIZ procedure satisfies the IZ guarantee when applied in continuous
 \begin_inset Newline newline
 \end_inset
 
-
-\lang english
 
 \begin_inset ERT
 status open
