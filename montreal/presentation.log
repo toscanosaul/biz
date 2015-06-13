@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/MacPorts 2014_5) (preloaded format=pdflatex 2015.2.21)  10 JUN 2015 03:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/MacPorts 2014_5) (preloaded format=pdflatex 2015.2.21)  13 JUN 2015 10:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1276,10 +1276,10 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 491.
  ) 
 Here is how much of TeX's memory you used:
- 18999 strings out of 494213
- 362211 string characters out of 6157463
- 437082 words of memory out of 5000000
- 21747 multiletter control sequences out of 15000+600000
+ 19003 strings out of 494213
+ 362243 string characters out of 6157463
+ 437083 words of memory out of 5000000
+ 21751 multiletter control sequences out of 15000+600000
  26342 words of font info for 68 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  48i,16n,57p,575b,977s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1309,7 +1309,7 @@ lic/cm-super/sfss1000.pfb></opt/local/share/texmf-texlive/fonts/type1/public/cm
 /sfss1440.pfb></opt/local/share/texmf-texlive/fonts/type1/public/cm-super/sfss2
 488.pfb></opt/local/share/texmf-texlive/fonts/type1/public/cm-super/sfsx0600.pf
 b>
-Output written on presentation.pdf (19 pages, 335569 bytes).
+Output written on presentation.pdf (19 pages, 335594 bytes).
 PDF statistics:
  759 PDF objects out of 1000 (max. 8388607)
  637 compressed objects within 7 object streams
