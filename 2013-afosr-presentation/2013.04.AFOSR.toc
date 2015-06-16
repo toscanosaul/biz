@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.10pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Part I: Worst-case Performance Guarantees}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Ranking and Selection with Tight Bounds on Solution Quality}{3}{0}{1}
+\beamer@sectionintoc {2}{Part II: Average-case Performance}{491}{0}{2}
+\beamer@subsectionintoc {2}{1}{Materials Science: Finding peptides with specific nanoparticle binding properties}{494}{0}{2}

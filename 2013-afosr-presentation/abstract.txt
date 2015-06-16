@@ -1,0 +1,11 @@
+Optimal Learning: Bayesian Methods for Simulation Optimization 
+
+We provide an overview of recent results using Bayesian methods for simulation optimization.  Bayesian methods allows us to design algorithms with good average-case performance, in situations where worst-case performance is not a meaningful measure of algorithm quality.  We present results for two classic problems from (stochastic) simulation optimization, the stochastic root-finding problem and the ranking and selection problem, as well as more modern simulation optimization problems involving complex, long-running simulators.
+
+-) For the indifference-zone ranking and selection problem, we describe a new algorithm with tight bounds on solution quality.  This tight bound allows it to provide solutions with fewer simulation samples.  This algorithm is the first sequential elimination procedure with tight bounds on probability of correct selection for more than two alternatives, and thus represents a solution to a long-standing open problem in simulation optimization.
+
+-) For the stochastic-root finding problem, we develop a new algorithm based on the probabilistic bisection algorithm, and show its convergence rate.
+
+-) For problems with complex, long-running simulators and many local optima, we present new methods based on Bayesian value of information analysis that can take advantage of two types of special problem structure: common random numbers; and simulation noise driven by a low-dimensional random vector.  For the latter case, we present an application to the design of cardiovascular bypass grafts.
+
+Finally, we show how these methods link to experimental design for the development of bio-inspired nano materials, under the AFOSR-NMSE program.

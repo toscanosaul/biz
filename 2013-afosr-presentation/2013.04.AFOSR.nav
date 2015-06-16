@@ -1,0 +1,1024 @@
+\beamer@endinputifotherversion {3.10pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\sectionentry {1}{Part I: Worst-case Performance Guarantees}{2}{Part I: Worst-case Performance Guarantees}{0}}
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\slideentry {1}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{Ranking and Selection with Tight Bounds on Solution Quality}}\headcommand {\beamer@subsectionpages {2}{2}}
+\headcommand {\slideentry {1}{1}{1}{3/3}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {1}{1}{2}{4/4}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\slideentry {1}{1}{3}{5/5}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\slideentry {1}{1}{4}{6/6}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {1}{1}{5}{7/7}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\slideentry {1}{1}{6}{8/8}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {1}{1}{7}{9/9}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {1}{1}{8}{10/10}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\slideentry {1}{1}{9}{11/11}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {1}{1}{10}{12/12}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {1}{1}{11}{13/13}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {1}{1}{12}{14/14}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\slideentry {1}{1}{13}{15/15}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\slideentry {1}{1}{14}{16/16}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\slideentry {1}{1}{15}{17/17}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\slideentry {1}{1}{16}{18/18}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\slideentry {1}{1}{17}{19/19}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {1}{1}{18}{20/20}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\slideentry {1}{1}{19}{21/21}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\slideentry {1}{1}{20}{22/22}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\slideentry {1}{1}{21}{23/23}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\slideentry {1}{1}{22}{24/24}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\slideentry {1}{1}{23}{25/25}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\slideentry {1}{1}{24}{26/26}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\slideentry {1}{1}{25}{27/27}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\slideentry {1}{1}{26}{28/28}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {28}{28}}
+\headcommand {\slideentry {1}{1}{27}{29/29}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {29}{29}}
+\headcommand {\slideentry {1}{1}{28}{30/30}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\slideentry {1}{1}{29}{31/31}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {31}{31}}
+\headcommand {\slideentry {1}{1}{30}{32/32}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {32}{32}}
+\headcommand {\slideentry {1}{1}{31}{33/33}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {33}{33}}
+\headcommand {\slideentry {1}{1}{32}{34/34}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {34}{34}}
+\headcommand {\slideentry {1}{1}{33}{35/35}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {35}{35}}
+\headcommand {\slideentry {1}{1}{34}{36/36}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\slideentry {1}{1}{35}{37/37}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {37}{37}}
+\headcommand {\slideentry {1}{1}{36}{38/38}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {38}{38}}
+\headcommand {\slideentry {1}{1}{37}{39/39}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {39}{39}}
+\headcommand {\slideentry {1}{1}{38}{40/40}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\slideentry {1}{1}{39}{41/41}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\slideentry {1}{1}{40}{42/42}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {1}{1}{41}{43/43}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\slideentry {1}{1}{42}{44/44}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {44}{44}}
+\headcommand {\slideentry {1}{1}{43}{45/45}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\slideentry {1}{1}{44}{46/46}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\slideentry {1}{1}{45}{47/47}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {1}{1}{46}{48/48}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\slideentry {1}{1}{47}{49/49}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {49}{49}}
+\headcommand {\slideentry {1}{1}{48}{50/50}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {50}{50}}
+\headcommand {\slideentry {1}{1}{49}{51/51}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {51}{51}}
+\headcommand {\slideentry {1}{1}{50}{52/52}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\slideentry {1}{1}{51}{53/53}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\slideentry {1}{1}{52}{54/54}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {54}{54}}
+\headcommand {\slideentry {1}{1}{53}{55/55}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\slideentry {1}{1}{54}{56/56}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {56}{56}}
+\headcommand {\slideentry {1}{1}{55}{57/57}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {57}{57}}
+\headcommand {\slideentry {1}{1}{56}{58/58}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {58}{58}}
+\headcommand {\slideentry {1}{1}{57}{59/59}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\slideentry {1}{1}{58}{60/60}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {60}{60}}
+\headcommand {\slideentry {1}{1}{59}{61/61}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {61}{61}}
+\headcommand {\slideentry {1}{1}{60}{62/62}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {62}{62}}
+\headcommand {\slideentry {1}{1}{61}{63/63}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {63}{63}}
+\headcommand {\slideentry {1}{1}{62}{64/64}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {64}{64}}
+\headcommand {\slideentry {1}{1}{63}{65/65}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {65}{65}}
+\headcommand {\slideentry {1}{1}{64}{66/66}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {66}{66}}
+\headcommand {\slideentry {1}{1}{65}{67/67}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {67}{67}}
+\headcommand {\slideentry {1}{1}{66}{68/68}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {68}{68}}
+\headcommand {\slideentry {1}{1}{67}{69/69}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {69}{69}}
+\headcommand {\slideentry {1}{1}{68}{70/70}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {70}{70}}
+\headcommand {\slideentry {1}{1}{69}{71/71}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {71}{71}}
+\headcommand {\slideentry {1}{1}{70}{72/72}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {72}{72}}
+\headcommand {\slideentry {1}{1}{71}{73/73}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {73}{73}}
+\headcommand {\slideentry {1}{1}{72}{74/74}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {74}{74}}
+\headcommand {\slideentry {1}{1}{73}{75/75}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {75}{75}}
+\headcommand {\slideentry {1}{1}{74}{76/76}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {76}{76}}
+\headcommand {\slideentry {1}{1}{75}{77/77}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {77}{77}}
+\headcommand {\slideentry {1}{1}{76}{78/78}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {78}{78}}
+\headcommand {\slideentry {1}{1}{77}{79/79}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {79}{79}}
+\headcommand {\slideentry {1}{1}{78}{80/80}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {80}{80}}
+\headcommand {\slideentry {1}{1}{79}{81/81}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {81}{81}}
+\headcommand {\slideentry {1}{1}{80}{82/82}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {82}{82}}
+\headcommand {\slideentry {1}{1}{81}{83/83}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {83}{83}}
+\headcommand {\slideentry {1}{1}{82}{84/84}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {84}{84}}
+\headcommand {\slideentry {1}{1}{83}{85/85}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {85}{85}}
+\headcommand {\slideentry {1}{1}{84}{86/86}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {86}{86}}
+\headcommand {\slideentry {1}{1}{85}{87/87}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {87}{87}}
+\headcommand {\slideentry {1}{1}{86}{88/88}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {88}{88}}
+\headcommand {\slideentry {1}{1}{87}{89/89}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {89}{89}}
+\headcommand {\slideentry {1}{1}{88}{90/90}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {90}{90}}
+\headcommand {\slideentry {1}{1}{89}{91/91}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {91}{91}}
+\headcommand {\slideentry {1}{1}{90}{92/92}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {92}{92}}
+\headcommand {\slideentry {1}{1}{91}{93/93}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {93}{93}}
+\headcommand {\slideentry {1}{1}{92}{94/94}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {94}{94}}
+\headcommand {\slideentry {1}{1}{93}{95/95}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {95}{95}}
+\headcommand {\slideentry {1}{1}{94}{96/96}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {96}{96}}
+\headcommand {\slideentry {1}{1}{95}{97/97}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {97}{97}}
+\headcommand {\slideentry {1}{1}{96}{98/98}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {98}{98}}
+\headcommand {\slideentry {1}{1}{97}{99/99}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {99}{99}}
+\headcommand {\slideentry {1}{1}{98}{100/100}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {100}{100}}
+\headcommand {\slideentry {1}{1}{99}{101/101}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {101}{101}}
+\headcommand {\slideentry {1}{1}{100}{102/102}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {102}{102}}
+\headcommand {\slideentry {1}{1}{101}{103/103}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {103}{103}}
+\headcommand {\slideentry {1}{1}{102}{104/104}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {104}{104}}
+\headcommand {\slideentry {1}{1}{103}{105/105}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {105}{105}}
+\headcommand {\slideentry {1}{1}{104}{106/106}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {106}{106}}
+\headcommand {\slideentry {1}{1}{105}{107/107}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {107}{107}}
+\headcommand {\slideentry {1}{1}{106}{108/108}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {108}{108}}
+\headcommand {\slideentry {1}{1}{107}{109/109}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {109}{109}}
+\headcommand {\slideentry {1}{1}{108}{110/110}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {110}{110}}
+\headcommand {\slideentry {1}{1}{109}{111/111}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {111}{111}}
+\headcommand {\slideentry {1}{1}{110}{112/112}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {112}{112}}
+\headcommand {\slideentry {1}{1}{111}{113/113}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {113}{113}}
+\headcommand {\slideentry {1}{1}{112}{114/114}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {114}{114}}
+\headcommand {\slideentry {1}{1}{113}{115/115}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {115}{115}}
+\headcommand {\slideentry {1}{1}{114}{116/116}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {116}{116}}
+\headcommand {\slideentry {1}{1}{115}{117/117}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {117}{117}}
+\headcommand {\slideentry {1}{1}{116}{118/118}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {118}{118}}
+\headcommand {\slideentry {1}{1}{117}{119/119}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {119}{119}}
+\headcommand {\slideentry {1}{1}{118}{120/120}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {120}{120}}
+\headcommand {\slideentry {1}{1}{119}{121/121}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {121}{121}}
+\headcommand {\slideentry {1}{1}{120}{122/122}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {122}{122}}
+\headcommand {\slideentry {1}{1}{121}{123/123}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {123}{123}}
+\headcommand {\slideentry {1}{1}{122}{124/124}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {124}{124}}
+\headcommand {\slideentry {1}{1}{123}{125/125}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {125}{125}}
+\headcommand {\slideentry {1}{1}{124}{126/126}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {126}{126}}
+\headcommand {\slideentry {1}{1}{125}{127/127}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {127}{127}}
+\headcommand {\slideentry {1}{1}{126}{128/128}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {128}{128}}
+\headcommand {\slideentry {1}{1}{127}{129/129}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {129}{129}}
+\headcommand {\slideentry {1}{1}{128}{130/130}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {130}{130}}
+\headcommand {\slideentry {1}{1}{129}{131/131}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {131}{131}}
+\headcommand {\slideentry {1}{1}{130}{132/132}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {132}{132}}
+\headcommand {\slideentry {1}{1}{131}{133/133}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {133}{133}}
+\headcommand {\slideentry {1}{1}{132}{134/134}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {134}{134}}
+\headcommand {\slideentry {1}{1}{133}{135/135}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {135}{135}}
+\headcommand {\slideentry {1}{1}{134}{136/136}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {136}{136}}
+\headcommand {\slideentry {1}{1}{135}{137/137}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {137}{137}}
+\headcommand {\slideentry {1}{1}{136}{138/138}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {138}{138}}
+\headcommand {\slideentry {1}{1}{137}{139/139}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {139}{139}}
+\headcommand {\slideentry {1}{1}{138}{140/140}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {140}{140}}
+\headcommand {\slideentry {1}{1}{139}{141/141}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {141}{141}}
+\headcommand {\slideentry {1}{1}{140}{142/142}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {142}{142}}
+\headcommand {\slideentry {1}{1}{141}{143/143}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {143}{143}}
+\headcommand {\slideentry {1}{1}{142}{144/144}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {144}{144}}
+\headcommand {\slideentry {1}{1}{143}{145/145}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {145}{145}}
+\headcommand {\slideentry {1}{1}{144}{146/146}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {146}{146}}
+\headcommand {\slideentry {1}{1}{145}{147/147}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {147}{147}}
+\headcommand {\slideentry {1}{1}{146}{148/148}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {148}{148}}
+\headcommand {\slideentry {1}{1}{147}{149/149}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {149}{149}}
+\headcommand {\slideentry {1}{1}{148}{150/150}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {150}{150}}
+\headcommand {\slideentry {1}{1}{149}{151/151}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {151}{151}}
+\headcommand {\slideentry {1}{1}{150}{152/152}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {152}{152}}
+\headcommand {\slideentry {1}{1}{151}{153/153}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {153}{153}}
+\headcommand {\slideentry {1}{1}{152}{154/154}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {154}{154}}
+\headcommand {\slideentry {1}{1}{153}{155/155}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {155}{155}}
+\headcommand {\slideentry {1}{1}{154}{156/156}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {156}{156}}
+\headcommand {\slideentry {1}{1}{155}{157/157}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {157}{157}}
+\headcommand {\slideentry {1}{1}{156}{158/158}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {158}{158}}
+\headcommand {\slideentry {1}{1}{157}{159/159}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {159}{159}}
+\headcommand {\slideentry {1}{1}{158}{160/160}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {160}{160}}
+\headcommand {\slideentry {1}{1}{159}{161/161}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {161}{161}}
+\headcommand {\slideentry {1}{1}{160}{162/162}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {162}{162}}
+\headcommand {\slideentry {1}{1}{161}{163/163}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {163}{163}}
+\headcommand {\slideentry {1}{1}{162}{164/164}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {164}{164}}
+\headcommand {\slideentry {1}{1}{163}{165/165}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {165}{165}}
+\headcommand {\slideentry {1}{1}{164}{166/166}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {166}{166}}
+\headcommand {\slideentry {1}{1}{165}{167/167}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {167}{167}}
+\headcommand {\slideentry {1}{1}{166}{168/168}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {168}{168}}
+\headcommand {\slideentry {1}{1}{167}{169/169}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {169}{169}}
+\headcommand {\slideentry {1}{1}{168}{170/170}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {170}{170}}
+\headcommand {\slideentry {1}{1}{169}{171/171}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {171}{171}}
+\headcommand {\slideentry {1}{1}{170}{172/172}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {172}{172}}
+\headcommand {\slideentry {1}{1}{171}{173/173}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {173}{173}}
+\headcommand {\slideentry {1}{1}{172}{174/174}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {174}{174}}
+\headcommand {\slideentry {1}{1}{173}{175/175}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {175}{175}}
+\headcommand {\slideentry {1}{1}{174}{176/176}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {176}{176}}
+\headcommand {\slideentry {1}{1}{175}{177/177}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {177}{177}}
+\headcommand {\slideentry {1}{1}{176}{178/178}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {178}{178}}
+\headcommand {\slideentry {1}{1}{177}{179/179}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {179}{179}}
+\headcommand {\slideentry {1}{1}{178}{180/180}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {180}{180}}
+\headcommand {\slideentry {1}{1}{179}{181/181}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {181}{181}}
+\headcommand {\slideentry {1}{1}{180}{182/182}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {182}{182}}
+\headcommand {\slideentry {1}{1}{181}{183/183}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {183}{183}}
+\headcommand {\slideentry {1}{1}{182}{184/184}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {184}{184}}
+\headcommand {\slideentry {1}{1}{183}{185/185}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {185}{185}}
+\headcommand {\slideentry {1}{1}{184}{186/186}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {186}{186}}
+\headcommand {\slideentry {1}{1}{185}{187/187}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {187}{187}}
+\headcommand {\slideentry {1}{1}{186}{188/188}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {188}{188}}
+\headcommand {\slideentry {1}{1}{187}{189/189}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {189}{189}}
+\headcommand {\slideentry {1}{1}{188}{190/190}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {190}{190}}
+\headcommand {\slideentry {1}{1}{189}{191/191}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {191}{191}}
+\headcommand {\slideentry {1}{1}{190}{192/192}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {192}{192}}
+\headcommand {\slideentry {1}{1}{191}{193/193}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {193}{193}}
+\headcommand {\slideentry {1}{1}{192}{194/194}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {194}{194}}
+\headcommand {\slideentry {1}{1}{193}{195/195}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {195}{195}}
+\headcommand {\slideentry {1}{1}{194}{196/196}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {196}{196}}
+\headcommand {\slideentry {1}{1}{195}{197/197}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {197}{197}}
+\headcommand {\slideentry {1}{1}{196}{198/198}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {198}{198}}
+\headcommand {\slideentry {1}{1}{197}{199/199}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {199}{199}}
+\headcommand {\slideentry {1}{1}{198}{200/200}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {200}{200}}
+\headcommand {\slideentry {1}{1}{199}{201/201}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {201}{201}}
+\headcommand {\slideentry {1}{1}{200}{202/202}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {202}{202}}
+\headcommand {\slideentry {1}{1}{201}{203/203}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {203}{203}}
+\headcommand {\slideentry {1}{1}{202}{204/204}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {204}{204}}
+\headcommand {\slideentry {1}{1}{203}{205/205}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {205}{205}}
+\headcommand {\slideentry {1}{1}{204}{206/206}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {206}{206}}
+\headcommand {\slideentry {1}{1}{205}{207/207}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {207}{207}}
+\headcommand {\slideentry {1}{1}{206}{208/208}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {208}{208}}
+\headcommand {\slideentry {1}{1}{207}{209/209}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {209}{209}}
+\headcommand {\slideentry {1}{1}{208}{210/210}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {210}{210}}
+\headcommand {\slideentry {1}{1}{209}{211/211}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {211}{211}}
+\headcommand {\slideentry {1}{1}{210}{212/212}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {212}{212}}
+\headcommand {\slideentry {1}{1}{211}{213/213}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {213}{213}}
+\headcommand {\slideentry {1}{1}{212}{214/214}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {214}{214}}
+\headcommand {\slideentry {1}{1}{213}{215/215}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {215}{215}}
+\headcommand {\slideentry {1}{1}{214}{216/216}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {216}{216}}
+\headcommand {\slideentry {1}{1}{215}{217/217}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {217}{217}}
+\headcommand {\slideentry {1}{1}{216}{218/218}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {218}{218}}
+\headcommand {\slideentry {1}{1}{217}{219/219}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {219}{219}}
+\headcommand {\slideentry {1}{1}{218}{220/220}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {220}{220}}
+\headcommand {\slideentry {1}{1}{219}{221/221}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {221}{221}}
+\headcommand {\slideentry {1}{1}{220}{222/222}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {222}{222}}
+\headcommand {\slideentry {1}{1}{221}{223/223}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {223}{223}}
+\headcommand {\slideentry {1}{1}{222}{224/224}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {224}{224}}
+\headcommand {\slideentry {1}{1}{223}{225/225}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {225}{225}}
+\headcommand {\slideentry {1}{1}{224}{226/226}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {226}{226}}
+\headcommand {\slideentry {1}{1}{225}{227/227}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {227}{227}}
+\headcommand {\slideentry {1}{1}{226}{228/228}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {228}{228}}
+\headcommand {\slideentry {1}{1}{227}{229/229}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {229}{229}}
+\headcommand {\slideentry {1}{1}{228}{230/230}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {230}{230}}
+\headcommand {\slideentry {1}{1}{229}{231/231}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {231}{231}}
+\headcommand {\slideentry {1}{1}{230}{232/232}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {232}{232}}
+\headcommand {\slideentry {1}{1}{231}{233/233}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {233}{233}}
+\headcommand {\slideentry {1}{1}{232}{234/234}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {234}{234}}
+\headcommand {\slideentry {1}{1}{233}{235/235}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {235}{235}}
+\headcommand {\slideentry {1}{1}{234}{236/236}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {236}{236}}
+\headcommand {\slideentry {1}{1}{235}{237/237}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {237}{237}}
+\headcommand {\slideentry {1}{1}{236}{238/238}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {238}{238}}
+\headcommand {\slideentry {1}{1}{237}{239/239}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {239}{239}}
+\headcommand {\slideentry {1}{1}{238}{240/240}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {240}{240}}
+\headcommand {\slideentry {1}{1}{239}{241/241}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {241}{241}}
+\headcommand {\slideentry {1}{1}{240}{242/242}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {242}{242}}
+\headcommand {\slideentry {1}{1}{241}{243/243}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {243}{243}}
+\headcommand {\slideentry {1}{1}{242}{244/244}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {244}{244}}
+\headcommand {\slideentry {1}{1}{243}{245/245}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {245}{245}}
+\headcommand {\slideentry {1}{1}{244}{246/246}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {246}{246}}
+\headcommand {\slideentry {1}{1}{245}{247/247}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {247}{247}}
+\headcommand {\slideentry {1}{1}{246}{248/248}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {248}{248}}
+\headcommand {\slideentry {1}{1}{247}{249/249}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {249}{249}}
+\headcommand {\slideentry {1}{1}{248}{250/250}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {250}{250}}
+\headcommand {\slideentry {1}{1}{249}{251/251}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {251}{251}}
+\headcommand {\slideentry {1}{1}{250}{252/252}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {252}{252}}
+\headcommand {\slideentry {1}{1}{251}{253/253}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {253}{253}}
+\headcommand {\slideentry {1}{1}{252}{254/254}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {254}{254}}
+\headcommand {\slideentry {1}{1}{253}{255/255}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {255}{255}}
+\headcommand {\slideentry {1}{1}{254}{256/256}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {256}{256}}
+\headcommand {\slideentry {1}{1}{255}{257/257}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {257}{257}}
+\headcommand {\slideentry {1}{1}{256}{258/258}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {258}{258}}
+\headcommand {\slideentry {1}{1}{257}{259/259}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {259}{259}}
+\headcommand {\slideentry {1}{1}{258}{260/260}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {260}{260}}
+\headcommand {\slideentry {1}{1}{259}{261/261}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {261}{261}}
+\headcommand {\slideentry {1}{1}{260}{262/262}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {262}{262}}
+\headcommand {\slideentry {1}{1}{261}{263/263}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {263}{263}}
+\headcommand {\slideentry {1}{1}{262}{264/264}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {264}{264}}
+\headcommand {\slideentry {1}{1}{263}{265/265}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {265}{265}}
+\headcommand {\slideentry {1}{1}{264}{266/266}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {266}{266}}
+\headcommand {\slideentry {1}{1}{265}{267/267}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {267}{267}}
+\headcommand {\slideentry {1}{1}{266}{268/268}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {268}{268}}
+\headcommand {\slideentry {1}{1}{267}{269/269}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {269}{269}}
+\headcommand {\slideentry {1}{1}{268}{270/270}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {270}{270}}
+\headcommand {\slideentry {1}{1}{269}{271/271}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {271}{271}}
+\headcommand {\slideentry {1}{1}{270}{272/272}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {272}{272}}
+\headcommand {\slideentry {1}{1}{271}{273/273}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {273}{273}}
+\headcommand {\slideentry {1}{1}{272}{274/274}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {274}{274}}
+\headcommand {\slideentry {1}{1}{273}{275/275}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {275}{275}}
+\headcommand {\slideentry {1}{1}{274}{276/276}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {276}{276}}
+\headcommand {\slideentry {1}{1}{275}{277/277}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {277}{277}}
+\headcommand {\slideentry {1}{1}{276}{278/278}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {278}{278}}
+\headcommand {\slideentry {1}{1}{277}{279/279}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {279}{279}}
+\headcommand {\slideentry {1}{1}{278}{280/280}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {280}{280}}
+\headcommand {\slideentry {1}{1}{279}{281/281}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {281}{281}}
+\headcommand {\slideentry {1}{1}{280}{282/282}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {282}{282}}
+\headcommand {\slideentry {1}{1}{281}{283/283}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {283}{283}}
+\headcommand {\slideentry {1}{1}{282}{284/284}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {284}{284}}
+\headcommand {\slideentry {1}{1}{283}{285/285}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {285}{285}}
+\headcommand {\slideentry {1}{1}{284}{286/286}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {286}{286}}
+\headcommand {\slideentry {1}{1}{285}{287/287}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {287}{287}}
+\headcommand {\slideentry {1}{1}{286}{288/288}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {288}{288}}
+\headcommand {\slideentry {1}{1}{287}{289/289}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {289}{289}}
+\headcommand {\slideentry {1}{1}{288}{290/290}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {290}{290}}
+\headcommand {\slideentry {1}{1}{289}{291/291}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {291}{291}}
+\headcommand {\slideentry {1}{1}{290}{292/292}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {292}{292}}
+\headcommand {\slideentry {1}{1}{291}{293/293}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {293}{293}}
+\headcommand {\slideentry {1}{1}{292}{294/294}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {294}{294}}
+\headcommand {\slideentry {1}{1}{293}{295/295}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {295}{295}}
+\headcommand {\slideentry {1}{1}{294}{296/296}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {296}{296}}
+\headcommand {\slideentry {1}{1}{295}{297/297}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {297}{297}}
+\headcommand {\slideentry {1}{1}{296}{298/298}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {298}{298}}
+\headcommand {\slideentry {1}{1}{297}{299/299}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {299}{299}}
+\headcommand {\slideentry {1}{1}{298}{300/300}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {300}{300}}
+\headcommand {\slideentry {1}{1}{299}{301/301}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {301}{301}}
+\headcommand {\slideentry {1}{1}{300}{302/302}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {302}{302}}
+\headcommand {\slideentry {1}{1}{301}{303/303}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {303}{303}}
+\headcommand {\slideentry {1}{1}{302}{304/304}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {304}{304}}
+\headcommand {\slideentry {1}{1}{303}{305/305}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {305}{305}}
+\headcommand {\slideentry {1}{1}{304}{306/306}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {306}{306}}
+\headcommand {\slideentry {1}{1}{305}{307/307}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {307}{307}}
+\headcommand {\slideentry {1}{1}{306}{308/308}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {308}{308}}
+\headcommand {\slideentry {1}{1}{307}{309/309}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {309}{309}}
+\headcommand {\slideentry {1}{1}{308}{310/310}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {310}{310}}
+\headcommand {\slideentry {1}{1}{309}{311/311}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {311}{311}}
+\headcommand {\slideentry {1}{1}{310}{312/312}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {312}{312}}
+\headcommand {\slideentry {1}{1}{311}{313/313}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {313}{313}}
+\headcommand {\slideentry {1}{1}{312}{314/314}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {314}{314}}
+\headcommand {\slideentry {1}{1}{313}{315/315}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {315}{315}}
+\headcommand {\slideentry {1}{1}{314}{316/316}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {316}{316}}
+\headcommand {\slideentry {1}{1}{315}{317/317}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {317}{317}}
+\headcommand {\slideentry {1}{1}{316}{318/318}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {318}{318}}
+\headcommand {\slideentry {1}{1}{317}{319/319}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {319}{319}}
+\headcommand {\slideentry {1}{1}{318}{320/320}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {320}{320}}
+\headcommand {\slideentry {1}{1}{319}{321/321}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {321}{321}}
+\headcommand {\slideentry {1}{1}{320}{322/322}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {322}{322}}
+\headcommand {\slideentry {1}{1}{321}{323/323}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {323}{323}}
+\headcommand {\slideentry {1}{1}{322}{324/324}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {324}{324}}
+\headcommand {\slideentry {1}{1}{323}{325/325}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {325}{325}}
+\headcommand {\slideentry {1}{1}{324}{326/326}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {326}{326}}
+\headcommand {\slideentry {1}{1}{325}{327/327}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {327}{327}}
+\headcommand {\slideentry {1}{1}{326}{328/328}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {328}{328}}
+\headcommand {\slideentry {1}{1}{327}{329/329}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {329}{329}}
+\headcommand {\slideentry {1}{1}{328}{330/330}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {330}{330}}
+\headcommand {\slideentry {1}{1}{329}{331/331}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {331}{331}}
+\headcommand {\slideentry {1}{1}{330}{332/332}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {332}{332}}
+\headcommand {\slideentry {1}{1}{331}{333/333}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {333}{333}}
+\headcommand {\slideentry {1}{1}{332}{334/334}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {334}{334}}
+\headcommand {\slideentry {1}{1}{333}{335/335}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {335}{335}}
+\headcommand {\slideentry {1}{1}{334}{336/336}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {336}{336}}
+\headcommand {\slideentry {1}{1}{335}{337/337}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {337}{337}}
+\headcommand {\slideentry {1}{1}{336}{338/338}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {338}{338}}
+\headcommand {\slideentry {1}{1}{337}{339/339}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {339}{339}}
+\headcommand {\slideentry {1}{1}{338}{340/340}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {340}{340}}
+\headcommand {\slideentry {1}{1}{339}{341/341}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {341}{341}}
+\headcommand {\slideentry {1}{1}{340}{342/342}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {342}{342}}
+\headcommand {\slideentry {1}{1}{341}{343/343}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {343}{343}}
+\headcommand {\slideentry {1}{1}{342}{344/344}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {344}{344}}
+\headcommand {\slideentry {1}{1}{343}{345/345}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {345}{345}}
+\headcommand {\slideentry {1}{1}{344}{346/346}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {346}{346}}
+\headcommand {\slideentry {1}{1}{345}{347/347}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {347}{347}}
+\headcommand {\slideentry {1}{1}{346}{348/348}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {348}{348}}
+\headcommand {\slideentry {1}{1}{347}{349/349}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {349}{349}}
+\headcommand {\slideentry {1}{1}{348}{350/350}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {350}{350}}
+\headcommand {\slideentry {1}{1}{349}{351/351}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {351}{351}}
+\headcommand {\slideentry {1}{1}{350}{352/352}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {352}{352}}
+\headcommand {\slideentry {1}{1}{351}{353/353}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {353}{353}}
+\headcommand {\slideentry {1}{1}{352}{354/354}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {354}{354}}
+\headcommand {\slideentry {1}{1}{353}{355/355}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {355}{355}}
+\headcommand {\slideentry {1}{1}{354}{356/356}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {356}{356}}
+\headcommand {\slideentry {1}{1}{355}{357/357}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {357}{357}}
+\headcommand {\slideentry {1}{1}{356}{358/358}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {358}{358}}
+\headcommand {\slideentry {1}{1}{357}{359/359}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {359}{359}}
+\headcommand {\slideentry {1}{1}{358}{360/360}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {360}{360}}
+\headcommand {\slideentry {1}{1}{359}{361/361}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {361}{361}}
+\headcommand {\slideentry {1}{1}{360}{362/362}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {362}{362}}
+\headcommand {\slideentry {1}{1}{361}{363/363}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {363}{363}}
+\headcommand {\slideentry {1}{1}{362}{364/364}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {364}{364}}
+\headcommand {\slideentry {1}{1}{363}{365/365}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {365}{365}}
+\headcommand {\slideentry {1}{1}{364}{366/366}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {366}{366}}
+\headcommand {\slideentry {1}{1}{365}{367/367}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {367}{367}}
+\headcommand {\slideentry {1}{1}{366}{368/368}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {368}{368}}
+\headcommand {\slideentry {1}{1}{367}{369/369}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {369}{369}}
+\headcommand {\slideentry {1}{1}{368}{370/370}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {370}{370}}
+\headcommand {\slideentry {1}{1}{369}{371/371}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {371}{371}}
+\headcommand {\slideentry {1}{1}{370}{372/372}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {372}{372}}
+\headcommand {\slideentry {1}{1}{371}{373/373}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {373}{373}}
+\headcommand {\slideentry {1}{1}{372}{374/374}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {374}{374}}
+\headcommand {\slideentry {1}{1}{373}{375/375}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {375}{375}}
+\headcommand {\slideentry {1}{1}{374}{376/376}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {376}{376}}
+\headcommand {\slideentry {1}{1}{375}{377/377}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {377}{377}}
+\headcommand {\slideentry {1}{1}{376}{378/378}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {378}{378}}
+\headcommand {\slideentry {1}{1}{377}{379/379}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {379}{379}}
+\headcommand {\slideentry {1}{1}{378}{380/380}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {380}{380}}
+\headcommand {\slideentry {1}{1}{379}{381/381}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {381}{381}}
+\headcommand {\slideentry {1}{1}{380}{382/382}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {382}{382}}
+\headcommand {\slideentry {1}{1}{381}{383/383}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {383}{383}}
+\headcommand {\slideentry {1}{1}{382}{384/384}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {384}{384}}
+\headcommand {\slideentry {1}{1}{383}{385/385}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {385}{385}}
+\headcommand {\slideentry {1}{1}{384}{386/386}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {386}{386}}
+\headcommand {\slideentry {1}{1}{385}{387/387}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {387}{387}}
+\headcommand {\slideentry {1}{1}{386}{388/388}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {388}{388}}
+\headcommand {\slideentry {1}{1}{387}{389/389}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {389}{389}}
+\headcommand {\slideentry {1}{1}{388}{390/390}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {390}{390}}
+\headcommand {\slideentry {1}{1}{389}{391/391}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {391}{391}}
+\headcommand {\slideentry {1}{1}{390}{392/392}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {392}{392}}
+\headcommand {\slideentry {1}{1}{391}{393/393}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {393}{393}}
+\headcommand {\slideentry {1}{1}{392}{394/394}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {394}{394}}
+\headcommand {\slideentry {1}{1}{393}{395/395}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {395}{395}}
+\headcommand {\slideentry {1}{1}{394}{396/396}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {396}{396}}
+\headcommand {\slideentry {1}{1}{395}{397/397}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {397}{397}}
+\headcommand {\slideentry {1}{1}{396}{398/398}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {398}{398}}
+\headcommand {\slideentry {1}{1}{397}{399/399}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {399}{399}}
+\headcommand {\slideentry {1}{1}{398}{400/400}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {400}{400}}
+\headcommand {\slideentry {1}{1}{399}{401/401}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {401}{401}}
+\headcommand {\slideentry {1}{1}{400}{402/402}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {402}{402}}
+\headcommand {\slideentry {1}{1}{401}{403/403}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {403}{403}}
+\headcommand {\slideentry {1}{1}{402}{404/404}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {404}{404}}
+\headcommand {\slideentry {1}{1}{403}{405/405}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {405}{405}}
+\headcommand {\slideentry {1}{1}{404}{406/406}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {406}{406}}
+\headcommand {\slideentry {1}{1}{405}{407/407}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {407}{407}}
+\headcommand {\slideentry {1}{1}{406}{408/408}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {408}{408}}
+\headcommand {\slideentry {1}{1}{407}{409/409}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {409}{409}}
+\headcommand {\slideentry {1}{1}{408}{410/410}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {410}{410}}
+\headcommand {\slideentry {1}{1}{409}{411/411}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {411}{411}}
+\headcommand {\slideentry {1}{1}{410}{412/412}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {412}{412}}
+\headcommand {\slideentry {1}{1}{411}{413/413}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {413}{413}}
+\headcommand {\slideentry {1}{1}{412}{414/414}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {414}{414}}
+\headcommand {\slideentry {1}{1}{413}{415/415}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {415}{415}}
+\headcommand {\slideentry {1}{1}{414}{416/416}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {416}{416}}
+\headcommand {\slideentry {1}{1}{415}{417/417}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {417}{417}}
+\headcommand {\slideentry {1}{1}{416}{418/418}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {418}{418}}
+\headcommand {\slideentry {1}{1}{417}{419/419}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {419}{419}}
+\headcommand {\slideentry {1}{1}{418}{420/420}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {420}{420}}
+\headcommand {\slideentry {1}{1}{419}{421/421}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {421}{421}}
+\headcommand {\slideentry {1}{1}{420}{422/422}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {422}{422}}
+\headcommand {\slideentry {1}{1}{421}{423/423}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {423}{423}}
+\headcommand {\slideentry {1}{1}{422}{424/424}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {424}{424}}
+\headcommand {\slideentry {1}{1}{423}{425/425}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {425}{425}}
+\headcommand {\slideentry {1}{1}{424}{426/426}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {426}{426}}
+\headcommand {\slideentry {1}{1}{425}{427/427}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {427}{427}}
+\headcommand {\slideentry {1}{1}{426}{428/428}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {428}{428}}
+\headcommand {\slideentry {1}{1}{427}{429/429}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {429}{429}}
+\headcommand {\slideentry {1}{1}{428}{430/430}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {430}{430}}
+\headcommand {\slideentry {1}{1}{429}{431/431}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {431}{431}}
+\headcommand {\slideentry {1}{1}{430}{432/432}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {432}{432}}
+\headcommand {\slideentry {1}{1}{431}{433/433}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {433}{433}}
+\headcommand {\slideentry {1}{1}{432}{434/434}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {434}{434}}
+\headcommand {\slideentry {1}{1}{433}{435/435}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {435}{435}}
+\headcommand {\slideentry {1}{1}{434}{436/436}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {436}{436}}
+\headcommand {\slideentry {1}{1}{435}{437/437}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {437}{437}}
+\headcommand {\slideentry {1}{1}{436}{438/438}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {438}{438}}
+\headcommand {\slideentry {1}{1}{437}{439/439}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {439}{439}}
+\headcommand {\slideentry {1}{1}{438}{440/440}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {440}{440}}
+\headcommand {\slideentry {1}{1}{439}{441/441}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {441}{441}}
+\headcommand {\slideentry {1}{1}{440}{442/442}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {442}{442}}
+\headcommand {\slideentry {1}{1}{441}{443/443}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {443}{443}}
+\headcommand {\slideentry {1}{1}{442}{444/444}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {444}{444}}
+\headcommand {\slideentry {1}{1}{443}{445/445}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {445}{445}}
+\headcommand {\slideentry {1}{1}{444}{446/446}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {446}{446}}
+\headcommand {\slideentry {1}{1}{445}{447/447}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {447}{447}}
+\headcommand {\slideentry {1}{1}{446}{448/448}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {448}{448}}
+\headcommand {\slideentry {1}{1}{447}{449/449}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {449}{449}}
+\headcommand {\slideentry {1}{1}{448}{450/450}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {450}{450}}
+\headcommand {\slideentry {1}{1}{449}{451/451}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {451}{451}}
+\headcommand {\slideentry {1}{1}{450}{452/452}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {452}{452}}
+\headcommand {\slideentry {1}{1}{451}{453/453}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {453}{453}}
+\headcommand {\slideentry {1}{1}{452}{454/454}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {454}{454}}
+\headcommand {\slideentry {1}{1}{453}{455/455}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {455}{455}}
+\headcommand {\slideentry {1}{1}{454}{456/456}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {456}{456}}
+\headcommand {\slideentry {1}{1}{455}{457/457}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {457}{457}}
+\headcommand {\slideentry {1}{1}{456}{458/458}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {458}{458}}
+\headcommand {\slideentry {1}{1}{457}{459/459}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {459}{459}}
+\headcommand {\slideentry {1}{1}{458}{460/460}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {460}{460}}
+\headcommand {\slideentry {1}{1}{459}{461/461}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {461}{461}}
+\headcommand {\slideentry {1}{1}{460}{462/462}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {462}{462}}
+\headcommand {\slideentry {1}{1}{461}{463/463}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {463}{463}}
+\headcommand {\slideentry {1}{1}{462}{464/464}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {464}{464}}
+\headcommand {\slideentry {1}{1}{463}{465/465}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {465}{465}}
+\headcommand {\slideentry {1}{1}{464}{466/466}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {466}{466}}
+\headcommand {\slideentry {1}{1}{465}{467/467}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {467}{467}}
+\headcommand {\slideentry {1}{1}{466}{468/468}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {468}{468}}
+\headcommand {\slideentry {1}{1}{467}{469/469}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {469}{469}}
+\headcommand {\slideentry {1}{1}{468}{470/470}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {470}{470}}
+\headcommand {\slideentry {1}{1}{469}{471/471}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {471}{471}}
+\headcommand {\slideentry {1}{1}{470}{472/472}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {472}{472}}
+\headcommand {\slideentry {1}{1}{471}{473/473}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {473}{473}}
+\headcommand {\slideentry {1}{1}{472}{474/474}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {474}{474}}
+\headcommand {\slideentry {1}{1}{473}{475/475}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {475}{475}}
+\headcommand {\slideentry {1}{1}{474}{476/476}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {476}{476}}
+\headcommand {\slideentry {1}{1}{475}{477/477}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {477}{477}}
+\headcommand {\slideentry {1}{1}{476}{478/478}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {478}{478}}
+\headcommand {\slideentry {1}{1}{477}{479/479}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {479}{479}}
+\headcommand {\slideentry {1}{1}{478}{480/480}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {480}{480}}
+\headcommand {\slideentry {1}{1}{479}{481/481}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {481}{481}}
+\headcommand {\slideentry {1}{1}{480}{482/482}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {482}{482}}
+\headcommand {\slideentry {1}{1}{481}{483/483}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {483}{483}}
+\headcommand {\slideentry {1}{1}{482}{484/484}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {484}{484}}
+\headcommand {\slideentry {1}{1}{483}{485/485}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {485}{485}}
+\headcommand {\slideentry {1}{1}{484}{486/486}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {486}{486}}
+\headcommand {\slideentry {1}{1}{485}{487/487}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {487}{487}}
+\headcommand {\slideentry {1}{1}{486}{488/488}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {488}{488}}
+\headcommand {\slideentry {1}{1}{487}{489/489}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {489}{489}}
+\headcommand {\slideentry {1}{1}{488}{490/490}{Ranking and Selection with Tight Bounds on Solution Quality}{0}}
+\headcommand {\beamer@framepages {490}{490}}
+\headcommand {\sectionentry {2}{Part II: Average-case Performance}{491}{Part II: Average-case Performance}{0}}
+\headcommand {\beamer@sectionpages {2}{490}}
+\headcommand {\beamer@subsectionpages {3}{490}}
+\headcommand {\slideentry {2}{0}{489}{491/491}{}{0}}
+\headcommand {\beamer@framepages {491}{491}}
+\headcommand {\slideentry {2}{0}{490}{492/492}{}{0}}
+\headcommand {\beamer@framepages {492}{492}}
+\headcommand {\slideentry {2}{0}{491}{493/493}{}{0}}
+\headcommand {\beamer@framepages {493}{493}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{494}{Materials Science: Finding peptides with specific nanoparticle binding properties}}\headcommand {\beamer@subsectionpages {491}{493}}
+\headcommand {\slideentry {2}{1}{1}{494/494}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {494}{494}}
+\headcommand {\slideentry {2}{1}{2}{495/495}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {495}{495}}
+\headcommand {\slideentry {2}{1}{3}{496/496}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {496}{496}}
+\headcommand {\slideentry {2}{1}{4}{497/497}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {497}{497}}
+\headcommand {\slideentry {2}{1}{5}{498/498}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {498}{498}}
+\headcommand {\slideentry {2}{1}{6}{499/499}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {499}{499}}
+\headcommand {\slideentry {2}{1}{7}{500/500}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {500}{500}}
+\headcommand {\slideentry {2}{1}{8}{501/501}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {501}{501}}
+\headcommand {\slideentry {2}{1}{9}{502/502}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {502}{502}}
+\headcommand {\slideentry {2}{1}{9}{502/503}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {502}{503}}
+\headcommand {\slideentry {2}{1}{9}{502/504}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {502}{504}}
+\headcommand {\slideentry {2}{1}{9}{502/505}{Materials Science: Finding peptides with specific nanoparticle binding properties}{0}}
+\headcommand {\beamer@framepages {502}{505}}
+\headcommand {\beamer@partpages {1}{505}}
+\headcommand {\beamer@subsectionpages {494}{505}}
+\headcommand {\beamer@sectionpages {491}{505}}
+\headcommand {\beamer@documentpages {505}}
+\headcommand {\def \inserttotalframenumber {505}}
