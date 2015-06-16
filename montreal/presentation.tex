@@ -208,13 +208,47 @@ and $\delta>0$ if
 \end{block}
 \end{frame}
 
+\begin{frame}{Conservatism Causes the Number of Samples Taken to Be Larger than
+Necessary }
+
+\begin{block}{}
+
+\begin{itemize}
+\item A user wants to meet the IZ guarantee and have $\mathbb{E}\left[\mbox{\# of samples}\right]$
+as small as possible.\\
+\textrm{}\\
+\item The conservatism can be defined as $\mbox{PCS}\left(\mu\right)-P^{*}$.
+If this number is large, then $\mathbb{E}\left[\mbox{sample size}\right]$
+may be large. 
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}{Sources of Conservatism}
+
+\begin{block}{}
+
+\begin{itemize}
+\item The change from discrete time to continuous time often used to show
+IZ guarantees.\\
+\textrm{}\\
+\item The configuration under consideration is not a worst-case configuration.
+\\
+\textrm{}\\
+\item Bonferroni\textquoteright s inequality.
+\end{itemize}
+\end{block}
+\end{frame}
+
 \begin{frame}{The Bayes-Inspired IZ (BIZ) Procedure}
 
 \begin{block}{}
 
 \begin{itemize}
-\item BIZ is an elimination procedure that does not use Bonferroni's inequality.
-\\
+\item BIZ is an elimination procedure that eliminates the use of Bonferroni\textquoteright s
+inequality, reducing conservatism. \\
 \textrm{}\\
 \item Its lower bound on worst-case probability of correct selection in
 the preference zone is tight in continuous time, and almost tight
@@ -223,7 +257,23 @@ in the discrete time.\\
 \item The number of samples required by BIZ is significantly smaller than
 the KN procedure and the $\mathscr{P}_{B}^{*}$ procedure.\\
 \textrm{}\\
-\item It satisfies the IZ guarantee under the follwing assumptions:
+
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{BIZ Requires Fewer Samples}
+\begin{figure}[ht]
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{BIZ.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{The Bayes-Inspired IZ (BIZ) Procedure}
+
+\begin{block}{}
+
+\begin{itemize}
+\item It satisfies the IZ guarantee under the following assumptions:
 
 \begin{itemize}
 \item Normal samples.\\
@@ -231,8 +281,14 @@ the KN procedure and the $\mathscr{P}_{B}^{*}$ procedure.\\
 \item Known variances.\\
 
 \item Variances are either common across alternatives, or have an integer
-multiple structure. 
+multiple structure.\\
+\textrm{}\\
 \end{itemize}
+\item Based on empirical evidence, the BIZ procedure satisfies the IZ guarantee
+even when the last two assumptions are not true.\\
+\textrm{}\\
+\item Our contribution is to theoretically explain why it works. Specifically,
+we show asymptotic validity of the BIZ procedure. 
 \end{itemize}
 \end{block}
 \end{frame}
@@ -263,8 +319,8 @@ The BIZ procedure can be viewed as the composition of three maps:\\
 \item The mapping from $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$,
 where $Y_{tx}$ is the sum of the first $t$ samples from alternative
 $x$, onto $\left(Z_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
-where $Z_{tx}=Y_{n_{tx},t}$ is the sum of samples from alternative
-$x$observed by stage $t$.\\
+where $Z_{tx}=Y_{n_{tx},x}$ is the sum of samples from alternative
+$x$ observed by stage $t$.\\
 \textrm{}\\
 \item The second maps the previous time-changed random walk through a non-linear
 mapping for each $t,x$ and subset $A\subset\left\{ 1,\ldots,k\right\} $,
@@ -387,7 +443,44 @@ with equality for the worst configuration in the preference zone.\\
 \end{frame}
 
 
+\begin{frame}{Conclusion}
 
+\begin{block}{}
+
+\begin{itemize}
+\item BIZ is a fully sequential IZ procedure with elimination that eliminates
+one common source of conservatism: Bonferroni's inequality.\\
+\textrm{}\\
+\item We have proved the asymptotic validity of the Bayes-inspired Zone
+procedure when the variances are known. This implies that BIZ procedure
+satisfies the IZ guarantee when the means of the systems are very
+similar. \\
+\textrm{}\\
+\item Theoretical results require unrealistic assumptions on the sampling
+variances, but empirical results suggest that behavior is robust to
+violations of these assumptions in the problem regimes tested.\\
+\textrm{}\\
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Future Work}
+
+\begin{block}{}
+
+\begin{itemize}
+\item Asymptotic validity when the variances are unknown.\\
+\textrm{}\\
+\item Probability of good selection guarantee: 
+\begin{eqnarray*}
+\forall\mu,\mbox{ PGS}\left(\mu\right):=\mathbb{P}\left(\mu_{k}-\mu_{\hat{x}}\leq\delta\right) & \geq & P^{*}
+\end{eqnarray*}
+ \\
+\textrm{}\\
+\end{itemize}
+\end{block}
+\end{frame}
 
 
 \begin{frame}{}
