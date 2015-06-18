@@ -35,7 +35,7 @@ Chen, C.-H., and L.~H. Lee. 2010.
 
 \bibitem[\protect\citeauthoryear{Dieker and Kim}{Dieker and
   Kim}{2012}]{dieker:2012}
-Dieker, A., and S.-H. Kim. 2012.
+Dieker, A., and S.~Kim. 2012.
 \newblock ``Selecting the Best by Comparing Simulated Systems in a Group of
   Three When Variances Are Known and Unequal''.
 \newblock In {\em Proceedings of the 2012 Winter Simulation Conference}, edited
@@ -106,6 +106,16 @@ Hong, J. 2006.
 \newblock {\em Naval Research Logistics\/}~53 (5): 464--476.
 
 
+\bibitem[\protect\citeauthoryear{Kim and Dieker}{Kim and
+  Dieker}{2011}]{kim:2011}
+Kim, S., and A.~Dieker. 2011.
+\newblock ``Selecting the Best by Comparing Simulated Systems in a Group of
+  Three''.
+\newblock In {\em Proceedings of the 2011 Simulation Conference}, edited by\
+  S.~Jain, R.~R. Creasey, J.~Himmelspach, K.~P. White, and M.~Fu,  3987--3997.
+\newblock Piscataway, New Jersey: Institute of Electrical and Electronics
+  Engineers, Inc.
+
 \bibitem[\protect\citeauthoryear{Kim and Nelson}{Kim and
   Nelson}{2006}]{kim:20062}
 Kim, S., and B.~Nelson. 2006.
@@ -124,19 +134,9 @@ Kim, S., and B.~Nelson. 2007.
 \newblock Piscataway, New Jersey: Institute of Electrical and Electronics
   Engineers, Inc.
 
-\bibitem[\protect\citeauthoryear{Kim and Dieker}{Kim and
-  Dieker}{2011}]{kim:2011}
-Kim, S.-H., and A.~Dieker. 2011.
-\newblock ``Selecting the Best by Comparing Simulated Systems in a Group of
-  Three''.
-\newblock In {\em Proceedings of the 2011 Simulation Conference}, edited by\
-  S.~Jain, R.~R. Creasey, J.~Himmelspach, K.~P. White, and M.~Fu,  3987--3997.
-\newblock Piscataway, New Jersey: Institute of Electrical and Electronics
-  Engineers, Inc.
-
 \bibitem[\protect\citeauthoryear{Kim and Nelson}{Kim and
   Nelson}{2001}]{Kim:2001}
-Kim, S.-H., and B.~L. Nelson. 2001.
+Kim, S., and B.~L. Nelson. 2001.
 \newblock ``A Fully Sequential Procedure for Indiference-Zone Selection in
   Simulation''.
 \newblock {\em ACM Trans. Model. Comput. Simul.\/}~11 (3): 251--273.
@@ -190,10 +190,10 @@ Toscano-Palmerin, S., and P.~I. Frazier. 2015.
 
 \bibitem[\protect\citeauthoryear{Wang and Kim}{Wang and
   Kim}{2013}]{Kim:Conserv}
-Wang, H., and S.-H. Kim. 2013.
+Wang, H., and S.~Kim. 2013.
 \newblock ``Reducing the Conservativeness of Fully Sequential Indifference-Zone
   Procedures''.
-\newblock {\em IEEE Transactions on automatic control\/}~58 (6): 1613--1619.
+\newblock {\em IEEE Transactions on Automatic Control\/}~58 (6): 1613--1619.
 
 
 \end{thebibliography}

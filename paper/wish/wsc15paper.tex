@@ -238,12 +238,9 @@ Although the difference between the worst and typical cases is the largest contr
 \citeN{Frazier:BIZ} presents a new sequential elimination
 IZ procedure, called BIZ (Bayes-inspired Indifference Zone), 
 that eliminates the use of Bonferroni's inequality, reducing conservatism. 
-This procedure's lower bound on worst-case probability of correct selection in the
-preference zone is tight in continuous time, and almost tight in the
-discrete time. In numerical experiments, the number of samples required
-by BIZ is significantly smaller than that of procedures like the KN procedure of \citeN{Kim:2001} and
-the $\mathcal{P}_{B}^{*}$ procedure of \citeN{Bechhofer:1968}, 
-especially on problems with many alternatives. Unfortunately, the
+This procedure's lower bound on the worst-case probability of correct selection in the
+preference zone is tight in continuous time, and almost tight in discrete time. In numerical experiments, the number of samples required
+by BIZ is significantly smaller than that of procedures like the $\mathcal{P}_{B}^{*}$ procedure of \citeN{Bechhofer:1968} and the KN procedure of \citeN{Kim:2001}, especially on problems with many alternatives. Unfortunately, the
 proof from \cite{Frazier:BIZ} that the BIZ procedure satisfies the IZ guarantee for the discrete-time case assumes that (1) samples are normally distributed; 
 (2) variances are known;
 and (3) the variances are either common across alternatives, or have an unrealistic integer multiple structure.
@@ -286,7 +283,7 @@ mean $\mu_{x}$ and finite variance $\lambda_{x}^{2}$.
 
 In the Indifference-Zone Ranking and Selection, the procedure is indifferent
 in the selection of a system whenever the means of the populations
-are nearly the same. Formally, let $\mu=\left[\mu_{k},\ldots,\mu_{1}\right]$
+are nearly the same. Formally, let $\mu=\left[\mu_{1},\ldots,\mu_{k}\right]$
 be the vector of the true means, the \emph{indifference zone} is defined
 as the set $\left\{ \mu\in\mathbb{R}^{k}:\mu_{\left[k\right]}-\mu_{\left[k-1\right]}<\delta\right\} $.
 The complement of the indifference zone is called the \emph{preference
@@ -297,7 +294,7 @@ We say that a procedure meets the \emph{indifference-zone (IZ) guarantee
 \mbox{PCS}\left(\mu\right)\geq P^{*}\mbox{ for all }\mu\in\mbox{PZ}\left(\delta\right).
 \]
 We assume $P^{*}>1/k$ because IZ guarantees can be meet by choosing
-$\hat{x}$ uniformly at random from among $\left\{ 1,\ldots,k\right\} $.
+$\hat{x}$ uniformly at random from $\left\{ 1,\ldots,k\right\} $.
 
 
 \section{THE BAYES-INSPIRED IZ (BIZ) PROCEDURE}
@@ -308,7 +305,7 @@ alternatives that are candidates for the best system, and it takes samples from 
 alternative in this set at each point in time. At beginning, all alternatives
 are possible candidates for the best system, and over the time alternatives are eliminated.
 The procedure ends when there is only one alternative in the contention
-set and this remain alternative is chosen as the best. 
+set and this remaining alternative is chosen as the best. 
 
 \citeN{Frazier:BIZ} shows that the BIZ procedure satisfies the IZ guarantee 
 under the assumptions that samples are normally distributed, variances are known, and
@@ -317,11 +314,11 @@ The continuous time version of this procedure also satisfies the IZ guarantee, w
 preference-zone PCS bound.
 
 A slight modification of the discrete-time BIZ procedure for unknown and/or heterogeneous sampling
-variances is given below.  It takes a variable number of samples
-from each alternative, and $n_{tx}$ is this number. This algorithm
-depends on a collection of integers $B_{1},\ldots,B_{k}$, $P^{*},c,\delta$
+variances is given below.  This algorithm takes a variable number of samples
+from alternative $x$ at time $t$, and $n_{tx}$ is this number (its definition may found in the algorithm given below). 
+This algorithm depends on a collection of integers $B_{1},\ldots,B_{k}$, $P^{*},c,\delta$
 and $n_{0}$. Here, $n_{0}$ is the number of samples to use in the first
-stage of samples, and $100$ is the recommended value for $n_{0}$. The paramater
+stage of samples, and $100$ is the recommended value for $n_{0}$ when the variances are unknown. The paramater
 $B_{x}$ controls the number of samples taken from system $x$ in
 each stage. To simplify our analysis, the procedure presented is a slight modification of the original BIZ 
 procedure \cite{Frazier:BIZ} where $z \in \mbox{arg max}_{x\in A} \lambda^2_{x}$, instead 
@@ -334,7 +331,8 @@ we define a function
 q'_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx'}}{n_{tx'}}\right),\right.\mbox{ }\beta_{t}=\frac{\sum_{x'\in A}n_{tx'}}{\sum_{x'\in A}\hat{\lambda}_{tx'}^{2}}
 \]
 where $\hat{\lambda}_{tx'}^{2}$ is the sample variance of all samples
-from alternative $x$ thus far and $Z_{tx}=Y_{n_{tx},x}$.
+from alternative $x$ thus far, and $Z_{tx}=Y_{n_{tx},x}$ is the sum of
+the samples from alternative $x$ observed by stage $t$.
 
 \paragraph{Algorithm: Discrete-time implementation of BIZ, for unknown and/or heterogeneous variances.}    
 \begin{algorithmic}[1]   
@@ -368,7 +366,7 @@ In this section we prove that the BIZ procedure satisfies asymptotically the IZ 
 when the variances are known. This means that we consider a collection of
 ranking and selection problems parametrized by $\delta>0$.  
 For the problem given $\delta$, we suppose that the vector of the true means
-$\mu=\left[\mu_{k},\ldots,\mu_{1}\right]$ is equal to $\delta a$ for some fixed $a\in\mathbb{R}^{k}$ that
+$\mu=\left[\mu_{1},\ldots,\mu_{k}\right]$ is equal to $\delta a$ for some fixed $a\in\mathbb{R}^{k}$ that
 does not depend on $\delta$ and $a_{k}>a_{k-1}\geq \cdots \geq a_{1}$, $a_{k}-a_{k-1}>1$.
 Moreover, the variances of the alternatives are finite, strictly greater than zero and do not depend on $\delta$.
 We also suppose that samples from system $x\in\left\{ 1\ldots,k\right\} $ are identically distributed
@@ -383,12 +381,12 @@ the BIZ procedure's mapping from paths onto
 selections decisions is the composition of three
 simpler maps.
 
-The first is the mapping from the raw discrete-time random walk $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
+The first mapping is from the raw discrete-time random walk $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
 onto a time changed version of this random walk, written as $\left(Z_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$,
-where we recall $Z_{tx}=Y_{n_{x}\left(t\right),t}$ is the sum of
+where we recall $Z_{tx}=Y_{n_{tx},x}$ is the sum of
 the samples from alternative $x$ observed by stage $t$.
 
-The second maps this time-changed random walk through a non-linear
+The second one maps this time-changed random walk through a non-linear
 mapping for each $t,x$ and subset $A\subset\left\{ 1,\ldots,k\right\} $,
 to obtain $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$,
 where
@@ -786,7 +784,7 @@ As remarked above, this example was chosen specially to illustrate that BIZ can 
 
 \section{CONCLUSION}
 
-We have proved the asymptotic validity of the Bayes-inspired Zone
+We have proved the asymptotic validity of the Bayes-inspired Indifference Zone
 procedure \cite{Frazier:BIZ} when the variances are known.
 This algorithm takes fewer samples than other IZ procedures, especially for
 problems with large numbers of alternatives, and so characterizing when it

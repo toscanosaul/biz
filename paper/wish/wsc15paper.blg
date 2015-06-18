@@ -6,13 +6,13 @@ Database file #1: wsc15paper.bib
 Warning--empty organization in dieker:2012
 Warning--empty organization in Frazier:Tutorial
 Warning--empty organization in glynn2004large
+Warning--empty organization in kim:2011
 Warning--empty organization in kim:20062
 Warning--empty organization in kim:2007
-Warning--empty organization in kim:2011
 Warning--empty institution in fullpaper
 You've used 25 entries,
             2956 wiz_defined-function locations,
-            797 strings with 9319 characters,
+            797 strings with 9299 characters,
 and the built_in function-call counts, 17452 in all, are:
 = -- 1535
 > -- 1096
