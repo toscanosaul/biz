@@ -241,29 +241,30 @@ that eliminates the use of Bonferroni's inequality, reducing conservatism.
 This procedure's lower bound on the worst-case probability of correct selection in the
 preference zone is tight in continuous time, and almost tight in discrete time. In numerical experiments, the number of samples required
 by BIZ is significantly smaller than that of procedures like the $\mathcal{P}_{B}^{*}$ procedure of \citeN{Bechhofer:1968} and the KN procedure of \citeN{Kim:2001}, especially on problems with many alternatives. Unfortunately, the
-proof from \cite{Frazier:BIZ} that the BIZ procedure satisfies the IZ guarantee for the discrete-time case assumes that (1) samples are normally distributed; 
+proof from \citeN{Frazier:BIZ} that the BIZ procedure satisfies the IZ guarantee for the discrete-time case assumes that (1) samples are normally distributed; 
 (2) variances are known;
 and (3) the variances are either common across alternatives, or have an unrealistic integer multiple structure.
 
-The contribution of this work is to prove the asymptotic validity of the BIZ procedure as $\delta$ goes to zero, retaining the assumption of known variances, but replacing assumptions (1) and (3) by the much weaker assumption of independent and identically distributed finite variance samples.  Thus, our proof allows a much broader set of sampling distributions than that allowed by \cite{Frazier:BIZ}, including non-normal samples and general heterogeneous variances. 
+The contribution of this work is to prove the asymptotic validity of the BIZ procedure as $\delta$ goes to zero, retaining the assumption of known variances, but replacing assumptions (1) and (3) by the much weaker assumption of independent and identically distributed finite variance samples.  Thus, our proof allows a much broader set of sampling distributions than that allowed by \citeN{Frazier:BIZ}, including non-normal samples and general heterogeneous variances. 
 We also show that this bound on worst-case PCS is asymptotically tight as $\delta$ goes to zero, 
 showing that the BIZ procedure successfully eliminates conservatism due to Bonferonni's inequality in this more general setting, just as was demonstrated by \citeN{Frazier:BIZ} for more restricted settings.
 
-To simplify our analysis, we analyze a slight modification of the version of the BIZ procedure presented in \cite{Frazier:BIZ}, which keeps a certain parameter $\lambda^2_z$ fixed rather than letting it vary as did \cite{Frazier:BIZ}.  Numerical experiments on typical cases show little difference in performance between the version of BIZ we analyze and the version in \citeN{Frazier:BIZ}.
+To simplify our analysis, we analyze a slight modification of the version of the BIZ procedure presented in \citeN{Frazier:BIZ}, which keeps a certain parameter $\lambda^2_z$ fixed rather than letting it vary as did \citeN{Frazier:BIZ}.  Numerical experiments on typical cases show little difference in performance between the version of BIZ we analyze and the version in \citeN{Frazier:BIZ}.
 We conjecture that a proof technique similar to the one presented here can be used to show asymptotic validity of the BIZ procedure when
 the variances are unknown, and we present numerical experiments that support this belief. 
 
 
-This paper is organized as follows: In $\text{ß}2$, we recall the
-indifference-zone ranking and selection problem. In $\text{ß}3$,
-we recall the Bayes-inspired IZ (BIZ) procedure from \citeN{Frazier:BIZ}. In $\text{ß}4$,
+This paper is organized as follows: In $\mathsection$\ref{IZR}, we recall the
+indifference-zone ranking and selection problem. In $\mathsection$\ref{sec:BIZ},
+we recall the Bayes-inspired IZ (BIZ) procedure from \citeN{Frazier:BIZ}. In $\mathsection$\ref{proof},
 we present the proof of the validity of the algorithm when the variances
-are known. In $\text{ß}5$, we present some numerical experiments. 
-In $\text{ß}6$, we conclude.
+are known. In $\mathsection$\ref{numericalExperiments}, we present some numerical experiments. 
+In $\mathsection$\ref{conclusion}, we conclude.
 
 
 
 \section{INDIFFERENCE-ZONE RANKING AND SELECTION}
+\label{IZR}
 
 Ranking and Selection is a problem where we have to select the best system
 among a finite set of alternatives, i.e. the system with the largest
@@ -305,7 +306,8 @@ alternatives that are candidates for the best system, and it takes samples from 
 alternative in this set at each point in time. At beginning, all alternatives
 are possible candidates for the best system, and over the time alternatives are eliminated.
 The procedure ends when there is only one alternative in the contention
-set and this remaining alternative is chosen as the best. 
+set and this remaining alternative is chosen as the best. It is shown in \citeN{Frazier:BIZ} that the
+algorithm ends in a finite number of steps with probability one. 
 
 \citeN{Frazier:BIZ} shows that the BIZ procedure satisfies the IZ guarantee 
 under the assumptions that samples are normally distributed, variances are known, and
@@ -361,6 +363,7 @@ Let $W_{0x}$ and $\lambdahat^2_{0x}$ be the sample mean and sample variance resp
 This algorithm generalizes the BIZ procedure with known common variance. In that case, we have that $B_1=\cdots=B_k=1$ and $n_{tx}=t$. The algorithm can be generalized to the continuous case (see  \citeN{Frazier:BIZ}). 
 
 \section{ASYMPTOTIC VALIDITY WHEN THE VARIANCES ARE KNOWN}
+\label{proof}
 
 In this section we prove that the BIZ procedure satisfies asymptotically the IZ guarantee
 when the variances are known. This means that we consider a collection of
@@ -467,7 +470,7 @@ f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\ri
 \]
 where g is the selection decision from applying the BIZ procedure
 in continuous time; and (3) the BIZ procedure satisfies the IZ guarantee
-when applied in continuous time (Theorem~1 in \cite{Frazier:BIZ}), and so $E[g(W)] \ge P^*$ with equality for the worst configurations in the preference zone.
+when applied in continuous time (Theorem~1 in \citeN{Frazier:BIZ}), and so $E[g(W)] \ge P^*$ with equality for the worst configurations in the preference zone.
 
 \subsection{Preliminaries for the Proof of the Main Theorem}
 
@@ -585,7 +588,7 @@ f\left(F,\delta\right) & = & \begin{cases}
 \end{cases}
 \end{eqnarray*}
 
-We now construct a function $g(\cdot)$ that, when applied to the path of a $k$-dimensional standard Brownian motion, will be equal in distribution to the indicator of the correct selection event from the continuous-time BIZ procedure from \cite{Frazier:BIZ} 
+We now construct a function $g(\cdot)$ that, when applied to the path of a $k$-dimensional standard Brownian motion, will be equal in distribution to the indicator of the correct selection event from the continuous-time BIZ procedure from \citeN{Frazier:BIZ} 
 to a transformed problem that does not depend on $\delta$.
 
 We construct $g$ analogously to $f(\cdot,\delta)$, but we replace the path $q_{tx}^{F,\delta}$ used in the construction of $f(\cdot,\delta)$ by a new path $q_{tx}^{F}$ that doesn't depend on $\delta$, and is obtained by taking the limit as $\delta\to0$.  This path is
@@ -690,7 +693,7 @@ This implies that
  \label{eq:convergence2}
 \end{equation}
 
-The random variable $g(W)$ is equal in distribution to the indicator of the event of correct selection that results from applying the continuous-time BIZ procedure from \cite{Frazier:BIZ} in a problem with indifference-zone parameter equal to 1, where each alternative's observation process has volatility $\lambda_z$ and drift $a_x$.
+The random variable $g(W)$ is equal in distribution to the indicator of the event of correct selection that results from applying the continuous-time BIZ procedure from \citeN{Frazier:BIZ} in a problem with indifference-zone parameter equal to 1, where each alternative's observation process has volatility $\lambda_z$ and drift $a_x$.
 This can be seen by noting that the path $(q^{W}_{tx}(A) : t\ge0)$ defined above is equal in distribution to the path $(q_{tx}(A) : t\ge0)$ defined in equation (2) of \citeN{Frazier:BIZ}, and that the selection decision of the continuous-time algorithm in \citeN{Frazier:BIZ} is obtained by applying $h$ to this path.
 
 Theorem 1 in \citeN{Frazier:BIZ} states that 
@@ -728,6 +731,7 @@ Combining
 
 
 \section{NUMERICAL EXPERIMENTS}
+\label{numericalExperiments}
 
 We now use simulation experiments to illustrate and further investigate the phenomenon characterized by Theorem~\ref{t:main}. Using the version of BIZ described in Section~\ref{sec:BIZ} with maximum elimination ($c=1-(P^*)^\frac{1}{k-1}$), we estimate and then plot the PCS as a function of $\delta$.
 In all examples, $P^*=0.9$, PCS was estimated using 10,000 independent replications, and confidence intervals have length at most $0.014$.
@@ -783,6 +787,7 @@ As remarked above, this example was chosen specially to illustrate that BIZ can 
 
 
 \section{CONCLUSION}
+\label{conclusion}
 
 We have proved the asymptotic validity of the Bayes-inspired Indifference Zone
 procedure \cite{Frazier:BIZ} when the variances are known.
