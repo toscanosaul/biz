@@ -28,62 +28,97 @@
 \section*{Reviewer 1.}
 \begin{enumerate}
 \item \textit{Frazier 2014 was cite lots of times, modify the cite commands
-accordingly to make sure the correct format. }Now, it should be fine.
-\item \textit{Second corrections. }They're now correct.
+accordingly to make sure the correct format. }
+We have corrected this.
+
+\item \textit{Second corrections. }
+We have corrected this.
+
 \item \textit{Use Section 2, 3, 4 instead just 2,3,4 when referring to those
-sections.} I changed this part, but I'm not sure if we have to write
-the word section before the number.
-\item Page 3, 3rd paragraph. Now it is correct.
-\item Page 3, 4th paragraph. Now it is correct.
-\item Page 3, 1st paragraph in Section 3. Now it is correct.
-\item 3rd paragraph in Section 3. I think that now it is clear. \textit{Says
-100 is the recommended value for n\_0, but later in the algorithm
-and experiments used something else. }I added that this value is recommended
-when the variances are unknown.
-\item End of page 3. Now it should be clear.
-\item Section 4, 3rd paragraph. Now it is correct.
-\item Section 6. Now it is correct.
+sections.} 
+We have corrected this.  To preserve space, we have used the section symbol, rather than the word ``Section''.
+\item {\it Page 3, 3rd paragraph}. Now it is correct.
+\item {\it Page 3, 4th paragraph}. Now it is correct.
+\item {\it Page 3, 1st paragraph in Section 3}. Now it is correct.
+\item {\it 3rd paragraph in Section 3}.\\
+{\it -- It's not clear what n\_tx is, especially the range for t and x.}\\
+{\it -- Says 100 is the recommended value for n\_0, but later in the algorithm and experiments used something else.}
+
+We have clarified the description of $n_{tx}$.
+
+Regarding $n_0$, we do indeed recommend the value of 100, but only when variances are unknown.  We have clarified this in the text in the noted place in Section 3.  Additionally, in the unknown variance example in the numerical experiments, we use a value lower than the recommended value to make correct selection more difficult, and to observe the full range of behavior from the algorithm.  When the recommended value is used, the algorithm provides performance similar to that shown in Figure 1(a).  We have clarified this in the text discussing the second example in Section 5.
+	
+\item {\it End of page 3.} We have clarified the definition of $Y_{n_{tx},x}$.
+\item {\it Section 4, 3rd paragraph.} Now it is correct.
+\item {\it Section 6.} Now it is correct.
 \end{enumerate}
 
 \section*{Reviewer 2.}
 \begin{enumerate}
 \item \textit{It seems that the choice of n0 is relatively arbitrary. In
 practice, can problem properties be used to obtain some understanding
-of how large/small n0 should be? }I don't now if we should say something
-in section 3 about this because it is difficult to say something if
-we don't now the variances of the alternatives.
+of how large/small n0 should be? }
+
+Our experience is that when n0 is chosen reasonably large ($\ge 100$), then the performance of BIZ is robust, in terms of providing a PCS that is consistently above $P^*$.  When n0 is smaller than this, we observe, as we did in the numerical experiments, that PCS may fall below $P^*$.  However, we have not yet done enough experiments to say anything beyond the statements in the current paper recommending a value of 100 for n0.
+
+In Section 5, we previously stated,
+
+``In this example, we have intentionally chosen $n_0$ to be small, and have chosen a large variance for the best system, to cause BIZ to fail to meet the IZ guarantee for $\delta > 0$. Increasing the parameter $n_0$ typically causes BIZ to meet the IZ guarantee for all $\delta$, and we recommend a larger value of $n_0$ in practice.''
+
+We have added to this the sentence, ``The choice of $n_0$, and its impact on PCS, merits further study.''
+
 \item \textit{It does seem to me that we choose a far too stringent threshold,
 the resulting problem may be rendered infeasible since \textmu {[}k
 are exogenously specified and presumably unavailable a prior and \textgreek{d}
 is a user-specified parameter. In re-reading the paper, it seems that
 the alternatives may have nearly the same means, in which case, the
-likelihood of infeasibility may be modest. }Should we say that if
-the configuration is not in the preference zone, then we can't say
-anything about the alternative selected?
+likelihood of infeasibility may be modest. }
+
+Actually, in the problem that we study, there cannot be infeasibility.  We believe that the reviewer is referring to the fact that the configuration may not be in the preference zone.  In this case, the indifference zone guarantee does not guarantee a probability of correct selection, but the problem is not infeasible.  This is a property of the indifference-zone formulation of ranking and selection, and is not specific to the current paper.
+
+In practice, most procedures that satisfy the indifference-zone guarantee also satisfy what is called a ``probability of good selection'' guarantee, which is defined by Nelson and Banerjee (2001).   This guarantee does apply to configurations inside of the preference-zone --- it says that with probability $P^*$, the procedure selects an alternative within $\delta$ of the best. We have added a brief discussion of this point, and the reference to Nelson and Banerjee (2001), to the paper. Extending our results to a probability of good selection guarantee is worthwhile, and we hope to pursue it in future work.
+
+% We could add a discussion of this in the paper if we wanted.
+
 \item \textit{While the BIZ procedure is asymptotically valid, naturally
 in practice, the schemes have to be terminated after a finite number
 of samples. Are there error bounds available, even in a restricted
 regime, that can govern the choice of when the procedure may be terminated.
-}I said in section 3 that the algorithm will end in a finite number
-of steps. However, I think there are no error bounds available if
-we just stop the algorithm before time. What should we say about this?
-\item \textit{In the numerical experiments, the choice of \textmu \textquoteright s
-and \textgreek{d} ensures feasibility. Suppose \textmu 100 is set
-to \textgreek{d} + 1, then unless I have misunderstood how the scheme
-works, the threshold constraint would render the problem infeasible.
-In this case, how would the scheme respond? }This can't happen because
-we are supposing that $\mu=a\delta$. Should we say something else?
-\item \textit{It might be useful to see how the BIZ procedure is indeed
-less conservative in practice compared to its counterparts in the
-R\&S literature. The authors claim that the proposed procedure requires
-less samples \textendash{} presumably this is only an empirical observation.
-If so, please emphasize that this is the case; else it might be worth
-pointing to the formal statement that guarantees this claim. }This
-observation is based on empirical observations and that the BIZ procedure
-is less conservative. Should we say something else in the introduction
-to make this more clear?
-\item \textit{Finally, some quick observations regarding the references.
-}I think that now they are fine. I had to cite the two editions of
-Billingsley's book because I used the two editions. \end{enumerate}
+}
+
+The BIZ procedure terminates on its own, in a finite number of samples.  The user does not need to make this decision.  The asymptotic aspect of the analysis refers to $\delta$ becoming small.  When the procedure terminates, in the cases considered in Frazier (2014) (which includes common known variance with normal samples), the procedure satisfies the IZ guarantee, which is an error bound, even which $\delta>0$.
+
+We clarified this point in section 3 by stating that the algorithm ends in a finite number of steps.
+
+\item \textit{In the numerical experiments, the choice of $\mu$ 
+and $\delta$ ensures feasibility. Suppose $\mu_{100}$ is set
+to $\delta + 1$, then unless I have misunderstood how the scheme
+works, the threshold constraint would render the problem infeasible. In this case, how would the scheme respond? }
+
+As discussed above, the problem would not become infeasible.  Instead, a problem configuration might not be in the preference zone.  For problem configurations outside of the preference zone, the indifference-zone guarantee does not provide any guarantee on PCS.  
+
+
+
+
+\item \textit{It might be useful to see how the BIZ procedure is indeed less conservative in practice compared to its counterparts in the R\&S literature. The authors claim that the proposed procedure requires less samples \textendash{} presumably this is only an empirical observation. If so, please emphasize that this is the case; else it might be worth pointing to the formal statement that guarantees this claim. }
+
+This statement is based on extensive numerical experiments in Frazier (2014).
+
+We state in the introduction, when the BIZ procedure is first mentioned, that 
+
+``In numerical experiments, the number of samples required by BIZ
+is significantly smaller than that of procedures like the $P^*_\mathcal{B}$ procedure of Bechhofer, Kiefer, and Sobel (1968) and the KN  procedure of Kim and Nelson (2001), especially on problems with many alternatives.''
+
+This sentence states that the observation is empirical, as it is based on numerical experiments.
+
+
+We have modified the conclusion to also point out the empirical nature of this statement: 
+
+``[BIZ] has been observed empirically to take fewer samples than other IZ procedures, especially for problems with large numbers of alternatives\ldots''
+
+\item \textit{Finally, some quick observations regarding the references.}
+
+We have corrected these issues.  We reference Billingsley twice because we use results from two different editions of the book (1968 and 1999). 
+\end{enumerate}
 
 \end{document}
