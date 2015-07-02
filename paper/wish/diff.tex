@@ -1,4 +1,7 @@
 %**************************************************************************
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL first_submission.tex   Thu Jul  2 23:06:39 2015
+%DIF ADD wsc15paper.tex         Thu Jul  2 22:06:56 2015
 %*
 %*  Paper: ``INSTRUCTIONS FOR AUTHORS OF LATEX DOCUMENTS''
 %*
@@ -153,6 +156,31 @@
 %*
 %*  The Document.
 %*
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
 \begin{document}
 
 %***************************************************************************
@@ -178,7 +206,7 @@ THE NON-NORMAL KNOWN VARIANCE CASE}
     	Peter I. Frazier\\[12pt]
 	Cornell University \\
 	257 Rhodes Hall \\
-	232 Rhodes Hall \\
+	\DIFdelbegin \DIFdel{206 }\DIFdelend \DIFaddbegin \DIFadd{232 }\DIFaddend Rhodes Hall \\
 	Ithaca, NY 14853, USA\\
 }
 
@@ -238,33 +266,71 @@ Although the difference between the worst and typical cases is the largest contr
 \citeN{Frazier:BIZ} presents a new sequential elimination
 IZ procedure, called BIZ (Bayes-inspired Indifference Zone), 
 that eliminates the use of Bonferroni's inequality, reducing conservatism. 
-This procedure's lower bound on the worst-case probability of correct selection in the
-preference zone is tight in continuous time, and almost tight in discrete time. In numerical experiments, the number of samples required
-by BIZ is significantly smaller than that of procedures like the $\mathcal{P}_{B}^{*}$ procedure of \citeN{Bechhofer:1968} and the KN procedure of \citeN{Kim:2001}, especially on problems with many alternatives. Unfortunately, the
-proof from \citeN{Frazier:BIZ} that the BIZ procedure satisfies the IZ guarantee for the discrete-time case assumes that (1) samples are normally distributed; 
+This procedure's lower bound on \DIFaddbegin \DIFadd{the }\DIFaddend worst-case probability of correct selection in the
+preference zone is tight in continuous time, and almost tight in \DIFdelbegin \DIFdel{the
+}\DIFdelend discrete time. In numerical experiments, the number of samples required
+by BIZ is significantly smaller than that of procedures like the \DIFdelbegin \DIFdel{KN procedure of \mbox{%DIFAUXCMD
+\citeN{Kim:2001}
+}%DIFAUXCMD
+and the }\DIFdelend $\mathcal{P}_{B}^{*}$ procedure of \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citeN{Bechhofer:1968}
+}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citeN{Bechhofer:1968}
+}%DIFAUXCMD
+and the KN procedure of \mbox{%DIFAUXCMD
+\citeN{Kim:2001}
+}%DIFAUXCMD
+}\DIFaddend , especially on problems with many alternatives. Unfortunately, the
+proof from \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citeN{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFaddend that the BIZ procedure satisfies the IZ guarantee for the discrete-time case assumes that (1) samples are normally distributed; 
 (2) variances are known;
 and (3) the variances are either common across alternatives, or have an unrealistic integer multiple structure.
 
-The contribution of this work is to prove the asymptotic validity of the BIZ procedure as $\delta$ goes to zero, retaining the assumption of known variances, but replacing assumptions (1) and (3) by the much weaker assumption of independent and identically distributed finite variance samples.  Thus, our proof allows a much broader set of sampling distributions than that allowed by \citeN{Frazier:BIZ}, including non-normal samples and general heterogeneous variances. 
+The contribution of this work is to prove the asymptotic validity of the BIZ procedure as $\delta$ goes to zero, retaining the assumption of known variances, but replacing assumptions (1) and (3) by the much weaker assumption of independent and identically distributed finite variance samples.  Thus, our proof allows a much broader set of sampling distributions than that allowed by \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citeN{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFaddend , including non-normal samples and general heterogeneous variances. 
 We also show that this bound on worst-case PCS is asymptotically tight as $\delta$ goes to zero, 
 showing that the BIZ procedure successfully eliminates conservatism due to Bonferonni's inequality in this more general setting, just as was demonstrated by \citeN{Frazier:BIZ} for more restricted settings.
 
-To simplify our analysis, we analyze a slight modification of the version of the BIZ procedure presented in \citeN{Frazier:BIZ}, which keeps a certain parameter $\lambda^2_z$ fixed rather than letting it vary as did \citeN{Frazier:BIZ}.  Numerical experiments on typical cases show little difference in performance between the version of BIZ we analyze and the version in \citeN{Frazier:BIZ}.
+To simplify our analysis, we analyze a slight modification of the version of the BIZ procedure presented in \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citeN{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFaddend , which keeps a certain parameter $\lambda^2_z$ fixed rather than letting it vary as did \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citeN{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFaddend .  Numerical experiments on typical cases show little difference in performance between the version of BIZ we analyze and the version in \citeN{Frazier:BIZ}.
 We conjecture that a proof technique similar to the one presented here can be used to show asymptotic validity of the BIZ procedure when
 the variances are unknown, and we present numerical experiments that support this belief. 
 
 
-This paper is organized as follows: In $\mathsection$\ref{IZR}, we recall the
-indifference-zone ranking and selection problem. In $\mathsection$\ref{sec:BIZ},
-we recall the Bayes-inspired IZ (BIZ) procedure from \citeN{Frazier:BIZ}. In $\mathsection$\ref{proof},
+This paper is organized as follows: In \DIFdelbegin \DIFdel{$\text{ß}2$}\DIFdelend \DIFaddbegin \DIFadd{$\mathsection$\ref{IZR}}\DIFaddend , we recall the
+indifference-zone ranking and selection problem. In \DIFdelbegin \DIFdel{$\text{ß}3$}\DIFdelend \DIFaddbegin \DIFadd{$\mathsection$\ref{sec:BIZ}}\DIFaddend ,
+we recall the Bayes-inspired IZ (BIZ) procedure from \citeN{Frazier:BIZ}. In \DIFdelbegin \DIFdel{$\text{ß}4$}\DIFdelend \DIFaddbegin \DIFadd{$\mathsection$\ref{proof}}\DIFaddend ,
 we present the proof of the validity of the algorithm when the variances
-are known. In $\mathsection$\ref{numericalExperiments}, we present some numerical experiments. 
-In $\mathsection$\ref{conclusion}, we conclude.
+are known. In \DIFdelbegin \DIFdel{$\text{ß}5$}\DIFdelend \DIFaddbegin \DIFadd{$\mathsection$\ref{numericalExperiments}}\DIFaddend , we present some numerical experiments. 
+In \DIFdelbegin \DIFdel{$\text{ß}6$}\DIFdelend \DIFaddbegin \DIFadd{$\mathsection$\ref{conclusion}}\DIFaddend , we conclude.
 
 
 
 \section{INDIFFERENCE-ZONE RANKING AND SELECTION}
-\label{IZR}
+\DIFaddbegin \label{IZR}
+\DIFaddend 
 
 Ranking and Selection is a problem where we have to select the best system
 among a finite set of alternatives, i.e. the system with the largest
@@ -284,8 +350,9 @@ mean $\mu_{x}$ and finite variance $\lambda_{x}^{2}$.
 
 In the Indifference-Zone Ranking and Selection, the procedure is indifferent
 in the selection of a system whenever the means of the populations
-are nearly the same. Formally, let $\mu=\left[\mu_{1},\ldots,\mu_{k}\right]$
-be the vector of the true means, the \emph{indifference zone} is defined
+are nearly the same. Formally, let \DIFdelbegin \DIFdel{$\mu=\left[\mu_{k},\ldots,\mu_{1}\right]$
+}\DIFdelend \DIFaddbegin \DIFadd{$\mu=\left[\mu_{1},\ldots,\mu_{k}\right]$
+}\DIFaddend be the vector of the true means, the \emph{indifference zone} is defined
 as the set $\left\{ \mu\in\mathbb{R}^{k}:\mu_{\left[k\right]}-\mu_{\left[k-1\right]}<\delta\right\} $.
 The complement of the indifference zone is called the \emph{preference
 zone} (PZ) and $\delta>0$ is called the indifference zone parameter.
@@ -295,7 +362,7 @@ We say that a procedure meets the \emph{indifference-zone (IZ) guarantee
 \mbox{PCS}\left(\mu\right)\geq P^{*}\mbox{ for all }\mu\in\mbox{PZ}\left(\delta\right).
 \]
 We assume $P^{*}>1/k$ because IZ guarantees can be meet by choosing
-$\hat{x}$ uniformly at random from $\left\{ 1,\ldots,k\right\} $.
+$\hat{x}$ uniformly at random from \DIFdelbegin \DIFdel{among }\DIFdelend $\left\{ 1,\ldots,k\right\} $.
 
 
 \section{THE BAYES-INSPIRED IZ (BIZ) PROCEDURE}
@@ -306,8 +373,12 @@ alternatives that are candidates for the best system, and it takes samples from 
 alternative in this set at each point in time. At beginning, all alternatives
 are possible candidates for the best system, and over the time alternatives are eliminated.
 The procedure ends when there is only one alternative in the contention
-set and this remaining alternative is chosen as the best. It is shown in \citeN{Frazier:BIZ} that the
+set and this \DIFdelbegin \DIFdel{remain }\DIFdelend \DIFaddbegin \DIFadd{remaining }\DIFaddend alternative is chosen as the best. \DIFaddbegin \DIFadd{It is shown in \mbox{%DIFAUXCMD
+\citeN{Frazier:BIZ}
+}%DIFAUXCMD
+that the
 algorithm ends in a finite number of steps with probability one. 
+}\DIFaddend 
 
 \citeN{Frazier:BIZ} shows that the BIZ procedure satisfies the IZ guarantee 
 under the assumptions that samples are normally distributed, variances are known, and
@@ -316,11 +387,11 @@ The continuous time version of this procedure also satisfies the IZ guarantee, w
 preference-zone PCS bound.
 
 A slight modification of the discrete-time BIZ procedure for unknown and/or heterogeneous sampling
-variances is given below.  This algorithm takes a variable number of samples
-from alternative $x$ at time $t$, and $n_{tx}$ is this number (its definition may found in the algorithm given below). 
+variances is given below.  \DIFdelbegin \DIFdel{It }\DIFdelend \DIFaddbegin \DIFadd{This algorithm }\DIFaddend takes a variable number of samples
+from \DIFdelbegin \DIFdel{each alternative }\DIFdelend \DIFaddbegin \DIFadd{alternative $x$ at time $t$}\DIFaddend , and $n_{tx}$ is this number \DIFaddbegin \DIFadd{(its definition may found in the algorithm given below)}\DIFaddend . 
 This algorithm depends on a collection of integers $B_{1},\ldots,B_{k}$, $P^{*},c,\delta$
 and $n_{0}$. Here, $n_{0}$ is the number of samples to use in the first
-stage of samples, and $100$ is the recommended value for $n_{0}$ when the variances are unknown. The paramater
+stage of samples, and $100$ is the recommended value for $n_{0}$ \DIFaddbegin \DIFadd{when the variances are unknown}\DIFaddend . The paramater
 $B_{x}$ controls the number of samples taken from system $x$ in
 each stage. To simplify our analysis, the procedure presented is a slight modification of the original BIZ 
 procedure \cite{Frazier:BIZ} where $z \in \mbox{arg max}_{x\in A} \lambda^2_{x}$, instead 
@@ -333,8 +404,8 @@ we define a function
 q'_{tx}\left(A\right)=\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx}}{n_{tx}}\right)\left/\sum_{x'\in A}\mbox{exp}\left(\delta\beta_{t}\frac{Z_{tx'}}{n_{tx'}}\right),\right.\mbox{ }\beta_{t}=\frac{\sum_{x'\in A}n_{tx'}}{\sum_{x'\in A}\hat{\lambda}_{tx'}^{2}}
 \]
 where $\hat{\lambda}_{tx'}^{2}$ is the sample variance of all samples
-from alternative $x$ thus far, and $Z_{tx}=Y_{n_{tx},x}$ is the sum of
-the samples from alternative $x$ observed by stage $t$.
+from alternative $x$ thus far\DIFaddbegin \DIFadd{, }\DIFaddend and $Z_{tx}=Y_{n_{tx},x}$ \DIFaddbegin \DIFadd{is the sum of
+the samples from alternative $x$ observed by stage $t$}\DIFaddend .
 
 \paragraph{Algorithm: Discrete-time implementation of BIZ, for unknown and/or heterogeneous variances.}    
 \begin{algorithmic}[1]   
@@ -363,13 +434,14 @@ Let $W_{0x}$ and $\lambdahat^2_{0x}$ be the sample mean and sample variance resp
 This algorithm generalizes the BIZ procedure with known common variance. In that case, we have that $B_1=\cdots=B_k=1$ and $n_{tx}=t$. The algorithm can be generalized to the continuous case (see  \citeN{Frazier:BIZ}). 
 
 \section{ASYMPTOTIC VALIDITY WHEN THE VARIANCES ARE KNOWN}
-\label{proof}
+\DIFaddbegin \label{proof}
+\DIFaddend 
 
 In this section we prove that the BIZ procedure satisfies asymptotically the IZ guarantee
 when the variances are known. This means that we consider a collection of
 ranking and selection problems parametrized by $\delta>0$.  
 For the problem given $\delta$, we suppose that the vector of the true means
-$\mu=\left[\mu_{1},\ldots,\mu_{k}\right]$ is equal to $\delta a$ for some fixed $a\in\mathbb{R}^{k}$ that
+\DIFdelbegin \DIFdel{$\mu=\left[\mu_{k},\ldots,\mu_{1}\right]$ }\DIFdelend \DIFaddbegin \DIFadd{$\mu=\left[\mu_{1},\ldots,\mu_{k}\right]$ }\DIFaddend is equal to $\delta a$ for some fixed $a\in\mathbb{R}^{k}$ that
 does not depend on $\delta$ and $a_{k}>a_{k-1}\geq \cdots \geq a_{1}$, $a_{k}-a_{k-1}>1$.
 Moreover, the variances of the alternatives are finite, strictly greater than zero and do not depend on $\delta$.
 We also suppose that samples from system $x\in\left\{ 1\ldots,k\right\} $ are identically distributed
@@ -384,12 +456,12 @@ the BIZ procedure's mapping from paths onto
 selections decisions is the composition of three
 simpler maps.
 
-The first mapping is from the raw discrete-time random walk $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
+The first \DIFdelbegin \DIFdel{is the mapping }\DIFdelend \DIFaddbegin \DIFadd{mapping is }\DIFaddend from the raw discrete-time random walk $\left(Y_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$
 onto a time changed version of this random walk, written as $\left(Z_{tx}:t\in\mathbb{N},x\in\left\{ 1,\ldots,k\right\} \right)$,
-where we recall $Z_{tx}=Y_{n_{tx},x}$ is the sum of
+where we recall \DIFdelbegin \DIFdel{$Z_{tx}=Y_{n_{x}\left(t\right),t}$ }\DIFdelend \DIFaddbegin \DIFadd{$Z_{tx}=Y_{n_{tx},x}$ }\DIFaddend is the sum of
 the samples from alternative $x$ observed by stage $t$.
 
-The second one maps this time-changed random walk through a non-linear
+The second \DIFaddbegin \DIFadd{one }\DIFaddend maps this time-changed random walk through a non-linear
 mapping for each $t,x$ and subset $A\subset\left\{ 1,\ldots,k\right\} $,
 to obtain $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$,
 where
@@ -401,7 +473,7 @@ where we note that $n_{x}\left(t\right)$ and $\beta_{t}$ are deterministic
 in the version of the known-variance BIZ procedure that we consider
 here.
 
-The third one maps the paths of $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
+The third \DIFaddbegin \DIFadd{one }\DIFaddend maps the paths of $\left(q_{tx}^{'}\left(A\right):t\in\mathbb{N},A\subset\left\{ 1,\ldots,k\right\} ,x\in A\right)$
 onto selection decisions. Specifically, this mapping begins with $A_0 = \{1,\ldots,k\}$,
 $P_0=P^*$, 
 and finds the first time $\tau_1$ that $q'_{tx}(A_0)$ falls above the threshold $P_0$,
@@ -470,7 +542,13 @@ f\left(\mathcal{C}\left(\delta,\cdot\right),\delta\right)\Rightarrow g\left(W\ri
 \]
 where g is the selection decision from applying the BIZ procedure
 in continuous time; and (3) the BIZ procedure satisfies the IZ guarantee
-when applied in continuous time (Theorem~1 in \citeN{Frazier:BIZ}), and so $E[g(W)] \ge P^*$ with equality for the worst configurations in the preference zone.
+when applied in continuous time (Theorem~1 in \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citeN{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFaddend ), and so $E[g(W)] \ge P^*$ with equality for the worst configurations in the preference zone.
 
 \subsection{Preliminaries for the Proof of the Main Theorem}
 
@@ -588,8 +666,13 @@ f\left(F,\delta\right) & = & \begin{cases}
 \end{cases}
 \end{eqnarray*}
 
-We now construct a function $g(\cdot)$ that, when applied to the path of a $k$-dimensional standard Brownian motion, will be equal in distribution to the indicator of the correct selection event from the continuous-time BIZ procedure from \citeN{Frazier:BIZ} 
-to a transformed problem that does not depend on $\delta$.
+We now construct a function $g(\cdot)$ that, when applied to the path of a $k$-dimensional standard Brownian motion, will be equal in distribution to the indicator of the correct selection event from the continuous-time BIZ procedure from \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citeN{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFaddend to a transformed problem that does not depend on $\delta$.
 
 We construct $g$ analogously to $f(\cdot,\delta)$, but we replace the path $q_{tx}^{F,\delta}$ used in the construction of $f(\cdot,\delta)$ by a new path $q_{tx}^{F}$ that doesn't depend on $\delta$, and is obtained by taking the limit as $\delta\to0$.  This path is
 \[
@@ -693,7 +776,13 @@ This implies that
  \label{eq:convergence2}
 \end{equation}
 
-The random variable $g(W)$ is equal in distribution to the indicator of the event of correct selection that results from applying the continuous-time BIZ procedure from \citeN{Frazier:BIZ} in a problem with indifference-zone parameter equal to 1, where each alternative's observation process has volatility $\lambda_z$ and drift $a_x$.
+The random variable $g(W)$ is equal in distribution to the indicator of the event of correct selection that results from applying the continuous-time BIZ procedure from \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citeN{Frazier:BIZ}
+}%DIFAUXCMD
+}\DIFaddend in a problem with indifference-zone parameter equal to 1, where each alternative's observation process has volatility $\lambda_z$ and drift $a_x$.
 This can be seen by noting that the path $(q^{W}_{tx}(A) : t\ge0)$ defined above is equal in distribution to the path $(q_{tx}(A) : t\ge0)$ defined in equation (2) of \citeN{Frazier:BIZ}, and that the selection decision of the continuous-time algorithm in \citeN{Frazier:BIZ} is obtained by applying $h$ to this path.
 
 Theorem 1 in \citeN{Frazier:BIZ} states that 
@@ -731,7 +820,8 @@ Combining
 
 
 \section{NUMERICAL EXPERIMENTS}
-\label{numericalExperiments}
+\DIFaddbegin \label{numericalExperiments}
+\DIFaddend 
 
 We now use simulation experiments to illustrate and further investigate the phenomenon characterized by Theorem~\ref{t:main}. Using the version of BIZ described in Section~\ref{sec:BIZ} with maximum elimination ($c=1-(P^*)^\frac{1}{k-1}$), we estimate and then plot the PCS as a function of $\delta$.
 In all examples, $P^*=0.9$, PCS was estimated using 10,000 independent replications, and confidence intervals have length at most $0.014$.
@@ -776,7 +866,7 @@ Our first example, illustrated in Figure~\ref{fig: tahi3}, is a known variance s
 Our second example, illustrated in Figure~\ref{fig: tahi2}, is an unknown variance slippage configuration where the variance of the best alternative is 100 times larger than the variance of the other alternatives. Although Theorem~\ref{t:main} applies only to the known-variance version of BIZ, we conjecture that the unknown-variance version of BIZ should exhibit similar behavior.
 In this example, we consider $100$ systems with independent normally distributed samples, where $\mu_{100}=\delta,\mu_{99}=0,\dots,\mu_{1}=0$, $\delta$ is within the interval $[0.1,10]$, and $\lambda_{100}=10,\lambda_{99}=\cdots=\lambda_{1}=1$. We set $n_{0}=15$.
 As $\delta$ goes to $0$, we observe that the PCS converges to $P^*$, as it did in the known-variance slippage configuration example.
-In this example, we have intentionally chosen $n_0$ to be smaller than the recommended value of 100, and have chosen a large variance for the best system, to cause BIZ to fail to meet the IZ guarantee for $\delta>0$.
+In this example, we have intentionally chosen $n_0$ to be small, and have chosen a large variance for the best system, to cause BIZ to fail to meet the IZ guarantee for $\delta>0$.
 Increasing the parameter $n_0$ typically causes BIZ to meet the IZ guarantee for all $\delta$, and we recommend a larger value of $n_0$ in practice.
 
 Our third example, illustrated in Figure~\ref{fig: tahi}, uses the same sampling distributions as the second example, but assumes the variances are known, and sets $n_0=0$.
@@ -787,9 +877,10 @@ As remarked above, this example was chosen specially to illustrate that BIZ can 
 
 
 \section{CONCLUSION}
-\label{conclusion}
+\DIFaddbegin \label{conclusion}
+\DIFaddend 
 
-We have proved the asymptotic validity of the Bayes-inspired Indifference Zone
+We have proved the asymptotic validity of the Bayes-inspired \DIFaddbegin \DIFadd{Indifference }\DIFaddend Zone
 procedure \cite{Frazier:BIZ} when the variances are known.
 This algorithm takes fewer samples than other IZ procedures, especially for
 problems with large numbers of alternatives, and so characterizing when it
@@ -814,7 +905,7 @@ Saul Toscano-Palmerin was also partially supported by the Mexican Secretariat of
 
 \noindent {\bf SAUL TOSCANO-PALMERIN} is a Ph.D. student of the School of Operations Research and Information Engineering at Cornell University, Ithaca, NY. His research interest is in simulation optimization, machine learning and sequential decision-making under uncertainty. His email address is \email{st684@cornell.edu}. \\
 
-\noindent {\bf PETER I. FRAZIER} is an Associate Professor of the School of Operations Research and Information Engineering at Cornell University, Ithaca, NY.  He holds a Ph.D. in operations research and financial engineering industrial engineering from Princeton University. His research interests include optimal learning, sequential decision-making under uncertainty, and machine learning, focusing on applications in simulation optimization, design of experiments, materials science, e-commerce and medicine. He is the secretary of the INFORMS Simulation Society.
+\noindent {\bf PETER I. FRAZIER} is an Assistant Professor of the School of Operations Research and Information Engineering at Cornell University, Ithaca, NY.  He holds a Ph.D. in operations research and financial engineering industrial engineering from Princeton University. His research interests include optimal learning, sequential decision-making under uncertainty, and machine learning, focusing on applications in simulation optimization, design of experiments, materials science, e-commerce and medicine. He is the secretary of the INFORMS Simulation Society.
 His e-mail address is \email{pf98@cornell.edu}.\\
 
 
