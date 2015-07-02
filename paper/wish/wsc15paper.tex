@@ -213,7 +213,8 @@ A good procedure for addressing this problem should be both efficient and accura
 This paper considers the indifference-zone (IZ) formulation of the ranking and selection problem, in which we require that a procedure satisfy the IZ guarantee, i.e., that the best system be chosen with probability larger than some threshold $P^*$ given by the user, when the distance between the best system and the others is larger than some other user-specified threshold $\delta>0$.  The set of problem configurations satisfying this constraint on the difference in means is called the preference zone.
 The paper \citeN{Bechhofer:1954} is considered the seminal work, and early work is 
 presented in the monograph \citeN{Bechhofer:1968}. Some compilations of the theory developed in the area can be found
-in \citeN{Bechhofer:1995}, \citeN{swisher:survey}, \citeN{kim:20062} and \citeN{kim:2007}. Other approaches, beyond the indifference-zone approach, include the Bayesian approach \cite{Frazier:Tutorial}, the optimal computing budget allocation approach \cite{chen:ocva}, and the large deviations approach \cite{glynn2004large}.
+in \citeN{Bechhofer:1995}, \citeN{swisher:survey}, \citeN{kim:20062} and \citeN{kim:2007}. Other approaches, beyond the indifference-zone approach, include the Bayesian approach \cite{Frazier:Tutorial}, the optimal computing budget allocation approach \cite{chen:ocva}, the large deviations approach \cite{glynn2004large}, and the probability of good selection guarantee \cite{nelson2001selecting}. The last approach is similar to the indifference-zone formulation, but provides a more robust guarantee.
+
 
 A good IZ procedure satisfies the IZ guarantee and requires as few samples as possible.
 The first IZ procedures presented in \citeN{Bechhofer:1954}, \citeN{Paulson:01}, \citeN{Fabian}, \citeN{Rinott},
@@ -237,10 +238,10 @@ Although the difference between the worst and typical cases is the largest contr
 
 \citeN{Frazier:BIZ} presents a new sequential elimination
 IZ procedure, called BIZ (Bayes-inspired Indifference Zone), 
-that eliminates the use of Bonferroni's inequality, reducing conservatism. 
+that eliminates the use of Bonferroni's inequality, reducing conservatism. \mathcal
 This procedure's lower bound on the worst-case probability of correct selection in the
 preference zone is tight in continuous time, and almost tight in discrete time. In numerical experiments, the number of samples required
-by BIZ is significantly smaller than that of procedures like the $\mathcal{P}_{B}^{*}$ procedure of \citeN{Bechhofer:1968} and the KN procedure of \citeN{Kim:2001}, especially on problems with many alternatives. Unfortunately, the
+by BIZ is significantly smaller than that of procedures like the ${P}_{B}^{*}$ procedure of \citeN{Bechhofer:1968} and the KN procedure of \citeN{Kim:2001}, especially on problems with many alternatives. Unfortunately, the
 proof from \citeN{Frazier:BIZ} that the BIZ procedure satisfies the IZ guarantee for the discrete-time case assumes that (1) samples are normally distributed; 
 (2) variances are known;
 and (3) the variances are either common across alternatives, or have an unrealistic integer multiple structure.
