@@ -776,7 +776,7 @@ Our first example, illustrated in Figure~\ref{fig: tahi3}, is a known variance s
 Our second example, illustrated in Figure~\ref{fig: tahi2}, is an unknown variance slippage configuration where the variance of the best alternative is 100 times larger than the variance of the other alternatives. Although Theorem~\ref{t:main} applies only to the known-variance version of BIZ, we conjecture that the unknown-variance version of BIZ should exhibit similar behavior.
 In this example, we consider $100$ systems with independent normally distributed samples, where $\mu_{100}=\delta,\mu_{99}=0,\dots,\mu_{1}=0$, $\delta$ is within the interval $[0.1,10]$, and $\lambda_{100}=10,\lambda_{99}=\cdots=\lambda_{1}=1$. We set $n_{0}=15$.
 As $\delta$ goes to $0$, we observe that the PCS converges to $P^*$, as it did in the known-variance slippage configuration example.
-In this example, we have intentionally chosen $n_0$ to be small, and have chosen a large variance for the best system, to cause BIZ to fail to meet the IZ guarantee for $\delta>0$.
+In this example, we have intentionally chosen $n_0$ to be smaller than the recommended value of 100, and have chosen a large variance for the best system, to cause BIZ to fail to meet the IZ guarantee for $\delta>0$.
 Increasing the parameter $n_0$ typically causes BIZ to meet the IZ guarantee for all $\delta$, and we recommend a larger value of $n_0$ in practice.
 
 Our third example, illustrated in Figure~\ref{fig: tahi}, uses the same sampling distributions as the second example, but assumes the variances are known, and sets $n_0=0$.
@@ -814,7 +814,7 @@ Saul Toscano-Palmerin was also partially supported by the Mexican Secretariat of
 
 \noindent {\bf SAUL TOSCANO-PALMERIN} is a Ph.D. student of the School of Operations Research and Information Engineering at Cornell University, Ithaca, NY. His research interest is in simulation optimization, machine learning and sequential decision-making under uncertainty. His email address is \email{st684@cornell.edu}. \\
 
-\noindent {\bf PETER I. FRAZIER} is an Assistant Professor of the School of Operations Research and Information Engineering at Cornell University, Ithaca, NY.  He holds a Ph.D. in operations research and financial engineering industrial engineering from Princeton University. His research interests include optimal learning, sequential decision-making under uncertainty, and machine learning, focusing on applications in simulation optimization, design of experiments, materials science, e-commerce and medicine. He is the secretary of the INFORMS Simulation Society.
+\noindent {\bf PETER I. FRAZIER} is an Associate Professor of the School of Operations Research and Information Engineering at Cornell University, Ithaca, NY.  He holds a Ph.D. in operations research and financial engineering industrial engineering from Princeton University. His research interests include optimal learning, sequential decision-making under uncertainty, and machine learning, focusing on applications in simulation optimization, design of experiments, materials science, e-commerce and medicine. He is the secretary of the INFORMS Simulation Society.
 His e-mail address is \email{pf98@cornell.edu}.\\
 
 
