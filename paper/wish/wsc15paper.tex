@@ -777,7 +777,7 @@ Our second example, illustrated in Figure~\ref{fig: tahi2}, is an unknown varian
 In this example, we consider $100$ systems with independent normally distributed samples, where $\mu_{100}=\delta,\mu_{99}=0,\dots,\mu_{1}=0$, $\delta$ is within the interval $[0.1,10]$, and $\lambda_{100}=10,\lambda_{99}=\cdots=\lambda_{1}=1$. We set $n_{0}=15$.
 As $\delta$ goes to $0$, we observe that the PCS converges to $P^*$, as it did in the known-variance slippage configuration example.
 In this example, we have intentionally chosen $n_0$ to be smaller than the recommended value of 100, and have chosen a large variance for the best system, to cause BIZ to fail to meet the IZ guarantee for $\delta>0$.
-Increasing the parameter $n_0$ typically causes BIZ to meet the IZ guarantee for all $\delta$, and we recommend a larger value of $n_0$ in practice.
+Increasing the parameter $n_0$ typically causes BIZ to meet the IZ guarantee for all $\delta$, and we recommend a larger value of $n_0$ in practice.  The choice of $n_0$, and its impact on PCS, merits further study.
 
 Our third example, illustrated in Figure~\ref{fig: tahi}, uses the same sampling distributions as the second example, but assumes the variances are known, and sets $n_0=0$.
 The effect of this change, and especially of setting $n_0$ to $0$, is to cause significant underdelivery on PCS for large values of $\delta$.  
@@ -791,7 +791,7 @@ As remarked above, this example was chosen specially to illustrate that BIZ can 
 
 We have proved the asymptotic validity of the Bayes-inspired Indifference Zone
 procedure \cite{Frazier:BIZ} when the variances are known.
-This algorithm takes fewer samples than other IZ procedures, especially for
+This algorithm has been observed empirically to take fewer samples than other IZ procedures, especially for
 problems with large numbers of alternatives, and so characterizing when it
 satisfies the indifference-zone guarantee is important for understanding when
 it should be used in practice.
